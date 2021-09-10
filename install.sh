@@ -5,6 +5,7 @@ ln -s /mnt/chromeos/removable/Pixel\ SD/NewMusic ~/Music
 ln -s /mnt/chromeos/MyFiles/Downloads ~/Downloads
 ln -s /mnt/chromeos/MyFiles/Documents ~/Documents
 ln -s /mnt/chromeos/removable ~/Removable\ Devices
+ln -s /mnt/chromeos/GoogleDrive/MyDrive ~/Google\ Drive
 
 # Install base packages
 sudo pacman -Syy git base-devel curl wget --needed --noconfirm

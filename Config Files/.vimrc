@@ -1,0 +1,87 @@
+set nu
+set showcmd
+set tabstop=4
+set ttymouse=sgr
+set mouse=a
+set laststatus=2
+set scrolloff=6
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tomasiser/vim-code-dark'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
+Plug 'preservim/nerdtree'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+call plug#end()
+
+" Custom Mappings
+map <c-p> :Files<CR>
+map gl :Git log<CR>
+map gs :Git status<CR>
+map <c-m>t :!make test<CR>
+map <c-m>a :!make all<CR>
+map <c-m>b :!make bonus<CR>
+map m :set mouse=a<CR>
+map mm :set mouse-=a<CR>
+map nt :NERDTree<CR>
+map nn :!norminette<CR>
+
+
+" Norminette-vim stuff
+
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_completion_enabled = 1
+
+" Coc Stuff
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> df <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+colorscheme codedark

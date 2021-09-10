@@ -1,0 +1,10 @@
+[Unit]
+Description=-> Check time every so often to change the GTK theme.
+
+[Timer]
+OnCalendar=*:0/1
+Persistent=true
+Unit=auto-theme.service
+
+[Install]
+WantedBy=timers.target

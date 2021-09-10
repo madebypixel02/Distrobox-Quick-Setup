@@ -1,0 +1,10 @@
+[Unit]
+Description=-> Change the GTK theme to light/dark mode based on the time of day.
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=python "/home/pixel/.autotheme/timecheck.py"
+
+[Install]
+WantedBy=default.target

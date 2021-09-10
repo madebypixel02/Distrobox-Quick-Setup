@@ -1,0 +1,8 @@
+[Desktop Entry]
+NoDisplay=true
+Name=QMLComponentGallery
+Exec=/usr/bin/single-instance /usr/bin/QmlComponentGallery5
+Icon=icon-app-components
+Type=Application
+Icon=icon-app-components
+

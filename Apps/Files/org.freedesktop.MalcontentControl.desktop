@@ -1,0 +1,25 @@
+[Desktop Entry]
+NoDisplay=true
+Name[id]=Pengawasan Orang Tua
+Name[pl]=Kontrola rodzicielska
+Name[pt_BR]=Controle parental
+Name[uk]=Батьківський контроль
+Name=Parental Controls
+Comment[id]=Tata kontrol orangtua dan pantau pemakaian oleh pengguna
+Comment[pl]=Kontrola rodzicielska i monitorowanie użycia
+Comment[pt_BR]=Definir controle parental e monitorar uso por usuários
+Comment[uk]=Встановити батьківський контроль і стежити за користувачами
+Comment=Set parental controls and monitor usage by users
+Exec=malcontent-control
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+Icon=org.freedesktop.MalcontentControl
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;System;
+StartupNotify=true
+# Translators: Search terms to find this application. Do NOT translate or localise the semicolons! The list MUST also end with a semicolon!
+Keywords[id]=kontrol orang tua;waktu layar;pembatasan aplikasi;pembatasan peramban web;oars;penggunaan;batas penggunaan;anak;
+Keywords[pl]=kontrola rodzicielska;ograniczanie;restrykcje;ograniczenia programów;ograniczenia aplikacji;ograniczenia przeglądarki internetowej;www;oars;użycie;użytek;czas korzystania;limit korzystania;dziecko;dzieciak;dzieci;children;kids;
+Keywords[pt_BR]=controle parental;controle dos pais;parental controls;tempo de tela;screen time;restrições de aplicativos;app restrictions;restrições de navegador web;web browser restrictions;oars;uso;usage;limite de uso;usage limit;criança;kid;filho;filha;child;
+Keywords[uk]=parental controls;screen time;app restrictions;web browser restrictions;oars;usage;usage limit;kid;child;батьківський контроль;час за комп'ютером;обмеження програм;обмеження інтернету;користування;використання;обмеження користування;дитина;дитячий;
+Keywords=parental controls;screen time;app restrictions;web browser restrictions;oars;usage;usage limit;kid;child;

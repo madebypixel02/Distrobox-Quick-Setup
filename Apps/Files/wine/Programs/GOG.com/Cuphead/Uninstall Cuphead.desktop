@@ -1,9 +1,0 @@
-[Desktop Entry]
-NoDisplay=true
-Name=Uninstall Cuphead
-Exec=env WINEPREFIX="/home/pixel/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/pixel/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/GOG.com/Cuphead/Uninstall\\ Cuphead.lnk
-Type=Application
-StartupNotify=true
-Path=/home/pixel/.wine/dosdevices/c:/GOG Games/Cuphead
-Icon=0348_unins000.0
-StartupWMClass=unins000.exe

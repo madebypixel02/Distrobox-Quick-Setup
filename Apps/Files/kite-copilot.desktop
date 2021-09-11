@@ -1,8 +1,0 @@
-[Desktop Entry]
-NoDisplay=true
-Type=Application
-Version=2.20200804.0
-Name=Kite Copilot
-Exec=/home/pixel/.local/share/kite/current/linux-unpacked/kite --no-sandbox %u
-Icon=/home/pixel/.local/share/icons/hicolor/128x128/apps/kite.png
-MimeType=application/x-kite;x-scheme-handler/kite;

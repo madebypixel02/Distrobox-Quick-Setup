@@ -28,7 +28,7 @@ rm -rf yay-bin
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
 sudo cp Apps/Icons/*.png /usr/share/icons
-cp -r Apps/Files ~/.local/share/applications
+cp -r Apps/Files/* ~/.local/share/applications
 
 # Set up zsh and oh-my-zsh
 yay -S zsh --needed --noconfirm

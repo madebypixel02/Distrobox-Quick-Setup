@@ -19,11 +19,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 cp Config\ Files/.vimrc Config\ Files/.zshrc Config\ Files/.bashrc Config\ Files/.mygreeting ~/
 
 # Clone & install yay
-git clone https://aur.archlinux.org/yay-bin.git ~/yay-git
-cd yay-bin
-makepkg -si --noconfirm
-cd ~/
-rm -rf yay-bin
+git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
+cd ~/yay-bin && makepkg -si --noconfirm && cd ~/ && rm -rf ~/yay-bin
 
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications

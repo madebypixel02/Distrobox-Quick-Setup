@@ -60,8 +60,7 @@ XDG_TEMPLATES_DIR=\"$HOME/Templates\"
 XDG_VIDEOS_DIR=\"$HOME/Videos\"" > ~/.config/user-dirs.dirs
 
 # Configure git
-cd /usr/share/git/credential/libsecret
-sudo make
+sudo make -C /usr/share/git/credential/libsecret
 git config --global credential.helper /usr/share/git/credential/libsecret/git-credential-libsecret
 git config --global user.name "madebypixel02"
 git config --global user.email "madebypixel02@gmail.com"
@@ -81,8 +80,8 @@ systemctl --user start auto-theme.service
 systemctl --user start auto-theme.timer
 
 # Clone Useful Repos
-git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git
-git clone https://github.com/argrento/huami-token.git
+git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/
+git clone https://github.com/argrento/huami-token.git ~/
 
 # Norminette
 sudo pip install -U norminette

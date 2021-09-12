@@ -39,7 +39,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Install typical packages
-yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm --needed --noconfirm
+yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 --needed --noconfirm
+
+# Install typical pip packages
+sudo pip install -U youtube-dl suntime
+sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 
 # Configure default folders
 echo "XDG_DESKTOP_DIR=\"$HOME/Desktop\"
@@ -71,6 +75,10 @@ systemctl --user enable auto-theme.service
 systemctl --user enable auto-theme.timer
 systemctl --user start auto-theme.service
 systemctl --user start auto-theme.timer
+
+# Clone Useful Repos
+git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git
+git clone https://github.com/argrento/huami-token.git
 
 # Norminette
 sudo pip install -U norminette
@@ -107,3 +115,11 @@ cd so_long && ln -s ../libft libft && ln -s ../get_next_line get_next_line && cd
 git clone https://github.com/madebypixel02/push_swap.git
 cd push_swap && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/pipex.git
+
+# Clone College Stuff
+sudo pip install -U pyxel future
+mkdir -p ~/College/Programming\ I
+mkdir -p ~/College/Machine\ Learning\ I
+cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
+cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
+

@@ -80,8 +80,8 @@ systemctl --user start auto-theme.service
 systemctl --user start auto-theme.timer
 
 # Clone Useful Repos
-git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/
-git clone https://github.com/argrento/huami-token.git ~/
+git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter.git
+git clone https://github.com/argrento/huami-token.git ~/huami-token
 
 # Norminette
 sudo pip install -U norminette
@@ -125,4 +125,3 @@ mkdir -p ~/College/Programming\ I
 mkdir -p ~/College/Machine\ Learning\ I
 cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
 cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
-

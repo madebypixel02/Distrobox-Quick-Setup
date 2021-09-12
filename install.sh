@@ -21,7 +21,6 @@ cp Config\ Files/zshrc ~/.zshrc
 cp Config\ Files/bashrc ~/.bashrc
 cp Config\ Files/mygreeting ~/.mygreeting
 cp Config\ Files/p10k.zsh ~/.p10k.zsh
-Config\ Files/.zshrc Config\ Files/.bashrc Config\ Files/.mygreeting Config\ Files/.p10k.zsh ~/
 
 # Clone & install yay
 git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin

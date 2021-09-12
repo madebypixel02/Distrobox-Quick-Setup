@@ -80,7 +80,7 @@ systemctl --user start auto-theme.service
 systemctl --user start auto-theme.timer
 
 # Clone Useful Repos
-git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter.git
+git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter
 git clone https://github.com/argrento/huami-token.git ~/huami-token
 
 # Norminette

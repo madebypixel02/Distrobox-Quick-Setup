@@ -16,7 +16,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Copy vimrc, zshrc, bashrc, etc
-cp Config\ Files/.vimrc Config\ Files/.zshrc Config\ Files/.bashrc Config\ Files/.mygreeting Config\ Files/.p10k.zsh ~/
+cp Config\ Files/vimrc ~/.vimrc
+cp Config\ Files/zshrc ~/.zshrc
+cp Config\ Files/bashrc ~/.bashrc
+cp Config\ Files/mygreeting ~/.mygreeting
+cp Config\ Files/p10k.zsh ~/.p10k.zsh
+Config\ Files/.zshrc Config\ Files/.bashrc Config\ Files/.mygreeting Config\ Files/.p10k.zsh ~/
 
 # Clone & install yay
 git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin

@@ -2,7 +2,7 @@
 Description=-> Check time every so often to change the GTK theme.
 
 [Timer]
-OnCalendar=*:0/1
+OnCalendar=*:0/5
 Persistent=true
 Unit=auto-theme.service
 

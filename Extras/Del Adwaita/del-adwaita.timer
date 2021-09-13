@@ -1,0 +1,10 @@
+[Unit]
+Description=-> Check time every so often to delete adwaita cursors.
+
+[Timer]
+OnCalendar=00/5:00
+Persistent=true
+Unit=del-adwaita.service
+
+[Install]
+WantedBy=timers.target

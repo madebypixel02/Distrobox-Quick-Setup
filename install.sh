@@ -59,6 +59,20 @@ XDG_PUBLICSHARE_DIR=\"$HOME/Public\"
 XDG_TEMPLATES_DIR=\"$HOME/Templates\"
 XDG_VIDEOS_DIR=\"$HOME/Videos\"" > ~/.config/user-dirs.dirs
 
+# Set xcursor-chromeos as default
+mkdir -p ~/.icons/default
+echo "[Icon Theme]
+Inherits=xcursor-chromeos" > ~/.icons/default/index.theme
+ln -s /usr/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
+
+# Setup systemd service to delete adwaita cursors
+cp Extras/Del Adwaita/del-adwaita.service ~/.config/systemd/user
+cp Extras/Del Adwaita/del-adwaita.timer ~/.config/systemd/user
+systemctl --user enable del-adwaita.service
+systemctl --user enable del-adwaita.timer
+systemctl --user start del-adwaita.service
+systemctl --user start del-adwaita.timer
+
 # Configure git
 sudo make -C /usr/share/git/credential/libsecret
 git config --global credential.helper /usr/share/git/credential/libsecret/git-credential-libsecret
@@ -125,3 +139,6 @@ mkdir -p ~/College/Programming\ I
 mkdir -p ~/College/Machine\ Learning\ I
 cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
 cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
+
+# Reboot
+sudo reboot

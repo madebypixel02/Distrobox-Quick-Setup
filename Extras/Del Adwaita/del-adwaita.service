@@ -1,0 +1,10 @@
+[Unit]
+Description=-> Delete adwaita cursors every so often.
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=sudo rm -rf /usr/share/icons/Adwaita/cursors/
+
+[Install]
+WantedBy=default.target

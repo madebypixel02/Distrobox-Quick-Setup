@@ -10,6 +10,10 @@ ln -s /mnt/chromeos/GoogleDrive/MyDrive ~/Google\ Drive
 # Install base packages
 sudo pacman -Syy git base-devel curl wget --needed --noconfirm
 
+# Clone & install yay
+git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
+cd ~/yay-bin && makepkg -si --noconfirm && cd ~/ && rm -rf ~/yay-bin
+
 # Setup Vim-Plug
 yay -S vim llvm yarn nodejs --needed --noconfirm
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -21,10 +25,6 @@ cp Config\ Files/zshrc ~/.zshrc
 cp Config\ Files/bashrc ~/.bashrc
 cp Config\ Files/mygreeting ~/.mygreeting
 cp Config\ Files/p10k.zsh ~/.p10k.zsh
-
-# Clone & install yay
-git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
-cd ~/yay-bin && makepkg -si --noconfirm && cd ~/ && rm -rf ~/yay-bin
 
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications

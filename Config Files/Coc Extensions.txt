@@ -1,0 +1,1 @@
+coc-marketplace coc-clangd coc-emoji coc-clang-format-style-options coc-word coc-nextword coc-grammarly coc-git coc-github coc-gist coc-cmake coc-python coc-cspell-dicts coc-markdownlint coc-markdown-preview-enhanced coc-r-lsp coc-actions coc-dictionary coc-ltex coc-gitignore 

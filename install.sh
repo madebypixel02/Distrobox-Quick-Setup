@@ -16,8 +16,8 @@ cd ~/yay-bin && makepkg -si --noconfirm && cd ~/ && rm -rf ~/yay-bin
 
 # Setup Vim-Plug
 yay -S vim llvm yarn nodejs --needed --noconfirm
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Copy vimrc, zshrc, bashrc, etc
 cp Config\ Files/vimrc ~/.vimrc

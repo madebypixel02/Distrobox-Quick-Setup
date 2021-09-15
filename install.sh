@@ -20,6 +20,17 @@ yay -S vim llvm yarn nodejs --needed --noconfirm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Set locale
+echo "LANG=en_US.UTF-8
+es_ES.UTF-8" | sudo tee /etc/locale.conf
+echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
+
+# Set custom rules in sudoers file
+sudo mkdir -p /var/log/sudo/
+sudo touch /var/log/sudo/sudo.log
+echo "Defaults        badpass_message=\"Whoops, wrong password\!\"
+Defaults        logfile=\"/var/log/sudo/sudo.log\"" | sudo tee -a /etc/sudoers
+
 # Copy vimrc, zshrc, bashrc, etc
 cp Config\ Files/vimrc ~/.vimrc
 cp Config\ Files/zshrc ~/.zshrc

@@ -79,6 +79,7 @@ git config --global credential.helper /usr/share/git/credential/libsecret/git-cr
 git config --global user.name "madebypixel02"
 git config --global user.email "madebypixel02@gmail.com"
 git config --global core.editor vim
+git config pull.rebase false
 
 # Create folders for systemd unit files
 mkdir -p ~/.config/systemd/user/

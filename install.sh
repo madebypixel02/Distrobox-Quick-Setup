@@ -12,7 +12,7 @@ sudo pacman -Syy git base-devel curl wget --needed --noconfirm
 
 # Clone & install yay
 git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
-cd ~/yay-bin && makepkg -si --noconfirm && cd ~/ && rm -rf ~/yay-bin
+cd ~/yay-bin && makepkg -si --noconfirm && cd .. && rm -rf ~/yay-bin
 
 # Setup Vim-Plug
 yay -S vim llvm yarn nodejs --needed --noconfirm

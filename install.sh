@@ -49,6 +49,10 @@ yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortw
 sudo pip install -U youtube-dl suntime
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 
+# Configure gnome terminal shortcuts
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
+
 # Configure default folders
 echo "XDG_DESKTOP_DIR=\"$HOME/Desktop\"
 XDG_DOCUMENTS_DIR=\"$HOME/Documents\"

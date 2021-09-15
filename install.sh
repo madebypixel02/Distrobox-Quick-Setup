@@ -15,6 +15,7 @@ git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
 cd ~/yay-bin && makepkg -si --noconfirm && cd .. && rm -rf ~/yay-bin
 
 # Setup Vim-Plug
+yay -Rdd --noconfirm gvim
 yay -S vim llvm yarn nodejs --needed --noconfirm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

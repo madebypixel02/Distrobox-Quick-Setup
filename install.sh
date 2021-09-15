@@ -66,8 +66,8 @@ Inherits=xcursor-chromeos" > ~/.icons/default/index.theme
 ln -s /usr/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
 
 # Setup systemd service to delete adwaita cursors
-cp Extras/Del Adwaita/del-adwaita.service ~/.config/systemd/user
-cp Extras/Del Adwaita/del-adwaita.timer ~/.config/systemd/user
+cp Extras/Del\ Adwaita/del-adwaita.service ~/.config/systemd/user
+cp Extras/Del\ Adwaita/del-adwaita.timer ~/.config/systemd/user
 systemctl --user enable del-adwaita.service
 systemctl --user enable del-adwaita.timer
 systemctl --user start del-adwaita.service
@@ -140,6 +140,3 @@ mkdir -p ~/College/Programming\ I
 mkdir -p ~/College/Machine\ Learning\ I
 cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
 cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
-
-# Reboot
-sudo reboot

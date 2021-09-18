@@ -201,6 +201,7 @@ alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconve
 alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 alias parrot.live="curl parrot.live"
 alias college="cd /home/pixel/College/"
+alias matlab="docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro --shm-size=512M mathworks/matlab:r2021a"
 
  # Functions (custom)
 function b() {

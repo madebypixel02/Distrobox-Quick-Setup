@@ -8,7 +8,7 @@ ln -s /mnt/chromeos/removable ~/Removable\ Devices
 ln -s /mnt/chromeos/GoogleDrive/MyDrive ~/Google\ Drive
 
 # Install base packages
-sudo pacman -Syy git base-devel curl wget --needed --noconfirm
+sudo pacman -Syu git base-devel curl wget --needed --noconfirm
 
 # Clone & install yay
 git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
@@ -21,8 +21,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Set locale
-echo "LANG=en_US.UTF-8
-es_ES.UTF-8" | sudo tee /etc/locale.conf
+echo "LANG=en_US.UTF-8 UTF-8
+es_ES.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
 
 # Set custom rules in sudoers file
@@ -32,16 +32,16 @@ echo "Defaults        badpass_message=\"Whoops, wrong password\!\"
 Defaults        logfile=\"/var/log/sudo/sudo.log\"" | sudo tee -a /etc/sudoers
 
 # Copy vimrc, zshrc, bashrc, etc
-cp Config\ Files/vimrc ~/.vimrc
-cp Config\ Files/zshrc ~/.zshrc
-cp Config\ Files/bashrc ~/.bashrc
-cp Config\ Files/mygreeting ~/.mygreeting
-cp Config\ Files/p10k.zsh ~/.p10k.zsh
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/vimrc ~/.vimrc
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/zshrc ~/.zshrc
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/bashrc ~/.bashrc
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
 
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
-sudo cp Apps/Icons/*.png /usr/share/icons
-cp -r Apps/Files/* ~/.local/share/applications
+sudo cp ~/Arch-Crostini-Quick-Setup/Apps/Icons/*.png /usr/share/icons
+cp -r ~/Arch-Crostini-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up zsh and oh-my-zsh
 yay -S zsh --needed --noconfirm
@@ -57,7 +57,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd --needed --noconfirm
+yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder --needed --noconfirm
 
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime
@@ -159,4 +159,4 @@ mkdir -p ~/College/Machine\ Learning\ I
 mkdir -p ~/College/Statistical\ Learning
 cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
 cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
-cd ~/College/Statistical Learning/ && git clone https://github.com/madebypixel02/Statistial-Learning-Practices-2021.git && cd ~/
+cd ~/College/Statistical\ Learning/ && git clone https://github.com/madebypixel02/Statistial-Learning-Practices-2021.git && cd ~/

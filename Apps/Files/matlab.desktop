@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Matlab
+Comment=Matlab In Docker
+Exec=bash -c "gnome-terminal -- docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro --shm-size=512M mathworks/matlab:latest" %f
+Icon=/usr/share/icons/matlab.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Development;
+StartupNotify=true
+MimeType=application;

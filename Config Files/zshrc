@@ -191,8 +191,6 @@ alias yoump3="youtube-dl -x --audio-format mp3"
 alias pipupdate="sudo pip install -U"
 alias yan="yay --noconfirm --needed"
 alias checktheme-now="python -u '/home/pixel/.autotheme/timecheck-now.py'"
-alias checktheme="systemctl --user status auto-theme"
-alias checktheme-timer="systemctl --user status auto-theme.timer"
 alias donkeykong="python -u '/home/pixel/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
 alias pac-man="make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long"
 alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/pixel/.vbmeta/vbmeta.img && fastboot reboot"
@@ -201,8 +199,6 @@ alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconve
 alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 alias parrot.live="curl parrot.live"
 alias college="cd /home/pixel/College/"
-alias matlab="docker run -it -e DISPLAY=$DISPLAY -e MLM_LICENSE_FILE=/home/matlab/Documents/license.lic  -v /tmp/.X11-unix:/tmp/.X11-unix:ro --shm-size=512M mathworks/matlab:latest"
-alias matlab_commit="docker commit $(docker ps | awk 'NR==2 {print $1}') mathworks/matlab:latest"
 
  # Functions (custom)
 function b() {

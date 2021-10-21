@@ -44,7 +44,7 @@ sudo cp ~/Arch-Crostini-Quick-Setup/Apps/Icons/*.png /usr/share/icons
 cp -r ~/Arch-Crostini-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up zsh and oh-my-zsh
-yay -S zsh --needed --noconfirm
+yay -S zsh python-pip --needed --noconfirm
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -57,7 +57,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music wine-mono wine-gecko gnome-system-monitor gnome-2048 --needed --noconfirm
+yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music wine-mono wine-gecko gnome-system-monitor gnome-2048 ttf-symbola --needed --noconfirm
 
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime

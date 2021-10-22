@@ -104,8 +104,8 @@ if isday(current_hour, current_minute, sunrise_hour, sunrise_minute, sunset_hour
         os.system(f"sudo cp {path}/title_color_light.conf {sommelier}")
         
         # Restart Sommelier Service to change titlebar color if needed.
-        #os.system("systemctl --user daemon-reload")
-        #os.system("systemctl --user restart sommelier-x@0.service")
+        os.system("systemctl --user daemon-reload")
+        os.system("systemctl --user restart sommelier-x@0.service")
     else:
         os.system("echo -e '\e[1;31mLight mode already on, skipped.\e[0m'")
 
@@ -120,11 +120,11 @@ else:
         os.system(f"cp {path}/gtk2-dark {home}/.gtkrc-2.0")
         os.system(f"sudo cp {path}/gtk2-dark-root {gtk2_root}/.gtkrc-2.0")
         os.system(f"cp {path}/gtk3-dark {config}/gtk-3.0/settings.ini")
-#        os.system(f"sudo cp {path}/title_color_dark.conf {sommelier}")
+        os.system(f"sudo cp {path}/title_color_dark.conf {sommelier}")
 
         # Restart Sommelier Service to change titlebar color if needed.
-        #os.system("systemctl --user daemon-reload")
-        #os.system("systemctl --user restart sommelier-x@0.service")
+        os.system("systemctl --user daemon-reload")
+        os.system("systemctl --user restart sommelier-x@0.service")
     else:
         os.system("echo -e '\e[1;31mDark mode already on, skipped.\e[0m'")
 

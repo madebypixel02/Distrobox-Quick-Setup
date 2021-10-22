@@ -44,7 +44,7 @@ sudo cp ~/Arch-Crostini-Quick-Setup/Apps/Icons/*.png /usr/share/icons
 cp -r ~/Arch-Crostini-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up zsh and oh-my-zsh
-yay -S zsh python-pip --needed --noconfirm
+yay -S zsh python python-pip --needed --noconfirm
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -97,7 +97,6 @@ git config --global core.editor vim
 mkdir -p ~/.config/systemd/user/
 
 # Copy unit files
-yay -S python python-pip --needed --noconfirm
 sudo pip install -U suntime
 cp Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
 

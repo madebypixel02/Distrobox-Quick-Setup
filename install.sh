@@ -21,7 +21,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Set locale
-echo "LANG=en_US.UTF-8 UTF-8
+echo "en_US.UTF-8 UTF-8
 es_ES.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
 
@@ -57,7 +57,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview seahorse wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music wine-mono wine-gecko gnome-system-monitor gnome-2048 ttf-symbola --needed --noconfirm
+yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-beta-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music wine-mono wine-gecko gnome-system-monitor gnome-2048 ttf-symbola fcron --needed --noconfirm
+
+# Start fcron service
+sudo systemctl enable --now fcron
 
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime
@@ -83,21 +86,12 @@ echo "[Icon Theme]
 Inherits=xcursor-chromeos" > ~/.icons/default/index.theme
 ln -s /usr/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
 
-# Setup systemd service to delete adwaita cursors
-cp Extras/Del\ Adwaita/del-adwaita.service ~/.config/systemd/user
-cp Extras/Del\ Adwaita/del-adwaita.timer ~/.config/systemd/user
-systemctl --user enable del-adwaita.service
-systemctl --user enable del-adwaita.timer
-systemctl --user start del-adwaita.service
-systemctl --user start del-adwaita.timer
-
 # Configure git
 sudo make -C /usr/share/git/credential/libsecret
 git config --global credential.helper /usr/share/git/credential/libsecret/git-credential-libsecret
 git config --global user.name "madebypixel02"
 git config --global user.email "madebypixel02@gmail.com"
 git config --global core.editor vim
-git config pull.rebase false
 
 # Create folders for systemd unit files
 mkdir -p ~/.config/systemd/user/
@@ -106,11 +100,6 @@ mkdir -p ~/.config/systemd/user/
 yay -S python python-pip --needed --noconfirm
 sudo pip install -U suntime
 cp Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
-cp -r Extras/Auto\ Theme/.autotheme ~/
-systemctl --user enable auto-theme.service
-systemctl --user enable auto-theme.timer
-systemctl --user start auto-theme.service
-systemctl --user start auto-theme.timer
 
 # Clone Useful Repos
 git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter

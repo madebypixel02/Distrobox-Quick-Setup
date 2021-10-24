@@ -201,6 +201,7 @@ alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-dow
 alias parrot.live="curl parrot.live"
 alias college="cd /home/pixel/College/"
 alias macos="builtin cd /home/pixel/macOS-Simple-KVM/ && ./basic.sh && builtin cd"
+alias matlab="wine ~/.wine/drive_c/Program\ Files/MATLAB/R2021b/bin/matlab.exe"
 
  # Functions (custom)
 function b() {

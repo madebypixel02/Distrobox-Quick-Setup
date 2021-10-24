@@ -200,6 +200,7 @@ alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconve
 alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 alias parrot.live="curl parrot.live"
 alias college="cd /home/pixel/College/"
+alias macos="builtin cd /home/pixel/macOS-Simple-KVM/ && ./basic.sh && builtin cd"
 
  # Functions (custom)
 function b() {

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=MacOS
+Comment=Boot MacOS from QEMU
+Exec=builtin cd /home/pixel/macOS-Simple-KVM/ && ./basic.sh && builtin cd %f
+Icon=/usr/share/icons/macos.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Development;
+StartupNotify=true
+MimeType=application;

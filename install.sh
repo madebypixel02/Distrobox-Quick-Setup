@@ -99,7 +99,9 @@ mkdir -p ~/.config/systemd/user/
 
 # Copy unit files
 sudo pip install -U suntime
+mkdir -p /home/pixel/.config/systemd/user/sommelier-x@0.service.d/
 cp Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
+cp -r Extras/Auto\ Theme/.autotheme ~/
 systemctl --user enable --now auto-tmeme.service
 systemctl --user enable --now auto-tmeme.timer
 

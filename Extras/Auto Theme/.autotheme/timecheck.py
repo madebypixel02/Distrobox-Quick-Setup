@@ -55,9 +55,6 @@ def isday(current_hour, current_minute, sunrise_hour, sunrise_minute, sunset_hou
 path = Path("/home/pixel/.autotheme/")
 config = Path("/home/pixel/.config/")
 sommelier = Path(f"{config}/systemd/user/sommelier-x@0.service.d/cros-sommelier-x-override.conf")
-gtk3_sys = Path("/usr/share/gtk-3.0/")
-gtk2_sys = Path("/usr/share/gtk-2.0/")
-gtk2_root = Path("/root/")
 home = Path("/home/pixel/")
 
 # Current time
@@ -97,12 +94,9 @@ if isday(current_hour, current_minute, sunrise_hour, sunrise_minute, sunset_hour
     if current_theme != "Orchis-light-compact":
         print("Switching to light theme...")
         os.system(f"sh {path}/light-theme.sh")
-        os.system(f"sudo cp {path}/gtk2-light-system {gtk2_sys}/gtkrc")
-        os.system(f"sudo cp {path}/gtk3-light-system {gtk3_sys}/settings.ini")
         os.system(f"cp {path}/gtk2-light {home}/.gtkrc-2.0")
-        os.system(f"sudo cp {path}/gtk2-light-root {gtk2_root}/.gtkrc-2.0")
         os.system(f"cp {path}/gtk3-light {config}/gtk-3.0/settings.ini")
-        os.system(f"sudo cp {path}/title_color_light.conf {sommelier}")
+        os.system(f"cp {path}/title_color_light.conf {sommelier}")
         
         # Restart Sommelier Service to change titlebar color if needed.
         os.system("systemctl --user daemon-reload")
@@ -116,12 +110,9 @@ else:
     if current_theme != "Orchis-dark-compact":
         print("Switching to dark theme...")
         os.system(f"sh {path}/dark-theme.sh")
-        os.system(f"sudo cp {path}/gtk2-dark-system {gtk2_sys}/gtkrc")
-        os.system(f"sudo cp {path}/gtk3-dark-system {gtk3_sys}/settings.ini")
         os.system(f"cp {path}/gtk2-dark {home}/.gtkrc-2.0")
-        os.system(f"sudo cp {path}/gtk2-dark-root {gtk2_root}/.gtkrc-2.0")
         os.system(f"cp {path}/gtk3-dark {config}/gtk-3.0/settings.ini")
-        os.system(f"sudo cp {path}/title_color_dark.conf {sommelier}")
+        os.system(f"cp {path}/title_color_dark.conf {sommelier}")
         
         # Restart Sommelier Service to change titlebar color if needed.
         os.system("systemctl --user daemon-reload")

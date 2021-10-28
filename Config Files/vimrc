@@ -5,6 +5,8 @@ set ttymouse=sgr
 set mouse=a
 set laststatus=2
 set scrolloff=6
+set relativenumber
+set list lcs=tab:\|\ 
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -23,6 +25,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'lervag/vimtex'
+Plug 'ericbn/vim-relativize'
 
 call plug#end()
 

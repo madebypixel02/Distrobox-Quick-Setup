@@ -2,6 +2,7 @@
 
 # Add symbolic links
 ln -s /mnt/chromeos/removable/Pixel\ SD/NewMusic ~/Music
+ln -s /mnt/chromeos/removable/Pixel\ SD/Videos ~/Videos
 ln -s /mnt/chromeos/MyFiles/Downloads ~/Downloads
 ln -s /mnt/chromeos/MyFiles/Documents ~/Documents
 ln -s /mnt/chromeos/removable ~/Removable\ Devices

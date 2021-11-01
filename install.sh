@@ -25,6 +25,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 echo "en_US.UTF-8 UTF-8
 es_ES.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
+sudo locale-gen
 
 # Set custom rules in sudoers file
 sudo mkdir -p /var/log/sudo/

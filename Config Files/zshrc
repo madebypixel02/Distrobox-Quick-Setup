@@ -133,7 +133,7 @@ CFLAGS="-Wall -Wextra -Werror"
 #USER="aperez-b"
 MAIL="aperez-b@student.42.fr"
 alias cursus="cd /home/pixel/42\ Madrid/GitHub/42\ Cursus"
-alias leaks="valgrind -q --leak-check=full"
+alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 export FZF_DEFAULT_COMMAND="find -L"
 
 # Custom Google greeting
@@ -160,6 +160,7 @@ export WHITE="\\e[97m"
 
 # Other Aliases
 alias downs="cd ~/Downloads"
+alias clear_downs="rm -rf ~/Downloads/*"
 alias docs="cd ~/Documents"
 alias music="cd ~/Music"
 alias x="clear && ls -a"

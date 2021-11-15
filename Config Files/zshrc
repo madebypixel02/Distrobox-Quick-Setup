@@ -140,7 +140,7 @@ export FZF_DEFAULT_COMMAND="find -L"
 #zsh ~/.mygreeting
 
 # Custom 42 greeting
-cat ~/.mygreeting42
+zsh ~/.mygreeting42
 
 # Open new tab in last path
 touch ~/.custom_pwd

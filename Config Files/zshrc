@@ -137,7 +137,10 @@ alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --
 export FZF_DEFAULT_COMMAND="find -L"
 
 # Custom Google greeting
-zsh ~/.mygreeting
+#zsh ~/.mygreeting
+
+# Custom 42 greeting
+cat ~/.mygreeting42
 
 # Open new tab in last path
 touch ~/.custom_pwd

@@ -38,6 +38,7 @@ cp ~/Arch-Crostini-Quick-Setup/Config\ Files/vimrc ~/.vimrc
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/zshrc ~/.zshrc
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/bashrc ~/.bashrc
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting42
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
 
 # Copy desktop files and icons

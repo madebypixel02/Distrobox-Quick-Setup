@@ -1,0 +1,24 @@
+Black: #80868B
+Bright Black: #9AA0A6
+Red: #EE675C
+Bright Red: #F28B82
+Green: #0AA882
+Bright Green: #87FFC5
+Yellow: #F9AB00
+Bright Yellow: #FDD663
+Blue: #669DF6
+Bright Blue: #8BB5F8FD (#8BB5F8)
+Magenta: #EE5FFA
+Bright Magenta: #F4B5FB
+Cyan: #03BFC8
+Bright Cyan: #80F9F9
+White: #BDC1C6
+Bright White: #F8F9FA
+
+Cursor Color: #364c71
+Background Color: #202124
+Selection Color: #4c6073
+Selection Text Color: #b2cefa
+Pixel Blue (Dark Theme): #8bb6ff
+Title Bar Color: #414245
+Font: Noto Sans Mono 14

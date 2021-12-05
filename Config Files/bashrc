@@ -47,7 +47,10 @@ alias libft_test3="bash ~/libft-war-machine/grademe.sh"
 alias libft_test4="builtin cd ~/42Madrid/GitHub/42-Madrid-Cursus/libft/libftTester && make a && builtin cd"
 
 # Custom Google greeting
-bash ~/.mygreeting
+# bash ~/.mygreeting
+
+# Custom 42 greeting
+bash ~/.mygreeting42
 
 # Aliases (custom)
 alias downs="cd ~/Downloads"
@@ -129,3 +132,5 @@ function mkcdir() {
     mkdir -p -- "$1" &&
     cd "$1"
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

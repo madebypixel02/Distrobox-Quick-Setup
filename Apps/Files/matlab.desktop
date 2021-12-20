@@ -2,6 +2,6 @@
 Version=1.0
 Type=Application
 Name=MATLAB R2021b
-Icon=/usr/share/icons/matlab.png
+Icon=/usr/bin/sommelier -X --scale=0.7 /usr/share/icons/matlab.png
 Exec=/usr/local/bin/matlab -desktop -prefersoftwareopengl
 Terminal=false

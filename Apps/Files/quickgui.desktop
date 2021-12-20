@@ -2,7 +2,7 @@
 Version=1.0
 Name=quickgui
 Comment=A Flutter frontend for quickemu
-Exec=/usr/bin/quickgui
+Exec=/usr/bin/sommelier -X /usr/bin/quickgui
 Terminal=false
 Type=Application
 Icon=/usr/share/icons/quickgui.png

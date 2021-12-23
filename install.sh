@@ -94,7 +94,7 @@ sudo make -C /usr/share/git/credential/libsecret
 git config --global credential.helper /usr/share/git/credential/libsecret/git-credential-libsecret
 git config --global user.name "madebypixel02"
 git config --global user.email "madebypixel02@gmail.com"
-git config --global core.editor vim
+git config --global core.editor nvim
 git config --global pull.rebase false
 
 # Create folders for systemd unit files

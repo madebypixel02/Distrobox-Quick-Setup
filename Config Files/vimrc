@@ -1,7 +1,6 @@
 set nu
 set showcmd
 set tabstop=4
-set ttymouse=sgr
 set mouse=a
 set laststatus=2
 set scrolloff=6

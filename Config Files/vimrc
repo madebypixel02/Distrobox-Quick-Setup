@@ -40,7 +40,7 @@ map m :set mouse=a<CR>
 map mm :set mouse-=a<CR>
 map b :set nu <bar> set relativenumber<CR>
 map bb :set nonu <bar> set norelativenumber<CR>
-map nt :NERDTree<CR>
+map tr :NERDTree<CR>
 
 
 " Norminette-vim stuff

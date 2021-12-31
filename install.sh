@@ -65,6 +65,9 @@ yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortw
 # Start fcron service
 sudo systemctl enable --now fcron
 
+# Copy gnome podcasts backup
+cp Extras/gnome-podcasts-exported-shows.opml /home/pixel
+
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master

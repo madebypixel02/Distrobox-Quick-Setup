@@ -135,6 +135,7 @@ MAIL="aperez-b@student.42.fr"
 alias cursus="cd /home/pixel/42\ Madrid/GitHub/42\ Cursus"
 alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 export FZF_DEFAULT_COMMAND="find -L"
+export PATH=$PATH:$(find /home/pixel/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
 
 # Custom Google greeting
 #zsh ~/.mygreeting
@@ -250,7 +251,6 @@ function mkcdir() {
 	mkdir -p -- "$1" &&
 	cd "$1"
 }
-
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

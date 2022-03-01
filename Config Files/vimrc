@@ -23,7 +23,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/nerdtree'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'lervag/vimtex'
@@ -40,6 +39,7 @@ map <c-m>a :!make all<CR>
 map <c-m>b :!make bonus<CR>
 map m :set mouse=a<CR>
 map mm :set mouse-=a<CR>
+map md :CocCommand markdown-preview-enhanced.openPreview<CR>
 map b :set nu <bar> set relativenumber<CR>
 map bb :set nonu <bar> set norelativenumber<CR>
 map tr :NERDTree<CR>

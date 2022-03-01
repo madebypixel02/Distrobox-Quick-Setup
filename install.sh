@@ -121,7 +121,8 @@ sudo pip install -U norminette
 
 # 42 Header
 mkdir -p ~/.vim/plugin/
-cp 42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
+cp ~/Arch-Crostini-Quick-Setup/42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
+cp ~/Arch-Crostini-Quick-Setup/Extras/customheader.vim ~/.vim/plugin/
 
 # Minilibx
 git clone https://github.com/42Paris/minilibx-linux.git

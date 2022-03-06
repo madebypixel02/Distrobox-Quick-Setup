@@ -34,6 +34,10 @@ call plug#end()
 map <c-p> :Files<CR>
 map gl :Git log<CR>
 map gs :Git status<CR>
+map <c-S-Right> :tabn<CR>
+map <c-S-Left> :tabp<CR>
+map <c-S-Up> :tabnew<CR>
+map <c-S-Down> :tabclose<CR>
 map <c-m>t :!make test<CR>
 map <c-m>a :!make all<CR>
 map <c-m>b :!make bonus<CR>

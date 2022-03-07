@@ -38,6 +38,7 @@ cp ~/Arch-Crostini-Quick-Setup/Config\ Files/vimrc ~/.vimrc
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/zshrc ~/.zshrc
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/bashrc ~/.bashrc
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
+cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
 
@@ -67,7 +68,7 @@ yay -S mpv-vapoursynth
 sudo systemctl enable --now fcron
 
 # Copy gnome podcasts backup
-cp Extras/gnome-podcasts-exported-shows.opml /home/pixel
+cp ~/Arch-Crostini-Quick-Setup/Extras/gnome-podcasts-exported-shows.opml /home/pixel
 
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime

@@ -100,6 +100,7 @@ git config --global user.name "madebypixel02"
 git config --global user.email "madebypixel02@gmail.com"
 git config --global core.editor nvim
 git config --global pull.rebase false
+git config --global init.defaultBranch main
 
 # Create folders for systemd unit files
 mkdir -p ~/.config/systemd/user/

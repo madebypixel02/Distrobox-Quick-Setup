@@ -3,7 +3,8 @@ set showcmd
 set tabstop=4
 set mouse=a
 set laststatus=2
-set scrolloff=6
+set scrolloff=999
+set sidescrolloff=999
 set relativenumber
 set list lcs=tab:\|\ 
 
@@ -41,13 +42,13 @@ map <c-S-Down> :tabclose<CR>
 map <c-m>t :!make test<CR>
 map <c-m>a :!make all<CR>
 map <c-m>b :!make bonus<CR>
+map <c-s> :w <bar> source ~/.vimrc<CR>
 map m :set mouse=a<CR>
 map mm :set mouse-=a<CR>
 map md :CocCommand markdown-preview-enhanced.openPreview<CR>
 map b :set nu <bar> set relativenumber<CR>
 map bb :set nonu <bar> set norelativenumber<CR>
 map tr :NERDTree<CR>
-
 
 " Norminette-vim stuff
 

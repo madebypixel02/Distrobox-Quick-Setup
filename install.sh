@@ -154,6 +154,31 @@ cd so_long && ln -s ../libft libft && ln -s ../get_next_line get_next_line && cd
 git clone https://github.com/madebypixel02/push_swap.git
 cd push_swap && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/pipex.git
+git clone https://github.com/madebypixel02/philosophers.git
+git clone https://github.com/madebypixel02/minishell.git
+cd minishell && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/cub3d.git
+cd cub3d && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Modules.git
+cd CPP-Modules && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-00.git
+cd CPP-Module-00 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-01.git
+cd CPP-Module-01 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-02.git
+cd CPP-Module-02 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-03.git
+cd CPP-Module-03 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-04.git
+cd CPP-Module-04 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-05.git
+cd CPP-Module-05 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-06.git
+cd CPP-Module-06 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-07.git
+cd CPP-Module-07 && ln -s ../libft libft && cd ..
+git clone https://github.com/madebypixel02/CPP-Module-08.git
+cd CPP-Module-08 && ln -s ../libft libft && cd ..
 
 # Clone College Stuff
 sudo pip install -U pyxel future
@@ -163,3 +188,5 @@ mkdir -p ~/College/Statistical\ Learning
 cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
 cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
 cd ~/College/Statistical\ Learning/ && git clone https://github.com/madebypixel02/Statistial-Learning-Practices-2021.git && cd ~/
+cd ~/College && git clone https://github.com/madebypixel02/Uc3m-Projects && cd ~/
+cd ~/College && git clone https://github.com/madebypixel02/Openssl-Practices-2022 && cd ~/

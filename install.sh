@@ -16,10 +16,14 @@ git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
 cd ~/yay-bin && makepkg -si --noconfirm && cd .. && rm -rf ~/yay-bin
 
 # Setup Vim-Plug
+yay -S mpv-vapoursynth --noconfirm
 yay -Rdd --noconfirm gvim
 yay -S vim llvm yarn nodejs --needed --noconfirm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Uniform QT / GTK look
+echo "export QT_QPA_PLATFORMTHEME=gtk3" >> ~/.profile
 
 # Set locale
 echo "en_US.UTF-8 UTF-8
@@ -61,8 +65,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring quickgui-bin quickemu gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost focalboard-bin --needed --noconfirm
-yay -S mpv-vapoursynth
+yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring quickgui-bin quickemu gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost focalboard-bin qt5-styleplugins --needed --noconfirm
 
 # Start fcron service
 sudo systemctl enable --now fcron

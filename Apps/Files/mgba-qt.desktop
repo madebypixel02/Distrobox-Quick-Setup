@@ -1,4 +1,5 @@
 [Desktop Entry]
+NoDisplay=true
 Version=1.0
 Icon=/usr/share/icons/mgba.png
 Exec=mgba-qt %f

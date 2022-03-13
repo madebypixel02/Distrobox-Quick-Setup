@@ -114,8 +114,8 @@ sudo pip install -U suntime
 mkdir -p /home/pixel/.config/systemd/user/sommelier-x@0.service.d/
 cp ~/Arch-Crostini-Quick-Setup/Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
 cp -r ~/Arch-Crostini-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
-systemctl --user enable --now auto-tmeme.service
-systemctl --user enable --now auto-tmeme.timer
+systemctl --user enable --now auto-theme.service
+systemctl --user enable --now auto-theme.timer
 
 # Clone Useful Repos
 git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter

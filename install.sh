@@ -90,6 +90,7 @@ XDG_PICTURES_DIR=\"$HOME/Pictures\"
 XDG_PUBLICSHARE_DIR=\"$HOME/Public\"
 XDG_TEMPLATES_DIR=\"$HOME/Templates\"
 XDG_VIDEOS_DIR=\"$HOME/Videos\"" > ~/.config/user-dirs.dirs
+echo "enabled=False" > ~/.config/user-dirs.conf
 
 # Set xcursor-chromeos as default
 mkdir -p ~/.icons/default

@@ -46,6 +46,10 @@ cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
 cp ~/Arch-Crostini-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
 
+# Copy neovim config file
+mkdir -p ~/.config
+cp -r ~/Arch-Crostini-Quick-Setup/Extras/nvim ~/.config/
+
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
 sudo cp ~/Arch-Crostini-Quick-Setup/Apps/Icons/*.png /usr/share/icons

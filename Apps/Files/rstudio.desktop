@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/bin/rstudio %F
+Exec=/usr/bin/rstudio-bin --disable-seccomp-filter-sandbox %F
 Icon=/usr/share/icons/rstudio.png
 Type=Application
 Terminal=false

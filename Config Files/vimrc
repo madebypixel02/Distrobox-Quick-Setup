@@ -31,7 +31,7 @@ Plug 'ericbn/vim-relativize'
 call plug#end()
 
 " Coc Extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-grammarly', 'coc-git', 'coc-github', 'coc-cmake', 'coc-python', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-r-lsp', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-gist']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-grammarly', 'coc-git', 'coc-github', 'coc-cmake', 'coc-python', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-gist']
 
 " Custom Mappings
 map <c-p> :Files<CR>

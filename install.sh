@@ -173,25 +173,15 @@ cd minishell && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/cub3d.git
 cd cub3d && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Modules.git
-cd CPP-Modules && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-00.git
-cd CPP-Module-00 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-01.git
-cd CPP-Module-01 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-02.git
-cd CPP-Module-02 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-03.git
-cd CPP-Module-03 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-04.git
-cd CPP-Module-04 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-05.git
-cd CPP-Module-05 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-06.git
-cd CPP-Module-06 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-07.git
-cd CPP-Module-07 && ln -s ../libft libft && cd ..
 git clone https://github.com/madebypixel02/CPP-Module-08.git
-cd CPP-Module-08 && ln -s ../libft libft && cd ..
 
 # Clone College Stuff
 sudo pip install -U pyxel future

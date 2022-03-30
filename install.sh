@@ -22,6 +22,11 @@ yay -S vim llvm yarn nodejs --needed --noconfirm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Set Up mpv config
+mkdir -p ~/.config/mpv
+echo "vo=gpu
+ao=alsa" > ~/.config/mpv/mpv.conf
+
 # Uniform QT / GTK look
 echo "export QT_QPA_PLATFORMTHEME=gtk3" >> ~/.profile
 

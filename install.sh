@@ -23,6 +23,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Set Up mpv config
+mkdir -p ~/Pictures
 mkdir -p ~/.config/mpv
 echo "vo=gpu
 ao=alsa" > ~/.config/mpv/mpv.conf
@@ -74,7 +75,31 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet shortwave gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans shortwave python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero cura gimp blender kdenlive shortwave visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring quickgui-bin quickemu gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost focalboard-bin qt5-styleplugins foliate seahorse gnome-documents nemo-fileroller mesa-utils lib32-mesa-utils vulkan-tools wireshark-qt sl gnome-console browsh-bin elinks tabby-erminal cowsay --needed --noconfirm
+yay -S orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans python-pip stremio discord vlc telegram-desktop slack-desktop steam pingus mgba-qt libreoffice zotero-bin cura gimp blender kdenlive visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring quickgui-bin quickemu gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost qt5-styleplugins foliate seahorse nemo-fileroller mesa-utils lib32-mesa-utils vulkan-tools wireshark-qt sl gnome-console browsh-bin elinks tabby-terminal cowsay nginx mariadb --needed --noconfirm
+
+# Build shortwave
+git clone https://gitlab.gnome.org/World/Shortwave.git
+cd Shortwave
+meson --prefix=/usr build
+ninja -C build
+sudo ninja -C build install
+
+# Install focalboard-server
+wget https://github.com/mattermost/focalboard/releases/download/v0.15.0/focalboard-server-linux-amd64.tar.gz
+tar -xvzf focalboard-server-linux-amd64.tar.gz
+sudo mv focalboard /opt
+mkdir -p ~/.config/systemd/user
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl enable --now mariadb
+sudo systemctl enable --now nginx
+sudo mkdir /etc/nginx/sites-available/
+sudo mkdir /etc/nginx/sites-enabled/
+sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Focalboard/focalboard /etc/nginx/sites-available
+sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Focalboard/config.json /opt/focalboard
+sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Focalboard/focalboard.service /lib/systemd/system/
+sudo ln -s /etc/nginx/sites-available/focalboard /etc/nginx/sites-enabled/focalboard
+sudo nginx -t
+sudo systemctl enable --now focalboard.service
 
 # Start fcron service
 sudo systemctl enable --now fcron

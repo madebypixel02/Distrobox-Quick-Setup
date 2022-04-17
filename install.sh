@@ -16,13 +16,14 @@ git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
 cd ~/yay-bin && makepkg -si --noconfirm && cd .. && rm -rf ~/yay-bin
 
 # Setup Vim-Plug
-yay -S mpv-vapoursynth --noconfirm
 yay -Rdd --noconfirm gvim
 yay -S vim llvm yarn nodejs --needed --noconfirm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Set Up mpv config
+# Set Up mpv
+yay -S smplayer qt5-base qt5-declarative qt5-svg libmediainfo lsof vapoursynth rsound spirv-cross mpv-full mkvtoolnix-cli avahi
+sudo systemctl enable --now avahi-daemon.service
 mkdir -p ~/Pictures
 mkdir -p ~/.config/mpv
 echo "vo=gpu

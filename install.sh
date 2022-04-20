@@ -1,12 +1,20 @@
 #!/bin/bash
 
 # Add symbolic links
+mkdir -p ~/Documents
+mkdir -p ~/Desktop
+mkdir -p ~/Pictures
+ln -s /mnt/chromeos/removable/Pixel\ SD/Useful\ Photos/ ~/Pictures
+ln -s /mnt/chromeos/removable/Pixel\ SD/Public\ Transportation/ ~/Pictures
 ln -s /mnt/chromeos/removable/Pixel\ SD/NewMusic ~/Music
 ln -s /mnt/chromeos/removable/Pixel\ SD/Videos ~/Videos
 ln -s /mnt/chromeos/MyFiles/Downloads ~/Downloads
-ln -s /mnt/chromeos/MyFiles/Documents ~/Documents
+ln -s /mnt/chromeos/MyFiles/Documents ~/Documents/Cros-Documents
 ln -s /mnt/chromeos/removable ~/Removable\ Devices
+ln -s ~/Removable\ Devices/Pixel\ SD/Linux\ Playlists ~/Playlists
 ln -s /mnt/chromeos/GoogleDrive/MyDrive ~/Google\ Drive
+cp -r ~/Google\ Drive/ReadEra/Books ~/Documents
+cp -r ~/Arch-Crostini-Quick-Setup/Extras/Mi\ Band/ ~/Documents
 
 # Install base packages
 sudo pacman -Syu git base-devel curl wget --needed --noconfirm

@@ -35,7 +35,7 @@ GenericName[zh_CN]=一个三维开源赛车游戏
 GenericName[zh_HK]=3D 開源卡丁車賽車遊戲
 GenericName[zh_TW]=3D 開源卡丁車賽車遊戲
 GenericName=A 3D open-source kart racing game
-Exec=/usr/bin/sommelier -X --scale=0.7 supertuxkart
+Exec=supertuxkart
 Terminal=false
 StartupNotify=false
 Type=Application

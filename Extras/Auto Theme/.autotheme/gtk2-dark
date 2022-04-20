@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/pixel/.gtkrc-2.0.mine"
-gtk-theme-name="Orchis-dark-compact"
-gtk-icon-theme-name="Vimix-White-dark"
+gtk-theme-name="Adwaita-dark"
+gtk-icon-theme-name="Adwaita"
 gtk-font-name="Google Sans 11"
 gtk-cursor-theme-name="xcursor-chromeos"
 gtk-cursor-theme-size=0

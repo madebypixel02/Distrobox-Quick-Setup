@@ -2,7 +2,7 @@
 Version=1.0
 Name=Nemo
 Comment=Gnome File Manager
-Exec=nemo "/home/pixel/Downloads" %f
+Exec=nemo %f
 Icon=/usr/share/icons/folder.png
 Terminal=false
 X-MultipleArgs=false

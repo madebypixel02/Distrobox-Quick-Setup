@@ -56,6 +56,7 @@ path = Path("/home/pixel/.autotheme/")
 config = Path("/home/pixel/.config/")
 sommelier = Path(f"{config}/systemd/user/sommelier-x@0.service.d/cros-sommelier-x-override.conf")
 home = Path("/home/pixel/")
+os.system("mkdir -p /home/pixel/.config/systemd/sommelier-x@0.service.d")
 
 # Current time
 current_time = str(datetime.now())
@@ -91,7 +92,7 @@ current_theme = stringfix(os.popen("gsettings get org.gnome.desktop.interface gt
 if isday(current_hour, current_minute, sunrise_hour, sunrise_minute, sunset_hour, sunset_minute):
     print("Day detected!")
     print("Current theme:", current_theme)
-    if current_theme != "Orchis-light-compact":
+    if current_theme != "adw-gtk3":
         print("Switching to light theme...")
         os.system(f"sh {path}/light-theme.sh")
         os.system(f"cp {path}/gtk2-light {home}/.gtkrc-2.0")
@@ -107,7 +108,7 @@ if isday(current_hour, current_minute, sunrise_hour, sunrise_minute, sunset_hour
 else:
     print("Night detected!")
     print("Current theme:", current_theme)
-    if current_theme != "Orchis-dark-compact":
+    if current_theme != "adw-gtk3-dark":
         print("Switching to dark theme...")
         os.system(f"sh {path}/dark-theme.sh")
         os.system(f"cp {path}/gtk2-dark {home}/.gtkrc-2.0")

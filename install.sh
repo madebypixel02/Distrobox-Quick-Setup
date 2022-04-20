@@ -121,8 +121,13 @@ sudo ln -s /etc/nginx/sites-available/focalboard /etc/nginx/sites-enabled/focalb
 sudo nginx -t
 sudo systemctl enable --now focalboard.service
 
-# Start fcron service
+# Configure fcron
 sudo systemctl enable --now fcron
+sudo mkdir -p /var/spool/fcron
+sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Crontab/root /var/spool/fcron
+sudo chown root:root /var/spool/fcron/root
+sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Crontab/root.orig /var/spool/fcron
+sudo chown root:root /var/spool/fcron/root.orig
 
 # Copy gnome podcasts backup
 cp ~/Arch-Crostini-Quick-Setup/Extras/gnome-podcasts-exported-shows.opml /home/pixel
@@ -227,6 +232,10 @@ git clone https://github.com/madebypixel02/CPP-Module-05.git
 git clone https://github.com/madebypixel02/CPP-Module-06.git
 git clone https://github.com/madebypixel02/CPP-Module-07.git
 git clone https://github.com/madebypixel02/CPP-Module-08.git
+
+# Install minishell
+make -C ~/42\ Madrid/GitHub/42\ Cursus/minishell
+cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Arch-Crostini-Quick-Setup
 
 # Clone College Stuff
 sudo pip install -U pyxel future

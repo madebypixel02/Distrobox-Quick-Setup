@@ -1,0 +1,2 @@
+* */1 * * * rm -rf /usr/share/icons/Adwaita/cursors
+* */1 * * * rm -rf /etc/sudoers.d/10-cros-nopasswd

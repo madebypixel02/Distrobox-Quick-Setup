@@ -206,6 +206,7 @@ alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-dow
 alias parrot.live="curl parrot.live"
 alias college="cd /home/pixel/College/"
 alias uc3m="zsh -c /home/pixel/.mygreeting_uc3m"
+alias mg="git add . && git commit && git push"
 
  # Functions (custom)
 function b() {

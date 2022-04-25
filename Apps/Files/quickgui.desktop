@@ -1,4 +1,5 @@
 [Desktop Entry]
+NoDisplay=true
 Version=1.0
 Name=quickgui
 Comment=A Flutter frontend for quickemu

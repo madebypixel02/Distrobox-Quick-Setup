@@ -26,7 +26,7 @@ cd ~/yay-bin && makepkg -si --noconfirm && cd ..
 
 # Setup Vim-Plug
 yay -Rdd --noconfirm gvim
-yay -S vim llvm yarn nodejs --needed --noconfirm
+yay -S vim llvm yarn nodejs-lts-gallium --needed --noconfirm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -80,12 +80,12 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Install vulkan stuff
-yay -S mesa-git lib32-mesa-git vulkan-tools libshumate-git --needed
+yay -S mesa-git lib32-mesa-git --needed
 echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/virtio_icd.i686.json:/usr/share/vulkan/icd.d/virtio_icd.x86_64.json" | sudo tee -a /etc/environment
 
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S adw-gtk3 orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans python-pip stremio vlc steam pingus mgba-qt libreoffice zotero-bin cura gimp blender kdenlive visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils lib32-mesa-utils wireshark-qt sl gnome-console browsh-bin elinks tabby-terminal cowsay nginx mariadb virt-manager dnsmasq cmus foliate pandoc epiphany --needed --noconfirm
+yay -S adw-gtk3 orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans python-pip stremio vlc steam pingus mgba-qt libreoffice zotero-bin cura gimp blender kdenlive visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils lib32-mesa-utils wireshark-qt sl gnome-console browsh-bin elinks tabby-terminal cowsay nginx mariadb virt-manager dnsmasq cmus foliate pandoc epiphany libshumate-git vulkan-tools --needed --noconfirm
 sudo usermod -aG dnsmasq pixel
 sudo systemctl enable --now libvirtd
 sudo usermod -aG wireshark pixel

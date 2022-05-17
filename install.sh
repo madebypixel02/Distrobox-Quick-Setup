@@ -95,7 +95,7 @@ echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
 xhost +si:localuser:root && sudo SVPManager
 
 # Set Up mpv
-yay -S qt5-base qt5-declarative qt5-svg libmediainfo lsof vapoursynth rsound spirv-cross mpv-full mkvtoolnix-cli avahi
+yay -S qt5-base qt5-declarative qt5-svg libmediainfo lsof vapoursynth rsound spirv-cross mpv-vapoursynth mkvtoolnix-cli avahi
 sudo systemctl enable --now avahi-daemon.service
 mkdir -p ~/Pictures
 mkdir -p ~/.config/mpv

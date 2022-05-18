@@ -242,13 +242,46 @@ git clone https://github.com/madebypixel02/CPP-Module-08.git
 make -C ~/42\ Madrid/GitHub/42\ Cursus/minishell
 cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Arch-Crostini-Quick-Setup
 
+# Install College Stuff Dependencies
+
+# pbc
+wget https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz
+tar zxvf pbc-0.5.14.tar.gz; cd pbc-0.5.14
+autoconf
+./configure
+make
+sudo make install
+cd ..
+
+# libbswabe
+wget http://acsc.cs.utexas.edu/cpabe/libbswabe-0.9.tar.gz
+tar zxvf libbswabe-0.9.tar.gz; cd libbswabe-0.9
+./configure
+make
+sudo make install
+cd ..
+
+# cpabe
+wget http://acsc.cs.utexas.edu/cpabe/cpabe-0.11.tar.gz
+tar zxvf cpabe-0.11.tar.gz; cd cpabe-0.11
+./configure --with-pbc-include=/usr/local/include/pbc --with-pbc-lib=/usr/local/lib
+sed -e '67 s/\$1/\$1;/' policy_lang.y > temp
+mv temp policy_lang.y
+sed -e '89 s/help2man/help2man --no-discard-stderr/' Makefile > temp
+mv temp Makefile
+make LDFLAGS="-lgmp -lpbc -lcrypto -L/usr/lib/x86_64-linux-gnu -lglib-2.0 -lbswabe -lgmp"
+sudo make LDFLAGS="-lgmp -lpbc -lcrypto -L/usr/lib/x86_64-linux-gnu -lglib-2.0 -lbswabe -lgmp" install
+cd ..
+
 # Clone College Stuff
 sudo pip install -U pyxel future
 mkdir -p ~/College/Programming\ I
 mkdir -p ~/College/Machine\ Learning\ I
 mkdir -p ~/College/Statistical\ Learning
+mkdir -p ~/College/Data\ Protection\ \&\ Cybersecurity/
 cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
 cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
 cd ~/College/Statistical\ Learning/ && git clone https://github.com/madebypixel02/Statistial-Learning-Practices-2021.git && cd ~/
+cd ~/College/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/ABE-Scalability.git && cd ~/
+cd ~/College/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/Openssl-Practices-2022.git && cd ~/
 cd ~/College && git clone https://github.com/madebypixel02/Uc3m-Projects && cd ~/
-cd ~/College && git clone https://github.com/madebypixel02/Openssl-Practices-2022 && cd ~/

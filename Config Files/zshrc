@@ -117,6 +117,7 @@ typeset -A crostini=(
 
 ## My own Stuff ##
 
+export LD_LIBRARY_PATH=/usr/local/lib
 export PATH="/home/pixel/.local/bin:$PATH"
 alias ls='ls --color=auto'
 eval "$(dircolors -p | \

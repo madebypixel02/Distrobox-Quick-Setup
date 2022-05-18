@@ -123,6 +123,7 @@ if ! shopt -oq posix; then
 fi
 
 # Put your fun stuff here
+export LD_LIBRARY_PATH=/usr/local/lib
 
 # 42 Madrid Stuff
 

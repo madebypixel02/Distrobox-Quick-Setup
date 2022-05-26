@@ -175,7 +175,6 @@ alias checktheme="systemctl --user status auto-theme"
 alias checktheme-timer="systemctl --user status auto-theme.timer"
 alias donkeykong="python -u '/home/chronos/Google Drive/Uc3m/Data Science & Engineering/Year 1/1st Term/Programming 1/Donkey Kong/mario_barrel.py'"
 alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/chronos/.vbmeta/vbmeta.img && fastboot reboot"
-alias band_token="builtin cd /home/chronos/huami-token && python huami_token.py -m xiaomi -e xalexis2001@gmail.com -p cblasrozas1 -n -a && builtin cd"
 alias timeconvert="python -u /home/chronos/Removable\ Devices/Pixel\ SD/Fun\ Python\ Scripts/Timeconverter/timeconverter.py"
 alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 

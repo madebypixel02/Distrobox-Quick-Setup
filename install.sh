@@ -166,7 +166,7 @@ ln -s /usr/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
 sudo make -C /usr/share/git/credential/libsecret
 git config --global credential.helper /usr/share/git/credential/libsecret/git-credential-libsecret
 git config --global user.name "madebypixel02"
-git config --global user.email "madebypixel02@gmail.com"
+git config --global user.email "madebypixel02@proton.me"
 git config --global core.editor nvim
 git config --global pull.rebase false
 git config --global init.defaultBranch main

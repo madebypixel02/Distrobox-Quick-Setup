@@ -62,6 +62,9 @@ cp -r ~/Arch-Crostini-Quick-Setup/Extras/nvim ~/.config/
 mkdir -p /home/pixel/.config/cmus
 cp ~/Arch-Crostini-Quick-Setup/Extras/cmus/autosave /home/pixel/.config/cmus/autosave
 
+# Configure browsh
+cp -r ~/Arch-Crostini-Quick-Setup/Extras/browsh ~/.config/
+
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
 sudo cp ~/Arch-Crostini-Quick-Setup/Apps/Icons/*.png /usr/share/icons

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<opml version="1.0">
+  <head>
+    <title>Pocket Casts Feeds</title>
+  </head>
+  <body>
+    <outline text="feeds">
+      <outline type="rss" text="U.S. Grace Force with Fr. Richard Heilman and Doug Barry" xmlUrl="https://feed.podbean.com/usgraceforce/feed.xml" />
+      <outline type="rss" text="The John-Henry Westen Show" xmlUrl="https://feeds.acast.com/public/shows/5c98fbd7ddf2c42b5c7484d1" />
+      <outline type="rss" text="Dr Taylor Marshall Catholic Show" xmlUrl="https://feeds.podcastmirror.com/taylor-marshall" />
+      <outline type="rss" text="The Fr. Mike Schmitz Catholic Podcast" xmlUrl="https://feeds.fireside.fm/thefrmikepodcast/rss" />
+      <outline type="rss" text="The Bishop Strickland Hour – Virgin Most Powerful Radio" xmlUrl="https://virginmostpowerfulradio.org/category/thebishopstricklandhour/feed/podcast/" />
+      <outline type="rss" text="Surveillance Report" xmlUrl="https://surveillance-report.castos.com/feed" />
+      <outline type="rss" text="The Terry &amp; Jesse Show" xmlUrl="https://virginmostpowerfulradio.org/category/the-terry-and-jesse-show/feed/podcast/" />
+      <outline type="rss" text="The Bible in a Year (with Fr. Mike Schmitz)" xmlUrl="https://feeds.fireside.fm/bibleinayear/rss" />
+      <outline type="rss" text="Rezar Hoy" xmlUrl="https://anchor.fm/s/49748440/podcast/rss" />
+      <outline type="rss" text="Desayuno Royale" xmlUrl="https://anchor.fm/s/75678a5c/podcast/rss" />
+      <outline type="rss" text="Life Is Worth Living: A Fulton J. Sheen Catholic Podcast" xmlUrl="http://feeds.feedburner.com/fultonsheenpodcast" />
+      <outline type="rss" text="Mother Angelica Live Classics" xmlUrl="https://www.ewtn.com/api/feed/%7EHG.xml" />
+      <outline type="rss" text="Restore The Glory Podcast" xmlUrl="https://restoretheglorypodcast.libsyn.com/rss" />
+    </outline>
+  </body>
+</opml>

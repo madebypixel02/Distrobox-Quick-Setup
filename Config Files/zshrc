@@ -136,6 +136,7 @@ autoload -Uz compinit
 compinit
 export FZF_DEFAULT_COMMAND="find -L"
 export PATH=$PATH:$(find /home/pixel/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+export PATH="/home/pixel/.local/bin:$PATH"
 
 
 # Custom Google greeting
@@ -236,7 +237,6 @@ alias mg="git add . && git commit && git push"
 # Aliases for Arch Linux
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="/home/pixel/.local/bin:$PATH"
 	# Other Aliases
 	alias scc="yay -Scc"
 	alias u="yay -Syu --noconfirm"
@@ -261,6 +261,8 @@ fi
 
 # Aliases for Debian
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
+	export LD_LIBRARY_PATH=/usr/local/lib
+	# Other Aliases
 	alias python="python3"
 	alias pip="pip3"
 	alias tether="gnirehtet run"

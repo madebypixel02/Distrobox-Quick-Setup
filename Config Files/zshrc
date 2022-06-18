@@ -117,17 +117,6 @@ typeset -A crostini=(
 
 ## My own Stuff ##
 
-export LD_LIBRARY_PATH=/usr/local/lib
-export PATH="/home/pixel/.local/bin:$PATH"
-alias ls='ls --color=auto'
-eval "$(dircolors -p | \
-	sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
- 	dircolors /dev/stdin)"
-
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
-autoload -Uz compinit
-compinit
-
 # 42 Madrid Stuff
 alias old_norminette="~/.norminette/norminette.rb"
 CFLAGS="-Wall -Wextra -Werror"
@@ -135,8 +124,19 @@ CFLAGS="-Wall -Wextra -Werror"
 MAIL="aperez-b@student.42.fr"
 alias cursus="cd /home/pixel/42\ Madrid/GitHub/42\ Cursus"
 alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
+
+# Misc
+eval "$(dircolors -p | \
+	sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
+ 	dircolors /dev/stdin)"
+alias ls='ls --color=auto'
+
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+autoload -Uz compinit
+compinit
 export FZF_DEFAULT_COMMAND="find -L"
 export PATH=$PATH:$(find /home/pixel/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+
 
 # Custom Google greeting
 #zsh ~/.mygreeting
@@ -163,52 +163,7 @@ export MAGENTA="\\e[95m"
 export CYAN="\\e[96m"
 export WHITE="\\e[97m"
 
-# Other Aliases
-alias downs="cd ~/Downloads"
-alias clear_downs="rm -rf ~/Downloads/*"
-alias docs="cd ~/Documents"
-alias music="cd ~/Music"
-alias x="clear && ls -a"
-alias scc="yay -Scc"
-alias gdrive="cd ~/Google\ Drive"
-alias desktop="cd ~/Desktop"
-alias r="clear && source ~/.zshrc && builtin cd"
-alias q="exit"
-alias u="yay -Syu --noconfirm"
-alias tether="gnirehtet run"
-alias unwine="wine uninstaller"
-alias apps="builtin cd /usr/share/applications && ls /usr/share/applications"
-alias appicons="builtin cd /usr/share/icons && ls /usr/share/icons"
-alias localapps="builtin cd ~/.local/share/applications && ls ~/.local/share/applications"
-alias h="cd ~/"
-alias bashrc="nvim ~/.bashrc"
-alias bashrc_update="cp ~/.bashrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/"
-alias zshrc="nvim ~/.zshrc"
-alias zshrc_update="cp ~/.zshrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/"
-alias vimrc="nvim ~/.vimrc"
-alias vimrc_update="cp ~/.vimrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd ~/"
-alias p10k_update="cp ~/.p10k.zsh ~/Arch-Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd ~/"
-alias removable="cd ~/Removable\ Devices"
-alias ext="cd ~/Removable\ Devices"
-alias v="neofetch | lolcat"
-alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2 -C --filelimit 100"
-alias sp="spotdl"
-alias yoump3="youtube-dl -x --audio-format mp3"
-alias pipupdate="sudo pip install -U"
-alias yan="yay --noconfirm --needed"
-alias checktheme="systemctl --user status auto-theme.service"
-alias checktheme-now="python -u '/home/pixel/.autotheme/timecheck-now.py'"
-alias donkeykong="python -u '/home/pixel/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-alias pac-man="make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long"
-alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/pixel/.vbmeta/vbmeta.img && fastboot reboot"
-alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconverter.py'"
-alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
-alias parrot.live="curl parrot.live"
-alias college="cd /home/pixel/College/"
-alias uc3m="zsh -c /home/pixel/.mygreeting_uc3m"
-alias mg="git add . && git commit && git push"
-
- # Functions (custom)
+# Custom Functions
 function b() {
 	if [ $# -eq 0 ]; then
 		count=1
@@ -253,8 +208,82 @@ function mkcdir() {
 	cd "$1"
 }
 
+# Basic Aliases
+alias downs="cd ~/Downloads"
+alias clear_downs="rm -rf ~/Downloads/*"
+alias docs="cd ~/Documents"
+alias music="cd ~/Music"
+alias x="clear && ls -a"
+alias desktop="cd ~/Desktop"
+alias r="clear && source ~/.zshrc && builtin cd"
+alias q="exit"
+alias apps="builtin cd /usr/share/applications && ls /usr/share/applications"
+alias appicons="builtin cd /usr/share/icons && ls /usr/share/icons"
+alias localapps="builtin cd ~/.local/share/applications && ls ~/.local/share/applications"
+alias h="cd ~/"
+alias bashrc="nvim ~/.bashrc"
+alias zshrc="nvim ~/.zshrc"
+alias vimrc="nvim ~/.vimrc"
+alias removable="cd ~/Removable\ Devices"
+alias ext="cd ~/Removable\ Devices"
+alias v="neofetch | lolcat"
+alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2 -C --filelimit 100"
+alias parrot.live="curl parrot.live"
+alias college="cd /home/pixel/College/"
+alias uc3m="zsh -c /home/pixel/.mygreeting_uc3m"
+alias mg="git add . && git commit && git push"
+
+# Aliases for Arch Linux
+if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
+	export LD_LIBRARY_PATH=/usr/local/lib
+	export PATH="/home/pixel/.local/bin:$PATH"
+	# Other Aliases
+	alias scc="yay -Scc"
+	alias u="yay -Syu --noconfirm"
+	alias tether="gnirehtet run"
+	alias unwine="wine uninstaller"
+	alias bashrc_update="cp ~/.bashrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/ && cp ~/.bashrc ~/Debian-Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/"
+	alias zshrc_update="cp ~/.zshrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/ && cp ~/.zshrc ~/Debian-Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/"
+	alias vimrc_update="cp ~/.vimrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd ~/ && cp ~/.vimrc ~/Debian-Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd ~/"
+	alias p10k_update="cp ~/.p10k.zsh ~/Arch-Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd ~/ && cp ~/.p10k.zsh ~/Debian-Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd ~/"
+	alias sp="spotdl"
+	alias yoump3="youtube-dl -x --audio-format mp3"
+	alias pipupdate="sudo pip install -U"
+	alias yan="yay --noconfirm --needed"
+	alias checktheme="systemctl --user status auto-theme.service"
+	alias checktheme-now="python -u '/home/pixel/.autotheme/timecheck-now.py'"
+	alias donkeykong="python -u '/home/pixel/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias pac-man="make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/pixel/.vbmeta/vbmeta.img && fastboot reboot"
+	alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconverter.py'"
+	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
+fi
+
+# Aliases for Debian
+if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
+	alias python="python3"
+	alias pip="pip3"
+	alias tether="gnirehtet run"
+	alias unwine="wine uninstaller"
+	alias bashrc_update="cp ~/.bashrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/ && cp ~/.bashrc ~/Debian-Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/"
+	alias zshrc_update="cp ~/.zshrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/ && cp ~/.zshrc ~/Debian-Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/"
+	alias vimrc_update="cp ~/.vimrc ~/Arch-Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd ~/ && cp ~/.vimrc ~/Debian-Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd ~/"
+	alias p10k_update="cp ~/.p10k.zsh ~/Arch-Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd ~/Arch-Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd ~/ && cp ~/.p10k.zsh ~/Debian-Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd ~/Debian-Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd ~/"
+	alias sp="spotdl"
+	alias yoump3="youtube-dl -x --audio-format mp3"
+	alias pipupdate="sudo pip install -U"
+	alias yan="yay --noconfirm --needed"
+	alias checktheme="systemctl --user status auto-theme.service"
+	alias checktheme-now="python -u '/home/pixel/.autotheme/timecheck-now.py'"
+	alias donkeykong="python -u '/home/pixel/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias pac-man="make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/pixel/.vbmeta/vbmeta.img && fastboot reboot"
+	alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconverter.py'"
+	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
+fi
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:/snap/bin:$HOME/.rvm/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme

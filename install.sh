@@ -4,17 +4,13 @@
 mkdir -p ~/Documents
 mkdir -p ~/Desktop
 mkdir -p ~/Pictures
-ln -s /mnt/chromeos/removable/Pixel\ SD/Useful\ Photos/ ~/Pictures
-ln -s /mnt/chromeos/removable/Pixel\ SD/Public\ Transportation/ ~/Pictures
-ln -s /mnt/chromeos/removable/Pixel\ SD/NewMusic ~/Music
-ln -s /mnt/chromeos/removable/Pixel\ SD/Videos ~/Videos
-ln -s /mnt/chromeos/MyFiles/Downloads ~/Downloads
-ln -s /mnt/chromeos/MyFiles/Documents ~/Documents/Cros-Documents
-ln -s /mnt/chromeos/removable ~/Removable\ Devices
+ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ ~/Pictures
+ln -s /run/media/pixel/Pixel\ SD/Public\ Transportation/ ~/Pictures
+ln -s /run/media/pixel/Pixel\ SD/NewMusic ~/Music
+ln -s /run/media/pixel/Pixel\ SD/Videos ~/Videos
+ln -s /run/media/pixel ~/Removable\ Devices
 ln -s ~/Removable\ Devices/Pixel\ SD/Linux\ Playlists ~/Playlists
-ln -s /mnt/chromeos/GoogleDrive/MyDrive ~/Google\ Drive
-cp -r ~/Google\ Drive/ReadEra/Books ~/Documents
-cp -r ~/Arch-Crostini-Quick-Setup/Extras/Mi\ Band/ ~/Documents
+cp -r ~/Arch-Distrobox-Quick-Setup/Extras/Mi\ Band/ ~/Documents
 
 # Install base packages
 sudo pacman -Syu git base-devel curl wget --needed --noconfirm
@@ -46,29 +42,29 @@ echo "Defaults        badpass_message=\"Whoops, wrong password!\"
 Defaults        logfile=\"/var/log/sudo/sudo.log\"" | sudo tee -a /etc/sudoers
 
 # Copy vimrc, zshrc, bashrc, etc
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/vimrc ~/.vimrc
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/zshrc ~/.zshrc
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/bashrc ~/.bashrc
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
-cp ~/Arch-Crostini-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/vimrc ~/.vimrc
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/zshrc ~/.zshrc
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/bashrc ~/.bashrc
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
+cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
 
 # Copy neovim config file
 mkdir -p ~/.config
-cp -r ~/Arch-Crostini-Quick-Setup/Extras/nvim ~/.config/
+cp -r ~/Arch-Distrobox-Quick-Setup/Extras/nvim ~/.config/
 
 # Configure cmus
 mkdir -p /home/pixel/.config/cmus
-cp ~/Arch-Crostini-Quick-Setup/Extras/cmus/autosave /home/pixel/.config/cmus/autosave
+cp ~/Arch-Distrobox-Quick-Setup/Extras/cmus/autosave /home/pixel/.config/cmus/autosave
 
 # Configure browsh
-cp -r ~/Arch-Crostini-Quick-Setup/Extras/browsh ~/.config/
+cp -r ~/Arch-Distrobox-Quick-Setup/Extras/browsh ~/.config/
 
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
-sudo cp ~/Arch-Crostini-Quick-Setup/Apps/Icons/*.png /usr/share/icons
-cp -r ~/Arch-Crostini-Quick-Setup/Apps/Files/* ~/.local/share/applications
+sudo cp ~/Arch-Distrobox-Quick-Setup/Apps/Icons/*.png /usr/share/icons
+#cp -r ~/Arch-Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up zsh and oh-my-zsh
 yay -S zsh python python-pip --needed --noconfirm
@@ -82,13 +78,9 @@ mv -f ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# Install vulkan stuff
-yay -S mesa-git lib32-mesa-git --needed
-echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/virtio_icd.i686.json:/usr/share/vulkan/icd.d/virtio_icd.x86_64.json" | sudo tee -a /etc/environment
-
 # Install typical packages
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S adw-gtk3 orchis-theme-git vimix-icon-theme lollypop android-tools gnirehtet gnome-sudoku gnome-nibbles extremetuxracer supertux supertuxkart gnome-chess gnuchess google-chrome firefox zsh neovim neofetch lolcat nemo nemo-preview wine gedit microsoft-edge-stable-bin xiaomitool-v2 gnome-boxes ttf-google-sans python-pip stremio vlc steam pingus mgba-qt libreoffice zotero-bin cura gimp blender kdenlive visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus whatsapp-nativefier gnome-mines gnome-chess gnuchess cheese eog yarn python-pip dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts xcursor-chromeos gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code xournalpp mplayer kid3-qt tree libbsd jre-openjdk docker gnome-sound-recorder gnome-music gnome-system-monitor gnome-2048 ttf-symbola fcron samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring gnome-podcasts svp cmatrix wine-mono wine-gecko winetricks brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils lib32-mesa-utils wireshark-qt sl gnome-console browsh-bin elinks tabby-terminal cowsay nginx mariadb virt-manager dnsmasq cmus foliate pandoc epiphany libshumate-git vulkan-tools --needed --noconfirm
+yay -S adw-gtk3 lollypop android-tools gnirehtet zsh neovim neofetch lolcat nemo nemo-preview xiaomitool-v2 gnome-boxes ttf-google-sans python-pip stremio vlc visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus whatsapp-nativefier eog yarn python-pip dex gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code tree libbsd jre-openjdk docker gnome-system-monitor ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp cmatrix brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils wireshark-qt sl gnome-console browsh-bin elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany libshumate-git freetube xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel --needed --noconfirm
 sudo usermod -aG dnsmasq pixel
 sudo systemctl enable --now libvirtd
 sudo usermod -aG wireshark pixel
@@ -105,40 +97,33 @@ mkdir -p ~/.config/mpv
 echo "vo=gpu
 ao=alsa" > ~/.config/mpv/mpv.conf
 
-# Build shortwave
-git clone https://gitlab.gnome.org/World/Shortwave.git
-cd Shortwave
-meson --prefix=/usr build
-ninja -C build
-sudo ninja -C build install
-
 # Install focalboard-server
-wget https://github.com/mattermost/focalboard/releases/download/v0.15.0/focalboard-server-linux-amd64.tar.gz
-tar -xvzf focalboard-server-linux-amd64.tar.gz
-sudo mv focalboard /opt
-mkdir -p ~/.config/systemd/user
-sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-sudo systemctl enable --now mariadb
-sudo systemctl enable --now nginx
-sudo mkdir /etc/nginx/sites-available/
-sudo mkdir /etc/nginx/sites-enabled/
-sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Focalboard/focalboard /etc/nginx/sites-available
-sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Focalboard/config.json /opt/focalboard
-sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Focalboard/focalboard.service /lib/systemd/system/
-sudo ln -s /etc/nginx/sites-available/focalboard /etc/nginx/sites-enabled/focalboard
-sudo nginx -t
-sudo systemctl enable --now focalboard.service
+#wget https://github.com/mattermost/focalboard/releases/download/v0.15.0/focalboard-server-linux-amd64.tar.gz
+#tar -xvzf focalboard-server-linux-amd64.tar.gz
+#sudo mv focalboard /opt
+#mkdir -p ~/.config/systemd/user
+#sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+#sudo systemctl enable --now mariadb
+#sudo systemctl enable --now nginx
+#sudo mkdir /etc/nginx/sites-available/
+#sudo mkdir /etc/nginx/sites-enabled/
+#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Focalboard/focalboard /etc/nginx/sites-available
+#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Focalboard/config.json /opt/focalboard
+#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Focalboard/focalboard.service /lib/systemd/system/
+#sudo ln -s /etc/nginx/sites-available/focalboard /etc/nginx/sites-enabled/focalboard
+#sudo nginx -t
+#sudo systemctl enable --now focalboard.service
 
 # Configure fcron
-sudo systemctl enable --now fcron
-sudo mkdir -p /var/spool/fcron
-sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Crontab/root /var/spool/fcron
-sudo chown root:root /var/spool/fcron/root
-sudo cp ~/Arch-Crostini-Quick-Setup/Extras/Crontab/root.orig /var/spool/fcron
-sudo chown root:root /var/spool/fcron/root.orig
+#sudo systemctl enable --now fcron
+#sudo mkdir -p /var/spool/fcron
+#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Crontab/root /var/spool/fcron
+#sudo chown root:root /var/spool/fcron/root
+#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Crontab/root.orig /var/spool/fcron
+#sudo chown root:root /var/spool/fcron/root.orig
 
 # Copy gnome podcasts backup
-cp ~/Arch-Crostini-Quick-Setup/Extras/gnome-podcasts-exported-shows.opml /home/pixel
+cp ~/Arch-Distrobox-Quick-Setup/Extras/gnome-podcasts-exported-shows.opml /home/pixel
 
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime
@@ -180,10 +165,10 @@ mkdir -p ~/.config/systemd/user/
 # Copy unit files
 sudo pip install -U suntime
 mkdir -p /home/pixel/.config/systemd/user/sommelier-x@0.service.d/
-cp ~/Arch-Crostini-Quick-Setup/Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
-cp -r ~/Arch-Crostini-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
-systemctl --user enable --now auto-theme.service
-systemctl --user enable --now auto-theme.timer
+cp ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
+cp -r ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
+#systemctl --user enable --now auto-theme.service
+#systemctl --user enable --now auto-theme.timer
 
 # Clone Useful Repos
 git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter
@@ -194,8 +179,8 @@ sudo pip install -U norminette
 
 # 42 Header
 mkdir -p ~/.vim/plugin/
-cp ~/Arch-Crostini-Quick-Setup/42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
-cp ~/Arch-Crostini-Quick-Setup/Extras/customheader.vim ~/.vim/plugin/
+cp ~/Arch-Distrobox-Quick-Setup/42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
+cp ~/Arch-Distrobox-Quick-Setup/Extras/customheader.vim ~/.vim/plugin/
 
 # Minilibx
 git clone https://github.com/42Paris/minilibx-linux.git
@@ -243,7 +228,7 @@ git clone https://github.com/madebypixel02/CPP-Module-08.git
 
 # Install minishell
 make -C ~/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Arch-Crostini-Quick-Setup
+cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Arch-Distrobox-Quick-Setup
 
 # Install College Stuff Dependencies
 

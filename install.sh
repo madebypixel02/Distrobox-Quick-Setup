@@ -66,6 +66,10 @@ mkdir -p ~/.local/share/applications
 sudo cp ~/Arch-Distrobox-Quick-Setup/Apps/Icons/*.png /usr/share/icons
 #cp -r ~/Arch-Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
+# Set up neovim
+mkdir -p ~/.config
+cp -r ~/Debian-Distrobox-Quick-Setup/Extras/nvim ~/.config
+
 # Set up zsh and oh-my-zsh
 yay -S zsh python python-pip --needed --noconfirm
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -82,7 +86,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo pip uninstall numpy beautifulsoup4 soupsieve
 yay -S adw-gtk3 lollypop android-tools gnirehtet zsh neovim neofetch lolcat nemo nemo-preview xiaomitool-v2 gnome-boxes ttf-google-sans python-pip stremio vlc visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus whatsapp-nativefier eog yarn python-pip dex gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code tree libbsd jre-openjdk docker gnome-system-monitor ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp cmatrix brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils wireshark-qt sl gnome-console browsh-bin elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany libshumate-git freetube xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel --needed --noconfirm
 sudo usermod -aG dnsmasq pixel
-sudo systemctl enable --now libvirtd
+#sudo systemctl enable --now libvirtd
 sudo usermod -aG wireshark pixel
 sudo chmod +x /usr/bin/dumpcap
 sudo usermod -aG libvirt pixel
@@ -95,7 +99,7 @@ sudo systemctl enable --now avahi-daemon.service
 mkdir -p ~/Pictures
 mkdir -p ~/.config/mpv
 echo "vo=gpu
-ao=alsa" > ~/.config/mpv/mpv.conf
+hwdec=auto" > ~/.config/mpv/mpv.conf
 
 # Install focalboard-server
 #wget https://github.com/mattermost/focalboard/releases/download/v0.15.0/focalboard-server-linux-amd64.tar.gz
@@ -146,9 +150,9 @@ echo "enabled=False" > ~/.config/user-dirs.conf
 
 # Set xcursor-chromeos as default
 mkdir -p ~/.icons/default
-echo "[Icon Theme]
-Inherits=xcursor-chromeos" > ~/.icons/default/index.theme
-ln -s /usr/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
+#echo "[Icon Theme]
+#Inherits=xcursor-chromeos" > ~/.icons/default/index.theme
+#ln -s /home/pixel/.local/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
 
 # Configure git
 sudo make -C /usr/share/git/credential/libsecret
@@ -164,7 +168,6 @@ mkdir -p ~/.config/systemd/user/
 
 # Copy unit files
 sudo pip install -U suntime
-mkdir -p /home/pixel/.config/systemd/user/sommelier-x@0.service.d/
 cp ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
 cp -r ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
 #systemctl --user enable --now auto-theme.service
@@ -172,7 +175,6 @@ cp -r ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
 
 # Clone Useful Repos
 git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter
-git clone https://github.com/argrento/huami-token.git ~/huami-token
 
 # Norminette
 sudo pip install -U norminette

@@ -136,7 +136,6 @@ autoload -Uz compinit
 compinit
 export FZF_DEFAULT_COMMAND="find -L"
 export PATH=$PATH:$(find /home/pixel/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
-export PATH="/home/pixel/.local/bin:$PATH"
 
 
 # Custom Google greeting
@@ -144,10 +143,6 @@ export PATH="/home/pixel/.local/bin:$PATH"
 
 # Custom 42 greeting
 zsh ~/.mygreeting42
-
-# Open new tab in last path
-touch ~/.custom_pwd
-builtin cd "$(cat ~/.custom_pwd)"
 
 # ADB devices
 GINKGO=2760c408
@@ -201,7 +196,6 @@ function cd() {
 		new_directory=${HOME};
 	fi;
 	ls "${new_directory}" && builtin cd "${new_directory}"
-	echo "${PWD}" > ~/.custom_pwd
 }
 
 function mkcdir() {
@@ -237,6 +231,7 @@ alias mg="git add . && git commit && git push"
 # Aliases for Arch Linux
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
+	export PATH="/home/pixel/.local/bin:$PATH"
 	# Other Aliases
 	alias scc="yay -Scc"
 	alias u="yay -Syu --noconfirm"
@@ -261,8 +256,6 @@ fi
 
 # Aliases for Debian
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
-	export LD_LIBRARY_PATH=/usr/local/lib
-	# Other Aliases
 	alias python="python3"
 	alias pip="pip3"
 	alias tether="gnirehtet run"

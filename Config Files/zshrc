@@ -256,6 +256,8 @@ fi
 
 # Aliases for Debian
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
+	export LD_LIBRARY_PATH=/usr/local/lib
+	export PATH="/home/pixel/.local/bin:$PATH"
 	alias python="python3"
 	alias pip="pip3"
 	alias tether="gnirehtet run"

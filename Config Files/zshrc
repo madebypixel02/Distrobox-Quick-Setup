@@ -147,7 +147,7 @@ git config --global credential.helper libsecret
 #zsh ~/.mygreeting
 
 # Custom 42 greeting
-zsh ~/.mygreeting42
+zsh ~/.mygreeting_42
 
 # ADB devices
 GINKGO=2760c408

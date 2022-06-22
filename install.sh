@@ -9,6 +9,8 @@ mkdir -p ~/Pictures
 mkdir -p ~/Audiobooks
 mkdir -p ~/.local/share/icons
 mkdir -p ~/.local/share/applications
+mkdir -p ~/.local/share/fonts
+mkdir -p ~/.local/share/themes
 mkdir -p ~/.config/systemd/user/
 
 # Add symbolic links
@@ -24,16 +26,11 @@ cp -r ~/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ ~/Documents
 cp ~/Distrobox-Quick-Setup/Config\ Files/vimrc ~/.vimrc
 cp ~/Distrobox-Quick-Setup/Config\ Files/zshrc ~/.zshrc
 cp ~/Distrobox-Quick-Setup/Config\ Files/bashrc ~/.bashrc
-cp ~/Distrobox-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
-cp ~/Distrobox-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
-cp ~/Distrobox-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
+cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting ~/.mygreeting
+cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m ~/.mygreeting_uc3m
+cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 ~/.mygreeting_42
+cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux ~/.mygreeting_tux
 cp ~/Distrobox-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
-
-# Set locale
-echo "en_US.UTF-8 UTF-8
-es_ES.UTF-8 UTF-8" | sudo tee /etc/locale.gen
-echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
-sudo locale-gen
 
 # Set custom rules in sudoers file
 sudo mkdir -p /var/log/sudo/
@@ -60,6 +57,11 @@ hwdec=auto" > ~/.config/mpv/mpv.conf
 # Fzf installation
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# Install Cascadia Fonts
+wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && \
+	unzip cascadia-fonts.zip -d /home/$USER/.local/share/fonts/
+rm -f cascadia-fonts.zip
 
 # Install Google Sans Fonts
 cd Config\ Files/

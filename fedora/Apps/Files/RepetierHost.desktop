@@ -1,0 +1,9 @@
+#[Desktop Entry]
+Name=Repetier-Host
+Exec=repetierHost
+Type=Application
+StartupNotify=true
+Comment=Repetier-Host 3d printer host software
+Path=/usr/share/RepetierHost
+Icon=repetierHost
+MimeType=application/sla;text/gcode;application/wavefront-obj;application/x-amf;

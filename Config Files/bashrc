@@ -139,7 +139,7 @@ MAIL="marvin@42.fr"
 # bash ~/.mygreeting
 
 # Custom 42 greeting
-bash ~/.mygreeting42
+bash ~/.mygreeting_42
 
 # Color Aliases
 export DEFAULT="\\e[39m"

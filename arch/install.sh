@@ -2,8 +2,17 @@
 
 USER=$(whoami)
 
+# Set locale
+echo "en_US.UTF-8 UTF-8
+es_ES.UTF-8 UTF-8" | sudo tee /etc/locale.gen
+echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
+sudo locale-gen
+
+# Copy pacman.conf
+sudo cp ~/Distrobox-Quick-Setup/Config\ Files/pacman.conf /etc/
+
 # Install base packages
-sudo pacman -Syu git base-devel zsh curl wget python python-pip --needed --noconfirm
+sudo pacman -Syu git base-devel zsh curl wget python python-pip vim neovim man-pages man-db --needed --noconfirm
 
 # Install yay
 git clone https://aur.archlinux.org/yay-bin.git ~/yay-bin
@@ -19,7 +28,7 @@ echo "export QT_QPA_PLATFORMTHEME=\"qt5ct\"" >> ~/.profile
 echo "export QT_QPA_PLATFORMTHEME=\"qt5ct\"" | sudo tee -a /etc/profile
 
 # Copy desktop files and icons
-sudo cp ~/Distrobox-Quick-Setup/Apps/Icons/*.png /home/$USER/.local/share/icons
+cp ~/Distrobox-Quick-Setup/Apps/Icons/*.png /home/$USER/.local/share/icons
 #cp -r ~/Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up zsh and oh-my-zsh
@@ -33,9 +42,10 @@ mv -f ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 sudo pip install -U youtube-dl suntime norminette future
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo pip uninstall numpy beautifulsoup4 soupsieve
-yay -S lollypop android-tools gnirehtet zsh neovim neofetch lolcat nemo nemo-preview xiaomitool-v2 gnome-boxes stremio vlc visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus whatsapp-nativefier eog yarn dex gtk-engine-murrine vim bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin ttf-cascadia-code tree libbsd jre-openjdk docker gnome-system-monitor ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils wireshark-qt sl gnome-console browsh-bin elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany libshumate-git freetube-bin xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk --needed --noconfirm
+yay -S lollypop android-tools gnirehtet zsh neofetch lolcat nemo nemo-preview xiaomitool-v2 gnome-boxes stremio vlc visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus whatsapp-nativefier eog yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker gnome-system-monitor ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils wireshark-qt sl gnome-console browsh-bin elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany libshumate-git freetube-bin xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks --needed --noconfirm
 
 # Configure Packages
+JAVA_HOME=/usr/lib/jvm/default sudo pip install -r ~/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
 sudo usermod -aG dnsmasq $USER
 #sudo systemctl enable --now libvirtd
 sudo usermod -aG wireshark $USER

@@ -63,7 +63,7 @@ cp -r ~/Arch-Distrobox-Quick-Setup/Extras/browsh ~/.config/
 
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
-sudo cp ~/Arch-Distrobox-Quick-Setup/Apps/Icons/*.png /usr/share/icons
+sudo cp ~/Arch-Distrobox-Quick-Setup/Apps/Icons/*.png /home/pixel/.local/share/icons
 #cp -r ~/Arch-Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up neovim

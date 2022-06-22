@@ -10,7 +10,7 @@ ln -s /run/media/pixel/Pixel\ SD/NewMusic ~/Music
 ln -s /run/media/pixel/Pixel\ SD/Videos ~/Videos
 ln -s /run/media/pixel ~/Removable\ Devices
 ln -s ~/Removable\ Devices/Pixel\ SD/Linux\ Playlists ~/Playlists
-cp -r ~/Arch-Distrobox-Quick-Setup/Extras/Mi\ Band/ ~/Documents
+cp -r ~/Distrobox-Quick-Setup/Extras/Mi\ Band/ ~/Documents
 
 # Install base packages
 sudo pacman -Syu git base-devel curl wget --needed --noconfirm
@@ -42,33 +42,33 @@ echo "Defaults        badpass_message=\"Whoops, wrong password!\"
 Defaults        logfile=\"/var/log/sudo/sudo.log\"" | sudo tee -a /etc/sudoers
 
 # Copy vimrc, zshrc, bashrc, etc
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/vimrc ~/.vimrc
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/zshrc ~/.zshrc
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/bashrc ~/.bashrc
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
-cp ~/Arch-Distrobox-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
+cp ~/Distrobox-Quick-Setup/Config\ Files/vimrc ~/.vimrc
+cp ~/Distrobox-Quick-Setup/Config\ Files/zshrc ~/.zshrc
+cp ~/Distrobox-Quick-Setup/Config\ Files/bashrc ~/.bashrc
+cp ~/Distrobox-Quick-Setup/Config\ Files/mygreeting ~/.mygreeting
+cp ~/Distrobox-Quick-Setup/Config\ Files/mygreeting_uc3m ~/.mygreeting_uc3m
+cp ~/Distrobox-Quick-Setup/Config\ Files/mygreeting42 ~/.mygreeting42
+cp ~/Distrobox-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
 
 # Copy neovim config file
 mkdir -p ~/.config
-cp -r ~/Arch-Distrobox-Quick-Setup/Extras/nvim ~/.config/
+cp -r ~/Distrobox-Quick-Setup/Extras/nvim ~/.config/
 
 # Configure cmus
 mkdir -p /home/pixel/.config/cmus
-cp ~/Arch-Distrobox-Quick-Setup/Extras/cmus/autosave /home/pixel/.config/cmus/autosave
+cp ~/Distrobox-Quick-Setup/Extras/cmus/autosave /home/pixel/.config/cmus/autosave
 
 # Configure browsh
-cp -r ~/Arch-Distrobox-Quick-Setup/Extras/browsh ~/.config/
+cp -r ~/Distrobox-Quick-Setup/Extras/browsh ~/.config/
 
 # Copy desktop files and icons
 mkdir -p ~/.local/share/applications
-sudo cp ~/Arch-Distrobox-Quick-Setup/Apps/Icons/*.png /home/pixel/.local/share/icons
-#cp -r ~/Arch-Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
+sudo cp ~/Distrobox-Quick-Setup/Apps/Icons/*.png /home/pixel/.local/share/icons
+#cp -r ~/Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
 
 # Set up neovim
 mkdir -p ~/.config
-cp -r ~/Debian-Distrobox-Quick-Setup/Extras/nvim ~/.config
+cp -r ~/Distrobox-Quick-Setup/Extras/nvim ~/.config
 
 # Set up zsh and oh-my-zsh
 yay -S zsh python python-pip --needed --noconfirm
@@ -111,9 +111,9 @@ hwdec=auto" > ~/.config/mpv/mpv.conf
 #sudo systemctl enable --now nginx
 #sudo mkdir /etc/nginx/sites-available/
 #sudo mkdir /etc/nginx/sites-enabled/
-#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Focalboard/focalboard /etc/nginx/sites-available
-#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Focalboard/config.json /opt/focalboard
-#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Focalboard/focalboard.service /lib/systemd/system/
+#sudo cp ~/Distrobox-Quick-Setup/Extras/Focalboard/focalboard /etc/nginx/sites-available
+#sudo cp ~/Distrobox-Quick-Setup/Extras/Focalboard/config.json /opt/focalboard
+#sudo cp ~/Distrobox-Quick-Setup/Extras/Focalboard/focalboard.service /lib/systemd/system/
 #sudo ln -s /etc/nginx/sites-available/focalboard /etc/nginx/sites-enabled/focalboard
 #sudo nginx -t
 #sudo systemctl enable --now focalboard.service
@@ -121,13 +121,13 @@ hwdec=auto" > ~/.config/mpv/mpv.conf
 # Configure fcron
 #sudo systemctl enable --now fcron
 #sudo mkdir -p /var/spool/fcron
-#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Crontab/root /var/spool/fcron
+#sudo cp ~/Distrobox-Quick-Setup/Extras/Crontab/root /var/spool/fcron
 #sudo chown root:root /var/spool/fcron/root
-#sudo cp ~/Arch-Distrobox-Quick-Setup/Extras/Crontab/root.orig /var/spool/fcron
+#sudo cp ~/Distrobox-Quick-Setup/Extras/Crontab/root.orig /var/spool/fcron
 #sudo chown root:root /var/spool/fcron/root.orig
 
 # Copy gnome podcasts backup
-cp ~/Arch-Distrobox-Quick-Setup/Extras/gnome-podcasts-exported-shows.opml /home/pixel
+cp ~/Distrobox-Quick-Setup/Extras/gnome-podcasts-exported-shows.opml /home/pixel
 
 # Install typical pip packages
 sudo pip install -U youtube-dl suntime
@@ -168,8 +168,8 @@ mkdir -p ~/.config/systemd/user/
 
 # Copy unit files
 sudo pip install -U suntime
-cp ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
-cp -r ~/Arch-Distrobox-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
+cp ~/Distrobox-Quick-Setup/Extras/Auto\ Theme/Systemd/* ~/.config/systemd/user/
+cp -r ~/Distrobox-Quick-Setup/Extras/Auto\ Theme/.autotheme ~/
 #systemctl --user enable --now auto-theme.service
 #systemctl --user enable --now auto-theme.timer
 
@@ -181,8 +181,8 @@ sudo pip install -U norminette
 
 # 42 Header
 mkdir -p ~/.vim/plugin/
-cp ~/Arch-Distrobox-Quick-Setup/42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
-cp ~/Arch-Distrobox-Quick-Setup/Extras/customheader.vim ~/.vim/plugin/
+cp ~/Distrobox-Quick-Setup/42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
+cp ~/Distrobox-Quick-Setup/Extras/customheader.vim ~/.vim/plugin/
 
 # Minilibx
 git clone https://github.com/42Paris/minilibx-linux.git
@@ -230,7 +230,7 @@ git clone https://github.com/madebypixel02/CPP-Module-08.git
 
 # Install minishell
 make -C ~/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Arch-Distrobox-Quick-Setup
+cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Distrobox-Quick-Setup
 
 # Install College Stuff Dependencies
 

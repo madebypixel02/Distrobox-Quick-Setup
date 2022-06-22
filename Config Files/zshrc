@@ -4,7 +4,9 @@
 # Path to your oh-my-zsh installation.
 ZSH_DISABLE_COMPFIX=true
 
-export ZSH="/home/pixel/.oh-my-zsh"
+USER=$(whoami)
+
+export ZSH="/home/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,7 +124,7 @@ alias old_norminette="~/.norminette/norminette.rb"
 CFLAGS="-Wall -Wextra -Werror"
 #USER="aperez-b"
 MAIL="aperez-b@student.42.fr"
-alias cursus="cd /home/pixel/42\ Madrid/GitHub/42\ Cursus"
+alias cursus="cd /home/$USER/42\ Madrid/GitHub/42\ Cursus"
 alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 
 # Misc
@@ -135,7 +137,7 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 autoload -Uz compinit
 compinit
 export FZF_DEFAULT_COMMAND="find -L"
-export PATH=$PATH:$(find /home/pixel/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+export PATH=$PATH:$(find /home/$USER/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
 
 # Set up git credential
 git config --global credential.helper libsecret
@@ -227,8 +229,8 @@ alias ext="cd ~/Removable\ Devices"
 alias v="neofetch | lolcat"
 alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2 -C --filelimit 100"
 alias parrot.live="curl parrot.live"
-alias college="cd /home/pixel/College/"
-alias uc3m="zsh -c /home/pixel/.mygreeting_uc3m"
+alias college="cd /home/$USER/College/"
+alias uc3m="zsh -c /home/$USER/.mygreeting_uc3m"
 alias mg="git add . && git commit && git push"
 alias bashrc_update="cp ~/.bashrc ~/Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/; cp ~/.bashrc ~/Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/"
 alias zshrc_update="cp ~/.zshrc ~/Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/; cp ~/.zshrc ~/Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/"
@@ -238,7 +240,7 @@ alias p10k_update="cp ~/.p10k.zsh ~/Distrobox-Quick-Setup/Config\ Files/p10k.zsh
 # Aliases for Arch Linux
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="/home/pixel/.local/bin:$PATH"
+	export PATH="/home/$USER/.local/bin:$PATH"
 	# Other Aliases
 	alias scc="yay -Scc"
 	alias u="yay -Syu --noconfirm"
@@ -249,18 +251,18 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	alias pipupdate="sudo pip install -U"
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
-	alias checktheme-now="python -u '/home/pixel/.autotheme/timecheck-now.py'"
-	alias donkeykong="python -u '/home/pixel/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-	alias pac-man="make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long"
-	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/pixel/.vbmeta/vbmeta.img && fastboot reboot"
-	alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconverter.py'"
+	alias checktheme-now="python -u '/home/$USER/.autotheme/timecheck-now.py'"
+	alias donkeykong="python -u '/home/$USER/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias pac-man="make play -C /home/$USER/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/$USER/.vbmeta/vbmeta.img && fastboot reboot"
+	alias timeconvert="python -u '/home/$USER/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
 
 # Aliases for Debian
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="/home/pixel/.local/bin:$PATH"
+	export PATH="/home/$USER/.local/bin:$PATH"
 	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	# Other Aliases
 	alias python="python3"
@@ -272,11 +274,11 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; t
 	alias pipupdate="sudo pip install -U"
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
-	alias checktheme-now="python -u '/home/pixel/.autotheme/timecheck-now.py'"
-	alias donkeykong="python -u '/home/pixel/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-	alias pac-man="make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long"
-	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/pixel/.vbmeta/vbmeta.img && fastboot reboot"
-	alias timeconvert="python -u '/home/pixel/Simple-Python-Time-Converter/timeconverter.py'"
+	alias checktheme-now="python -u '/home/$USER/.autotheme/timecheck-now.py'"
+	alias donkeykong="python -u '/home/$USER/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias pac-man="make play -C /home/$USER/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/$USER/.vbmeta/vbmeta.img && fastboot reboot"
+	alias timeconvert="python -u '/home/$USER/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
 

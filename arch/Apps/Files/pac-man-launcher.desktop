@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Pac-Man
+Comment=Classic Pac-Man Game
+Exec=gtk-launch pac-man.desktop
+Icon=/usr/share/icons/pacman.png
+Terminal=false
+Type=Application

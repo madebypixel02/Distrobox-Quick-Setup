@@ -1,0 +1,46 @@
+[Desktop Entry]
+Name[cs]=Shortwave
+Name[da]=Shortwave
+Name[de]=Shortwave
+Name[es]=Shortwave
+Name[eu]=Shortwave
+Name[fi]=Shortwave
+Name[fr]=Shortwave
+Name[hr]=Shortwave
+Name[id]=Shortwave
+Name[it]=Shortwave
+Name[pl]=Shortwave
+Name[pt_BR]=Shortwave
+Name[ro]=Shortwave
+Name[sr]=Кратки талас
+Name[sv]=Shortwave
+Name[tr]=Kısa Dalga
+Name[uk]=Коротка хвиля
+Name=Shortwave
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+Icon=/usr/share/icons/shortwave.png
+Exec=shortwave
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Audio;AudioVideo;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords[cs]=Gradio;Radio;Rádio;Stream;Wave;
+Keywords[da]=Gradio;Radio;Stream;Strøm;Wave;Bølge;
+Keywords[de]=Gradio;Radio;Stream;Welle;
+Keywords[es]=Gradio;Radio;Flujo;onda;
+Keywords[eu]=Gradio;Irratia;Korrontea;Wave;
+Keywords[fi]=Gradio;Radio;Stream;Wave;suoratoisto;nettiradio;
+Keywords[fr]=Gradio;radio;stream;flux;wave;diffusion;
+Keywords[hr]=Gradio;Radio;Strujanje;Wave;
+Keywords[id]=Gradio;Radio;Stream;Gelombang;
+Keywords[it]=Gradio;Radio;Stream;Wave;Flusso;
+Keywords[pl]=Gradio;Radio;Strumień;Strumieniowe;Strumieniowanie;Stream;Wave;Fala radiowa;
+Keywords[pt_BR]=Gradio;Rádio;Radio;Stream;Fluxo;Wave;
+Keywords[ro]=Gradio;Radio;Stream;Wave;
+Keywords[sr]=Gradio;Radio;Stream;Wave;G-radio;strim;tok;vejv;val;talas;kratak;Г-радио;стрим;ток;вејв;вал;талас;кратак;
+Keywords[sv]=Gradio;Radio;Ström;Stream;Wave;
+Keywords[tr]=Gradio;Radyo;Yayın;Akış;Dalga;Kısa dalga;İstasyon;
+Keywords[uk]=Gradio;Radio;Stream;Wave;градіо;жрадіо;радіо;потік;трансляція;хвиля;
+Keywords=Gradio;Radio;Stream;Wave;
+DBusActivatable=true

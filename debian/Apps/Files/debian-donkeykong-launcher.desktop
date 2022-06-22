@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Donkey Kong
+Comment=Classic Donkey Kong Game
+Exec=gtk-launch debian-donkeykong.desktop
+Icon=/usr/share/icons/donkeykong.png
+Terminal=false
+Type=Application

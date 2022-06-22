@@ -1,0 +1,12 @@
+[Desktop Entry]
+NoDisplay=true
+Name=WhatsApp Desktop
+Comment=WhatsApp desktop built with nativefier (electron)
+Exec=whatsapp-nativefier
+Icon=/usr/share/icons/whatsapp.png
+Encoding=UTF-8
+StartupWMClass=whatsapp-nativefier-d40211
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Network;Chat;InstantMessaging;Application;

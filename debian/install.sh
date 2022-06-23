@@ -81,7 +81,7 @@ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/k
 
 # Configure git
 sudo make -C /usr/share/doc/git/contrib/credential/libsecret/
-#git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 git config --global user.name "madebypixel02"
 git config --global user.email "madebypixel02@proton.me"
 git config --global core.editor nvim

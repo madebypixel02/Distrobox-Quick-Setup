@@ -59,6 +59,17 @@ mkdir -p $HOME/.config/mpv
 echo "vo=gpu
 hwdec=auto" > $HOME/.config/mpv/mpv.conf
 
+# Install unzip and git based on distro
+if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
+	sudo pacman -S git unzip --needed --noconfirm
+fi
+if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
+	sudo apt install -y git unzip
+fi
+if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Fedora Linux\"" ; then
+	sudo dnf install -y git unzip
+fi
+
 # Setup Vim-Plug
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

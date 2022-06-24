@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER=$(whoami)
+HOME=$(echo ~)
 
 # Set locale
 echo "en_US.UTF-8 UTF-8
@@ -15,22 +15,22 @@ sudo apt install -y git base zsh curl wget vim neovim python3 python3-pip build-
 sudo apt install aptitude -y
 
 # Setup Vim-Plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Uniform QT / GTK look
-echo "export QT_QPA_PLATFORMTHEME=gtk3" >> ~/.profile
+echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 
 # Copy desktop files and icons
-cp ~/Debian-Distrobox-Quick-Setup/Apps/Icons/*.png /home/$USER/.local/share/icons
-#cp -r ~/Debian-Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
+cp $HOME/Debian-Distrobox-Quick-Setup/Apps/Icons/*.png $HOME/.local/share/icons
+#cp -r $HOME/Debian-Distrobox-Quick-Setup/Apps/Files/* $HOME/.local/share/applications
 
 # Set up zsh and oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-mv -f ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+mv -f $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
 # Install typical packages
 sudo pip3 install -U youtube-dl suntime norminette future
@@ -47,7 +47,7 @@ sudo apt install -y apt-utils apt-transport-https software-properties-common
 sudo aptitude install -y gdebi lollypop adb fastboot pciutils libreadline-dev libsdl2-image-dev libsdl2-dev npm nodejs mesa-utils libglib2.0-dev libsquashfuse0 squashfuse fuse snapd firefox-esr zsh neovim neofetch lolcat nemo wine gedit gnome-boxes python3-pip vlc telegram-desktop libreoffice cura gimp kdenlive r-base r-base-dev libnss3 gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus cheese eog yarn dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts gtk2-engines-murrine vim bat llvm fortran-compiler python3-psycopg2 gdal-bin texlive-base scrcpy mplayer kid3-qt tree libbsd-dev default-jre docker gnome-sound-recorder gnome-music gnome-system-monitor fonts-symbola samba nano sysbench asciiart gnome-keyring libsecret-1-0 libsecret-1-dev gnome-session gnome-documents mesa-vulkan-drivers vulkan-tools sl elinks cowsay virt-manager dnsmasq cmus pandoc epiphany-browser wireshark rustc sqlite3 libsqlite3-dev libgdk-pixbuf2.0-dev seahorse xinput
 
 # Configure Packages
-JAVA_HOME=/usr/lib/jvm/default-java sudo pip install -r ~/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
+JAVA_HOME=/usr/lib/jvm/default-java sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
 #sudo systemctl enable --now libvirtd
 sudo usermod -aG wireshark $USER
 sudo chmod +x /usr/bin/dumpcap
@@ -58,7 +58,7 @@ tar -xvf svp.tar.bz2
 ./$(find . -name svp4-linux-64.run)
 rm -rf svp.tar.bz2 svp
 find . -name svp4-linux-64.run -delete
-xhost +si:localuser:root && sudo /home/$USER/SVP\ 4/SVPManager
+xhost +si:localuser:root && sudo $HOME/SVP\ 4/SVPManager
 
 # Build foliate
 #sudo apt install -y appstream build-essential debhelper meson gettext webkit2gtk-driver
@@ -71,8 +71,8 @@ xhost +si:localuser:root && sudo /home/$USER/SVP\ 4/SVPManager
 
 # Set up gnirehtet
 wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip
-unzip gnirehtet-* -d /home/$USER
-sudo ln -s /home/$USER/gnirehtet-rust-linux64/gnirehtet /bin
+unzip gnirehtet-* -d $HOME
+sudo ln -s $HOME/gnirehtet-rust-linux64/gnirehtet /bin
 rm -f gnirehtet-rust-linux64-v2.5.zip
 
 # Configure gnome terminal shortcuts
@@ -108,8 +108,8 @@ cd ..
 rm -rf minilibx-linux
 
 # Install minishell
-make -C ~/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Debian-Distrobox-Quick-Setup
+make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
+cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Debian-Distrobox-Quick-Setup
 
 # Install College Stuff Dependencies
 sudo apt -y install make gcc g++ autoconf libc6 libpcre3 flex bison libgmp-dev libssl-dev libglib2.0-dev help2man

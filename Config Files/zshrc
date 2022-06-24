@@ -4,9 +4,9 @@
 # Path to your oh-my-zsh installation.
 ZSH_DISABLE_COMPFIX=true
 
-USER=$(whoami)
+HOME=$(echo ~)
 
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,7 +78,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 bindkey '^P' fzf-file-widget
 # User configuration
 
@@ -104,8 +104,8 @@ bindkey '^P' fzf-file-widget
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
 # .zshrc
 
 typeset -A crostini=(
@@ -120,11 +120,11 @@ typeset -A crostini=(
 ## My own Stuff ##
 
 # 42 Madrid Stuff
-alias old_norminette="~/.norminette/norminette.rb"
+alias old_norminette="$HOME/.norminette/norminette.rb"
 CFLAGS="-Wall -Wextra -Werror"
 #USER="aperez-b"
 MAIL="aperez-b@student.42.fr"
-alias cursus="cd /home/$USER/42\ Madrid/GitHub/42\ Cursus"
+alias cursus="cd $HOME/42\ Madrid/GitHub/42\ Cursus"
 alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 
 # Misc
@@ -137,17 +137,17 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 autoload -Uz compinit
 compinit
 export FZF_DEFAULT_COMMAND="find -L"
-export PATH=$PATH:$(find /home/$USER/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+export PATH=$PATH:$(find $HOME/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
 
 # Set up git credential
 git config --global credential.helper libsecret
 
 
 # Custom Google greeting
-#zsh ~/.mygreeting
+#zsh $HOME/.mygreeting
 
 # Custom 42 greeting
-zsh ~/.mygreeting_42
+zsh $HOME/.mygreeting_42
 
 # ADB devices
 GINKGO=2760c408
@@ -209,39 +209,39 @@ function mkcdir() {
 }
 
 # Basic Aliases
-alias downs="cd ~/Downloads"
-alias clear_downs="rm -rf ~/Downloads/*"
-alias docs="cd ~/Documents"
-alias music="cd ~/Music"
+alias downs="cd $HOME/Downloads"
+alias clear_downs="rm -rf $HOME/Downloads/*"
+alias docs="cd $HOME/Documents"
+alias music="cd $HOME/Music"
 alias x="clear && ls -a"
-alias desktop="cd ~/Desktop"
-alias r="clear && source ~/.zshrc && builtin cd"
+alias desktop="cd $HOME/Desktop"
+alias r="clear && source $HOME/.zshrc && builtin cd"
 alias q="exit"
 alias apps="builtin cd /usr/share/applications && ls /usr/share/applications"
 alias appicons="builtin cd /usr/share/icons && ls /usr/share/icons"
-alias localapps="builtin cd ~/.local/share/applications && ls ~/.local/share/applications"
-alias h="cd ~/"
-alias bashrc="nvim ~/.bashrc"
-alias zshrc="nvim ~/.zshrc"
-alias vimrc="nvim ~/.vimrc"
-alias removable="cd ~/Removable\ Devices"
-alias ext="cd ~/Removable\ Devices"
+alias localapps="builtin cd $HOME/.local/share/applications && ls $HOME/.local/share/applications"
+alias h="cd $HOME/"
+alias bashrc="nvim $HOME/.bashrc"
+alias zshrc="nvim $HOME/.zshrc"
+alias vimrc="nvim $HOME/.vimrc"
+alias removable="cd $HOME/Removable\ Devices"
+alias ext="cd $HOME/Removable\ Devices"
 alias v="neofetch | lolcat"
 alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2 -C --filelimit 100"
 alias parrot.live="curl parrot.live"
-alias college="cd /home/$USER/College/"
-alias uc3m="zsh -c /home/$USER/.mygreeting_uc3m"
-alias tux="zsh -c /home/$USER/.mygreeting_tux"
+alias college="cd $HOME/College/"
+alias uc3m="zsh -c $HOME/.mygreeting_uc3m"
+alias tux="zsh -c $HOME/.mygreeting_tux"
 alias mg="git add . && git commit && git push"
-alias bashrc_update="cp ~/.bashrc ~/Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd ~/"
-alias zshrc_update="cp ~/.zshrc ~/Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd ~/"
-alias vimrc_update="cp ~/.vimrc ~/Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd ~/"
-alias p10k_update="cp ~/.p10k.zsh ~/Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd ~/Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd ~/"
+alias bashrc_update="cp $HOME/.bashrc $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd $HOME/"
+alias zshrc_update="cp $HOME/.zshrc $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd $HOME/"
+alias vimrc_update="cp $HOME/.vimrc $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd $HOME/"
+alias p10k_update="cp $HOME/.p10k.zsh $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd $HOME/"
 
 # Aliases for Arch Linux
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="/home/$USER/.local/bin:$PATH"
+	export PATH="$HOME/.local/bin:$PATH"
 	# Other Aliases
 	alias scc="yay -Scc"
 	alias u="yay -Syu --noconfirm"
@@ -252,18 +252,18 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	alias pipupdate="sudo pip install -U"
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
-	alias checktheme-now="python -u '/home/$USER/.autotheme/timecheck-now.py'"
-	alias donkeykong="python -u '/home/$USER/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-	alias pac-man="make play -C /home/$USER/42\ Madrid/GitHub/42\ Cursus/so_long"
-	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/$USER/.vbmeta/vbmeta.img && fastboot reboot"
-	alias timeconvert="python -u '/home/$USER/Simple-Python-Time-Converter/timeconverter.py'"
+	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
+	alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta $HOME/.vbmeta/vbmeta.img && fastboot reboot"
+	alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
 
 # Aliases for Debian
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="/home/$USER/.local/bin:$PATH"
+	export PATH="$HOME/.local/bin:$PATH"
 	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	# Other Aliases
 	alias python="python3"
@@ -275,19 +275,19 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; t
 	alias pipupdate="sudo pip install -U"
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
-	alias checktheme-now="python -u '/home/$USER/.autotheme/timecheck-now.py'"
-	alias donkeykong="python -u '/home/$USER/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-	alias pac-man="make play -C /home/$USER/42\ Madrid/GitHub/42\ Cursus/so_long"
-	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta /home/$USER/.vbmeta/vbmeta.img && fastboot reboot"
-	alias timeconvert="python -u '/home/$USER/Simple-Python-Time-Converter/timeconverter.py'"
+	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
+	alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta $HOME/.vbmeta/vbmeta.img && fastboot reboot"
+	alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:/snap/bin:$HOME/.rvm/bin"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh

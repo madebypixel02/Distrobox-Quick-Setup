@@ -1,36 +1,36 @@
 #!/bin/bash
 
-USER=$(whoami)
+HOME=$(echo ~)
 
 # Create/Remove Some directories
-mkdir -p ~/Documents
-mkdir -p ~/Desktop
-mkdir -p ~/Pictures
-mkdir -p ~/Audiobooks
-mkdir -p ~/.local/share/icons
-mkdir -p ~/.local/share/applications
-mkdir -p ~/.local/share/fonts
-mkdir -p ~/.local/share/themes
-mkdir -p ~/.config/systemd/user/
+mkdir -p $HOME/Documents
+mkdir -p $HOME/Desktop
+mkdir -p $HOME/Pictures
+mkdir -p $HOME/Audiobooks
+mkdir -p $HOME/.local/share/icons
+mkdir -p $HOME/.local/share/applications
+mkdir -p $HOME/.local/share/fonts
+mkdir -p $HOME/.local/share/themes
+mkdir -p $HOME/.config/systemd/user/
 
 # Add symbolic links
-[ ! -f ~/Pictures/Useful\ Photos ] && ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ ~/Pictures
-[ ! -f ~/Pictures/Public\ Transportation ] && ln -s /run/media/pixel/Pixel\ SD/Public\ Transportation/ ~/Pictures
-[ ! -f ~/Music ] && ln -s /run/media/pixel/Pixel\ SD/NewMusic ~/Music
-[ ! -f ~/Videos ] && ln -s /run/media/pixel/Pixel\ SD/Videos ~/Videos
-[ ! -f ~/Removable\ Devices ] && ln -s /run/media/pixel ~/Removable\ Devices
-[ ! -f ~/Playlists ] && ln -s ~/Removable\ Devices/Pixel\ SD/Linux\ Playlists ~/Playlists
-cp -r ~/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ ~/Documents
+[ ! -f $HOME/Pictures/Useful\ Photos ] && ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ $HOME/Pictures
+[ ! -f $HOME/Pictures/Public\ Transportation ] && ln -s /run/media/pixel/Pixel\ SD/Public\ Transportation/ $HOME/Pictures
+[ ! -f $HOME/Music ] && ln -s /run/media/pixel/Pixel\ SD/NewMusic $HOME/Music
+[ ! -f $HOME/Videos ] && ln -s /run/media/pixel/Pixel\ SD/Videos $HOME/Videos
+[ ! -f $HOME/Removable\ Devices ] && ln -s /run/media/pixel $HOME/Removable\ Devices
+[ ! -f $HOME/Playlists ] && ln -s $HOME/Removable\ Devices/Pixel\ SD/Linux\ Playlists $HOME/Playlists
+cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ $HOME/Documents
 
 # Copy vimrc, zshrc, bashrc, etc
-cp ~/Distrobox-Quick-Setup/Config\ Files/vimrc ~/.vimrc
-cp ~/Distrobox-Quick-Setup/Config\ Files/zshrc ~/.zshrc
-cp ~/Distrobox-Quick-Setup/Config\ Files/bashrc ~/.bashrc
-cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting ~/.mygreeting
-cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m ~/.mygreeting_uc3m
-cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 ~/.mygreeting_42
-cp ~/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux ~/.mygreeting_tux
-cp ~/Distrobox-Quick-Setup/Config\ Files/p10k.zsh ~/.p10k.zsh
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc $HOME/.vimrc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc $HOME/.zshrc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc $HOME/.bashrc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting $HOME/.mygreeting
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m $HOME/.mygreeting_uc3m
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 $HOME/.mygreeting_42
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux $HOME/.mygreeting_tux
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh $HOME/.p10k.zsh
 
 # Set custom rules in sudoers file
 sudo mkdir -p /var/log/sudo/
@@ -39,60 +39,60 @@ echo "Defaults        badpass_message=\"Whoops, wrong password!\"
 Defaults        logfile=\"/var/log/sudo/sudo.log\"" | sudo tee -a /etc/sudoers
 
 # Copy neovim config file
-mkdir -p ~/.config
-cp -r ~/Distrobox-Quick-Setup/Config\ Files/nvim ~/.config/
+mkdir -p $HOME/.config
+cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/nvim $HOME/.config/
 
 # Configure cmus
-mkdir -p /home/$USER/.config/cmus
-cp ~/Distrobox-Quick-Setup/Config\ Files/cmus/autosave /home/$USER/.config/cmus/autosave
+mkdir -p $HOME/.config/cmus
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/cmus/autosave $HOME/.config/cmus/autosave
 
 # Configure browsh
-cp -r ~/Distrobox-Quick-Setup/Config\ Files/browsh ~/.config/
+cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/browsh $HOME/.config/
 
 # Configure mpv
-mkdir -p ~/.config/mpv
+mkdir -p $HOME/.config/mpv
 echo "vo=gpu
-hwdec=auto" > ~/.config/mpv/mpv.conf
+hwdec=auto" > $HOME/.config/mpv/mpv.conf
 
 # Fzf installation
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+$HOME/.fzf/install
 
 # Install Cascadia Fonts
 wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && \
-	unzip cascadia-fonts.zip -d /home/$USER/.local/share/fonts/
+	unzip cascadia-fonts.zip -d $HOME/.local/share/fonts/
 rm -f cascadia-fonts.zip
 
 # Install Google Sans Fonts
 cd Config\ Files/
-mkdir -p /home/$USER/.local/share/fonts/TTF
-unzip Google\ Sans.zip -d /home/$USER/.local/share/fonts/TTF
+mkdir -p $HOME/.local/share/fonts/TTF
+unzip Google\ Sans.zip -d $HOME/.local/share/fonts/TTF
 cd ..
 
 # Install xcursor-chromeos
-cd Config\ Files/ && unzip xcursor-chromeos.zip -d /home/$USER/.local/share/icons/ && cd ..
+cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.local/share/icons/ && cd ..
 
 # Set xcursor-chromeos as default
-mkdir -p ~/.icons/default
+mkdir -p $HOME/.icons/default
 #echo "[Icon Theme]
-#Inherits=xcursor-chromeos" > ~/.icons/default/index.theme
-#ln -s /home/$USER/.local/share/icons/xcursor-chromeos/cursors ~/.icons/default/cursors
+#Inherits=xcursor-chromeos" > $HOME/.icons/default/index.theme
+#ln -s $HOME/.local/share/icons/xcursor-chromeos/cursors $HOME/.icons/default/cursors
 
 # Install adw-gtk3
 cd Config\ Files/
 tar -xvf adw-gtk3v3-0.tar.xz
-cp -r adw-gtk3 ~/.local/share/themes/ && rm -rf adw-gtk3
-cp -r adw-gtk3-dark ~/.local/share/themes/ && rm -rf adw-gtk3-dark
-cp -r adw-gtk2-dark ~/.local/share/themes/adw-gtk3/gtk-2.0
-cp -r adw-gtk2-dark ~/.local/share/themes/adw-gtk3-dark/gtk-2.0
+cp -r adw-gtk3 $HOME/.local/share/themes/ && rm -rf adw-gtk3
+cp -r adw-gtk3-dark $HOME/.local/share/themes/ && rm -rf adw-gtk3-dark
+cp -r adw-gtk2-dark $HOME/.local/share/themes/adw-gtk3/gtk-2.0
+cp -r adw-gtk2-dark $HOME/.local/share/themes/adw-gtk3-dark/gtk-2.0
 cd ..
 
 # Configure Auto-Theme
-cp ~/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* ~/.config/systemd/user/
-cp -r ~/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/.autotheme ~/
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/
+cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/.autotheme $HOME/
 
 # Copy gnome podcasts backup
-cp ~/Distrobox-Quick-Setup/Config\ Files/podcasts_opml.xml /home/$USER
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/podcasts_opml.xml $HOME
 
 # Configure gnome terminal shortcuts
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
@@ -106,20 +106,20 @@ XDG_MUSIC_DIR=\"$HOME/Music\"
 XDG_PICTURES_DIR=\"$HOME/Pictures\"
 XDG_PUBLICSHARE_DIR=\"$HOME/Public\"
 XDG_TEMPLATES_DIR=\"$HOME/Templates\"
-XDG_VIDEOS_DIR=\"$HOME/Videos\"" > ~/.config/user-dirs.dirs
-echo "enabled=False" > ~/.config/user-dirs.conf
+XDG_VIDEOS_DIR=\"$HOME/Videos\"" > $HOME/.config/user-dirs.dirs
+echo "enabled=False" > $HOME/.config/user-dirs.conf
 
 # 42 Header
-mkdir -p ~/.vim/plugin/
-cp ~/Distrobox-Quick-Setup/42\ Madrid/Header/stdheader.vim ~/.vim/plugin/
-cp ~/Distrobox-Quick-Setup/42\ Madrid/Header/customheader.vim ~/.vim/plugin/
+mkdir -p $HOME/.vim/plugin/
+cp $HOME/Distrobox-Quick-Setup/42\ Madrid/Header/stdheader.vim $HOME/.vim/plugin/
+cp $HOME/Distrobox-Quick-Setup/42\ Madrid/Header/customheader.vim $HOME/.vim/plugin/
 
 # Clone Useful Repos
-git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git ~/Simple-Python-Time-Converter
+git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git $HOME/Simple-Python-Time-Converter
 
 # Clone 42 Madrid Projects
-mkdir -p ~/42\ Madrid/GitHub/42\ Cursus
-cd ~/42\ Madrid/GitHub/42\ Cursus
+mkdir -p $HOME/42\ Madrid/GitHub/42\ Cursus
+cd $HOME/42\ Madrid/GitHub/42\ Cursus
 git clone https://github.com/madebypixel02/libft.git
 git clone https://github.com/madebypixel02/ft_printf.git && cd ft_printf && ln -s ../libft . && cd ..
 git clone https://github.com/madebypixel02/get_next_line.git
@@ -142,18 +142,18 @@ git clone https://github.com/madebypixel02/CPP-Module-07.git
 git clone https://github.com/madebypixel02/CPP-Module-08.git
 
 # Clone College Stuff
-mkdir -p ~/College/Programming\ I
-mkdir -p ~/College/Machine\ Learning\ I
-mkdir -p ~/College/Statistical\ Learning
-mkdir -p ~/College/Data\ Protection\ \&\ Cybersecurity/
-cd ~/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd ~/
-cd ~/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd ~/
-cd ~/College/Statistical\ Learning/ && git clone https://github.com/madebypixel02/Statistial-Learning-Practices-2021.git && cd ~/
-cd ~/College/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/ABE-Scalability.git && cd ~/
-cd ~/College/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/Openssl-Practices-2022.git && cd ~/
-cd ~/College && git clone https://github.com/madebypixel02/Uc3m-Projects && cd ~/
+mkdir -p $HOME/College/Programming\ I
+mkdir -p $HOME/College/Machine\ Learning\ I
+mkdir -p $HOME/College/Statistical\ Learning
+mkdir -p $HOME/College/Data\ Protection\ \&\ Cybersecurity/
+cd $HOME/College/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd $HOME/
+cd $HOME/College/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd $HOME/
+cd $HOME/College/Statistical\ Learning/ && git clone https://github.com/madebypixel02/Statistial-Learning-Practices-2021.git && cd $HOME/
+cd $HOME/College/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/ABE-Scalability.git && cd $HOME/
+cd $HOME/College/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/Openssl-Practices-2022.git && cd $HOME/
+cd $HOME/College && git clone https://github.com/madebypixel02/Uc3m-Projects && cd $HOME/
 
-cd ~/Distrobox-Quick-Setup
+cd $HOME/Distrobox-Quick-Setup
 
 # Call Installer based on Distro
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then

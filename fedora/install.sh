@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER=$(whoami)
+HOME=$(echo ~)
 
 # Enable some extra repos
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -12,22 +12,22 @@ sudo dnf install -y git curl wget neofetch python python-pip vim neovim zsh dnf-
 sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
 
 # Setup Vim-Plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Uniform QT / GTK look
-echo "export QT_QPA_PLATFORMTHEME=gtk3" >> ~/.profile
+echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 
 # Copy desktop files and icons
-cp ~/Distrobox-Quick-Setup/Apps/Icons/*.png /home/$USER/.local/share/icons
-#cp -r ~/Distrobox-Quick-Setup/Apps/Files/* ~/.local/share/applications
+cp $HOME/Distrobox-Quick-Setup/Apps/Icons/*.png $HOME/.local/share/icons
+#cp -r $HOME/Distrobox-Quick-Setup/Apps/Files/* $HOME/.local/share/applications
 
 # Set up zsh and oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-mv -f ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+mv -f $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
 # Load copr repos
 sudo dnf copr enable -y zawertun/vapoursynth
@@ -38,7 +38,7 @@ sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/maste
 sudo dnf install -y lollypop android-tools neofetch lolcat nemo nemo-preview gnome-boxes vlc gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus eog npm dex vim bat llvm gdal texlive-scheme-full tree libbsd java-latest-openjdk docker gnome-system-monitor cronie distrobox fedora-packager fedora-review gnome-console gnome-tweaks google-android-emoji-fonts google-noto-sans-fonts google-noto-sans-mono-fonts gstreamer-plugins-espeak gstreamer1-libav gstreamer1-plugin-openh264 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly htop joystick joystick-support langpacks-core-en langpacks-core-es langpacks-en langpacks-es libva-intel-driver lm_sensors samba nano sysbench gnome-keyring libgnome-keyring cmatrix xhost seahorse nemo-fileroller wine sl gnome-console elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany vulkan-loader vulkan-tools python-numpy tk xinput mpv libXext-devel libbsd-devel git-credential-libsecret
 
 # Configure Packages
-JAVA_HOME=/usr/lib/jvm/default sudo pip install -r ~/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
+JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
 sudo usermod -aG dnsmasq $USER
 #sudo systemctl enable --now libvirtd
 sudo usermod -aG wireshark $USER
@@ -50,15 +50,15 @@ tar -xvf svp.tar.bz2
 ./$(find . -name svp4-linux-64.run)
 rm -rf svp.tar.bz2 svp
 find . -name svp4-linux-64.run -delete
-xhost +si:localuser:root && sudo /home/$USER/SVP\ 4/SVPManager
+xhost +si:localuser:root && sudo $HOME/SVP\ 4/SVPManager
 
 # Install yarn
 sudo npm install yarn -g
 
 # Set up gnirehtet
 wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip
-unzip gnirehtet-* -d /home/$USER
-sudo ln -s /home/$USER/gnirehtet-rust-linux64/gnirehtet /bin
+unzip gnirehtet-* -d $HOME
+sudo ln -s $HOME/gnirehtet-rust-linux64/gnirehtet /bin
 rm -f gnirehtet-rust-linux64-v2.5.zip
 
 # Configure gnome terminal shortcuts
@@ -93,5 +93,5 @@ cd ..
 rm -rf minilibx-linux
 
 # Install minishell
-make -C ~/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s ~/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd ~/Distrobox-Quick-Setup
+make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
+cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup

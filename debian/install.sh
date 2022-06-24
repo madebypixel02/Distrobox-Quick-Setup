@@ -18,8 +18,8 @@ sudo apt install aptitude -y
 echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 
 # Copy desktop files and icons
-cp $HOME/Debian-Distrobox-Quick-Setup/Apps/Icons/*.png $HOME/.local/share/icons
-#cp -r $HOME/Debian-Distrobox-Quick-Setup/Apps/Files/* $HOME/.local/share/applications
+cp $HOME/Distrobox-Quick-Setup/debian/Apps/Icons/*.png $HOME/.local/share/icons
+#cp -r $HOME/Distrobox-Quick-Setup/debian/Apps/Files/* $HOME/.local/share/applications
 
 # Install typical packages
 sudo pip3 install -U youtube-dl suntime norminette future
@@ -93,7 +93,7 @@ rm -rf minilibx-linux
 
 # Install minishell
 make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Debian-Distrobox-Quick-Setup
+cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
 
 # Install College Stuff Dependencies
 sudo apt -y install make gcc g++ autoconf libc6 libpcre3 flex bison libgmp-dev libssl-dev libglib2.0-dev help2man

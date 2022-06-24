@@ -3,6 +3,8 @@
 HOME=$(echo ~)
 
 # Create/Remove Some directories
+rm -rf $HOMR/Music
+rm -rf $HOMR/Videos
 mkdir -p $HOME/Documents
 mkdir -p $HOME/Desktop
 mkdir -p $HOME/Pictures
@@ -12,6 +14,9 @@ mkdir -p $HOME/.local/share/applications
 mkdir -p $HOME/.local/share/fonts
 mkdir -p $HOME/.local/share/themes
 mkdir -p $HOME/.config/systemd/user/
+mkdir -p $HOME/.themes
+mkdir -p $HOME/.fonts
+mkdir -p $HOME/.icons
 
 # Add symbolic links
 [ ! -f $HOME/Pictures/Useful\ Photos ] && ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ $HOME/Pictures
@@ -54,37 +59,47 @@ mkdir -p $HOME/.config/mpv
 echo "vo=gpu
 hwdec=auto" > $HOME/.config/mpv/mpv.conf
 
+# Setup Vim-Plug
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Set up zsh and oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+
 # Fzf installation
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install
 
 # Install Cascadia Fonts
 wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && \
-	unzip cascadia-fonts.zip -d $HOME/.local/share/fonts/
+	unzip cascadia-fonts.zip -d $HOME/.fonts/
 rm -f cascadia-fonts.zip
 
 # Install Google Sans Fonts
 cd Config\ Files/
-mkdir -p $HOME/.local/share/fonts/TTF
-unzip Google\ Sans.zip -d $HOME/.local/share/fonts/TTF
+mkdir -p $HOME/.fonts/TTF
+unzip Google\ Sans.zip -d $HOME/.fonts/TTF
 cd ..
 
 # Install xcursor-chromeos
-cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.local/share/icons/ && cd ..
+cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.icons/ && cd ..
 
 # Set xcursor-chromeos as default
 mkdir -p $HOME/.icons/default
 #echo "[Icon Theme]
 #Inherits=xcursor-chromeos" > $HOME/.icons/default/index.theme
-#ln -s $HOME/.local/share/icons/xcursor-chromeos/cursors $HOME/.icons/default/cursors
+#ln -s $HOME/.icons/xcursor-chromeos/cursors $HOME/.icons/default/cursors
 
 # Install adw-gtk3
 cd Config\ Files/
 tar -xvf adw-gtk3v3-0.tar.xz
-cp -r adw-gtk3 $HOME/.local/share/themes/ && rm -rf adw-gtk3
-cp -r adw-gtk3-dark $HOME/.local/share/themes/ && rm -rf adw-gtk3-dark
-cp -r adw-gtk2-dark $HOME/.local/share/themes/adw-gtk3/gtk-2.0
-cp -r adw-gtk2-dark $HOME/.local/share/themes/adw-gtk3-dark/gtk-2.0
+cp -r adw-gtk3 $HOME/.themes/ && rm -rf adw-gtk3
+cp -r adw-gtk3-dark $HOME/.themes/ && rm -rf adw-gtk3-dark
+cp -r adw-gtk2 $HOME/.themes/adw-gtk3/gtk-2.0
+cp -r adw-gtk2-dark $HOME/.themes/adw-gtk3-dark/gtk-2.0
 cd ..
 
 # Configure Auto-Theme
@@ -111,8 +126,16 @@ echo "enabled=False" > $HOME/.config/user-dirs.conf
 
 # 42 Header
 mkdir -p $HOME/.vim/plugin/
-cp $HOME/Distrobox-Quick-Setup/42\ Madrid/Header/stdheader.vim $HOME/.vim/plugin/
-cp $HOME/Distrobox-Quick-Setup/42\ Madrid/Header/customheader.vim $HOME/.vim/plugin/
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/42.vim $HOME/.vim/plugin/
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/uc3m.vim $HOME/.vim/plugin/
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/tux.vim $HOME/.vim/plugin/
+
+# Configure git
+git config --global user.name "madebypixel02"
+git config --global user.email "madebypixel02@proton.me"
+git config --global core.editor nvim
+git config --global pull.rebase false
+git config --global init.defaultBranch main
 
 # Clone Useful Repos
 git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git $HOME/Simple-Python-Time-Converter

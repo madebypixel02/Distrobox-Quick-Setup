@@ -14,23 +14,12 @@ sudo apt install -y git base zsh curl wget vim neovim python3 python3-pip build-
 # install aptitude
 sudo apt install aptitude -y
 
-# Setup Vim-Plug
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # Uniform QT / GTK look
 echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 
 # Copy desktop files and icons
 cp $HOME/Debian-Distrobox-Quick-Setup/Apps/Icons/*.png $HOME/.local/share/icons
 #cp -r $HOME/Debian-Distrobox-Quick-Setup/Apps/Files/* $HOME/.local/share/applications
-
-# Set up zsh and oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
-mv -f $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
 # Install typical packages
 sudo pip3 install -U youtube-dl suntime norminette future
@@ -79,14 +68,9 @@ rm -f gnirehtet-rust-linux64-v2.5.zip
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
-# Configure git
+# Configure git credential manager
 sudo make -C /usr/share/doc/git/contrib/credential/libsecret/
 git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-git config --global user.name "madebypixel02"
-git config --global user.email "madebypixel02@proton.me"
-git config --global core.editor nvim
-git config --global pull.rebase false
-git config --global init.defaultBranch main
 
 # Start Auto-Theme
 #systemctl --user enable --now auto-theme.service

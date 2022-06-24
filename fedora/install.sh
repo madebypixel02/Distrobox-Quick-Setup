@@ -48,9 +48,8 @@ xhost +si:localuser:root && sudo $HOME/SVP\ 4/SVPManager
 sudo npm install yarn -g
 
 # Set up gnirehtet
-wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip
-unzip gnirehtet-* -d $HOME
-sudo ln -s $HOME/gnirehtet-rust-linux64/gnirehtet /bin
+[ ! -L /bin/gnirehtet ] && wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && \
+	unzip gnirehtet-* -d $HOME && sudo ln -s $HOME/gnirehtet-rust-linux64/gnirehtet /bin
 rm -f gnirehtet-rust-linux64-v2.5.zip
 
 # Configure gnome terminal shortcuts
@@ -81,4 +80,4 @@ rm -rf minilibx-linux
 
 # Install minishell
 make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
+[ ! -L /bin/minishell ] && cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup

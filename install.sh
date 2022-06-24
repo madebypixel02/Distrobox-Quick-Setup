@@ -19,12 +19,12 @@ mkdir -p $HOME/.fonts
 mkdir -p $HOME/.icons
 
 # Add symbolic links
-[ ! -f $HOME/Pictures/Useful\ Photos ] && ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ $HOME/Pictures
-[ ! -f $HOME/Pictures/Public\ Transportation ] && ln -s /run/media/pixel/Pixel\ SD/Public\ Transportation/ $HOME/Pictures
-[ ! -f $HOME/Music ] && ln -s /run/media/pixel/Pixel\ SD/NewMusic $HOME/Music
-[ ! -f $HOME/Videos ] && ln -s /run/media/pixel/Pixel\ SD/Videos $HOME/Videos
-[ ! -f $HOME/Removable\ Devices ] && ln -s /run/media/pixel $HOME/Removable\ Devices
-[ ! -f $HOME/Playlists ] && ln -s $HOME/Removable\ Devices/Pixel\ SD/Linux\ Playlists $HOME/Playlists
+[ ! -L $HOME/Pictures/Useful\ Photos ] && ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ $HOME/Pictures
+[ ! -L $HOME/Pictures/Public\ Transportation ] && ln -s /run/media/pixel/Pixel\ SD/Public\ Transportation/ $HOME/Pictures
+[ ! -L $HOME/Music ] && ln -s /run/media/pixel/Pixel\ SD/NewMusic $HOME/Music
+[ ! -L $HOME/Videos ] && ln -s /run/media/pixel/Pixel\ SD/Videos $HOME/Videos
+[ ! -L $HOME/Removable\ Devices ] && ln -s /run/media/pixel $HOME/Removable\ Devices
+[ ! -L $HOME/Playlists ] && ln -s $HOME/Removable\ Devices/Pixel\ SD/Linux\ Playlists $HOME/Playlists
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ $HOME/Documents
 
 # Set custom rules in sudoers file
@@ -71,22 +71,21 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HO
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
 
 # Fzf installation
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
 
 # Install Cascadia Fonts
-wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && \
+[ ! -f $HOME/.fonts/ttf/CascadiaCodeItalic.ttf ] && wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && \
 	unzip cascadia-fonts.zip -d $HOME/.fonts/
 rm -f cascadia-fonts.zip
 
 # Install Google Sans Fonts
 cd Config\ Files/
 mkdir -p $HOME/.fonts/TTF
-unzip Google\ Sans.zip -d $HOME/.fonts/TTF
+[ ! -f $HOME/.fonts/TTF/GoogleSans-Regular.ttf ] && unzip Google\ Sans.zip -d $HOME/.fonts/TTF
 cd ..
 
 # Install xcursor-chromeos
-cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.icons/ && cd ..
+[ ! -f $HOME/.icons/xcursor-chromeos/cursors/alias ] && cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.icons/ && cd ..
 
 # Set xcursor-chromeos as default
 mkdir -p $HOME/.icons/default
@@ -95,13 +94,9 @@ mkdir -p $HOME/.icons/default
 #ln -s $HOME/.icons/xcursor-chromeos/cursors $HOME/.icons/default/cursors
 
 # Install adw-gtk3
-cd Config\ Files/
-tar -xvf adw-gtk3v3-0.tar.xz
-cp -r adw-gtk3 $HOME/.themes/ && rm -rf adw-gtk3
-cp -r adw-gtk3-dark $HOME/.themes/ && rm -rf adw-gtk3-dark
-cp -r adw-gtk2 $HOME/.themes/adw-gtk3/gtk-2.0
-cp -r adw-gtk2-dark $HOME/.themes/adw-gtk3-dark/gtk-2.0
-cd ..
+[ !-f $HOME/.themes/adw-gtk3/gtk-2.0 ]cd Config\ Files/ && tar -xvf adw-gtk3v3-0.tar.xz && cp -r adw-gtk3 $HOME/.themes/ && rm -rf adw-gtk3 && \
+	cp -r adw-gtk3-dark $HOME/.themes/ && rm -rf adw-gtk3-dark && cp -r adw-gtk2 $HOME/.themes/adw-gtk3/gtk-2.0 && \
+	cp -r adw-gtk2-dark $HOME/.themes/adw-gtk3-dark/gtk-2.0 && cd ..
 
 # Configure Auto-Theme
 cp $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/

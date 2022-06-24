@@ -75,7 +75,7 @@ rm -rf minilibx-linux
 
 # Install minishell
 make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
-cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
+[ ! -L /bin/minishell ] && cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
 
 # Install College Stuff Dependencies
 

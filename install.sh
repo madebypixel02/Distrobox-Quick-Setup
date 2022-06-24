@@ -61,13 +61,13 @@ hwdec=auto" > $HOME/.config/mpv/mpv.conf
 
 # Install unzip and git based on distro
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
-	sudo pacman -S git unzip --needed --noconfirm
+	sudo pacman -S git unzip xz --needed --noconfirm
 fi
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
-	sudo apt install -y git unzip
+	sudo apt install -y git unzip xz
 fi
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Fedora Linux\"" ; then
-	sudo dnf install -y git unzip
+	sudo dnf install -y git unzip xz
 fi
 
 # Setup Vim-Plug

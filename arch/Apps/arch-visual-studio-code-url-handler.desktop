@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Visual Studio Code - URL Handler  (on arch)
+Comment=Code Editing. Redefined.
+GenericName=Text Editor  (on arch)
+Exec=/usr/bin/distrobox-enter  -n arch -- '  /usr/bin/code --open-url  %U'
+Icon=visual-studio-code
+Type=Application
+NoDisplay=true
+StartupNotify=true
+Categories=TextEditor;Development;IDE;
+MimeType=x-scheme-handler/vscode;
+Keywords=vscode;
+StartupWMClass=code

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Pac-Man
-Comment=Classic Pac-Man Game
-Exec=/bin/zsh -c "make play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long" -- %u
-Icon=/usr/share/icons/pacman.png
-NoDisplay=true
-Terminal=false
-Type=Application

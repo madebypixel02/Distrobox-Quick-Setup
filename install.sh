@@ -130,6 +130,9 @@ cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 $HOME/.mygr
 cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux $HOME/.mygreeting_tux
 cp $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh $HOME/.p10k.zsh
 
+# Copy icon files
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Icons/* $HOME/.local/share/icons
+
 # 42 Header
 mkdir -p $HOME/.vim/plugin/
 cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/42.vim $HOME/.vim/plugin/

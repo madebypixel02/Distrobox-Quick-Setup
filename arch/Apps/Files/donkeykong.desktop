@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Donkey Kong
-Comment=Classic Donkey Kong Game
-Exec=/bin/zsh -c "python /home/pixel/College/Programming\ I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py -- %u"
-Icon=/usr/share/icons/donkeykong.png
-NoDisplay=true
-Terminal=false
-Type=Application

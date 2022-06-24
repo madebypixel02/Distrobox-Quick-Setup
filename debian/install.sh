@@ -17,9 +17,8 @@ sudo apt install aptitude -y
 # Uniform QT / GTK look
 echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 
-# Copy desktop files and icons
-cp $HOME/Distrobox-Quick-Setup/debian/Apps/Icons/*.png $HOME/.local/share/icons
-#cp -r $HOME/Distrobox-Quick-Setup/debian/Apps/Files/* $HOME/.local/share/applications
+# Copy desktop files
+cp -r $HOME/Distrobox-Quick-Setup/debian/Apps/* $HOME/.local/share/applications
 
 # Install typical packages
 sudo pip3 install -U youtube-dl suntime norminette future
@@ -33,7 +32,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 rm -f packages.microsoft.gpg
 sudo apt update
 sudo apt install -y apt-utils apt-transport-https software-properties-common
-sudo aptitude install -y gdebi lollypop adb fastboot pciutils libreadline-dev libsdl2-image-dev libsdl2-dev npm nodejs mesa-utils libglib2.0-dev libsquashfuse0 squashfuse fuse snapd firefox-esr zsh neovim neofetch lolcat nemo wine gedit gnome-boxes python3-pip vlc telegram-desktop libreoffice cura gimp kdenlive r-base r-base-dev libnss3 gnome-tweaks lxappearance transmission-gtk shotcut valgrind gnome-shell gnome-control-center gnome-calculator gnome-terminal nautilus cheese eog yarn dex gnome-maps gnome-photos totem gnome-calendar gnome-weather gnome-books gnome-clocks gnome-contacts gtk2-engines-murrine vim bat llvm fortran-compiler python3-psycopg2 gdal-bin texlive-base scrcpy mplayer kid3-qt tree libbsd-dev default-jre docker gnome-sound-recorder gnome-music gnome-system-monitor fonts-symbola samba nano sysbench asciiart gnome-keyring libsecret-1-0 libsecret-1-dev gnome-session gnome-documents mesa-vulkan-drivers vulkan-tools sl elinks cowsay virt-manager dnsmasq cmus pandoc epiphany-browser wireshark rustc sqlite3 libsqlite3-dev libgdk-pixbuf2.0-dev seahorse xinput
+sudo aptitude install -y gdebi adb fastboot pciutils libreadline-dev libsdl2-image-dev libsdl2-dev npm nodejs mesa-utils libglib2.0-dev libsquashfuse0 squashfuse fuse snapd zsh neovim neofetch lolcat nemo wine gedit python3-pip r-base r-base-dev libnss3 gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk2-engines-murrine vim bat llvm fortran-compiler python3-psycopg2 gdal-bin texlive-base scrcpy kid3-qt tree libbsd-dev default-jre docker fonts-symbola samba nano sysbench asciiart gnome-keyring libsecret-1-0 libsecret-1-dev gnome-session mesa-vulkan-drivers vulkan-tools sl elinks cowsay dnsmasq cmus pandoc rustc sqlite3 libsqlite3-dev libgdk-pixbuf2.0-dev xinput qt5-style-plugins
 
 # Configure Packages
 JAVA_HOME=/usr/lib/jvm/default-java sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
@@ -42,12 +41,6 @@ sudo usermod -aG wireshark $USER
 sudo chmod +x /usr/bin/dumpcap
 sudo usermod -aG libvirt $USER
 echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
-wget https://www.svp-team.com/files/svp4-latest.php?linux -O svp.tar.bz2
-tar -xvf svp.tar.bz2
-./$(find . -name svp4-linux-64.run)
-rm -rf svp.tar.bz2 svp
-find . -name svp4-linux-64.run -delete
-xhost +si:localuser:root && sudo $HOME/SVP\ 4/SVPManager
 
 # Build foliate
 #sudo apt install -y appstream build-essential debhelper meson gettext webkit2gtk-driver

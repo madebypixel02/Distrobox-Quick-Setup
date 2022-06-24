@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=btop  (on arch)
+GenericName=System Monitor  (on arch)
+Comment=Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
+Icon=btop
+Exec=/usr/bin/distrobox-enter  -n arch -- '  btop'
+Terminal=true
+Categories=System;Monitor;ConsoleOnly;
+Keywords=system;process;task
+
+StartupWMClass=btop

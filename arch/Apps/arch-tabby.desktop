@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Tabby  (on arch)
+Exec=/usr/bin/distrobox-enter  -n arch -- '  /opt/Tabby/tabby --no-sandbox  %U'
+Terminal=false
+Type=Application
+Icon=tabby
+StartupWMClass=tabby
+Comment=A terminal for a modern age
+Categories=Utility;TerminalEmulator;System;

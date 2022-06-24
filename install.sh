@@ -27,16 +27,6 @@ mkdir -p $HOME/.icons
 [ ! -f $HOME/Playlists ] && ln -s $HOME/Removable\ Devices/Pixel\ SD/Linux\ Playlists $HOME/Playlists
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ $HOME/Documents
 
-# Copy vimrc, zshrc, bashrc, etc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc $HOME/.vimrc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc $HOME/.zshrc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc $HOME/.bashrc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting $HOME/.mygreeting
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m $HOME/.mygreeting_uc3m
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 $HOME/.mygreeting_42
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux $HOME/.mygreeting_tux
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh $HOME/.p10k.zsh
-
 # Set custom rules in sudoers file
 sudo mkdir -p /var/log/sudo/
 sudo touch /var/log/sudo/sudo.log
@@ -75,7 +65,7 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Set up zsh and oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH= sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
@@ -134,6 +124,16 @@ XDG_PUBLICSHARE_DIR=\"$HOME/Public\"
 XDG_TEMPLATES_DIR=\"$HOME/Templates\"
 XDG_VIDEOS_DIR=\"$HOME/Videos\"" > $HOME/.config/user-dirs.dirs
 echo "enabled=False" > $HOME/.config/user-dirs.conf
+
+# Copy vimrc, zshrc, bashrc, etc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc $HOME/.vimrc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc $HOME/.zshrc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc $HOME/.bashrc
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting $HOME/.mygreeting
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m $HOME/.mygreeting_uc3m
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 $HOME/.mygreeting_42
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux $HOME/.mygreeting_tux
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh $HOME/.p10k.zsh
 
 # 42 Header
 mkdir -p $HOME/.vim/plugin/

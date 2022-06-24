@@ -18,13 +18,16 @@ echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 cp $HOME/Distrobox-Quick-Setup/Apps/Icons/*.png $HOME/.local/share/icons
 #cp -r $HOME/Distrobox-Quick-Setup/Apps/Files/* $HOME/.local/share/applications
 
+# Copy dnf.conf
+sudo cp $HOME/Distrobox-Quick-Setup/Config\ Files/dnf.conf /etc/dnf/dnf.conf
+
 # Load copr repos
 sudo dnf copr enable -y zawertun/vapoursynth
 
 # Install typical packages
 sudo pip install -U youtube-dl suntime norminette future
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
-sudo dnf install -y lollypop android-tools neofetch lolcat nemo nemo-preview gnome-boxes vlc gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus eog npm dex vim bat llvm gdal texlive-scheme-full tree libbsd java-latest-openjdk docker gnome-system-monitor cronie distrobox fedora-packager fedora-review gnome-console gnome-tweaks google-android-emoji-fonts google-noto-sans-fonts google-noto-sans-mono-fonts gstreamer-plugins-espeak gstreamer1-libav gstreamer1-plugin-openh264 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly htop joystick joystick-support langpacks-core-en langpacks-core-es langpacks-en langpacks-es libva-intel-driver lm_sensors samba nano sysbench gnome-keyring libgnome-keyring cmatrix xhost seahorse nemo-fileroller wine sl gnome-console elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany vulkan-loader vulkan-tools python-numpy tk xinput mpv libXext-devel libbsd-devel git-credential-libsecret
+sudo dnf install -y lollypop android-tools neofetch lolcat nemo nemo-preview gnome-boxes vlc gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus eog npm dex vim bat llvm gdal texlive-scheme-full tree libbsd java-latest-openjdk docker gnome-system-monitor cronie distrobox fedora-packager fedora-review gnome-console gnome-tweaks google-android-emoji-fonts google-noto-sans-fonts google-noto-sans-mono-fonts gstreamer-plugins-espeak gstreamer1-libav gstreamer1-plugin-openh264 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly htop joystick joystick-support langpacks-core-en langpacks-core-es langpacks-en langpacks-es libva-intel-driver lm_sensors samba nano sysbench gnome-keyring libgnome-keyring cmatrix xhost seahorse nemo-fileroller wine sl gnome-console elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany vulkan-loader vulkan-tools python-numpy tk xinput mpv libXext-devel libbsd-devel git-credential-libsecret readline readline-devel
 
 # Configure Packages
 JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt

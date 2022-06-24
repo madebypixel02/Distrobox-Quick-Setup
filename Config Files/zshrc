@@ -138,6 +138,7 @@ autoload -Uz compinit
 compinit
 export FZF_DEFAULT_COMMAND="find -L"
 export PATH=$PATH:$(find $HOME/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set up git credential
 git config --global credential.helper libsecret
@@ -241,7 +242,6 @@ alias p10k_update="cp $HOME/.p10k.zsh $HOME/Distrobox-Quick-Setup/Config\ Files/
 # Aliases for Arch Linux
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="$HOME/.local/bin:$PATH"
 	# Other Aliases
 	alias scc="yay -Scc"
 	alias u="yay -Syu --noconfirm"
@@ -263,7 +263,6 @@ fi
 # Aliases for Debian
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	export PATH="$HOME/.local/bin:$PATH"
 	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	# Other Aliases
 	alias python="python3"
@@ -291,3 +290,5 @@ source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

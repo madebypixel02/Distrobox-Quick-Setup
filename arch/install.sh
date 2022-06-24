@@ -30,6 +30,7 @@ cp $HOME/Distrobox-Quick-Setup/Apps/Icons/*.png $HOME/.local/share/icons
 sudo pip install -U youtube-dl suntime norminette future
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo pip uninstall numpy beautifulsoup4 soupsieve
+yay -S nodejs-lts-gallium --needed --noconfirm
 yay -S lollypop android-tools gnirehtet zsh neofetch lolcat nemo nemo-preview xiaomitool-v2 gnome-boxes stremio vlc visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell gnome-control-center gnome-terminal nautilus whatsapp-nativefier eog yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker gnome-system-monitor ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix brave-bin xorg-xhost qt5-styleplugins seahorse nemo-fileroller mesa-utils wireshark-qt sl gnome-console browsh-bin elinks cowsay nginx mariadb virt-manager dnsmasq cmus pandoc epiphany libshumate-git freetube-bin xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks --needed --noconfirm
 
 # Configure Packages

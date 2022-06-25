@@ -1,4 +1,4 @@
-# Distrobox-Quick-Setup
+# Distrobox-Quick-Setup | Personal
 
 *Moar containers? 💻*
 

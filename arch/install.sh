@@ -1,3 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                           _nnnn_             #
+#                                                          dGGGGMMb            #
+#                                                         @p~qp~~qMb           #
+#                                                         M|@||@) M|           #
+#                                                         @,----.JM|           #
+#                                                        JS^\__/  qKL          #
+#                                                       dZP        qKRb        #
+#                                                      dZP          qKKb       #
+#                                                     fZP            SMMb      #
+#                                                     HZM            MMMM      #
+#    install.sh                                       FqM            MMMM      #
+#                                                   __| `.        |\dS'qML     #
+#    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
+#                                                   _)      .___.,|     .'     #
+#    Created: 2022/06/25 20:29:15 by madebypixel02  \___   )MMMMMP|   .'       #
+#    Updated: 2022/06/25 20:29:19 by madebypixel02      `-'       `--'         #
+#                                                                              #
+# **************************************************************************** #
+
 #!/bin/bash
 
 HOME=$(echo ~)

@@ -1,22 +1,20 @@
 let s:asciiart = [
-	\"",
-	\"                                           _nnnn_          ",
-	\"                                          dGGGGMMb         ",
-	\"                                         @p~qp~~qMb        ",
-	\"                                         M|@||@) M|        ",
-	\"                                         @,----.JM|        ",
-	\"                                        JS^\\__/  qKL       ",
-	\"                                       dZP        qKRb     ",
-	\"                                      dZP          qKKb    ",
-	\"                                     fZP            SMMb   ",
-	\"                                     HZM            MMMM   ",
-	\"                                     FqM            MMMM   ",
-	\"                                   __| `.        |\\dS'qML  ",
-	\"                                   |    `.       | `' \\Zq  ",
-	\"                                  _)      \.___.,|     .'  ",
-	\"                                  \\___   )MMMMMP|   .'    ",
-	\"                                       `-'       `--'      ",
-	\""
+	\"         _nnnn_         ",
+	\"        dGGGGMMb        ",
+	\"       @p~qp~~qMb       ",
+	\"       M|@||@) M|       ",
+	\"       @,----.JM|       ",
+	\"      JS^\\__/  qKL      ",
+	\"     dZP        qKRb    ",
+	\"    dZP          qKKb   ",
+	\"   fZP            SMMb  ",
+	\"   HZM            MMMM  ",
+	\"   FqM            MMMM  ",
+	\" __| `.        |\\dS'qML ",
+	\" |    `.       | `' \\Zq ",
+	\"_)      \.___.,|     .' ",
+	\"\\___   )MMMMMP|   .'   ",
+	\"     `-'       `--'     "
 	\]
 
 let s:start		= '/*'
@@ -97,7 +95,7 @@ function! s:user()
 	if exists('g:user42')
 		return g:user42
 	endif
-	let l:user = "aperez-b"
+	let l:user = "madebypixel02"
 	if strlen(l:user) == 0
 		let l:user = "marvin"
 	endif
@@ -108,7 +106,7 @@ function! s:mail()
 	if exists('g:mail42')
 		return g:mail42
 	endif
-	let l:mail = "100429952@alumnos.uc3m.es"
+	let l:mail = "madebypixel02@proton.me"
 	if strlen(l:mail) == 0
 		let l:mail = "marvin@42.fr"
 	endif

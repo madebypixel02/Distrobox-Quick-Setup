@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Pac-Man  (on arch)
+Comment=Classic Pac-Man Game
+Exec=/usr/bin/distrobox-enter  -n arch -- '  gtk-launch pac-man.desktop'
+Icon=/run/host/var/home/pixel/.local/share/icons/pacman.png
+Terminal=false
+Type=Application
+StartupWMClass=pac-man

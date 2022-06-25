@@ -21,7 +21,7 @@ echo "export QT_QPA_PLATFORMTHEME=gtk3" >> $HOME/.profile
 cp -r $HOME/Distrobox-Quick-Setup/debian/Apps/* $HOME/.local/share/applications
 
 # Install typical packages
-sudo pip3 install -U youtube-dl suntime norminette future
+sudo pip3 install -U youtube-dl suntime norminette future pyxel
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo dpkg --add-architecture i386
 sudo add-apt-repository non-free

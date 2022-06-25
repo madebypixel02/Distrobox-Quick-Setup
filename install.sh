@@ -17,6 +17,7 @@ mkdir -p $HOME/.config/systemd/user/
 mkdir -p $HOME/.themes
 mkdir -p $HOME/.fonts
 mkdir -p $HOME/.icons
+mkdir -p $HOME/.local/bin
 
 # Add symbolic links
 [ ! -L $HOME/Pictures/Useful\ Photos ] && ln -s /run/media/pixel/Pixel\ SD/Useful\ Photos/ $HOME/Pictures

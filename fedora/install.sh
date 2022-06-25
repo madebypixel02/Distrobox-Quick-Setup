@@ -24,7 +24,7 @@ sudo cp $HOME/Distrobox-Quick-Setup/Config\ Files/dnf.conf /etc/dnf/dnf.conf
 sudo dnf copr enable -y zawertun/vapoursynth
 
 # Install typical packages
-sudo pip install -U youtube-dl suntime norminette future
+sudo pip install -U youtube-dl suntime norminette future pyxel
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo dnf install -y android-tools neofetch lolcat gnome-tweaks lxappearance valgrind gnome-shell gnome-terminal npm dex vim bat llvm gdal texlive-scheme-basic tree libbsd java-latest-openjdk docker cronie fedora-packager fedora-review google-android-emoji-fonts google-noto-sans-fonts google-noto-sans-mono-fonts gstreamer-plugins-espeak gstreamer1-libav gstreamer1-plugin-openh264 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly htop joystick joystick-support langpacks-core-en langpacks-core-es langpacks-en langpacks-es libva-intel-driver lm_sensors samba sysbench gnome-keyring libgnome-keyring cmatrix xhost wine sl elinks cowsay nginx mariadb dnsmasq cmus pandoc vulkan-loader vulkan-tools python-numpy tk xinput mpv libXext-devel libbsd-devel git-credential-libsecret readline readline-devel
 

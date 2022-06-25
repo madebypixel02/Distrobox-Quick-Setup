@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Donkey Kong  (on arch)
+Comment=Classic Donkey Kong Game
+Exec=/usr/bin/distrobox-enter  -n arch -- '  gtk-launch donkeykong.desktop'
+Icon=/run/host/var/home/pixel/.local/share/icons/donkeykong.png
+Terminal=false
+Type=Application
+StartupWMClass=donkeykong

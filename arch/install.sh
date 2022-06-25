@@ -26,11 +26,11 @@ echo "export QT_QPA_PLATFORMTHEME=\"qt5ct\"" | sudo tee -a /etc/profile
 cp -r $HOME/Distrobox-Quick-Setup/arch/Apps/* $HOME/.local/share/applications
 
 # Install typical packages
-sudo pip install -U youtube-dl suntime norminette future
+sudo pip install -U youtube-dl suntime norminette future pyxel
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo pip uninstall -y numpy beautifulsoup4 soupsieve
 yay -S nodejs-lts-gallium --needed --noconfirm
-yay -S android-tools gnirehtet zsh neofetch lolcat xiaomitool-v2 visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix brave-bin xorg-xhost qt5-styleplugins mesa-utils wireshark-qt sl browsh-bin elinks cowsay nginx mariadb dnsmasq cmus pandoc libshumate-git xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks tabby-bin vlc --needed --noconfirm
+yay -S android-tools gnirehtet zsh neofetch lolcat xiaomitool-v2 visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost qt5-styleplugins mesa-utils sl browsh-bin elinks cowsay nginx mariadb dnsmasq cmus pandoc libshumate-git xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks tabby-bin vlc qt5ct --needed --noconfirm
 
 # Configure Packages
 JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
@@ -43,7 +43,7 @@ echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
 xhost +si:localuser:root && sudo SVPManager
 
 # Install mpv
-yay -S qt5-base qt5-declarative qt5-svg libmediainfo lsof vapoursynth rsound spirv-cross mpv-vapoursynth mkvtoolnix-cli avahi --needed
+yay -S qt5-base qt5-declarative qt5-svg libmediainfo lsof vapoursynth rsound spirv-cross mpv-vapoursynth mkvtoolnix-cli avahi --needed --noconfirm
 
 # Configure gnome terminal shortcuts
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'

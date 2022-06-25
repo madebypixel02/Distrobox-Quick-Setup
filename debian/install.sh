@@ -2,6 +2,9 @@
 
 HOME=$(echo ~)
 
+# Install locale tools
+sudo apt -y install locales
+
 # Set locale
 echo "en_US.UTF-8 UTF-8
 es_ES.UTF-8 UTF-8" | sudo tee /etc/locale.gen

@@ -108,4 +108,5 @@ sudo make LDFLAGS="-lgmp -lpbc -lcrypto -L/usr/lib/x86_64-linux-gnu -lglib-2.0 -
 cd ..
 
 # Cleanup
+rm -rf cpabe-* libbswabe-* pbc-*
 rm -rf $HOME/Distrobox-Quick-Setup/arch/yay-bin

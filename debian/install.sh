@@ -118,3 +118,6 @@ mv temp Makefile
 make LDFLAGS="-lgmp -lpbc -lcrypto -L/usr/lib/x86_64-linux-gnu -lglib-2.0 -lbswabe -lgmp"
 sudo make LDFLAGS="-lgmp -lpbc -lcrypto -L/usr/lib/x86_64-linux-gnu -lglib-2.0 -lbswabe -lgmp" install
 cd ..
+
+# Cleanup
+rm -rf cpabe-* libbswabe-* pbc-*

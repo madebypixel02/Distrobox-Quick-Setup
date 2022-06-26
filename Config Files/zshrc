@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/25 20:30:57 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/06/26 11:22:00 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,6 +140,7 @@ typeset -A crostini=(
 
 ## My own Stuff ##
 
+setopt HIST_IGNORE_SPACE
 # 42 Madrid Stuff
 alias old_norminette="$HOME/.norminette/norminette.rb"
 CFLAGS="-Wall -Wextra -Werror"

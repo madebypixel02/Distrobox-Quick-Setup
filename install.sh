@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:03 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/25 20:29:06 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/06/27 13:29:38 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,9 @@ cd Config\ Files/
 mkdir -p $HOME/.fonts/TTF
 [ ! -f $HOME/.fonts/TTF/GoogleSans-Regular.ttf ] && unzip Google\ Sans.zip -d $HOME/.fonts/TTF
 cd ..
+
+# Install Meslo Nerd Fonts (for fallback icons)
+cp ~/Distrobox-Quick-Setup/Config Files/MesloLGS NF Regular.ttf $HOME/.fonts/TTF
 
 # Install xcursor-chromeos
 [ ! -f $HOME/.icons/xcursor-chromeos/cursors/alias ] && cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.icons/ && cd ..

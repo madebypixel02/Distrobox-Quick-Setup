@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:23 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/25 20:29:25 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/06/27 13:06:53 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 rm -f packages.microsoft.gpg
 sudo apt update
 sudo apt install -y apt-utils apt-transport-https software-properties-common
-sudo aptitude install -y gdebi adb fastboot pciutils libreadline-dev libsdl2-image-dev libsdl2-dev npm nodejs mesa-utils libglib2.0-dev libsquashfuse0 squashfuse fuse snapd zsh neovim neofetch lolcat nemo wine gedit python3-pip r-base r-base-dev libnss3 gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk2-engines-murrine vim bat llvm fortran-compiler python3-psycopg2 gdal-bin texlive-base scrcpy kid3-qt tree libbsd-dev default-jre docker fonts-symbola samba nano sysbench asciiart gnome-keyring libsecret-1-0 libsecret-1-dev gnome-session mesa-vulkan-drivers vulkan-tools sl elinks cowsay dnsmasq cmus pandoc rustc sqlite3 libsqlite3-dev libgdk-pixbuf2.0-dev xinput qt5-style-plugins
+sudo aptitude install -y gdebi adb fastboot pciutils libreadline-dev libsdl2-image-dev libsdl2-dev npm nodejs mesa-utils libglib2.0-dev libsquashfuse0 squashfuse fuse snapd zsh neovim neofetch lolcat nemo wine gedit python3-pip r-base r-base-dev libnss3 gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk2-engines-murrine vim bat llvm fortran-compiler python3-psycopg2 gdal-bin texlive-base scrcpy kid3-qt tree libbsd-dev default-jre docker fonts-symbola fonts-dejavu fonts-noto fonts-noto-cjk-extra fonts-noto-color-emoji samba nano sysbench asciiart gnome-keyring libsecret-1-0 libsecret-1-dev gnome-session mesa-vulkan-drivers vulkan-tools sl elinks cowsay dnsmasq cmus pandoc rustc sqlite3 libsqlite3-dev libgdk-pixbuf2.0-dev xinput qt5-style-plugins
 
 # Configure Packages
 JAVA_HOME=/usr/lib/jvm/default-java sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt

@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:03 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/29 23:50:39 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/06/29 23:58:43 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -214,7 +214,7 @@ cd $HOME/Distrobox-Quick-Setup
 
 # Call Installer based on Distro
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
-	#clear
+	clear
 	echo "Calling installer for archlinux..."
 	sleep 2
 	cd arch && ./install.sh

@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:03 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/27 13:29:38 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/06/29 23:50:39 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ mkdir -p $HOME/.local/bin
 [ ! -L $HOME/Videos ] && ln -s /run/media/pixel/Pixel\ SD/Videos $HOME/Videos
 [ ! -L $HOME/Removable\ Devices ] && ln -s /run/media/pixel $HOME/Removable\ Devices
 [ ! -L $HOME/Playlists ] && ln -s $HOME/Removable\ Devices/Pixel\ SD/Linux\ Playlists $HOME/Playlists
-cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ $HOME/Documents
+[ ! -L $HOME/Documents/Mi\ Band ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Mi\ Band/ $HOME/Documents
 
 # Set custom rules in sudoers file
 sudo mkdir -p /var/log/sudo/
@@ -57,14 +57,14 @@ Defaults        logfile=\"/var/log/sudo/sudo.log\"" | sudo tee -a /etc/sudoers
 
 # Copy neovim config file
 mkdir -p $HOME/.config
-cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/nvim $HOME/.config/
+[ ! -L $HOME/.config/nvim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/nvim $HOME/.config/
 
 # Configure cmus
 mkdir -p $HOME/.config/cmus
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/cmus/autosave $HOME/.config/cmus/autosave
+[ ! -L $HOME/.config/cmus/autosave ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/cmus/autosave $HOME/.config/cmus/autosave
 
 # Configure browsh
-cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/browsh $HOME/.config/
+[ ! -L $HOME/.config/browsh ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/browsh $HOME/.config/
 
 # Configure mpv
 mkdir -p $HOME/.config/mpv
@@ -107,7 +107,7 @@ mkdir -p $HOME/.fonts/TTF
 cd ..
 
 # Install Meslo Nerd Fonts (for fallback icons)
-cp ~/Distrobox-Quick-Setup/Config Files/MesloLGS NF Regular.ttf $HOME/.fonts/TTF
+cp $HOME/Distrobox-Quick-Setup/Config\ Files/MesloLGS\ NF\ Regular.ttf $HOME/.fonts/TTF
 
 # Install xcursor-chromeos
 [ ! -f $HOME/.icons/xcursor-chromeos/cursors/alias ] && cd Config\ Files/ && unzip xcursor-chromeos.zip -d $HOME/.icons/ && cd ..
@@ -124,11 +124,11 @@ mkdir -p $HOME/.icons/default
 	cp -r adw-gtk2-dark $HOME/.themes/adw-gtk3-dark/gtk-2.0 && cd ..
 
 # Configure Auto-Theme
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/
+cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/.autotheme $HOME/
 
 # Copy gnome podcasts backup
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/podcasts_opml.xml $HOME
+[ ! -L $HOME/podcasts_opml.xml ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/podcasts_opml.xml $HOME
 
 # Configure gnome terminal shortcuts
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
@@ -146,23 +146,23 @@ XDG_VIDEOS_DIR=\"$HOME/Videos\"" > $HOME/.config/user-dirs.dirs
 echo "enabled=False" > $HOME/.config/user-dirs.conf
 
 # Copy vimrc, zshrc, bashrc, etc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc $HOME/.vimrc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc $HOME/.zshrc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc $HOME/.bashrc
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting $HOME/.mygreeting
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m $HOME/.mygreeting_uc3m
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 $HOME/.mygreeting_42
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux $HOME/.mygreeting_tux
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh $HOME/.p10k.zsh
+[ ! -L $HOME/.vimrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc $HOME/.vimrc
+[ ! -L $HOME/.zshrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc $HOME/.zshrc
+[ ! -L $HOME/.bashrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc $HOME/.bashrc
+[ ! -L $HOME/.mygreeting ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting $HOME/.mygreeting
+[ ! -L $HOME/.mygreeting_uc3m ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_uc3m $HOME/.mygreeting_uc3m
+[ ! -L $HOME/.mygreeting_42 ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_42 $HOME/.mygreeting_42
+[ ! -L $HOME/.mygreeting_tux ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/mygreeting_tux $HOME/.mygreeting_tux
+[ ! -L $HOME/.p10k.zsh ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh $HOME/.p10k.zsh
 
 # Copy icon files
 cp $HOME/Distrobox-Quick-Setup/Config\ Files/Icons/* $HOME/.local/share/icons
 
 # 42 Header
 mkdir -p $HOME/.vim/plugin/
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/42.vim $HOME/.vim/plugin/
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/uc3m.vim $HOME/.vim/plugin/
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/tux.vim $HOME/.vim/plugin/
+[ ! -L $HOME/.vim/plugin/42.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/42.vim $HOME/.vim/plugin/
+[ ! -L $HOME/.vim/plugin/uc3m.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/uc3m.vim $HOME/.vim/plugin/
+[ ! -L $HOME/.vim/plugin/tux.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/tux.vim $HOME/.vim/plugin/
 
 # Configure git
 git config --global user.name "madebypixel02"
@@ -214,7 +214,7 @@ cd $HOME/Distrobox-Quick-Setup
 
 # Call Installer based on Distro
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
-	clear
+	#clear
 	echo "Calling installer for archlinux..."
 	sleep 2
 	cd arch && ./install.sh

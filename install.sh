@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:03 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/29 23:58:43 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/06/30 00:08:33 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,7 @@ mkdir -p $HOME/.config
 [ ! -L $HOME/.config/nvim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/nvim $HOME/.config/
 
 # Configure cmus
-mkdir -p $HOME/.config/cmus
-[ ! -L $HOME/.config/cmus/autosave ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/cmus/autosave $HOME/.config/cmus/autosave
+[ ! -L $HOME/.config/cmus/ ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/cmus/ $HOME/.config/
 
 # Configure browsh
 [ ! -L $HOME/.config/browsh ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/browsh $HOME/.config/

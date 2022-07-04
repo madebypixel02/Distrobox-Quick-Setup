@@ -1,7 +1,7 @@
-status playing
-file /home/pixel/Music/Enya/A Day Without Rain/Enya - Wild Child.mp3
-position 157
+status paused
+file /home/pixel/Music/Little Violet/Code Red/Little Violet - All the World's a Stage.mp3
+position 2
 lib_file /var/home/pixel/Music/Meghan Trainor/Thank You (Deluxe Version)/Meghan Trainor - Friends.mp3
 view playlist
 browser-dir /var/home/pixel
-marked-pl default
+marked-pl Swing.m3u

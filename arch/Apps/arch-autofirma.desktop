@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=AutoFirma  (on arch)
+Comment=Cliente @firma
+Icon=autofirma
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  autofirma  %U'
+Categories=Utility;Java;
+StartupNotify=true
+StartupWMClass=autofirma
+MimeType=x-scheme-handler/afirma;

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=XiaoMiTool V2  (on arch)
-Exec=/usr/bin/distrobox-enter  -n arch -- '  /usr/bin/xiaomitool  %U'
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  /usr/bin/xiaomitool  %U'
 StartupNotify=true
 Terminal=false
 Icon=/home/pixel/.local/share/icons/xiaomi.png

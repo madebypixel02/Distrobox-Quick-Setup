@@ -2,7 +2,7 @@
 Name=Visual Studio Code  (on arch)
 Comment=Code Editing. Refined.
 GenericName=Text Editor  (on arch)
-Exec=/usr/bin/distrobox-enter  -n arch -- '  /usr/bin/code --unity-launch  %F'
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  /usr/bin/code --unity-launch  %F'
 Icon=visual-studio-code
 Type=Application
 StartupNotify=false
@@ -14,5 +14,5 @@ Keywords=vscode;
 
 [Desktop Action new-empty-window]
 Name=New Empty Window  (on arch)
-Exec=/usr/bin/distrobox-enter  -n arch -- '  /usr/bin/code --no-sandbox --new-window  %F'
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  /usr/bin/code --no-sandbox --new-window  %F'
 Icon=visual-studio-code

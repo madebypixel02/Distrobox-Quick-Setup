@@ -2,7 +2,7 @@
 Version=1.0
 Name=Pac-Man  (on fedora)
 Comment=Classic Pac-Man Game
-Exec=/usr/bin/distrobox-enter  -n fedora -- ' /bin/zsh -c "make re play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long" -- %u'
+Exec=/usr/bin/distrobox-enter --root -n fedora -- ' /bin/zsh -c "make re play -C /home/pixel/42\ Madrid/GitHub/42\ Cursus/so_long" -- %u'
 Icon=/home/pixel/.local/share/icons/pacman.png
 Terminal=false
 Type=Application

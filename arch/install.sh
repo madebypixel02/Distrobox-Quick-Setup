@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:15 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/27 13:25:15 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/07/06 12:48:34 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ sudo pip install -U youtube-dl suntime norminette future pyxel
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo pip uninstall -y numpy beautifulsoup4 soupsieve
 yay -S nodejs-lts-gallium --needed --noconfirm
-yay -S android-tools gnirehtet zsh neofetch lolcat xiaomitool-v3 noto-fonts-cjk noto-fonts-extra ttf-dejavu visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost qt5-styleplugins mesa-utils sl browsh-bin elinks cowsay nginx mariadb dnsmasq cmus pandoc libshumate-git xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks tabby-bin vlc qt5ct --needed --noconfirm
+yay -S android-tools gnirehtet zsh neofetch lolcat xiaomitool-v2 noto-fonts-cjk noto-fonts-extra ttf-dejavu visual-studio-code-bin rstudio-desktop-bin gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker ttf-symbola samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost qt5-styleplugins mesa-utils sl browsh-bin elinks cowsay nginx mariadb dnsmasq cmus pandoc libshumate-git xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks tabby-bin vlc qt5ct wireshark-qt --needed --noconfirm
 
 # Configure Packages
 JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/College/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=dnie (1.6.8) PKCS#11 module registry  (on arch)
+Name[en]=dnie (1.6.8) PKCS#11 module registry  (on arch)
+Name[es]=Registrar módulo PKCS#11 dnie (1.6.8)  (on arch)
+Name[ca]=Registrar mòdul PKCS#11 dnie (1.6.8)  (on arch)
+Name[gl]=Rexistrar módulo PKCS#11 dnie (1.6.8)  (on arch)
+Name[eu]=dnie (1.6.8) PKCS#11 modulua erregistratu  (on arch)
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  /usr/share/libpkcs11-dnie/launch.pl'
+Icon=/run/host/var/home/pixel/.local/share/libpkcs11-dnie/launch_icon.gif
+Terminal=false
+Type=Application
+Categories=Application;
+StartupWMClass=dnie

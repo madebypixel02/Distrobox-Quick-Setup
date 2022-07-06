@@ -121,7 +121,7 @@ Comment[zh_TW]=調校進階 GNOME 3 設定值
 Comment=Tweak advanced GNOME 3 settings
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=/home/pixel/.local/share/icons/gnome-tweaks.png
-Exec=/usr/bin/distrobox-enter  -n fedora -- '  gnome-tweaks'
+Exec=/usr/bin/distrobox-enter --root -n fedora -- '  gnome-tweaks'
 Terminal=false
 Type=Application
 StartupNotify=true

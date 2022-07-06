@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/bin/distrobox-enter  -n arch -- '  /usr/bin/rstudio-bin  %F'
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  /usr/bin/rstudio-bin  %F'
 Icon=rstudio
 Type=Application
 Terminal=false

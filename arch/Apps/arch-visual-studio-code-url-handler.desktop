@@ -2,7 +2,7 @@
 Name=Visual Studio Code - URL Handler  (on arch)
 Comment=Code Editing. Redefined.
 GenericName=Text Editor  (on arch)
-Exec=/usr/bin/distrobox-enter  -n arch -- '  /usr/bin/code --open-url  %U'
+Exec=/usr/bin/distrobox-enter --root -n arch -- '  /usr/bin/code --open-url  %U'
 Icon=visual-studio-code
 Type=Application
 NoDisplay=true

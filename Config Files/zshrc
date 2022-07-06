@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/06/27 11:53:18 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/07/06 13:08:56 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -256,10 +256,10 @@ alias college="cd $HOME/College/"
 alias uc3m="zsh -c $HOME/.mygreeting_uc3m"
 alias tux="zsh -c $HOME/.mygreeting_tux"
 alias mg="git add . && git commit && git push"
-alias bashrc_update="cp $HOME/.bashrc $HOME/Distrobox-Quick-Setup/Config\ Files/bashrc && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd $HOME/"
-alias zshrc_update="cp $HOME/.zshrc $HOME/Distrobox-Quick-Setup/Config\ Files/zshrc && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd $HOME/"
-alias vimrc_update="cp $HOME/.vimrc $HOME/Distrobox-Quick-Setup/Config\ Files/vimrc && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd $HOME/"
-alias p10k_update="cp $HOME/.p10k.zsh $HOME/Distrobox-Quick-Setup/Config\ Files/p10k.zsh && builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd $HOME/"
+alias bashrc_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add bashrc && git commit -m \"Edited bashrc\" && git push && builtin cd $HOME/"
+alias zshrc_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add zshrc && git commit -m \"Edited zshrc\" && git push && builtin cd $HOME/"
+alias vimrc_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add vimrc && git commit -m \"Edited vimrc\" && git push && builtin cd $HOME/"
+alias p10k_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git add p10k.zsh && git commit -m \"Edited p10k.zsh\" && git push && builtin cd $HOME/"
 
 # Aliases for Arch Linux
 if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
@@ -293,15 +293,42 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; t
 	alias unwine="wine uninstaller"
 	alias sp="spotdl"
 	alias yoump3="youtube-dl -x --audio-format mp3"
-	alias pipupdate="sudo pip install -U"
+	alias pipupdate="sudo pip3 install -U"
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
-	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
-	alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias checktheme-now="python3 -u '$HOME/.autotheme/timecheck-now.py'"
+	alias donkeykong="python3 -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
 	alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
 	alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta $HOME/.vbmeta/vbmeta.img && fastboot reboot"
-	alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
-	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
+	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
+	alias sp_update="sudo pip3 install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
+fi
+
+# Aliases for Fedora
+if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Fedora Linux\"" ; then
+	export LD_LIBRARY_PATH=/usr/local/lib
+	# Other Aliases
+	alias checktheme="systemctl --user status auto-theme.service"
+	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
+	# Aliases for container
+	if LANG=C grep '^VARIANT_ID' /etc/os-release | grep -q "VARIANT_ID=\"Container Image\"" ; then
+		alias u="sudo dnf -y update"
+		alias tether="gnirehtet run"
+		alias unwine="wine uninstaller"
+		alias sp="spotdl"
+		alias yoump3="youtube-dl -x --audio-format mp3"
+		alias pipupdate="sudo pip install -U"
+		alias yan="yay --noconfirm --needed"
+		alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+		alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
+		alias vbmeta="fastboot --disable-verity --disable-verification flash vbmeta $HOME/.vbmeta/vbmeta.img && fastboot reboot"
+		alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
+		alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
+	fi
+	# Aliases for Silverblue
+	if LANG=C grep '^VARIANT_ID' /etc/os-release | grep -q "VARIANT_ID=silverblue" ; then
+		alias u="rpm-ostree update"
+	fi
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

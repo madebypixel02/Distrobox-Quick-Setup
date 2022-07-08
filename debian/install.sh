@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:29:23 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/07/04 11:23:13 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/07/08 11:01:31 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,9 +76,8 @@ echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
 #dpkg-buildpackage -us -uc -nc
 
 # Set up gnirehtet
-[ ! -L /bin/gnirehtet ] && wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && \
-	unzip gnirehtet-* -d $HOME && sudo ln -s $HOME/gnirehtet-rust-linux64/gnirehtet /bin
-rm -f gnirehtet-rust-linux64-v2.5.zip
+[ ! -d $HOME/gnirehtet-rust-linux64 ] && wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && unzip gnirehtet-*.zip -d $HOME && rm -f gnirehtet-*.zip
+[ ! -L /bin/gnirehtet ] && sudo ln -s $HOME/gnirehtet-rust-linux64/gnirehtet /bin
 
 # Configure gnome terminal shortcuts
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'

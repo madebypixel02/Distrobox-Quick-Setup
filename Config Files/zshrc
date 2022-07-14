@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/07/06 13:08:56 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/07/14 18:46:18 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -287,6 +287,7 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; t
 	export LD_LIBRARY_PATH=/usr/local/lib
 	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	# Other Aliases
+	alias u="sudo apt -y update && sudo apt -y upgrade"
 	alias python="python3"
 	alias pip="pip3"
 	alias tether="gnirehtet run"
@@ -311,7 +312,7 @@ if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Fedora Linux\"" ; then
 	alias checktheme="systemctl --user status auto-theme.service"
 	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
 	# Aliases for container
-	if LANG=C grep '^VARIANT_ID' /etc/os-release | grep -q "VARIANT_ID=\"Container Image\"" ; then
+	if LANG=C grep '^VARIANT' /etc/os-release | grep -q "VARIANT=\"Container Image\"" ; then
 		alias u="sudo dnf -y update"
 		alias tether="gnirehtet run"
 		alias unwine="wine uninstaller"

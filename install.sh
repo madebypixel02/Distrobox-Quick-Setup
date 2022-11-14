@@ -248,9 +248,7 @@ mkdir -p $HOME/.icons/default
 #ln -s $HOME/.icons/xcursor-chromeos/cursors $HOME/.icons/default/cursors
 
 # Install adw-gtk3
-[ ! -d $HOME/.themes/adw-gtk3/gtk-3.0 ] && cd Config\ Files/ && tar -xvf adw-gtk3v4-0.tar.xz && cp -r adw-gtk3 $HOME/.themes/ && rm -rf adw-gtk3 && \
-	cp -r adw-gtk3-dark $HOME/.themes/ && rm -rf adw-gtk3-dark && cp -r adw-gtk2 $HOME/.themes/adw-gtk3/gtk-2.0 && \
-	cp -r adw-gtk2-dark $HOME/.themes/adw-gtk3-dark/gtk-2.0 && cd ..
+[ ! -d $HOME/.themes/adw-gtk3/gtk-3.0 ] && cd Config\ Files/ && tar -xvf adw-gtk3v4-1.tar.xz && cp -r adw-gtk3 $HOME/.themes/ && rm -rf adw-gtk3 && cp -r adw-gtk3-dark $HOME/.themes/ && rm -rf adw-gtk3-dark
 
 # Configure Auto-Theme
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/

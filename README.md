@@ -15,11 +15,11 @@
 <!-- By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq   -->
 <!--                                                _)      .___.,|     .'   -->
 <!-- Created: 2022/06/25 20:28:57 by madebypixel02  \___   )MMMMMP|   .'     -->
-<!-- Updated: 2022/09/13 13:00:37 by madebypixel02      `-'       `--'       -->
+<!-- Updated: 2022/11/14 13:49:49 by madebypixel02      `-'       `--'       -->
 <!--                                                                         -->
 <!-- *********************************************************************** -->
 
-# Distrobox-Quick-Setup | Personal
+# Distrobox Quick Setup | Personal
 
 *Moar containers? 💻*
 

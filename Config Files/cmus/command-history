@@ -1,0 +1,17 @@
+wq
+q
+pl-import /home/pixel/Playlists/Swing.m3u
+help
+live-filter 
+pl-import /home/pixel/Playlists/Favorites.m3u
+pl-import /home/pixel/Playlists/Christmas Carols.m3u
+pl-import /home/pixel/Playlists/Catholic Songs.m3u
+pl-import /home/pixel/Playlists/Best of the Best.m3u
+pl-import /home/pixel/Playlists/Best of the Nutcracker.m3u
+pl-import /home/pixel/Playlists/Best of Enya.m3u
+pl-import /home/pixel/Playlists/Best of Enya.n3u
+q!
+filter 
+f
+live-filter ittle
+pl-import /home/pixel/Playlists/Best of The Nutcracker.m3u

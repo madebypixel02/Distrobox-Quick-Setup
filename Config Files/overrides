@@ -1,0 +1,4 @@
+pixel ALL = NOPASSWD: /usr/bin/podman
+Defaults	badpass_message="Whoops, wrong password!"
+Defaults	logfile="/var/log/sudo/sudo.log"
+Defaults	pwfeedback

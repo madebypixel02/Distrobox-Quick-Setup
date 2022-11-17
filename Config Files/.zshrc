@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/10/06 08:40:04 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/11/17 12:04:15 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -188,9 +188,9 @@ alias ext="cd $HOME/Removable\ Devices"
 alias v="neofetch | lolcat"
 alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2 -C --filelimit 100"
 alias parrot.live="curl parrot.live"
-alias college_uc3m="cd $HOME/Uc3m/"
-alias college_uoc="cd $HOME/UOC/"
-alias cursus="cd $HOME/42\ Madrid/GitHub/42\ Cursus"
+alias college_uc3m="zsh -c $HOME/.mygreeting_uc3m && cd $HOME/Uc3m/"
+alias college_uoc="zsh -c $HOME/.mygreeting_uoc && cd $HOME/UOC/"
+alias cursus="zsh -c $HOME/.mygreeting_42 && cd $HOME/42\ Madrid/GitHub/42\ Cursus"
 alias tux="zsh -c $HOME/.mygreeting_tux"
 alias 42="zsh -c $HOME/.mygreeting_42"
 alias google="zsh -c $HOME/.mygreeting_google"

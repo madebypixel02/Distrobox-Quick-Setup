@@ -128,3 +128,5 @@ sudo nvim /etc/environment
 grep processor /proc/cpuinfo
 ./launch.sh 1
 zsh
+rm ~/.zsh_history 
+ln -s ~/Distrobox-Quick-Setup/Config\ Files/.zsh_history ~/

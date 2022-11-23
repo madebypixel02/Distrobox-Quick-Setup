@@ -15,7 +15,7 @@
 "    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     "
 "                                                   _)      .___.,|     .'     "
 "    Created: 2022/06/25 20:30:34 by madebypixel02  \___   )MMMMMP|   .'       "
-"    Updated: 2022/11/23 13:01:47 by madebypixel02      `-'       `--'         "
+"    Updated: 2022/11/23 13:20:42 by madebypixel02      `-'       `--'         "
 "                                                                              "
 " **************************************************************************** "
 
@@ -53,7 +53,7 @@ Plug 'ericbn/vim-relativize'
 call plug#end()
 
 " Coc Extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-github', 'coc-cmake', 'coc-python', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-grammarly']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-github', 'coc-cmake', 'coc-python', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver']
 
 " Fix auto-completion enter
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"

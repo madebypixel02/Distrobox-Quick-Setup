@@ -18,7 +18,7 @@ function focalboard_install () {
 	if [ ! -d /opt/focalboard ]; then
 		sudo pacman -Sy postgresql nginx --needed --noconfirm
 		echo "initdb -D /var/lib/postgres/data" | sudo -iu postgres
-		wget https://github.com/mattermost/focalboard/releases/download/v7.2.1/focalboard-server-linux-amd64.tar.gz && tar -xvzf focalboard-server-linux-amd64.tar.gz
+		wget https://gitlab.com/mattermost/focalboard/releases/download/v7.2.1/focalboard-server-linux-amd64.tar.gz && tar -xvzf focalboard-server-linux-amd64.tar.gz
 		sudo mv -f focalboard /opt
 		rm -rf focalboard*
 		mkdir -p $HOME/.config/systemd/user
@@ -102,9 +102,9 @@ fi
 	sudo apt install -y git unzip
 	# Install gh
 	type -p curl >/dev/null || sudo apt install curl -y
-	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+	curl -fsSL https://cli.gitlab.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 	&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.gitlab.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& sudo apt update \
 	&& sudo apt install gh -y
 fi
@@ -113,13 +113,13 @@ fi
 fi
 
 # Fzf installation
-[ ! -d $HOME/.fzf ] && git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
+[ ! -d $HOME/.fzf ] && git clone --depth 1 https://gitlab.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
 
 # Set up zsh and oh-my-zsh
-[ ! -d $HOME/.oh-my-zsh ] && ZSH= sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-[ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+[ ! -d $HOME/.oh-my-zsh ] && ZSH= sh -c "$(curl -fsSL https://raw.gitlab.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://gitlab.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://gitlab.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+[ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://gitlab.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
 [ -L $HOME/.zshrc.pre-oh-my-zsh ] && mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
 # Configure git
@@ -132,11 +132,11 @@ git config --global init.defaultBranch main
 # Install basic MacOS Stuff
 if [ -f /usr/bin/sw_vers ]; then
 	cd $HOME
-	[ ! -d $HOME/.brew ] && git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew && source $HOME/.zshrc && brew update
+	[ ! -d $HOME/.brew ] && git clone --depth=1 https://gitlab.com/Homebrew/brew $HOME/.brew && source $HOME/.zshrc && brew update
 	brew install node llvm neofetch lolcat wget gh asciiquarium ltex-ls
 	brew tap LouisBrunner/valgrind
 	brew install --HEAD LouisBrunner/valgrind/valgrind
-	[ ! -d $HOME/nvim-macos ] && wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-macos.tar.gz && tar xzvf nvim-macos.tar.gz nvim-macos && rm nvim-macos.tar.gz
+	[ ! -d $HOME/nvim-macos ] && wget https://gitlab.com/neovim/neovim/releases/download/v0.7.2/nvim-macos.tar.gz && tar xzvf nvim-macos.tar.gz nvim-macos && rm nvim-macos.tar.gz
 fi
 
 # Set Up gh to handle git credentials
@@ -145,54 +145,54 @@ gh setup-git-credential-helper
 
 # Clone Useful Repos
 cd $HOME
-[ ! -d $HOME/Simple-Python-Time-Converter ] && git clone https://github.com/madebypixel02/Simple-Python-Time-Converter.git
-[ ! -d $HOME/madebypixel02 ] && git clone https://github.com/madebypixel02/madebypixel02.git
+[ ! -d $HOME/Simple-Python-Time-Converter ] && git clone https://gitlab.com/madebypixel02/Simple-Python-Time-Converter.git
+[ ! -d $HOME/madebypixel02 ] && git clone https://gitlab.com/madebypixel02/madebypixel02.git
 
 # Clone 42 Madrid Projects
-mkdir -p $HOME/42\ Madrid/GitHub/42\ Cursus
-cd $HOME/42\ Madrid/GitHub/42\ Cursus
-[ ! -d 42-Madrid-Cursus ] && git clone https://github.com/madebypixel02/42-Madrid-Cursus.git
-[ ! -d libft ] && git clone https://github.com/madebypixel02/libft.git
-[ ! -d ft_printf ] && git clone https://github.com/madebypixel02/ft_printf.git && cd ft_printf && ln -s ../libft . && cd ..
-[ ! -d get_next_line ] && git clone https://github.com/madebypixel02/get_next_line.git
-[ ! -d born2beroot ] && git clone https://github.com/madebypixel02/born2beroot.git
-[ ! -d so_long ] && git clone https://github.com/madebypixel02/so_long.git && cd so_long && ln -s ../libft . && ln -s ../get_next_line . && cd ..
-[ ! -d push_swap ] && git clone https://github.com/madebypixel02/push_swap.git && cd push_swap && ln -s ../libft . && cd ..
-[ ! -d pipex ] && git clone https://github.com/madebypixel02/pipex.git
-[ ! -d philosophers ] && git clone https://github.com/madebypixel02/philosophers.git
-[ ! -d minishell ] && git clone https://github.com/madebypixel02/minishell.git && cd minishell && ln -s ../libft . && cd ..
-[ ! -d cub3d ] && git clone https://github.com/madebypixel02/cub3d.git && cd cub3d && ln -s ../libft . && cd ..
-[ ! -d CPP-Modules ] && git clone https://github.com/madebypixel02/CPP-Modules.git
-[ ! -d CPP-Module-00 ] && git clone https://github.com/madebypixel02/CPP-Module-00.git
-[ ! -d CPP-Module-01 ] && git clone https://github.com/madebypixel02/CPP-Module-01.git
-[ ! -d CPP-Module-02 ] && git clone https://github.com/madebypixel02/CPP-Module-02.git
-[ ! -d CPP-Module-03 ] && git clone https://github.com/madebypixel02/CPP-Module-03.git
-[ ! -d CPP-Module-04 ] && git clone https://github.com/madebypixel02/CPP-Module-04.git
-[ ! -d CPP-Module-05 ] && git clone https://github.com/madebypixel02/CPP-Module-05.git
-[ ! -d CPP-Module-06 ] && git clone https://github.com/madebypixel02/CPP-Module-06.git
-[ ! -d CPP-Module-07 ] && git clone https://github.com/madebypixel02/CPP-Module-07.git
-[ ! -d CPP-Module-08 ] && git clone https://github.com/madebypixel02/CPP-Module-08.git
+mkdir -p $HOME/42\ Madrid/Git/42\ Cursus
+cd $HOME/42\ Madrid/Git/42\ Cursus
+[ ! -d 42-Madrid-Cursus ] && git clone https://gitlab.com/madebypixel02/42-Madrid-Cursus.git
+[ ! -d libft ] && git clone https://gitlab.com/madebypixel02/libft.git
+[ ! -d ft_printf ] && git clone https://gitlab.com/madebypixel02/ft_printf.git && cd ft_printf && ln -s ../libft . && cd ..
+[ ! -d get_next_line ] && git clone https://gitlab.com/madebypixel02/get_next_line.git
+[ ! -d born2beroot ] && git clone https://gitlab.com/madebypixel02/born2beroot.git
+[ ! -d so_long ] && git clone https://gitlab.com/madebypixel02/so_long.git && cd so_long && ln -s ../libft . && ln -s ../get_next_line . && cd ..
+[ ! -d push_swap ] && git clone https://gitlab.com/madebypixel02/push_swap.git && cd push_swap && ln -s ../libft . && cd ..
+[ ! -d pipex ] && git clone https://gitlab.com/madebypixel02/pipex.git
+[ ! -d philosophers ] && git clone https://gitlab.com/madebypixel02/philosophers.git
+[ ! -d minishell ] && git clone https://gitlab.com/madebypixel02/minishell.git && cd minishell && ln -s ../libft . && cd ..
+[ ! -d cub3d ] && git clone https://gitlab.com/madebypixel02/cub3d.git && cd cub3d && ln -s ../libft . && cd ..
+[ ! -d CPP-Modules ] && git clone https://gitlab.com/madebypixel02/CPP-Modules.git
+[ ! -d CPP-Module-00 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-00.git
+[ ! -d CPP-Module-01 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-01.git
+[ ! -d CPP-Module-02 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-02.git
+[ ! -d CPP-Module-03 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-03.git
+[ ! -d CPP-Module-04 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-04.git
+[ ! -d CPP-Module-05 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-05.git
+[ ! -d CPP-Module-06 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-06.git
+[ ! -d CPP-Module-07 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-07.git
+[ ! -d CPP-Module-08 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-08.git
 
 # Clone UOC Stuff
 mkdir -p $HOME/UOC/Human-Computer\ Interaction
 mkdir -p $HOME/UOC/Web\ Standards\ \&\ Languages
 mkdir -p $HOME/UOC/Operating\ Systems
-[ ! -d $HOME/UOC/UOC-Projects ] && cd $HOME/UOC && git clone https://github.com/madebypixel02/UOC-Projects && cd $HOME
-[ ! -d $HOME/UOC/Human-Computer\ Interaction/HCI-Practices ] && cd $HOME/UOC/Human-Computer\ Interaction && git clone https://github.com/madebypixel02/HCI-Practices && cd $HOME
-[ ! -d $HOME/UOC/Web\ Standards\ \&\ Languages/Web-Standards-and-Languages-Practices ] && cd $HOME/UOC/Web\ Standards\ \&\ Languages && git clone https://github.com/madebypixel02/Web-Standards-and-Languages-Practices && cd $HOME
-[ ! -d $HOME/UOC/Operating\ Systems/Operating-Systems-Practices ] && cd $HOME/UOC/Operating\ Systems && git clone https://github.com/madebypixel02/Operating-Systems-Practices && cd $HOME
+[ ! -d $HOME/UOC/UOC-Projects ] && cd $HOME/UOC && git clone https://gitlab.com/madebypixel02/UOC-Projects && cd $HOME
+[ ! -d $HOME/UOC/Human-Computer\ Interaction/HCI-Practices ] && cd $HOME/UOC/Human-Computer\ Interaction && git clone https://gitlab.com/madebypixel02/HCI-Practices && cd $HOME
+[ ! -d $HOME/UOC/Web\ Standards\ \&\ Languages/Web-Standards-and-Languages-Practices ] && cd $HOME/UOC/Web\ Standards\ \&\ Languages && git clone https://gitlab.com/madebypixel02/Web-Standards-and-Languages-Practices && cd $HOME
+[ ! -d $HOME/UOC/Operating\ Systems/Operating-Systems-Practices ] && cd $HOME/UOC/Operating\ Systems && git clone https://gitlab.com/madebypixel02/Operating-Systems-Practices && cd $HOME
 
 # Clone Uc3m Stuff
 #mkdir -p $HOME/Uc3m/Programming\ I
 #mkdir -p $HOME/Uc3m/Machine\ Learning\ I
 #mkdir -p $HOME/Uc3m/Statistical\ Learning
 #mkdir -p $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/
-#[ ! -d $HOME/Uc3m/Programming\ I/Basic-OOP-Donkey-Kong-in-Python ] && cd $HOME/Uc3m/Programming\ I/ && git clone https://github.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd $HOME/
-#[ ! -d $HOME/Uc3m/Machine\ Learning\ I/Machine-Learning-Pacman ] && cd $HOME/Uc3m/Machine\ Learning\ I/ && git clone https://github.com/madebypixel02/Machine-Learning-Pacman && cd $HOME/
-#[ ! -d $HOME/Uc3m/Statistical\ Learning/Statistical-Learning-Practices-2021 ] && cd $HOME/Uc3m/Statistical\ Learning/ && git clone https://github.com/madebypixel02/Statistical-Learning-Practices-2021.git && cd $HOME/
-#[ ! -d $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/ABE-Scalability ] && cd $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/ABE-Scalability.git && cd $HOME/
-#[ ! -d $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/Openssl-Practices-2022 ] && cd $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/ && git clone https://github.com/madebypixel02/Openssl-Practices-2022.git && cd $HOME/
-#[ ! -d $HOME/Uc3m/Uc3m-Projects ] && cd $HOME/Uc3m && git clone https://github.com/madebypixel02/Uc3m-Projects && cd $HOME/
+#[ ! -d $HOME/Uc3m/Programming\ I/Basic-OOP-Donkey-Kong-in-Python ] && cd $HOME/Uc3m/Programming\ I/ && git clone https://gitlab.com/madebypixel02/Basic-OOP-Donkey-Kong-in-Python.git && cd $HOME/
+#[ ! -d $HOME/Uc3m/Machine\ Learning\ I/Machine-Learning-Pacman ] && cd $HOME/Uc3m/Machine\ Learning\ I/ && git clone https://gitlab.com/madebypixel02/Machine-Learning-Pacman && cd $HOME/
+#[ ! -d $HOME/Uc3m/Statistical\ Learning/Statistical-Learning-Practices-2021 ] && cd $HOME/Uc3m/Statistical\ Learning/ && git clone https://gitlab.com/madebypixel02/Statistical-Learning-Practices-2021.git && cd $HOME/
+#[ ! -d $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/ABE-Scalability ] && cd $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/ && git clone https://gitlab.com/madebypixel02/ABE-Scalability.git && cd $HOME/
+#[ ! -d $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/Openssl-Practices-2022 ] && cd $HOME/Uc3m/Data\ Protection\ \&\ Cybersecurity/ && git clone https://gitlab.com/madebypixel02/Openssl-Practices-2022.git && cd $HOME/
+#[ ! -d $HOME/Uc3m/Uc3m-Projects ] && cd $HOME/Uc3m && git clone https://gitlab.com/madebypixel02/Uc3m-Projects && cd $HOME/
 
 # Stop installer on MacOS
 [ -f /usr/bin/sw_vers ] && echo && echo "Installation completed with exit number $?. Enjoy your MacOS setup!" && exit
@@ -222,11 +222,11 @@ cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/gnome-background-properties/* $H
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Element/ $HOME/.local/share/backgrounds/
 
 # Set up gnirehtet
-[ ! -d $HOME/gnirehtet-rust-linux64 ] && wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && unzip gnirehtet-*.zip -d $HOME && rm -f gnirehtet-*.zip
+[ ! -d $HOME/gnirehtet-rust-linux64 ] && wget https://gitlab.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && unzip gnirehtet-*.zip -d $HOME && rm -f gnirehtet-*.zip
 [ ! -L $HOME/.local/bin/gnirehtet ] && ln -s $HOME/gnirehtet-rust-linux64/gnirehtet $HOME/.local/bin
 
 # Install Cascadia Fonts
-[ ! -f $HOME/.fonts/ttf/CascadiaCode.ttf ] && wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && unzip cascadia-fonts.zip -d $HOME/.fonts/
+[ ! -f $HOME/.fonts/ttf/CascadiaCode.ttf ] && wget https://gitlab.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && unzip cascadia-fonts.zip -d $HOME/.fonts/
 rm -f cascadia-fonts.zip
 
 # Install Google Sans Fonts

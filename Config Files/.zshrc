@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/11/17 12:04:15 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/12/03 14:08:01 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -190,7 +190,7 @@ alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2
 alias parrot.live="curl parrot.live"
 alias college_uc3m="zsh -c $HOME/.mygreeting_uc3m && cd $HOME/Uc3m/"
 alias college_uoc="zsh -c $HOME/.mygreeting_uoc && cd $HOME/UOC/"
-alias cursus="zsh -c $HOME/.mygreeting_42 && cd $HOME/42\ Madrid/GitHub/42\ Cursus"
+alias cursus="zsh -c $HOME/.mygreeting_42 && cd $HOME/42\ Madrid/Git/42\ Cursus"
 alias tux="zsh -c $HOME/.mygreeting_tux"
 alias 42="zsh -c $HOME/.mygreeting_42"
 alias google="zsh -c $HOME/.mygreeting_google"
@@ -206,7 +206,7 @@ alias p10k_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git a
 if [ -f /usr/bin/sw_vers ]; then
 	export PATH=$HOME/.brew/Cellar/llvm/12.0.1/bin/:$PATH:$HOME/nvim-macos/bin
 	export PATH=$HOME/.brew/bin:$PATH:$HOME/nvim-osx64/bin
-	[ -d $HOME/42\ Madrid/GitHub/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head -c $(($(find $HOME/42\ Madrid/GitHub/42\ Cursus -type d -name bin | wc -c) - 1)) 2>/dev/null | tr "\n" ":")
+	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head -c $(($(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | wc -c) - 1)) 2>/dev/null | tr "\n" ":")
 	alias clear="clear && printf '\e[3J'"
 	alias u="brew update && brew upgrade"
 	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
@@ -227,7 +227,7 @@ else
 	autoload -Uz compinit
 	compinit
 	export FZF_DEFAULT_COMMAND="find -L"
-	[ -d $HOME/42\ Madrid/GitHub/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/GitHub/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
 	export PATH="$PATH:$HOME/.local/bin"
 	alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 	#git config --global credential.helper libsecret
@@ -248,7 +248,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias checktheme="systemctl --user status auto-theme.service"
 	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
 	alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-	alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 	alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
@@ -270,7 +270,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias checktheme="systemctl --user status auto-theme.service"
 	alias checktheme-now="python3 -u '$HOME/.autotheme/timecheck-now.py'"
 	alias donkeykong="python3 -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-	alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
+	alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip3 install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
@@ -291,7 +291,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 		alias pipupdate="sudo pip install -U"
 		alias yan="yay --noconfirm --needed"
 		alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
-		alias pac-man="make play -C $HOME/42\ Madrid/GitHub/42\ Cursus/so_long"
+		alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 		alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 		alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 	fi

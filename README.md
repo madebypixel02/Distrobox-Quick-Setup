@@ -15,7 +15,7 @@
 <!-- By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq   -->
 <!--                                                _)      .___.,|     .'   -->
 <!-- Created: 2022/06/25 20:28:57 by madebypixel02  \___   )MMMMMP|   .'     -->
-<!-- Updated: 2022/11/14 13:49:49 by madebypixel02      `-'       `--'       -->
+<!-- Updated: 2022/12/04 17:44:15 by madebypixel02      `-'       `--'       -->
 <!--                                                                         -->
 <!-- *********************************************************************** -->
 
@@ -39,6 +39,6 @@ Again, do NOT expect things to work on your machine if you end up running the sc
 
 God bless!
 
-<p align="center">
-  <img src="https://github-size-badge.herokuapp.com/madebypixel02/Distrobox-Quick-Setup.svg" />
-</p>
+<div align="center">
+  <img src="https://img.shields.io/github/repo-size/madebypixel02/Distrobox-Quick-Setup?color=green" />
+</div>

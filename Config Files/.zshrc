@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/12/03 14:08:01 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/12/17 14:30:24 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -247,7 +247,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
 	alias checktheme-now="python -u '$HOME/.autotheme/timecheck-now.py'"
-	alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias donkeykong="python -u '$HOME/Uc3m/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
 	alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 	alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
@@ -269,7 +269,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
 	alias checktheme-now="python3 -u '$HOME/.autotheme/timecheck-now.py'"
-	alias donkeykong="python3 -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+	alias donkeykong="python3 -u '$HOME/Uc3m/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
 	alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip3 install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
@@ -290,7 +290,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 		alias yoump3="youtube-dl -x --audio-format mp3"
 		alias pipupdate="sudo pip install -U"
 		alias yan="yay --noconfirm --needed"
-		alias donkeykong="python -u '$HOME/College/Programming I/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
+		alias donkeykong="python -u '$HOME/Uc3m/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
 		alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 		alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 		alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"

@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:31:10 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/09/11 23:15:42 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/12/18 11:17:10 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -208,7 +208,6 @@ alias removable="cd $HOME/Removable\ Devices"
 alias ext="cd $HOME/Removable\ Devices"
 alias v="neofetch | lolcat"
 alias l="echo -e '\n\e[1;33mThis directory has the following:\e[0m' && tree -L 2 -C --filelimit 100"
-alias sp="spotdl"
 alias yoump3="youtube-dl -x --audio-format mp3"
 alias pipupdate="sudo pip install -U"
 alias checktheme="systemctl --user status auto-theme.service"

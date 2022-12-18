@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/12/17 14:30:24 by madebypixel02      `-'       `--'         #
+#    Updated: 2022/12/18 11:16:59 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -241,7 +241,6 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias u="yay -Syu --noconfirm"
 	alias tether="gnirehtet run"
 	alias unwine="wine uninstaller"
-	alias sp="spotdl"
 	alias yoump3="youtube-dl -x --audio-format mp3"
 	alias pipupdate="sudo pip install -U"
 	alias yan="yay --noconfirm --needed"
@@ -263,7 +262,6 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias pip="pip3"
 	alias tether="gnirehtet run"
 	alias unwine="wine uninstaller"
-	alias sp="spotdl"
 	alias yoump3="youtube-dl -x --audio-format mp3"
 	alias pipupdate="sudo pip3 install -U"
 	alias yan="yay --noconfirm --needed"
@@ -286,7 +284,6 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 		alias u="sudo dnf -y update --skip-broken --nobest --allowerasing"
 		alias tether="gnirehtet run"
 		alias unwine="wine uninstaller"
-		alias sp="spotdl"
 		alias yoump3="youtube-dl -x --audio-format mp3"
 		alias pipupdate="sudo pip install -U"
 		alias yan="yay --noconfirm --needed"

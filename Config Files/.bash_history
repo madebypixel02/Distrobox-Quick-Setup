@@ -130,3 +130,11 @@ grep processor /proc/cpuinfo
 zsh
 rm ~/.zsh_history 
 ln -s ~/Distrobox-Quick-Setup/Config\ Files/.zsh_history ~/
+man exit
+./a.out 
+gcc execw_.c
+gcc exitw_.c 
+./a.out 
+gcc exitw_.c && ./a.out 
+gcc exitwe.c && ./a.out 
+echo $?

@@ -26,6 +26,21 @@ sudo pip install -U youtube-dl suntime norminette future pyxel==1.7.2
 sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
 sudo pip uninstall -y numpy beautifulsoup4 soupsieve
 
+# Minilibx
+git clone https://github.com/42Paris/minilibx-linux.git
+cd minilibx-linux/
+make
+sudo cp mlx.h /usr/include
+sudo cp libmlx.a /usr/lib
+sudo cp man/man3/* /usr/share/man/man3/
+#sudo gzip /usr/share/man/man3/mlx.3
+#sudo gzip /usr/share/man/man3/mlx_new_image.3
+#sudo gzip /usr/share/man/man3/mlx_loop.3
+#sudo gzip /usr/share/man/man3/mlx_new_window.3
+#sudo gzip /usr/share/man/man3/mlx_pixel_put.3
+cd ..
+rm -rf minilibx-linux
+
 # Configure Packages
 #JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/Uc3m/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
 sudo usermod -aG dnsmasq $USER
@@ -48,21 +63,6 @@ git config --global credential.helper /usr/share/git/credential/libsecret/git-cr
 # Start Auto-Theme
 #systemctl --user enable --now auto-theme.service
 #systemctl --user enable --now auto-theme.timer
-
-# Minilibx
-git clone https://github.com/42Paris/minilibx-linux.git
-cd minilibx-linux/
-make
-sudo cp mlx.h /usr/include
-sudo cp libmlx.a /usr/lib
-sudo cp man/man3/* /usr/share/man/man3/
-#sudo gzip /usr/share/man/man3/mlx.3
-#sudo gzip /usr/share/man/man3/mlx_new_image.3
-#sudo gzip /usr/share/man/man3/mlx_loop.3
-#sudo gzip /usr/share/man/man3/mlx_new_window.3
-#sudo gzip /usr/share/man/man3/mlx_pixel_put.3
-cd ..
-rm -rf minilibx-linux
 
 # Install minishell
 make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell

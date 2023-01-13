@@ -18,7 +18,7 @@ function focalboard_install () {
 	if [ ! -d /opt/focalboard ]; then
 		sudo pacman -Sy postgresql nginx --needed --noconfirm
 		echo "initdb -D /var/lib/postgres/data" | sudo -iu postgres
-		wget https://gitlab.com/mattermost/focalboard/releases/download/v7.2.1/focalboard-server-linux-amd64.tar.gz && tar -xvzf focalboard-server-linux-amd64.tar.gz
+		wget https://github.com/mattermost/focalboard/releases/download/v7.2.1/focalboard-server-linux-amd64.tar.gz && tar -xvzf focalboard-server-linux-amd64.tar.gz
 		sudo mv -f focalboard /opt
 		rm -rf focalboard*
 		mkdir -p $HOME/.config/systemd/user
@@ -44,6 +44,10 @@ mkdir -p $HOME/Documents
 mkdir -p $HOME/Desktop
 mkdir -p $HOME/Pictures
 mkdir -p $HOME/Audiobooks
+[ -f $HOME/.bashrc ] && rm $HOME/.bashrc
+[ -f $HOME/.zshrc ] && rm $HOME/.zshrc
+[ -f $HOME/.vimrc ] && rm $HOME/.vimrc
+[ -f $HOME/.p10k.zsh ] && rm $HOME/.p10k.zsh
 [ -f /etc/os-release ] && mkdir -p $HOME/.local/share/icons
 [ -f /etc/os-release ] && mkdir -p $HOME/.local/share/applications
 [ -f /etc/os-release ] && mkdir -p $HOME/.local/share/fonts
@@ -53,25 +57,12 @@ mkdir -p $HOME/Audiobooks
 [ -f /etc/os-release ] && mkdir -p $HOME/.fonts
 [ -f /etc/os-release ] && mkdir -p $HOME/.icons
 [ -f /etc/os-release ] && mkdir -p $HOME/.local/bin
-[ -f $HOME/.bashrc ] && rm $HOME/.bashrc
-[ -f $HOME/.bash_history ] && rm $HOME/.bash_history 
-[ -f $HOME/.zshrc ] && rm $HOME/.zshrc
-[ -f $HOME/.zsh_history ] && rm $HOME/.zsh_history
-[ -f $HOME/.p10k.zsh ] && rm $HOME/.p10k.zsh
-[ -f $HOME/.vimrc ] && rm $HOME/.vimrc
-[ -f $HOME/.mygreeting_42 ] && rm $HOME/.mygreeting_42
-[ -f $HOME/.mygreeting_uc3m ] && rm $HOME/.mygreeting_uc3m
-[ -f $HOME/.mygreeting_google ] && rm $HOME/.mygreeting_google
-[ -f $HOME/.mygreeting_tux ] && rm $HOME/.mygreeting_tux
-[ -d $HOME/.config/nvim ] && rm  -rf $HOME/.config/nvim
 touch $HOME/.hushlogin
 
 # Link vimrc, zshrc, bashrc, etc
 [ ! -L $HOME/.vimrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.vimrc $HOME
 [ ! -L $HOME/.zshrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.zshrc $HOME
-[ ! -L $HOME/.zsh_history ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.zsh_history $HOME
 [ ! -L $HOME/.bashrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.bashrc $HOME
-[ ! -L $HOME/.bash_history ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.bash_history $HOME
 [ ! -L $HOME/.mygreeting_google ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_google $HOME
 [ ! -L $HOME/.mygreeting_uc3m ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_uc3m $HOME
 [ ! -L $HOME/.mygreeting_uoc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_uoc $HOME
@@ -102,9 +93,9 @@ fi
 	sudo apt install -y git unzip
 	# Install gh
 	type -p curl >/dev/null || sudo apt install curl -y
-	curl -fsSL https://cli.gitlab.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 	&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.gitlab.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& sudo apt update \
 	&& sudo apt install gh -y
 fi
@@ -113,13 +104,13 @@ fi
 fi
 
 # Fzf installation
-[ ! -d $HOME/.fzf ] && git clone --depth 1 https://gitlab.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
+[ ! -d $HOME/.fzf ] && git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
 
 # Set up zsh and oh-my-zsh
-[ ! -d $HOME/.oh-my-zsh ] && ZSH= sh -c "$(curl -fsSL https://raw.gitlab.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://gitlab.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://gitlab.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-[ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://gitlab.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+[ ! -d $HOME/.oh-my-zsh ] && ZSH= sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+[ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
 [ -L $HOME/.zshrc.pre-oh-my-zsh ] && mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
 # Configure git
@@ -132,11 +123,11 @@ git config --global init.defaultBranch main
 # Install basic MacOS Stuff
 if [ -f /usr/bin/sw_vers ]; then
 	cd $HOME
-	[ ! -d $HOME/.brew ] && git clone --depth=1 https://gitlab.com/Homebrew/brew $HOME/.brew && source $HOME/.zshrc && brew update
+	[ ! -d $HOME/.brew ] && git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew && source $HOME/.zshrc && brew update
 	brew install node llvm neofetch lolcat wget gh asciiquarium ltex-ls
 	brew tap LouisBrunner/valgrind
 	brew install --HEAD LouisBrunner/valgrind/valgrind
-	[ ! -d $HOME/nvim-macos ] && wget https://gitlab.com/neovim/neovim/releases/download/v0.7.2/nvim-macos.tar.gz && tar xzvf nvim-macos.tar.gz nvim-macos && rm nvim-macos.tar.gz
+	[ ! -d $HOME/nvim-macos ] && wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-macos.tar.gz && tar xzvf nvim-macos.tar.gz nvim-macos && rm nvim-macos.tar.gz
 fi
 
 # Set Up gh to handle git credentials
@@ -197,11 +188,6 @@ mkdir -p $HOME/UOC/Operating\ Systems
 # Stop installer on MacOS
 [ -f /usr/bin/sw_vers ] && echo && echo "Installation completed with exit number $?. Enjoy your MacOS setup!" && exit
 
-# Set custom rules in sudoers file
-sudo mkdir -p /var/log/sudo/
-sudo touch /var/log/sudo/sudo.log
-[ ! -f /etc/sudoers.d/overrides ] && sudo cp $HOME/Distrobox-Quick-Setup/Config\ Files/overrides /etc/sudoers.d/
-
 # Configure cmus
 mkdir -p $HOME/.config/cmus
 [ -f $HOME/.config/cmus/command-history ] && rm $HOME/.config/cmus/command-history
@@ -222,11 +208,11 @@ cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/gnome-background-properties/* $H
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Element/ $HOME/.local/share/backgrounds/
 
 # Set up gnirehtet
-[ ! -d $HOME/gnirehtet-rust-linux64 ] && wget https://gitlab.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && unzip gnirehtet-*.zip -d $HOME && rm -f gnirehtet-*.zip
+[ ! -d $HOME/gnirehtet-rust-linux64 ] && wget https://github.com/Genymobile/gnirehtet/releases/download/v2.5/gnirehtet-rust-linux64-v2.5.zip && unzip gnirehtet-*.zip -d $HOME && rm -f gnirehtet-*.zip
 [ ! -L $HOME/.local/bin/gnirehtet ] && ln -s $HOME/gnirehtet-rust-linux64/gnirehtet $HOME/.local/bin
 
 # Install Cascadia Fonts
-[ ! -f $HOME/.fonts/ttf/CascadiaCode.ttf ] && wget https://gitlab.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && unzip cascadia-fonts.zip -d $HOME/.fonts/
+[ ! -f $HOME/.fonts/ttf/CascadiaCode.ttf ] && wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -O cascadia-fonts.zip && unzip cascadia-fonts.zip -d $HOME/.fonts/
 rm -f cascadia-fonts.zip
 
 # Install Google Sans Fonts
@@ -248,7 +234,7 @@ mkdir -p $HOME/.icons/default
 #ln -s $HOME/.icons/xcursor-chromeos/cursors $HOME/.icons/default/cursors
 
 # Install adw-gtk3
-[ ! -d $HOME/.themes/adw-gtk3/gtk-3.0 ] && cd Config\ Files/ && tar -xvf adw-gtk3v4-1.tar.xz && cp -r adw-gtk3 $HOME/.themes/ && rm -rf adw-gtk3 && cp -r adw-gtk3-dark $HOME/.themes/ && rm -rf adw-gtk3-dark
+[ ! -d $HOME/.themes/adw-gtk3/gtk-3.0 ] && cd Config\ Files/ && cp -r adw-gtk3 $HOME/.themes/ && cp -r adw-gtk3-dark $HOME/.themes/
 
 # Configure Auto-Theme
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/

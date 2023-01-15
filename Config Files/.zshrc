@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/12/18 11:16:59 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/01/15 12:42:27 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -193,6 +193,7 @@ alias college_uoc="zsh -c $HOME/.mygreeting_uoc && cd $HOME/UOC/"
 alias cursus="zsh -c $HOME/.mygreeting_42 && cd $HOME/42\ Madrid/Git/42\ Cursus"
 alias tux="zsh -c $HOME/.mygreeting_tux"
 alias 42="zsh -c $HOME/.mygreeting_42"
+alias telefonica="zsh -c $HOME/.mygreeting_telefonica"
 alias google="zsh -c $HOME/.mygreeting_google"
 alias uoc="zsh -c $HOME/.mygreeting_uoc"
 alias uc3m="zsh -c $HOME/.mygreeting_uc3m"

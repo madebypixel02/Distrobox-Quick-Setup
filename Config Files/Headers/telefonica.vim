@@ -1,24 +1,28 @@
 let s:asciiart = [
-	\'                     +###****.                              ',
-	\'                     =***@@@+                               ',
-	\' *%*   -%%:  -*%%%#     :@@@=:   #%##%%#=-*%%%*:            ',
-	\' %@%   =@@: #@@*=+*.    -==*@@+  @@@*=+@@@%+=#@@=           ',
-	\' %@%   -@@:-@@-     .==.    *@@. %@#   =@@:   %@#           ',
-	\' +@@+-=%@@..%@@+--+..%@@+--*@@*  @@#   +@@:   @@#           ',
-	\'  -*%@@#+.   =#%@@%.  -*%@@%*-   %@*   =@@:   %@*           ',
-	\'',
-	\'',
-	\'',
-	\'',
-	\'',
-	\'',
-	\''
+	\"   .,,,        .,,,.       ..,,.    ",
+	\",(######(,  ./######(/   *(######(, ",
+	\"(########/. *#########* ./########/.",
+	\"*(#######*. .(#######(.  /#######(, ",
+	\"  .,*/*.       ,*/*,.      .*//,.   ",
+	\"               .,,,.                ",
+	\"            ./#######/              ",
+	\"            *#########*             ",
+	\"            .(#######(.             ",
+	\"              .,***,.               ",
+	\"               .,,,.                ",
+	\"            ./#######/              ",
+	\"            *#########*             ",
+	\"            .(#######/.             ",
+	\"              .,***,.    Telefonica "
 	\]
+
+
+
 
 let s:start		= '/*'
 let s:end		= '*/'
 let s:fill		= '*'
-let s:length	= 80
+let s:length	= 95
 let s:margin	= 5
 let s:logoheight = len(s:asciiart)
 let s:height = s:logoheight + 4
@@ -93,7 +97,7 @@ function! s:user()
 	if exists('g:user42')
 		return g:user42
 	endif
-	let l:user = "aperez-b"
+	let l:user = "T740907"
 	if strlen(l:user) == 0
 		let l:user = "marvin"
 	endif
@@ -104,7 +108,7 @@ function! s:mail()
 	if exists('g:mail42')
 		return g:mail42
 	endif
-	let l:mail = "100429952@alumnos.uc3m.es"
+	let l:mail = "alejandro.perezbueno@telefonica.com"
 	if strlen(l:mail) == 0
 		let l:mail = "marvin@42.fr"
 	endif
@@ -148,13 +152,13 @@ function! s:update()
 	return 1
 endfunction
 
-function! s:customheader()
+function! s:telefonica()
 	if s:update()
 		call s:insert()
 	endif
 endfunction
 
 " Bind command and shortcut
-command! Customheader call s:customheader ()
-map <F6> :Customheader<CR>
+command! Telefonica call s:telefonica ()
+map <F5> :Telefonica<CR>
 autocmd BufWritePre * call s:update ()

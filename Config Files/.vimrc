@@ -15,7 +15,7 @@
 "    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     "
 "                                                   _)      .___.,|     .'     "
 "    Created: 2022/06/25 20:30:34 by madebypixel02  \___   )MMMMMP|   .'       "
-"    Updated: 2022/11/23 15:30:38 by madebypixel02      `-'       `--'         "
+"    Updated: 2023/01/15 14:07:02 by madebypixel02      `-'       `--'         "
 "                                                                              "
 " **************************************************************************** "
 
@@ -28,6 +28,7 @@ set shiftwidth=4
 set scrolloff=999
 set sidescrolloff=999
 set relativenumber
+set encoding=utf-8
 set list lcs=tab:\|\ 
 set noexpandtab
 

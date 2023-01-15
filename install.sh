@@ -68,6 +68,7 @@ touch $HOME/.hushlogin
 [ ! -L $HOME/.mygreeting_uoc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_uoc $HOME
 [ ! -L $HOME/.mygreeting_42 ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_42 $HOME
 [ ! -L $HOME/.mygreeting_tux ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_tux $HOME
+[ ! -L $HOME/.mygreeting_telefonica ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_telefonica $HOME
 [ ! -L $HOME/.p10k.zsh ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.p10k.zsh $HOME
 
 # Link neovim config file
@@ -84,6 +85,7 @@ mkdir -p $HOME/.vim/plugin/
 [ ! -L $HOME/.vim/plugin/uc3m.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/uc3m.vim $HOME/.vim/plugin/
 [ ! -L $HOME/.vim/plugin/uoc.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/uoc.vim $HOME/.vim/plugin/
 [ ! -L $HOME/.vim/plugin/tux.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/tux.vim $HOME/.vim/plugin/
+[ ! -L $HOME/.vim/plugin/telefonica.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/telefonica.vim $HOME/.vim/plugin/
 
 # Install some base packages based on distro
 [ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then

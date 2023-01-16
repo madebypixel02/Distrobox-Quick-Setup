@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/01/15 12:42:27 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/01/16 17:00:17 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -207,7 +207,7 @@ alias p10k_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git a
 if [ -f /usr/bin/sw_vers ]; then
 	export PATH=$HOME/.brew/Cellar/llvm/12.0.1/bin/:$PATH:$HOME/nvim-macos/bin
 	export PATH=$HOME/.brew/bin:$PATH:$HOME/nvim-osx64/bin
-	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head -c $(($(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | wc -c) - 1)) 2>/dev/null | tr "\n" ":")
+	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head -c $(($(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | wc -c) - 1)) 2>/dev/null | tr "\n" ":") && echo -n
 	alias clear="clear && printf '\e[3J'"
 	alias u="brew update && brew upgrade"
 	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
@@ -228,7 +228,7 @@ else
 	autoload -Uz compinit
 	compinit
 	export FZF_DEFAULT_COMMAND="find -L"
-	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":")
+	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":") && echo -n
 	export PATH="$PATH:$HOME/.local/bin"
 	alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 	#git config --global credential.helper libsecret

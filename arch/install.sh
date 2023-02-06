@@ -11,9 +11,7 @@ sudo cp $HOME/Distrobox-Quick-Setup/Config\ Files/pacman.conf /etc/
 sudo pacman -Syu git base-devel zsh curl wget python python-pip vim neovim man-pages man-db --needed --noconfirm
 
 # Install yay
-git clone https://aur.archlinux.org/yay-bin.git $HOME/yay-bin
-cd $HOME/yay-bin && makepkg -si --noconfirm && cd ..
-rm -rf $HOME/yay-bin
+[ ! -f /bin/yay ] && git clone https://aur.archlinux.org/yay-bin.git $HOME/yay-bin && cd $HOME/yay-bin && makepkg -si --noconfirm && cd .. && rm -rf $HOME/yay-bin
 
 # Uniform QT / GTK look
 grep 'QT_QPA_PLATFORMTHEME=\"qt5ct\"' /etc/environment 1>/dev/null; [ "$?" -eq 1 ] && echo "QT_QPA_PLATFORMTHEME=\"qt5ct\"" | sudo tee -a /etc/environment 1>/dev/null
@@ -27,8 +25,8 @@ sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/maste
 sudo pip uninstall -y numpy beautifulsoup4 soupsieve
 
 # Minilibx
-git clone https://github.com/42Paris/minilibx-linux.git
-cd minilibx-linux/
+cd ~/ && git clone https://github.com/42Paris/minilibx-linux.git $HOME/minilibx-linux
+cd $HOME/minilibx-linux/
 make
 sudo cp mlx.h /usr/include
 sudo cp libmlx.a /usr/lib
@@ -38,8 +36,7 @@ sudo cp man/man3/* /usr/share/man/man3/
 #sudo gzip /usr/share/man/man3/mlx_loop.3
 #sudo gzip /usr/share/man/man3/mlx_new_window.3
 #sudo gzip /usr/share/man/man3/mlx_pixel_put.3
-cd ..
-rm -rf minilibx-linux
+rm -rf $HOME/minilibx-linux
 
 # Configure Packages
 #JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/Uc3m/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt

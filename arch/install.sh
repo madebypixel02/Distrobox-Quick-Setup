@@ -40,12 +40,12 @@ rm -rf $HOME/minilibx-linux
 
 # Configure Packages
 #JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/Uc3m/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
-sudo usermod -aG dnsmasq $USER
-sudo systemctl enable --now libvirtd
-sudo usermod -aG wireshark $USER
-sudo chmod +x /usr/bin/dumpcap
-sudo usermod -aG libvirt $USER
-[ ! "grep \"remember_owner = 0\" /etc/libvirt/qemu.conf" ] && echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
+#sudo usermod -aG dnsmasq $USER
+#sudo systemctl enable --now libvirtd
+#sudo usermod -aG wireshark $USER
+#sudo chmod +x /usr/bin/dumpcap
+#sudo usermod -aG libvirt $USER
+#[ ! "grep \"remember_owner = 0\" /etc/libvirt/qemu.conf" ] && echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
 sudo chmod a+w /usr/lib/vlc/plugins/video_filter/
 sudo chmod a+w /usr/lib/vlc/plugins/video_filter/*
 

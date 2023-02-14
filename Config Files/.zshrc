@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/02/14 14:13:01 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/02/14 14:25:43 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -231,7 +231,7 @@ else
 	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":") && echo -n
 	export PATH="$PATH:$HOME/.local/bin"
 	alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
-	#git config --global credential.helper libsecret
+	git config --global credential.helper libsecret
 fi
 
 # Aliases for Arch Linux
@@ -253,10 +253,15 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
 fi
 
+# Aliases for VanillaOS
+if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"VanillaOS\"" ; then
+	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+fi
+
 # Aliases for Debian
 if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	#git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	# Other Aliases
 	alias u="sudo apt -y update && sudo apt -y upgrade"
 	alias python="python3"

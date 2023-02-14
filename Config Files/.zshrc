@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/01/16 17:00:17 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/02/14 14:13:01 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -268,7 +268,6 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias yan="yay --noconfirm --needed"
 	alias checktheme="systemctl --user status auto-theme.service"
 	alias checktheme-now="python3 -u '$HOME/.autotheme/timecheck-now.py'"
-	alias donkeykong="python3 -u '$HOME/Uc3m/Basic-OOP-Donkey-Kong-in-Python/mario_barrel.py'"
 	alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip3 install https://codeload.github.com/spotDL/spotify-downloader/zip/master"

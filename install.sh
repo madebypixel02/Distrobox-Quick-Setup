@@ -169,11 +169,13 @@ cd $HOME/42\ Madrid/Git/42\ Cursus
 # Clone UOC Stuff
 mkdir -p $HOME/UOC/Human-Computer\ Interaction
 mkdir -p $HOME/UOC/Web\ Standards\ \&\ Languages
+mkdir -p $HOME/UOC/Object-Oriented\ \Programming 
 mkdir -p $HOME/UOC/Operating\ Systems
 [ ! -d $HOME/UOC/UOC-Projects ] && cd $HOME/UOC && git clone https://gitlab.com/madebypixel02/UOC-Projects.git && cd $HOME
 [ ! -d $HOME/UOC/Human-Computer\ Interaction/HCI-Practices ] && cd $HOME/UOC/Human-Computer\ Interaction && git clone https://gitlab.com/madebypixel02/HCI-Practices.git && cd $HOME
 [ ! -d $HOME/UOC/Web\ Standards\ \&\ Languages/Web-Standards-and-Languages-Practices ] && cd $HOME/UOC/Web\ Standards\ \&\ Languages && git clone https://gitlab.com/madebypixel02/Web-Standards-and-Languages-Practices.git && cd $HOME
 [ ! -d $HOME/UOC/Operating\ Systems/Operating-Systems-Practices ] && cd $HOME/UOC/Operating\ Systems && git clone https://gitlab.com/madebypixel02/Operating-Systems-Practices.git && cd $HOME
+[ ! -d $HOME/UOC/Object-Oriented\ Programming/OOP-Practices ] && cd $HOME/UOC/Object-Oriented\ Programming && git clone https://gitlab.com/madebypixel02/OOP-Practices.git && cd $HOME
 
 # Clone Uc3m Stuff
 #mkdir -p $HOME/Uc3m/Programming\ I

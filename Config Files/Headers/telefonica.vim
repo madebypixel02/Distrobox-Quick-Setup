@@ -28,7 +28,7 @@ let s:logoheight = len(s:asciiart)
 let s:height = s:logoheight + 4
 
 let s:types		= {
-			\'\.c$\|\.h$\|\.cc$\|\.hh$\|\.cpp$\|\.hpp$\|\.php':
+			\'\.c$\|\.h$\|\.cc$\|\.hh$\|\.cpp$\|\.hpp$\|\.php\|\.java$':
 			\['/*', '*/', '*'],
 			\'\.htm$\|\.html$\|\.xml$\|\.Rmd$\|\.md$':
 			\['<!--', '-->', '*'],

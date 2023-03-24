@@ -133,6 +133,7 @@ if [ -f /usr/bin/sw_vers ]; then
 fi
 
 # Set Up gh to handle git credentials
+gh auth login
 gh extension install jongio/gh-setup-git-credential-helper
 gh setup-git-credential-helper
 

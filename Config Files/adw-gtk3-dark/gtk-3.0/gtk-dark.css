@@ -78,6 +78,7 @@
 @define-color thumbnail_fg_color white;
 @define-color shade_color rgba(0, 0, 0, 0.36);
 @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+@define-color incognito_bg_color #1c2438;
 * { padding: 0; -GtkToolButton-icon-spacing: 4; -GtkTextView-error-underline-color: @error_bg_color; -GtkScrolledWindow-scrollbar-spacing: 0; -GtkToolItemGroup-expander-size: 11; -GtkWidget-text-handle-width: 20; -GtkWidget-text-handle-height: 24; -GtkDialog-button-spacing: 4; -GtkDialog-action-area-border: 0; outline-color: alpha(currentColor,0.3); outline-style: dashed; outline-offset: -3px; outline-width: 1px; -gtk-outline-radius: 4px; -gtk-secondary-caret-color: @accent_bg_color; }
 
 .background { color: @window_fg_color; background-color: @window_bg_color; }
@@ -489,25 +490,25 @@ list row button.image-button:not(.flat):active, list row button.image-button:not
 
 list row button.image-button:not(.flat):active:hover, list row button.image-button:not(.flat):checked:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
-button:link > label, button:visited > label, button:link, button:visited, *:link { color: mix(white,@accent_bg_color,0.8); }
+button:link > label, button:visited > label, button:link, button:visited, *:link { color: @accent_color; }
 
-button:link > label:visited, button:visited > label:visited, button:visited, *:link:visited { color: mix(white,@accent_bg_color,0.9); }
+button:link > label:visited, button:visited > label:visited, button:visited, *:link:visited { color: mix(@accent_color,@view_fg_color,0.2); }
 
-*:selected button:link > label:visited, *:selected button:visited > label:visited, *:selected button:visited, *:selected *:link:visited { color: mix(@accent_fg_color,mix(white,@accent_bg_color,0.9),0.4); }
+*:selected button:link > label:visited, *:selected button:visited > label:visited, *:selected button:visited, *:selected *:link:visited { color: mix(@accent_fg_color,mix(@accent_color,@view_fg_color,0.2),0.4); }
 
-button:link > label:hover, button:visited > label:hover, button:hover:link, button:hover:visited, *:link:hover { color: mix(white,mix(white,@accent_bg_color,0.8),0.9); }
+button:link > label:hover, button:visited > label:hover, button:hover:link, button:hover:visited, *:link:hover { color: mix(white,@accent_color,0.9); }
 
-*:selected button:link > label:hover, *:selected button:visited > label:hover, *:selected button:hover:link, *:selected button:hover:visited, *:selected *:link:hover { color: mix(@accent_fg_color,mix(white,mix(white,@accent_bg_color,0.8),0.9),0.1); }
+*:selected button:link > label:hover, *:selected button:visited > label:hover, *:selected button:hover:link, *:selected button:hover:visited, *:selected *:link:hover { color: mix(@accent_fg_color,mix(white,@accent_color,0.9),0.1); }
 
-button:link > label:active, button:visited > label:active, button:active:link, button:active:visited, *:link:active { color: mix(white,@accent_bg_color,0.8); }
+button:link > label:active, button:visited > label:active, button:active:link, button:active:visited, *:link:active { color: @accent_color; }
 
-*:selected button:link > label:active, *:selected button:visited > label:active, *:selected button:active:link, *:selected button:active:visited, *:selected *:link:active { color: mix(@accent_fg_color,mix(white,@accent_bg_color,0.8),0.2); }
+*:selected button:link > label:active, *:selected button:visited > label:active, *:selected button:active:link, *:selected button:active:visited, *:selected *:link:active { color: mix(@accent_fg_color,@accent_color,0.2); }
 
-button:link > label:backdrop, button:visited > label:backdrop, button:backdrop:link, button:backdrop:visited, *:link:backdrop:backdrop:hover, *:link:backdrop:backdrop:hover:selected, *:link:backdrop { color: alpha(mix(white,@accent_bg_color,0.8),0.9); }
+button:link > label:backdrop, button:visited > label:backdrop, button:backdrop:link, button:backdrop:visited, *:link:backdrop:backdrop:hover, *:link:backdrop:backdrop:hover:selected, *:link:backdrop { color: alpha(@accent_color,0.9); }
 
 button:link > label:disabled, button:visited > label:disabled, button:disabled:link, button:disabled:visited, *:link:disabled, *:link:disabled:backdrop { color: alpha(mix(white,black,0.5),0.8); }
 
-.selection-mode .titlebar:not(headerbar) .subtitle:link, .selection-mode.titlebar:not(headerbar) .subtitle:link, .selection-mode headerbar .subtitle:link, headerbar.selection-mode .subtitle:link, button:link > label:selected, button:visited > label:selected, button:selected:link, button:selected:visited, *:selected button:link > label, *:selected button:visited > label, *:selected button:link, *:selected button:visited, *:link:selected, *:selected *:link { color: mix(@accent_fg_color,mix(white,@accent_bg_color,0.8),0.2); }
+.selection-mode .titlebar:not(headerbar) .subtitle:link, .selection-mode.titlebar:not(headerbar) .subtitle:link, .selection-mode headerbar .subtitle:link, headerbar.selection-mode .subtitle:link, button:link > label:selected, button:visited > label:selected, button:selected:link, button:selected:visited, *:selected button:link > label, *:selected button:visited > label, *:selected button:link, *:selected button:visited, *:link:selected, *:selected *:link { color: mix(@accent_fg_color,@accent_color,0.2); }
 
 button:link, button:visited { text-shadow: none; font-weight: 400; }
 
@@ -789,9 +790,9 @@ treeview.view header button:disabled { border-color: @window_bg_color; backgroun
 
 treeview.view header button:last-child { border-right-style: none; }
 
-menubar, .menubar { -GtkWidget-window-dragging: true; padding: 0px; }
+menubar, .menubar { -GtkWidget-window-dragging: true; padding-bottom: 1px; box-shadow: inset 0 -1px @headerbar_shade_color; background-color: @headerbar_bg_color; color: @headerbar_fg_color; margin-top: -1px; }
 
-menubar:backdrop, .menubar:backdrop { background-color: @window_bg_color; }
+menubar:backdrop, .menubar:backdrop { background-color: @headerbar_backdrop_color; }
 
 menubar > menuitem, .menubar > menuitem { border-radius: 6px; min-height: 16px; padding: 4px 8px; }
 
@@ -799,7 +800,7 @@ menubar > menuitem menu:dir(rtl), menubar > menuitem menu:dir(ltr), .menubar > m
 
 menubar > menuitem menu:dir(rtl) menuitem, menubar > menuitem menu:dir(ltr) menuitem, .menubar > menuitem menu:dir(rtl) menuitem, .menubar > menuitem menu:dir(ltr) menuitem { border-radius: 6px; }
 
-menubar > menuitem:hover, .menubar > menuitem:hover { background-color: mix(currentColor,@view_bg_color,0.875); }
+menubar > menuitem:hover, .menubar > menuitem:hover { background-color: alpha(currentColor,0.1); }
 
 menubar > menuitem:disabled, .menubar > menuitem:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); box-shadow: none; }
 
@@ -1797,7 +1798,7 @@ infobar .close { min-width: 18px; min-height: 18px; padding: 4px; border-radius:
 
 infobar selection { background-color: shade(@window_bg_color,0.9); }
 
-infobar *:link { color: mix(white,@accent_bg_color,0.8); }
+infobar *:link { color: @accent_color; }
 
 tooltip { padding: 4px; border-radius: 5px; box-shadow: none; text-shadow: 0 1px black; }
 
@@ -1975,7 +1976,7 @@ button.emoji-section:backdrop:not(:checked) { border-color: transparent; }
 
 button.emoji-section:hover { border-color: alpha(@window_fg_color,0.1); }
 
-button.emoji-section:checked { border-color: @accent_bg_color; }
+button.emoji-section:checked { border-color: alpha(currentColor,0.1); }
 
 button.emoji-section label { padding: 0; opacity: 0.55; }
 
@@ -1983,9 +1984,11 @@ button.emoji-section:hover label { opacity: 0.775; }
 
 button.emoji-section:checked label { opacity: 1; }
 
-popover.emoji-picker .emoji { font-size: x-large; padding: 6px; }
+popover.emoji-picker .emoji { font-size: x-large; padding: 6px; border-radius: 6px; }
 
-popover.emoji-picker .emoji :hover { background: @accent_bg_color; border-radius: 6px; }
+popover.emoji-picker .emoji :focus, popover.emoji-picker .emoji :hover { background: alpha(currentColor,0.07); }
+
+popover.emoji-picker .emoji :active { background: alpha(currentColor,0.16); }
 
 popover.emoji-completion arrow { border: none; background: none; }
 
@@ -3031,6 +3034,8 @@ window.background.chromium textview.view { background-color: @view_bg_color; }
 
 #MozillaGtkWidget.background button { font-weight: initial; }
 
+#MozillaGtkWidget.background menuitem { border-radius: 0; }
+
 #MozillaGtkWidget.background menuitem check, #MozillaGtkWidget.background menuitem radio { min-height: 12px; min-width: 12px; }
 
 #MozillaGtkWidget.background { background-color: @headerbar_bg_color; }
@@ -3048,6 +3053,28 @@ dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > li
 dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > list > row:selected .subtitle { color: @accent_fg_color; }
 
 dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > list > row:selected image { color: @accent_fg_color; }
+
+.incognito-mode headerbar, .incognito-mode headerbar.titlebar, .incognito-mode .titlebar { background: @incognito_bg_color; }
+
+.incognito-mode headerbar:backdrop, .incognito-mode headerbar.titlebar:backdrop, .incognito-mode .titlebar:backdrop { background: mix(@incognito_bg_color,@window_bg_color,0.5); }
+
+.incognito-mode headerbar button.image-button:hover, .incognito-mode headerbar.titlebar button.image-button:hover, .incognito-mode .titlebar button.image-button:hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@incognito_bg_color,1.03),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,1.03),0.903); }
+
+.incognito-mode headerbar button.image-button:hover:backdrop, .incognito-mode headerbar.titlebar button.image-button:hover:backdrop, .incognito-mode .titlebar button.image-button:hover:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(currentColor,@incognito_bg_color,1.01),0.2); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,1.01),0.9); text-shadow: none; -gtk-icon-shadow: none; }
+
+.incognito-mode headerbar button.image-button:active, .incognito-mode headerbar button.image-button:checked, .incognito-mode headerbar.titlebar button.image-button:active, .incognito-mode headerbar.titlebar button.image-button:checked, .incognito-mode .titlebar button.image-button:active, .incognito-mode .titlebar button.image-button:checked { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.903),0.7); background-color: mix(currentColor,@incognito_bg_color,0.903); }
+
+.incognito-mode headerbar button.image-button:active:hover, .incognito-mode headerbar button.image-button:checked:hover, .incognito-mode headerbar.titlebar button.image-button:active:hover, .incognito-mode headerbar.titlebar button.image-button:checked:hover, .incognito-mode .titlebar button.image-button:active:hover, .incognito-mode .titlebar button.image-button:checked:hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@incognito_bg_color,0.963),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.963),0.903); }
+
+.incognito-mode headerbar button.image-button:active:backdrop, .incognito-mode headerbar button.image-button:checked:backdrop, .incognito-mode headerbar.titlebar button.image-button:active:backdrop, .incognito-mode headerbar.titlebar button.image-button:checked:backdrop, .incognito-mode .titlebar button.image-button:active:backdrop, .incognito-mode .titlebar button.image-button:checked:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@incognito_bg_color,0.2); background-color: mix(currentColor,@incognito_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
+
+.incognito-mode headerbar entry, .incognito-mode headerbar.titlebar entry, .incognito-mode .titlebar entry { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.903),0.7); background-color: mix(currentColor,@incognito_bg_color,0.903); }
+
+.incognito-mode headerbar entry:backdrop, .incognito-mode headerbar.titlebar entry:backdrop, .incognito-mode .titlebar entry:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@incognito_bg_color,0.2); background-color: mix(currentColor,@incognito_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
+
+.incognito-mode headerbar entry:disabled, .incognito-mode headerbar.titlebar entry:disabled, .incognito-mode .titlebar entry:disabled { color: mix(mix(@headerbar_fg_color,@headerbar_bg_color,0.5),mix(@incognito_bg_color,@view_bg_color,0.15),0.5); background-color: mix(currentColor,@incognito_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+.incognito-mode headerbar entry:disabled:backdrop, .incognito-mode headerbar.titlebar entry:disabled:backdrop, .incognito-mode .titlebar entry:disabled:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(@incognito_bg_color,@view_bg_color,0.15),0.5); background-color: mix(currentColor,@incognito_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
 .org-gnome-Builder .dzlmenubuttonitem { font-weight: normal; min-height: 32px; }
 

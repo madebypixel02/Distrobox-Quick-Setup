@@ -97,7 +97,7 @@
 
 .gtkstyle-fallback:selected { color: @accent_fg_color; background-color: @accent_bg_color; }
 
-.view, iconview, .nautilus-window notebook, .nautilus-window notebook > stack:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar, .view text, iconview text, textview text { color: @view_fg_color; background-color: @view_bg_color; }
+.view, iconview, .nautilus-window notebook, .nautilus-window notebook > stack:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar, .view text, iconview text, textview text { color: @view_fg_color; caret-color: shade(@view_fg_color,0.97); background-color: @view_bg_color; }
 
 .view:disabled, iconview:disabled, .nautilus-window notebook:disabled, .nautilus-window notebook > stack:disabled:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:disabled, .view text:disabled, iconview text:disabled, textview text:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(@window_bg_color,@view_bg_color,0.4); }
 
@@ -790,9 +790,9 @@ treeview.view header button:disabled { border-color: @window_bg_color; backgroun
 
 treeview.view header button:last-child { border-right-style: none; }
 
-menubar, .menubar { -GtkWidget-window-dragging: true; padding-bottom: 1px; box-shadow: inset 0 -1px @headerbar_shade_color; background-color: @headerbar_bg_color; color: @headerbar_fg_color; margin-top: -1px; }
+menubar, .menubar { -GtkWidget-window-dragging: true; padding: 0; }
 
-menubar:backdrop, .menubar:backdrop { background-color: @headerbar_backdrop_color; }
+menubar:backdrop, .menubar:backdrop { background-color: @window_bg_color; }
 
 menubar > menuitem, .menubar > menuitem { border-radius: 6px; min-height: 16px; padding: 4px 8px; }
 
@@ -2954,6 +2954,8 @@ list.tweak-categories separator.horizontal { background: transparent; margin: 2p
 
 window#guake-terminal notebook header { background: @headerbar_bg_color; }
 
+.XfceHeading { background-color: @view_bg_color; margin: 0; padding: 0; border-width: 0; }
+
 XfdesktopIconView.view { background: transparent; color: rgba(255, 255, 255, 0.9); border-radius: 6px; }
 
 XfdesktopIconView.view:active { background: alpha(mix(black,@accent_bg_color,0.85),0.5); text-shadow: 0 1px 1px black; }
@@ -2966,13 +2968,21 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 @define-color panel_fg_color white;
 .xfce4-panel.background { border: none; background-color: @panel_bg_color; color: @panel_fg_color; transition-duration: 250ms; }
 
-.xfce4-panel.background .tasklist button, .xfce4-panel.background #actions-button, .xfce4-panel.background #clock-button { margin: 2px; }
+.xfce4-panel.background .tasklist button, .xfce4-panel.background #actions-button, .xfce4-panel.background #clock-button { margin: 0 1px; }
+
+.xfce4-panel.background.horizontal .tasklist button { margin: 0 1px; }
+
+.xfce4-panel.background.horizontal .tasklist button label { padding-right: 3px; }
+
+.xfce4-panel.background.vertical .tasklist button { margin: 1px 0; }
+
+.xfce4-panel.background.vertical .tasklist button label { padding-bottom: 3px; }
 
 .xfce4-panel.background .tasklist image { margin-left: 2px; margin-right: 2px; }
 
 .xfce4-panel.background button label { padding-left: 6px; padding-right: 6px; }
 
-.xfce4-panel.background button { padding: 0 6px; min-height: 12px; min-width: 12px; border-radius: 24px; color: @panel_fg_color; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
+.xfce4-panel.background button { padding: 0 6px; min-height: 12px; min-width: 12px; border-radius: 24px; color: @panel_fg_color; transition-duration: 250ms; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
 .xfce4-panel.background button:disabled { background-color: transparent; color: alpha(@panel_fg_color,0.2); }
 
@@ -2984,6 +2994,8 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .xfce4-panel.background button:checked:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: alpha(@panel_fg_color,0.2); }
 
+.xfce4-panel.background button:drop(active) { color: @accent_bg_color; border-color: @accent_bg_color; box-shadow: inset 0 0 0 1px @accent_bg_color; }
+
 .xfce4-panel.background button entry { caret-color: @view_fg_color; }
 
 .xfce4-panel.background button menu { -gtk-icon-effect: none; text-shadow: none; }
@@ -2991,6 +3003,36 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 .xfce4-panel.background button menu .linked button { color: @view_fg_color; outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.903),0.7); background-color: mix(currentColor,@popover_bg_color,0.903); }
 
 .xfce4-panel.background button menu .linked button:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(currentColor,@window_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; border-color: alpha(mix(currentColor,@window_bg_color,0.85),0.5); }
+
+.xfce4-panel.background progressbar { margin: 0; }
+
+.xfce4-panel.background progressbar.horizontal trough { min-height: 6px; padding: 0; }
+
+.xfce4-panel.background progressbar.horizontal progress { min-height: 4px; }
+
+.xfce4-panel.background progressbar.vertical trough { min-width: 6px; padding: 0; }
+
+.xfce4-panel.background progressbar.vertical progress { min-width: 4px; }
+
+.xfce4-panel.background progressbar progress { border-radius: 0px; }
+
+.xfce4-panel.background progressbar trough { background: shade(@panel_bg_color,0.7); border-radius: 0px; border-color: shade(@panel_bg_color,0.4); }
+
+wnck-pager { background-color: alpha(@panel_fg_color,0.1); }
+
+wnck-pager:selected { background-color: shade(@accent_bg_color,0.88); }
+
+wnck-pager:hover { background-color: @accent_bg_color; }
+
+#xfwm-tabwin { padding: 12px; border-radius: 12px; -XfwmTabwinWidget-icon-size: 64px; -XfwmTabwinWidget-preview-size: 128px; }
+
+#xfwm-tabwin .tabwin-app-grid button { min-width: 96px; min-height: 96px; }
+
+window#whiskermenu-window button { transition: none; }
+
+#whiskermenu-button { transition: none; }
+
+#XfceNotifyWindow { border-radius: 8px; background-color: @view_bg_color; }
 
 .caja-desktop.caja-canvas-item, .nemo-desktop.nemo-canvas-item { color: @accent_fg_color; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); }
 

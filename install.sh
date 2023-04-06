@@ -18,13 +18,13 @@ function focalboard_install () {
 	if [ ! -d /opt/focalboard ]; then
 		sudo pacman -Sy postgresql nginx --needed --noconfirm
 		echo "initdb -D /var/lib/postgres/data" | sudo -iu postgres
-		wget https://github.com/mattermost/focalboard/releases/download/v7.2.1/focalboard-server-linux-amd64.tar.gz && tar -xvzf focalboard-server-linux-amd64.tar.gz
+		wget https://github.com/mattermost/focalboard/releases/download/v7.9.2/focalboard-server-linux-amd64.tar.gz && tar -xvzf focalboard-server-linux-amd64.tar.gz
 		sudo mv -f focalboard /opt
 		rm -rf focalboard*
 		mkdir -p $HOME/.config/systemd/user
 		sudo systemctl enable --now postgresql
 		sudo systemctl enable --now nginx
-		echo "echo \"CREATE DATABASE boards;CREATE USER boardsuser WITH PASSWORD 'boardsuser-password';\" | psql" | sudo --login --user postgres
+		echo "echo \"CREATE DATABASE boards;CREATE USER boardsuser WITH PASSWORD 'boardsuser-password';GRANT ALL ON DATABASE boards TO boardsuser;ALTER DATABASE boards OWNER TO boardsuser;GRANT USAGE, CREATE ON SCHEMA PUBLIC TO boardsuser;\" | psql" | sudo --login --user postgres
 		sudo mkdir -p /etc/nginx/sites-available/
 		sudo mkdir -p /etc/nginx/sites-enabled/
 		sudo cp $HOME/Distrobox-Quick-Setup/Config\ Files/Focalboard/focalboard /etc/nginx/sites-available

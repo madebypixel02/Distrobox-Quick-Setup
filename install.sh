@@ -167,6 +167,7 @@ cd $HOME/42\ Madrid/Git/42\ Cursus
 [ ! -d CPP-Module-07 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-07.git
 [ ! -d CPP-Module-08 ] && git clone https://gitlab.com/madebypixel02/CPP-Module-08.git
 [ ! -d NetPractice ] && git clone https://gitlab.com/madebypixel02/NetPractice.git
+[ ! -d ft_irc ] && git clone https://github.com/madebypixel02/ft_irc.git
 
 # Clone UOC Stuff
 mkdir -p $HOME/UOC && [ ! -d $HOME/UOC/UOC-Projects ] && cd $HOME/UOC && git clone https://gitlab.com/madebypixel02/UOC-Projects.git && cd $HOME

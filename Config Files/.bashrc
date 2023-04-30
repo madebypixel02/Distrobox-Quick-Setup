@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:31:10 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2022/12/18 11:17:10 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/04/30 08:12:14 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -165,7 +165,8 @@ MAIL="marvin@42.fr"
 # bash $HOME/.mygreeting
 
 # Custom 42 greeting
-bash $HOME/.mygreeting_42
+#bash $HOME/.mygreeting_42
+bash $HOME/.mygreeting_tux
 
 # Color Aliases
 export DEFAULT="\\e[39m"

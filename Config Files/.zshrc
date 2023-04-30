@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/02/14 14:25:43 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/04/30 08:11:54 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,7 +148,8 @@ typeset -A crostini=(
 setopt HIST_IGNORE_SPACE
 
 # Custom 42 greeting
-[ -L $HOME/.mygreeting_42 ] && zsh $HOME/.mygreeting_42
+#[ -L $HOME/.mygreeting_42 ] && zsh $HOME/.mygreeting_42
+[ -L $HOME/.mygreeting_tux ] && zsh $HOME/.mygreeting_tux
 
 # ADB devices
 GINKGO=2760c408

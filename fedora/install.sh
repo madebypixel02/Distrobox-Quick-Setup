@@ -62,5 +62,5 @@ cd ..
 rm -rf minilibx-linux
 
 # Install minishell
-make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
-[ ! -L /bin/minishell ] && cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
+make -C $HOME/42\ Madrid/Git/42\ Cursus/minishell
+[ ! -L /bin/minishell ] && cd /bin && sudo ln -s $HOME/42\ Madrid/Git/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup

@@ -62,8 +62,8 @@ git config --global credential.helper /usr/share/git/credential/libsecret/git-cr
 #systemctl --user enable --now auto-theme.timer
 
 # Install minishell
-make -C $HOME/42\ Madrid/GitHub/42\ Cursus/minishell
-[ ! -L /bin/minishell ] && cd /bin && sudo ln -s $HOME/42\ Madrid/GitHub/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
+make -C $HOME/42\ Madrid/Git/42\ Cursus/minishell
+[ ! -L /bin/minishell ] && cd /bin && sudo ln -s $HOME/42\ Madrid/Git/42\ Cursus/minishell/bin/minishell . && cd $HOME/Distrobox-Quick-Setup
 
 # Install Uc3m ABE-Scalability Dependencies
 

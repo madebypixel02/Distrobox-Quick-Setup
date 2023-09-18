@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:31:10 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/09/18 11:54:42 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/09/18 11:58:16 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -273,4 +273,4 @@ function mkcdir() {
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Source Nix
-[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ] source $HOME/.nix-profile/etc/profile.d/nix.sh
+[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh

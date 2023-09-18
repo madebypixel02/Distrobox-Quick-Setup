@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/09/18 11:54:19 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/09/18 11:57:50 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -363,4 +363,4 @@ source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Source Nix
-[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ] source $HOME/.nix-profile/etc/profile.d/nix.sh
+[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh

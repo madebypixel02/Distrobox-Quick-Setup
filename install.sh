@@ -243,6 +243,10 @@ mkdir -p $HOME/.icons/default
 # Install adw-gtk3
 [ ! -d $HOME/.themes/adw-gtk3/gtk-3.0 ] && cd Config\ Files/ && cp -r adw-gtk3 $HOME/.themes/ && cp -r adw-gtk3-dark $HOME/.themes/
 
+# Set Up Nix
+sudo install -d -m755 -o $(id -u) -g $(id -g) /nix
+curl -L https://nixos.org/nix/install | sh
+
 # Configure Auto-Theme
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/.autotheme $HOME/

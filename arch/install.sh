@@ -20,9 +20,9 @@ grep 'QT_QPA_PLATFORMTHEME=\"qt5ct\"' /etc/environment 1>/dev/null; [ "$?" -eq 1
 yay -S python-pyparsing python-six python-packaging python-pydantic python-typing_extensions python-pygments --needed --noconfirm
 yay -S nodejs-lts-gallium --needed --noconfirm
 yay -S android-tools gnirehtet zsh neofetch lolcat xiaomitool-v2 noto-fonts-cjk noto-fonts-extra ttf-dejavu gnome-tweaks lxappearance valgrind gnome-shell yarn dex gtk-engine-murrine bat llvm gcc-fortran python-psycopg2 gdal texlive-core scrcpy sndcpy-bin tree libbsd jre-openjdk docker samba nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost adwaita-qt5 adwaita-qt6 mesa-utils sl browsh-bin elinks cowsay nginx mariadb dnsmasq cmus pandoc xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel python-numpy tk xorg-xinput asciiquarium wine winetricks vlc qt5ct wireshark-qt python-pywal epiphany qt5ct adwaita-qt5 adwaita-qt6 autofirma-bin libpkcs11-dnie mpv-full noto-fonts noto-fonts-emoji ttf-linux-libertine ttf-dejavu noto-fonts-cjk tldr universal-android-debloater-bin npm --needed --noconfirm
-sudo pip install -U youtube-dl suntime norminette future pyxel==1.7.2
-sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
-sudo pip uninstall -y numpy beautifulsoup4 soupsieve
+#sudo pip install -U youtube-dl suntime norminette future pyxel==1.7.2
+#sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
+#sudo pip uninstall -y numpy beautifulsoup4 soupsieve
 
 # Minilibx
 cd ~/ && git clone https://github.com/42Paris/minilibx-linux.git $HOME/minilibx-linux

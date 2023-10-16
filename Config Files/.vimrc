@@ -15,7 +15,7 @@
 "    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     "
 "                                                   _)      .___.,|     .'     "
 "    Created: 2022/06/25 20:30:34 by madebypixel02  \___   )MMMMMP|   .'       "
-"    Updated: 2023/06/29 08:49:31 by madebypixel02      `-'       `--'         "
+"    Updated: 2023/10/16 10:03:14 by madebypixel02      `-'       `--'         "
 "                                                                              "
 " **************************************************************************** "
 
@@ -58,7 +58,7 @@ Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Coc Extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-github', 'coc-cmake', 'coc-pyright', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-cmake', 'coc-pyright', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver']
 
 " Fix auto-completion enter
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"

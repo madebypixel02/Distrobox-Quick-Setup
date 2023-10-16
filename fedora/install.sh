@@ -19,18 +19,7 @@ sudo cp $HOME/Distrobox-Quick-Setup/Config\ Files/dnf.conf /etc/dnf/dnf.conf
 sudo dnf copr enable -y zawertun/vapoursynth
 
 # Install typical packages
-sudo pip install -U youtube-dl suntime norminette future pyxel==1.7.2 pywal
-sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master
-sudo dnf install -y android-tools neofetch lolcat gnome-tweaks lxappearance valgrind gnome-shell gnome-terminal npm dex vim bat llvm gdal texlive-scheme-basic tree libbsd java-latest-openjdk docker cronie fedora-packager fedora-review google-android-emoji-fonts google-noto-sans-fonts google-noto-sans-mono-fonts gstreamer-plugins-espeak gstreamer1-libav gstreamer1-plugin-openh264 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly htop joystick joystick-support langpacks-core-en langpacks-core-es langpacks-en langpacks-es libva-intel-driver lm_sensors samba sysbench gnome-keyring libgnome-keyring cmatrix xhost wine sl elinks cowsay nginx mariadb dnsmasq pandoc vulkan-loader vulkan-tools python-numpy tk xinput mpv libXext-devel libX11-devel libbsd-devel git-credential-libsecret readline readline-devel google-noto-cjk-fonts google-noto-cjk-fonts-common qt5ct adwaita-qt5 adwaita-qt6 tldr nodejs
-
-# Configure Packages
-#JAVA_HOME=/usr/lib/jvm/default sudo pip install -r $HOME/Uc3m/Machine\ Learning\ I/Machine-Learning-Pacman/requirements.txt
-sudo usermod -aG dnsmasq $USER
-#sudo systemctl enable --now libvirtd
-sudo usermod -aG wireshark $USER
-sudo chmod +x /usr/bin/dumpcap
-sudo usermod -aG libvirt $USER
-[ ! "grep \"remember_owner = 0\" /etc/libvirt/qemu.conf" ] && echo "remember_owner = 0 " | sudo tee -a /etc/libvirt/qemu.conf
+sudo dnf install -y android-tools neofetch lolcat gnome-tweaks lxappearance valgrind gnome-shell gnome-terminal npm dex vim bat llvm gdal texlive-scheme-basic tree libbsd java-latest-openjdk google-android-emoji-fonts google-noto-sans-fonts google-noto-sans-mono-fonts gstreamer-plugins-espeak gstreamer1-libav gstreamer1-plugin-openh264 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly htop joystick joystick-support langpacks-core-en langpacks-core-es langpacks-en langpacks-es libva-intel-driver lm_sensors samba sysbench gnome-keyring libgnome-keyring cmatrix xhost wine sl elinks cowsay nginx mariadb dnsmasq pandoc vulkan-loader vulkan-tools python-numpy tk xinput mpv libXext-devel libX11-devel libbsd-devel git-credential-libsecret readline readline-devel google-noto-cjk-fonts google-noto-cjk-fonts-common qt5ct adwaita-qt5 adwaita-qt6 tldr nodejs
 
 # Install yarn
 sudo npm install yarn -g
@@ -53,11 +42,6 @@ make
 sudo cp mlx.h /usr/include
 sudo cp libmlx.a /usr/lib
 sudo cp man/man3/* /usr/share/man/man3/
-#sudo gzip /usr/share/man/man3/mlx.3
-#sudo gzip /usr/share/man/man3/mlx_new_image.3
-#sudo gzip /usr/share/man/man3/mlx_loop.3
-#sudo gzip /usr/share/man/man3/mlx_new_window.3
-#sudo gzip /usr/share/man/man3/mlx_pixel_put.3
 cd ..
 rm -rf minilibx-linux
 

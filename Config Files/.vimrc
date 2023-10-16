@@ -15,7 +15,7 @@
 "    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     "
 "                                                   _)      .___.,|     .'     "
 "    Created: 2022/06/25 20:30:34 by madebypixel02  \___   )MMMMMP|   .'       "
-"    Updated: 2023/10/16 10:03:14 by madebypixel02      `-'       `--'         "
+"    Updated: 2023/10/16 11:03:30 by madebypixel02      `-'       `--'         "
 "                                                                              "
 " **************************************************************************** "
 
@@ -54,11 +54,12 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'lervag/vimtex'
 Plug 'ericbn/vim-relativize'
 Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
 call plug#end()
 
 " Coc Extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-cmake', 'coc-pyright', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-markdown-preview-enhanced', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-cmake', 'coc-pyright', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver']
 
 " Fix auto-completion enter
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -77,7 +78,7 @@ map <c-m>b :!make bonus<CR>
 map <c-s> :w <bar> source ~/.vimrc<CR>
 map m :set mouse=a<CR>
 map mm :set mouse-=a<CR>
-map md :CocCommand markdown-preview-enhanced.openPreview<CR>
+map md :MarkdownPreviewToggle<CR>
 map b :set nu <bar> set relativenumber<CR>
 map bb :set nonu <bar> set norelativenumber<CR>
 map tr :NERDTree<CR>

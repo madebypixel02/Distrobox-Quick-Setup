@@ -17,7 +17,15 @@ sudo pacman -Syu git base-devel zsh curl wget python python-pip vim neovim man-p
 grep 'QT_QPA_PLATFORMTHEME=\"qt5ct\"' /etc/environment 1>/dev/null; [ "$?" -eq 1 ] && echo "QT_QPA_PLATFORMTHEME=\"qt5ct\"" | sudo tee -a /etc/environment 1>/dev/null
 
 # Install typical packages
-yay -S android-tools gnirehtet zsh neofetch lolcat noto-fonts-cjk noto-fonts-extra ttf-dejavu gnome-tweaks lxappearance valgrind yarn dex gtk-engine-murrine bat gdal texlive-core scrcpy tree libbsd jre-openjdk nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost adwaita-qt5 adwaita-qt6 mesa-utils sl browsh-bin elinks cowsay nginx dnsmasq cmus pandoc xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel tk xorg-xinput asciiquarium wine winetricks vlc qt5ct wireshark-qt epiphany autofirma-bin libpkcs11-dnie ca-certificates-fnmt configuradorfnmt noto-fonts noto-fonts-emoji ttf-linux-libertine ttf-dejavu noto-fonts-cjk tldr universal-android-debloater-bin npm yt-dlp python-spotdl --needed --noconfirm
+yay -Sy android-tools gnirehtet zsh neofetch lolcat noto-fonts-cjk noto-fonts-extra ttf-dejavu gnome-tweaks lxappearance valgrind yarn dex gtk-engine-murrine bat gdal texlive-core scrcpy tree libbsd jre-openjdk nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost adwaita-qt5 adwaita-qt6 mesa-utils sl browsh-bin elinks cowsay nginx dnsmasq cmus pandoc xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel tk xorg-xinput asciiquarium wine winetricks vlc qt5ct wireshark-qt epiphany autofirma-bin libpkcs11-dnie ca-certificates-fnmt configuradorfnmt noto-fonts noto-fonts-emoji ttf-linux-libertine ttf-dejavu noto-fonts-cjk tldr universal-android-debloater-bin npm yt-dlp python-spotdl quarto-cli-bin --needed --noconfirm
+
+# Set Up Quarto
+# Language Servers
+yay -Sy bash-language-server vscode-html-languageserver lua-language-server marksman ripgrep --needed --noconfirm
+# Other dependencies
+yay -Sy python-plotly python-pandas python-matplotlib python-jupyter ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra neovim-nvim-treesitter --needed --noconfirm
+# npm
+sudo npm install -g tree-sitter-markdown tree-sitter
 
 # Minilibx
 cd ~/ && git clone https://github.com/42Paris/minilibx-linux.git $HOME/minilibx-linux
@@ -39,10 +47,6 @@ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/k
 # Configure git credential manager
 sudo make -C /usr/share/git/credential/libsecret
 git config --global credential.helper /usr/share/git/credential/libsecret/git-credential-libsecret
-
-# Start Auto-Theme
-#systemctl --user enable --now auto-theme.service
-#systemctl --user enable --now auto-theme.timer
 
 # Install minishell
 make -C $HOME/42\ Madrid/Git/42\ Cursus/minishell

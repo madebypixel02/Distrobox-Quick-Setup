@@ -15,7 +15,7 @@
 "    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     "
 "                                                   _)      .___.,|     .'     "
 "    Created: 2022/06/25 20:30:34 by madebypixel02  \___   )MMMMMP|   .'       "
-"    Updated: 2023/10/16 11:03:30 by madebypixel02      `-'       `--'         "
+"    Updated: 2023/10/20 13:27:14 by madebypixel02      `-'       `--'         "
 "                                                                              "
 " **************************************************************************** "
 
@@ -125,7 +125,7 @@ nmap <F2> <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-colorscheme codedark
+"colorscheme codedark
 
 "" Magma nvim stuff
 nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>

@@ -23,9 +23,7 @@ yay -Sy android-tools gnirehtet zsh neofetch lolcat noto-fonts-cjk noto-fonts-ex
 # Language Servers
 yay -Sy bash-language-server vscode-html-languageserver lua-language-server marksman ripgrep --needed --noconfirm
 # Other dependencies
-yay -Sy python-plotly python-pandas python-matplotlib python-jupyter ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra neovim-nvim-treesitter --needed --noconfirm
-# npm
-sudo npm install -g tree-sitter-markdown tree-sitter
+yay -Sy python-plotly python-pandas python-matplotlib ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra neovim-nvim-treesitter --needed --noconfirm
 
 # Minilibx
 cd ~/ && git clone https://github.com/42Paris/minilibx-linux.git $HOME/minilibx-linux

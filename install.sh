@@ -73,7 +73,8 @@ touch $HOME/.hushlogin
 
 # Set Up Quarto and nvim configs
 mkdir -p $HOME/.config
-[ ! -d $HOME/.config/nvim ] && git clone https://github.com/jmbuhr/quarto-nvim-kickstarter.git $HOME/.config/nvim && rm -f $HOME/.config/nvim/init.lua && ln $HOME/Distrobox-Quick-Setup/Config\ Files/nvim/init.lua $HOME/.config/nvim
+[ ! -d $HOME/.config/nvim ] && git clone https://github.com/jmbuhr/quarto-nvim-kickstarter.git $HOME/.config/nvim && rm -f $HOME/.config/nvim/init.lua && ln $HOME/Distrobox-Quick-Setup/Config\ Files/nvim/init.lua $HOME/.config/nvim && nvim && CFLAGS="" make -C $HOME/.local/share/nvim/lazy/telescope-fzf-native.nvim
+[ ! -L $HOME/.config/nvim/lua/plugins/Headers ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers $HOME/.config/nvim/lua/plugins/
 
 # Setup Vim-Plug
 [ ! -f $HOME/.vim/autoload/plug.vim ] && curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
@@ -225,7 +226,7 @@ cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Element/ $HOME/.local/share/back
 [ ! -L $HOME/.local/bin/gnirehtet ] && ln -s $HOME/gnirehtet-rust-linux64/gnirehtet $HOME/.local/bin
 
 # Install Cascadia Fonts
-[ ! -L $HOME/.fonts/ttf/CascadiaCode ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Cascadia $HOME/.fonts/ttf
+[ ! -L $HOME/.fonts/ttf/CascadiaCode ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/CascadiaCode $HOME/.fonts/ttf
 
 # Install Google Sans Fonts
 cd $HOME/Distrobox-Quick-Setup/Config\ Files/

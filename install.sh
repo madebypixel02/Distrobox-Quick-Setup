@@ -73,8 +73,7 @@ touch $HOME/.hushlogin
 
 # Set Up Quarto and nvim configs
 mkdir -p $HOME/.config
-[ ! -d $HOME/.config/nvim ] && git clone https://github.com/jmbuhr/quarto-nvim-kickstarter.git $HOME/.config/nvim && rm -f $HOME/.config/nvim/init.lua && ln $HOME/Distrobox-Quick-Setup/Config\ Files/nvim/init.lua $HOME/.config/nvim && nvim && CFLAGS="" make -C $HOME/.local/share/nvim/lazy/telescope-fzf-native.nvim
-[ ! -L $HOME/.config/nvim/lua/plugins/Headers ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers $HOME/.config/nvim/lua/plugins/
+[ ! -d $HOME/.config/nvim ] && git clone https://github.com/jmbuhr/quarto-nvim-kickstarter.git $HOME/.config/nvim && rm -f $HOME/.config/nvim/init.lua && ln $HOME/Distrobox-Quick-Setup/Config\ Files/nvim/init.lua $HOME/.config/nvim && nvim && CFLAGS="" make -C $HOME/.local/share/nvim/lazy/telescope-fzf-native.nvim && rm -rf $HOME/.config/nvim/lua/plugins && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/nvim/plugins $HOME/.config/lua
 
 # Setup Vim-Plug
 [ ! -f $HOME/.vim/autoload/plug.vim ] && curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \

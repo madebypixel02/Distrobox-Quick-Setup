@@ -366,3 +366,5 @@ source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 [ -f $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 if [ -e /home/pixel/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pixel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+if [ -e /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh ]; then . /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

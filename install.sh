@@ -44,7 +44,7 @@ mkdir -p $HOME/Documents
 mkdir -p $HOME/Desktop
 mkdir -p $HOME/Pictures
 mkdir -p $HOME/Audiobooks
-[ -f $HOME/.bashrc ] && rm $HOME/.bashrc
+#[ -f $HOME/.bashrc ] && rm $HOME/.bashrc
 [ -f $HOME/.zshrc ] && rm $HOME/.zshrc
 [ -f $HOME/.vimrc ] && rm $HOME/.vimrc
 [ -f $HOME/.p10k.zsh ] && rm $HOME/.p10k.zsh
@@ -60,9 +60,9 @@ mkdir -p $HOME/Audiobooks
 touch $HOME/.hushlogin
 
 # Link vimrc, zshrc, bashrc, etc
-[ ! -L $HOME/.vimrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.vimrc $HOME
+#[ ! -L $HOME/.bashrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.bashrc $HOME
 [ ! -L $HOME/.zshrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.zshrc $HOME
-[ ! -L $HOME/.bashrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.bashrc $HOME
+[ ! -L $HOME/.vimrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.vimrc $HOME
 [ ! -L $HOME/.mygreeting_google ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_google $HOME
 [ ! -L $HOME/.mygreeting_uc3m ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_uc3m $HOME
 [ ! -L $HOME/.mygreeting_uoc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_uoc $HOME
@@ -178,7 +178,6 @@ mkdir -p $HOME/UOC/Object-Oriented\ Programming && [ ! -d $HOME/UOC/Object-Orien
 mkdir -p $HOME/UOC/Enterpreneurship && [ ! -d $HOME/UOC/Enterpreneurship/Enterpreneurship-Practices ] && cd $HOME/UOC/Enterpreneurship && git clone https://gitlab.com/madebypixel02/Enterpreneurship-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Software\ Design\ Patterns && [ ! -d $HOME/UOC/Software\ Design\ Patterns/Software-Design-Patterns-Practices ] && cd $HOME/UOC/Software\ Design\ Patterns && git clone https://gitlab.com/madebypixel02/Software-Design-Patterns-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Networks\ and\ Internet\ Applications && [ ! -d $HOME/UOC/Networks\ and\ Internet\ Applications/Networks-and-Internet-Applications-Practices ] && cd $HOME/UOC/Networks\ and\ Internet\ Applications && git clone https://gitlab.com/madebypixel02/Networks-and-Internet-Applications-Practices.git && cd $HOME
-mkdir -p $HOME/UOC/Business\ and\ IT\ Management && [ ! -d $HOME/UOC/Business\ and\ IT\ Management/Business-and-IT-Management-Practices ] && cd $HOME/UOC/Business\ and\ IT\ Management && git clone https://gitlab.com/madebypixel02/Business-and-IT-Management-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Mobile\ Application\ Development && [ ! -d $HOME/UOC/Mobile\ Application\ Development/MAD-Practices ] && cd $HOME/UOC/Mobile\ Application\ Development && git clone https://gitlab.com/madebypixel02/MAD-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Cloud\ Computing && [ ! -d $HOME/UOC/Cloud\ Computing/Cloud-Computing-Practices ] && cd $HOME/UOC/Cloud\ Computing && git clone https://gitlab.com/madebypixel02/Cloud-Computing-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Database\ Design && [ ! -d $HOME/UOC/Database\ Design/Database-Design-Practices ] && cd $HOME/UOC/Database\ Design && git clone https://gitlab.com/madebypixel02/Database-Design-Practices.git && cd $HOME
@@ -260,14 +259,14 @@ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/k
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
 # Configure default folders
-echo "XDG_DESKTOP_DIR=\"$HOME/Desktop\"
-XDG_DOCUMENTS_DIR=\"$HOME/Documents\"
-XDG_DOWNLOAD_DIR=\"$HOME/Downloads\"
-XDG_MUSIC_DIR=\"$HOME/Music\"
-XDG_PICTURES_DIR=\"$HOME/Pictures\"
-XDG_PUBLICSHARE_DIR=\"$HOME/Public\"
-XDG_TEMPLATES_DIR=\"$HOME/Templates\"
-XDG_VIDEOS_DIR=\"$HOME/Videos\"" > $HOME/.config/user-dirs.dirs
+echo "XDG_DESKTOP_DIR=\"$HOME/Escritorio\"
+XDG_DOCUMENTS_DIR=\"$HOME/Documentos\"
+XDG_DOWNLOAD_DIR=\"$HOME/Descargas\"
+XDG_MUSIC_DIR=\"$HOME/Música\"
+XDG_PICTURES_DIR=\"$HOME/Imágenes\"
+XDG_PUBLICSHARE_DIR=\"$HOME/Público\"
+XDG_TEMPLATES_DIR=\"$HOME/Plantillas\"
+XDG_VIDEOS_DIR=\"$HOME/Vídeos\"" > $HOME/.config/user-dirs.dirs
 echo "enabled=False" > $HOME/.config/user-dirs.conf
 
 # Copy icon files

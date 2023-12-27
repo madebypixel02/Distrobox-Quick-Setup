@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/09/18 11:57:50 by madebypixel02      `-'       `--'         #
+#    Updated: 2023/12/27 21:03:14 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,12 +169,12 @@ export WHITE="\\e[97m"
 # Basic Aliases and Exports
 export CFLAGS="-Wall -Wextra -Werror"
 export MAIL="aperez-b@student.42.fr"
-alias downs="cd $HOME/Downloads"
-alias clear_downs="rm -rf $HOME/Downloads/*"
-alias docs="cd $HOME/Documents"
-alias music="cd $HOME/Music"
+alias downs="cd $XDG_DOWNLOAD_DIR"
+alias clear_downs="rm -rf $XDG_DOWNLOAD_DIR/*"
+alias docs="cd $XDG_DOCUMENTS_DIR"
+alias music="cd $XDG_MUSIC_DIR"
 alias x="clear && ls -a"
-alias desktop="cd $HOME/Desktop"
+alias desktop="cd $XDG_DESKTOP_DIR"
 alias r="clear && source $HOME/.zshrc && builtin cd"
 alias q="exit"
 alias apps="builtin cd /usr/share/applications && ls /usr/share/applications"

@@ -67,6 +67,11 @@
 @define-color headerbar_border_color white;
 @define-color headerbar_backdrop_color @window_bg_color;
 @define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
+@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.9);
+@define-color sidebar_bg_color #303030;
+@define-color sidebar_fg_color white;
+@define-color sidebar_backdrop_color #2a2a2a;
+@define-color sidebar_shade_color rgba(0, 0, 0, 0.36);
 @define-color card_bg_color rgba(255, 255, 255, 0.08);
 @define-color card_fg_color white;
 @define-color card_shade_color rgba(0, 0, 0, 0.36);
@@ -79,6 +84,7 @@
 @define-color shade_color rgba(0, 0, 0, 0.36);
 @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
 @define-color incognito_bg_color #1c2438;
+@define-color new_title_bg_color #303030;
 * { padding: 0; -GtkToolButton-icon-spacing: 4; -GtkTextView-error-underline-color: @error_bg_color; -GtkScrolledWindow-scrollbar-spacing: 0; -GtkToolItemGroup-expander-size: 11; -GtkWidget-text-handle-width: 20; -GtkWidget-text-handle-height: 24; -GtkDialog-button-spacing: 4; -GtkDialog-action-area-border: 0; outline-color: alpha(currentColor,0.3); outline-style: dashed; outline-offset: -3px; outline-width: 1px; -gtk-outline-radius: 4px; -gtk-secondary-caret-color: @accent_bg_color; }
 
 .background { color: @window_fg_color; background-color: @window_bg_color; }
@@ -101,7 +107,7 @@
 
 .view:disabled, iconview:disabled, .nautilus-window notebook:disabled, .nautilus-window notebook > stack:disabled:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:disabled, .view text:disabled, iconview text:disabled, textview text:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(@window_bg_color,@view_bg_color,0.4); }
 
-.view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, .nautilus-window notebook:selected:focus, .view text:selected:focus, iconview text:selected:focus, textview text:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected, iconview text:selected, textview text:selected { border-radius: 6px; }
+.view:selected:focus, .view:selected, iconview:selected, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected, iconview text:selected, textview text:selected { background-color: alpha(@accent_bg_color,0.25); border-radius: 6px; }
 
 textview border { background-color: mix(@window_bg_color,@view_bg_color,0.5); }
 
@@ -138,10 +144,6 @@ label.error:disabled { color: alpha(@error_bg_color,0.5); }
 label.error:disabled:backdrop { color: alpha(@error_bg_color,0.4); }
 
 .dim-label, dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > list > row:selected .subtitle, .welcome .dim-label, .welcome label.separator, .welcome headerbar .subtitle, headerbar .welcome .subtitle, .titlebar:not(headerbar) .subtitle, headerbar .subtitle, label.separator { opacity: 0.55; text-shadow: none; }
-
-assistant .sidebar { background-color: @view_bg_color; border-top: 1px solid mix(currentColor,@window_bg_color,0.85); }
-
-assistant .sidebar:backdrop { background-color: @window_bg_color; border-color: mix(currentColor,@window_bg_color,0.73); }
 
 assistant.csd .sidebar { border-top-style: none; }
 
@@ -272,7 +274,7 @@ treeview entry.flat:focus, treeview entry:focus { border-color: @accent_bg_color
 @keyframes needs_attention { from { background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(mix(white,@accent_bg_color,0.85)), to(transparent)); }
   to { background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(@accent_bg_color), to(transparent)); } }
 
-notebook > header > tabs > arrow, button { min-height: 24px; min-width: 16px; padding: 4px 10px; border: 1px solid; border-color: transparent; border-radius: 6px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); font-weight: bold; color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.903),0.7); background-color: mix(currentColor,@window_bg_color,0.903); }
+notebook > header > tabs > arrow, button { min-height: 24px; min-width: 16px; padding: 4px 10px; border: 1px solid; border-color: transparent; border-radius: 6px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); font-weight: bold; outline-style: solid; outline-offset: -2px; outline-width: 2px; -gtk-outline-radius: 4px; color: @window_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@window_bg_color,0.903); }
 
 button.sidebar-button, notebook > header > tabs > arrow, notebook > header > tabs > arrow.flat, button.flat { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; transition: none; }
 
@@ -280,9 +282,9 @@ button.sidebar-button:hover, notebook > header > tabs > arrow:hover, button.flat
 
 button.sidebar-button:hover:active, notebook > header > tabs > arrow:hover:active, button.flat:hover:active { transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-notebook > header > tabs > arrow:hover, button:hover { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; -gtk-icon-effect: highlight; }
+notebook > header > tabs > arrow:hover, button:hover { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; -gtk-icon-effect: highlight; }
 
-notebook > header > tabs > arrow:active, notebook > header > tabs > arrow:checked, button:active, button:checked { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; transition-duration: 50ms; }
+notebook > header > tabs > arrow:active, notebook > header > tabs > arrow:checked, button:active, button:checked { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; transition-duration: 50ms; }
 
 notebook > header > tabs > arrow:active:hover, notebook > header > tabs > arrow:checked:hover, button:active:hover, button:checked:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
@@ -338,13 +340,13 @@ button.osd:backdrop { color: rgba(255, 255, 255, 0.9); border-color: transparent
 
 .app-notification button.flat:active, popover.background.touch-selection button.flat:active, popover.background.magnifier button.flat:active, .app-notification button.flat:checked, popover.background.touch-selection button.flat:checked, popover.background.magnifier button.flat:checked, .osd button.flat:active, .osd button.flat:checked { color: white; border-color: transparent; background-color: alpha(mix(black,currentColor,0.25),0.65); background-clip: padding-box; outline-color: rgba(255, 255, 255, 0.2); }
 
-button.suggested-action { color: white; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.903),0.7); background-color: mix(currentColor,@accent_bg_color,0.903); }
+button.suggested-action { color: white; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@accent_bg_color,0.903); }
 
 button.suggested-action.flat { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: @accent_bg_color; }
 
-button.suggested-action:hover { color: white; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.85),0.7); background-color: mix(currentColor,@accent_bg_color,0.85); box-shadow: none; }
+button.suggested-action:hover { color: white; background-color: mix(currentColor,@accent_bg_color,0.85); box-shadow: none; }
 
-button.suggested-action:active, button.suggested-action:checked { color: white; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.703),0.7); background-color: mix(currentColor,@accent_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+button.suggested-action:active, button.suggested-action:checked { color: white; background-color: mix(currentColor,@accent_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 button.suggested-action:active:hover, button.suggested-action:checked:hover { background-color: mix(currentColor,@accent_bg_color,0.653); }
 
@@ -364,13 +366,13 @@ button.suggested-action:disabled:active, button.suggested-action:disabled:checke
 
 .osd button.suggested-action:backdrop { color: rgba(255, 255, 255, 0.9); border-color: transparent; background-color: transparent; background-image: image(alpha(@accent_bg_color,0.5)); background-clip: padding-box; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
-button.destructive-action { color: white; outline-color: mix(currentColor,mix(currentColor,@destructive_bg_color,0.903),0.7); background-color: mix(currentColor,@destructive_bg_color,0.903); }
+button.destructive-action { color: white; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@destructive_bg_color,0.903); }
 
 button.destructive-action.flat { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: @destructive_bg_color; }
 
-button.destructive-action:hover { color: white; outline-color: mix(currentColor,mix(currentColor,@destructive_bg_color,0.85),0.7); background-color: mix(currentColor,@destructive_bg_color,0.85); box-shadow: none; }
+button.destructive-action:hover { color: white; background-color: mix(currentColor,@destructive_bg_color,0.85); box-shadow: none; }
 
-button.destructive-action:active, button.destructive-action:checked { color: white; outline-color: mix(currentColor,mix(currentColor,@destructive_bg_color,0.703),0.7); background-color: mix(currentColor,@destructive_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+button.destructive-action:active, button.destructive-action:checked { color: white; background-color: mix(currentColor,@destructive_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 button.destructive-action:active:hover, button.destructive-action:checked:hover { background-color: mix(currentColor,@destructive_bg_color,0.653); }
 
@@ -412,19 +414,19 @@ button.circular { border-radius: 9999px; -gtk-outline-radius: 9999px; padding: 4
 
 button.circular label { padding: 0; }
 
-button.circular:not(.flat):not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.903),0.7); background-color: mix(currentColor,@window_bg_color,0.903); border-color: transparent; }
+button.circular:not(.flat):not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) { color: @window_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@window_bg_color,0.903); border-color: transparent; }
 
-button.circular:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; border-color: transparent; }
+button.circular:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; border-color: transparent; }
 
 stacksidebar row.needs-attention > label, .stack-switcher > button.needs-attention > label, .stack-switcher > button.needs-attention > image { animation: needs_attention 150ms ease-in; background-image: radial-gradient(farthest-side, @accent_color 96%, transparent); background-size: 6px 6px; background-repeat: no-repeat; background-position: right 3px; }
 
 stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > button.needs-attention > label:dir(rtl), .stack-switcher > button.needs-attention > image:dir(rtl) { background-position: left 3px; }
 
-.inline-toolbar toolbutton > button { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.903),0.7); background-color: mix(currentColor,@window_bg_color,0.903); }
+.inline-toolbar toolbutton > button { color: @window_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@window_bg_color,0.903); }
 
-.inline-toolbar toolbutton > button:hover { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; }
+.inline-toolbar toolbutton > button:hover { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; }
 
-.inline-toolbar toolbutton > button:active, .inline-toolbar toolbutton > button:checked { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.inline-toolbar toolbutton > button:active, .inline-toolbar toolbutton > button:checked { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .inline-toolbar toolbutton > button:active:hover, .inline-toolbar toolbutton > button:checked:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
@@ -454,7 +456,7 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > button.need
 
 .xfce4-panel.background button menu .linked button, .nautilus-window .titlebar :not(.raised) .linked > button, headerbar .linked.raised button:not(:only-child), headerbar .linked button:not(:only-child), headerbar > .stack-switcher.linked > button:not(:only-child), .titlebar .linked.raised button:not(:only-child), .titlebar .linked button:not(:only-child), .titlebar > .stack-switcher.linked > button:not(:only-child), .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .linked > button { border-left-color: alpha(currentColor,0.15); border-right-color: alpha(currentColor,0.15); }
 
-.linked.vertical > combobox > box > button.combo, .linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button { border-top-color: alpha(currentColor,0.15); border-bottom-color: alpha(currentColor,0.15); border-style: solid solid none solid; border-radius: 0; -gtk-outline-radius: 0; }
+.linked.vertical > combobox > box > button.combo, .linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button { border-top-color: alpha(currentColor,0.15); border-bottom-color: alpha(currentColor,0.15); border-style: solid none none none; border-radius: 0; -gtk-outline-radius: 0; }
 
 .linked.vertical > combobox:first-child > box > button.combo, .linked.vertical > spinbutton:first-child:not(.vertical), .linked.vertical > entry:first-child, .linked.vertical > button:first-child { border-top-color: transparent; border-top-left-radius: 6px; border-top-right-radius: 6px; -gtk-outline-top-left-radius: 6px; -gtk-outline-top-right-radius: 6px; }
 
@@ -470,6 +472,8 @@ modelbutton.flat, .menuitem.button.flat { min-height: 32px; padding-left: 5px; p
 
 modelbutton.flat:hover, .menuitem.button.flat:hover { background-color: alpha(currentColor,0.1); }
 
+modelbutton.flat:selected, .menuitem.button.flat:selected { background-color: alpha(currentColor,0.1); }
+
 modelbutton.flat arrow { background: none; }
 
 modelbutton.flat arrow:hover { background: none; }
@@ -482,13 +486,15 @@ button.color { padding: 4px; }
 
 button.color colorswatch:only-child, button.color colorswatch:only-child overlay { border-radius: 0; }
 
-list row button.image-button:not(.flat) { border: 1px solid alpha(mix(currentColor,@window_bg_color,0.85),0.5); }
+list row button.image-button:not(.flat):hover { background-color: alpha(currentColor,0.04); }
 
-list row button.image-button:not(.flat):hover { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; }
+list row button.image-button:not(.flat):active { background-color: alpha(currentColor,0.08); }
 
-list row button.image-button:not(.flat):active, list row button.image-button:not(.flat):checked { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+list row button.image-button:not(.flat):checked { background-color: alpha(@accent_bg_color,0.25); }
 
-list row button.image-button:not(.flat):active:hover, list row button.image-button:not(.flat):checked:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
+list row button.image-button:not(.flat):checked:hover { background-color: alpha(@accent_bg_color,0.32); }
+
+list row button.image-button:not(.flat):checked:active { background-color: alpha(@accent_bg_color,0.39); }
 
 button:link > label, button:visited > label, button:link, button:visited, *:link { color: @accent_color; }
 
@@ -528,11 +534,11 @@ spinbutton:not(.vertical) button { min-height: 16px; margin: 0; padding-bottom: 
 
 spinbutton:not(.vertical) button:dir(rtl) { border-style: none solid none none; }
 
-spinbutton:not(.vertical) button:hover { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; background-color: alpha(currentColor,0.1); }
+spinbutton:not(.vertical) button:hover { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; background-color: alpha(currentColor,0.1); }
 
 spinbutton:not(.vertical) button:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(currentColor,@window_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; background-color: transparent; }
 
-spinbutton:not(.vertical) button:active { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-color: alpha(currentColor,0.15); }
+spinbutton:not(.vertical) button:active { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-color: alpha(currentColor,0.15); }
 
 spinbutton:not(.vertical) button:active:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
@@ -562,9 +568,9 @@ spinbutton.vertical entry { min-height: 32px; min-width: 32px; padding: 0; borde
 
 spinbutton.vertical button { min-height: 32px; min-width: 32px; padding: 0; }
 
-spinbutton.vertical button.up { border-radius: 6px 6px 0 0; border-style: solid solid none solid; }
+spinbutton.vertical button.up { border-color: alpha(currentColor,0.15); border-radius: 6px 6px 0 0; border-style: none none solid none; }
 
-spinbutton.vertical button.down { border-radius: 0 0 6px 6px; border-style: none solid solid solid; }
+spinbutton.vertical button.down { border-color: alpha(currentColor,0.15); border-radius: 0 0 6px 6px; border-style: solid none none none; }
 
 .osd spinbutton.vertical button:first-child { color: rgba(255, 255, 255, 0.9); border-color: transparent; background-color: rgba(0, 0, 0, 0.65); background-clip: padding-box; outline-color: rgba(255, 255, 255, 0.2); }
 
@@ -624,13 +630,13 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .selection-mode .titlebar:backdrop:not(headerbar) label, .selection-mode.titlebar:backdrop:not(headerbar) label, .selection-mode headerbar:backdrop label, headerbar.selection-mode:backdrop label { text-shadow: none; color: @accent_fg_color; }
 
-.selection-mode .titlebar:not(headerbar) button, .selection-mode.titlebar:not(headerbar) button, .selection-mode headerbar button, headerbar.selection-mode button { color: @accent_fg_color; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.903),0.7); background-color: mix(currentColor,@accent_bg_color,0.903); }
+.selection-mode .titlebar:not(headerbar) button, .selection-mode.titlebar:not(headerbar) button, .selection-mode headerbar button, headerbar.selection-mode button { color: @accent_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@accent_bg_color,0.903); }
 
 .selection-mode button.titlebutton, .selection-mode .titlebar:not(headerbar) button.flat, .selection-mode.titlebar:not(headerbar) button.flat, .selection-mode headerbar button.flat, headerbar.selection-mode button.flat { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-.selection-mode .titlebar:not(headerbar) button:hover, .selection-mode.titlebar:not(headerbar) button:hover, .selection-mode headerbar button:hover, headerbar.selection-mode button:hover { color: @accent_fg_color; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.85),0.7); background-color: mix(currentColor,@accent_bg_color,0.85); box-shadow: none; }
+.selection-mode .titlebar:not(headerbar) button:hover, .selection-mode.titlebar:not(headerbar) button:hover, .selection-mode headerbar button:hover, headerbar.selection-mode button:hover { color: @accent_fg_color; background-color: mix(currentColor,@accent_bg_color,0.85); box-shadow: none; }
 
-.selection-mode .titlebar:not(headerbar) button:active, .selection-mode .titlebar:not(headerbar) button:checked, .selection-mode.titlebar:not(headerbar) button:active, .selection-mode.titlebar:not(headerbar) button:checked, .selection-mode headerbar button:active, .selection-mode headerbar button:checked, .selection-mode headerbar button.toggle:checked, .selection-mode headerbar button.toggle:active, headerbar.selection-mode button:active, headerbar.selection-mode button:checked, headerbar.selection-mode button.toggle:checked, headerbar.selection-mode button.toggle:active { color: @accent_fg_color; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.703),0.7); background-color: mix(currentColor,@accent_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.selection-mode .titlebar:not(headerbar) button:active, .selection-mode .titlebar:not(headerbar) button:checked, .selection-mode.titlebar:not(headerbar) button:active, .selection-mode.titlebar:not(headerbar) button:checked, .selection-mode headerbar button:active, .selection-mode headerbar button:checked, .selection-mode headerbar button.toggle:checked, .selection-mode headerbar button.toggle:active, headerbar.selection-mode button:active, headerbar.selection-mode button:checked, headerbar.selection-mode button.toggle:checked, headerbar.selection-mode button.toggle:active { color: @accent_fg_color; background-color: mix(currentColor,@accent_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .selection-mode .titlebar:not(headerbar) button:active:hover, .selection-mode .titlebar:not(headerbar) button:checked:hover, .selection-mode.titlebar:not(headerbar) button:active:hover, .selection-mode.titlebar:not(headerbar) button:checked:hover, .selection-mode headerbar button:active:hover, .selection-mode headerbar button:checked:hover, .selection-mode headerbar button.toggle:checked:hover, .selection-mode headerbar button.toggle:active:hover, headerbar.selection-mode button:active:hover, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button.toggle:checked:hover, headerbar.selection-mode button.toggle:active:hover { background-color: mix(currentColor,@accent_bg_color,0.653); }
 
@@ -648,11 +654,11 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .selection-mode .titlebar:not(headerbar) button:disabled:active, .selection-mode .titlebar:not(headerbar) button:disabled:checked, .selection-mode.titlebar:not(headerbar) button:disabled:active, .selection-mode.titlebar:not(headerbar) button:disabled:checked, .selection-mode headerbar button:disabled:active, .selection-mode headerbar button:disabled:checked, headerbar.selection-mode button:disabled:active, headerbar.selection-mode button:disabled:checked { color: mix(@accent_fg_color,shade(mix(@accent_bg_color,@view_bg_color,0.15),0.94),0.4); background-color: mix(currentColor,@accent_bg_color,0.7); box-shadow: none; }
 
-.selection-mode .titlebar:not(headerbar) button.suggested-action, .selection-mode.titlebar:not(headerbar) button.suggested-action, .selection-mode headerbar button.suggested-action, headerbar.selection-mode button.suggested-action { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.903),0.7); background-color: mix(currentColor,@window_bg_color,0.903); border-color: mix(black,@accent_bg_color,0.7); }
+.selection-mode .titlebar:not(headerbar) button.suggested-action, .selection-mode.titlebar:not(headerbar) button.suggested-action, .selection-mode headerbar button.suggested-action, headerbar.selection-mode button.suggested-action { color: @window_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@window_bg_color,0.903); border-color: mix(black,@accent_bg_color,0.7); }
 
-.selection-mode .titlebar:not(headerbar) button.suggested-action:hover, .selection-mode.titlebar:not(headerbar) button.suggested-action:hover, .selection-mode headerbar button.suggested-action:hover, headerbar.selection-mode button.suggested-action:hover { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; border-color: mix(black,@accent_bg_color,0.7); }
+.selection-mode .titlebar:not(headerbar) button.suggested-action:hover, .selection-mode.titlebar:not(headerbar) button.suggested-action:hover, .selection-mode headerbar button.suggested-action:hover, headerbar.selection-mode button.suggested-action:hover { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; border-color: mix(black,@accent_bg_color,0.7); }
 
-.selection-mode .titlebar:not(headerbar) button.suggested-action:active, .selection-mode.titlebar:not(headerbar) button.suggested-action:active, .selection-mode headerbar button.suggested-action:active, headerbar.selection-mode button.suggested-action:active { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; border-color: mix(black,@accent_bg_color,0.7); }
+.selection-mode .titlebar:not(headerbar) button.suggested-action:active, .selection-mode.titlebar:not(headerbar) button.suggested-action:active, .selection-mode headerbar button.suggested-action:active, headerbar.selection-mode button.suggested-action:active { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; border-color: mix(black,@accent_bg_color,0.7); }
 
 .selection-mode .titlebar:not(headerbar) button.suggested-action:active:hover, .selection-mode.titlebar:not(headerbar) button.suggested-action:active:hover, .selection-mode headerbar button.suggested-action:active:hover, headerbar.selection-mode button.suggested-action:active:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
@@ -754,12 +760,6 @@ treeview.view.expander:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symb
 
 treeview.view.expander:hover { color: @view_fg_color; }
 
-treeview.view.expander:selected { color: mix(@accent_fg_color,@accent_bg_color,0.3); }
-
-treeview.view.expander:selected:hover { color: @accent_fg_color; }
-
-treeview.view.expander:selected:backdrop { color: mix(mix(@view_fg_color,@window_bg_color,0.5),@accent_bg_color,0.3); }
-
 treeview.view.expander:checked { -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
 
 treeview.view.progressbar { background-color: @accent_bg_color; background-image: image(@accent_bg_color); box-shadow: none; }
@@ -774,7 +774,7 @@ treeview.view.trough { background-color: alpha(@window_fg_color,0.1); }
 
 treeview.view.trough:selected:focus, treeview.view.trough:selected { background-color: mix(black,@accent_bg_color,0.9); }
 
-treeview.view header button { color: mix(@window_fg_color,@view_bg_color,0.5); background-color: @view_bg_color; font-weight: bold; font-size: small; text-shadow: none; box-shadow: none; }
+treeview.view header button { color: mix(@window_fg_color,@view_bg_color,0.5); background-color: @view_bg_color; font-weight: bold; font-size: smaller; text-shadow: none; box-shadow: none; }
 
 treeview.view header button:hover { color: mix(mix(@window_fg_color,@view_bg_color,0.5),@window_fg_color,0.5); box-shadow: none; transition: none; }
 
@@ -784,7 +784,13 @@ treeview.view button.dnd:active, treeview.view button.dnd:selected, treeview.vie
 
 treeview.view acceleditor > label { background-color: @accent_bg_color; }
 
-treeview.view header button, treeview.view header button:hover, treeview.view header button:active { padding: 0 6px; background-image: none; border-style: none solid solid none; border-color: alpha(currentColor,0.15); border-radius: 0; text-shadow: none; }
+treeview.view header button, treeview.view header button:hover, treeview.view header button:active { padding: 0 6px; background-image: none; border-style: none; border-radius: 0; text-shadow: none; }
+
+treeview.view header button:hover { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; }
+
+treeview.view header button:active { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+treeview.view header button:active:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
 treeview.view header button:disabled { border-color: @window_bg_color; background-image: none; }
 
@@ -816,7 +822,7 @@ menu separator, .menu separator, .context-menu separator { margin: 6px 0; }
 
 menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; font-weight: normal; border-radius: 6px; }
 
-menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { color: @window_fg_color; background-color: alpha(currentColor,0.13); }
+menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { color: @window_fg_color; background-color: alpha(currentColor,0.1); }
 
 menu menuitem:disabled, .menu menuitem:disabled, .context-menu menuitem:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); }
 
@@ -878,7 +884,7 @@ notebook > header.top > tabs { margin-bottom: 0px; }
 
 notebook > header.top > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 -4px alpha(currentColor,0.15); }
 
-notebook > header.top > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.07); }
+notebook > header.top > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.04); }
 
 notebook > header.top > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 -4px @accent_bg_color; }
 
@@ -888,7 +894,7 @@ notebook > header.bottom > tabs { margin-top: 0px; }
 
 notebook > header.bottom > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 4px alpha(currentColor,0.15); }
 
-notebook > header.bottom > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.07); }
+notebook > header.bottom > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.04); }
 
 notebook > header.bottom > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 4px @accent_bg_color; }
 
@@ -898,7 +904,7 @@ notebook > header.left > tabs { margin-right: 0px; }
 
 notebook > header.left > tabs > tab:not(.reorderable-page):hover { box-shadow: inset -4px 0 alpha(currentColor,0.15); }
 
-notebook > header.left > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.07); }
+notebook > header.left > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.04); }
 
 notebook > header.left > tabs > tab:not(.reorderable-page):checked { box-shadow: inset -4px 0 @accent_bg_color; }
 
@@ -908,7 +914,7 @@ notebook > header.right > tabs { margin-left: 0px; }
 
 notebook > header.right > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 4px 0 alpha(currentColor,0.15); }
 
-notebook > header.right > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.07); }
+notebook > header.right > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: alpha(currentColor,0.04); }
 
 notebook > header.right > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 4px 0 @accent_bg_color; }
 
@@ -1528,7 +1534,7 @@ separator { background: mix(currentColor,@window_bg_color,0.85); min-width: 1px;
 
 list { color: @view_fg_color; background-color: @view_bg_color; border-color: @card_shade_color; }
 
-list row { padding: 2px; }
+list row { padding: 2px; outline-color: alpha(@accent_color,0.5); outline-style: solid; outline-offset: -3px; outline-width: 2px; -gtk-outline-radius: 6px; }
 
 row { transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
@@ -1600,19 +1606,19 @@ messagedialog.csd.background { border-bottom-left-radius: 12px; border-bottom-ri
 
 messagedialog.csd .dialog-action-area button { padding: 10px 14px; border-right-style: none; border-bottom-style: none; border-radius: 0; -gtk-outline-radius: 0; background-color: @dialog_bg_color; color: @dialog_fg_color; border-top: 1px solid alpha(currentColor,0.15); border-left: 1px solid alpha(currentColor,0.15); }
 
-messagedialog.csd .dialog-action-area button:hover { background: alpha(currentColor,0.07); }
+messagedialog.csd .dialog-action-area button:hover { background: alpha(currentColor,0.04); }
 
-messagedialog.csd .dialog-action-area button:active { background: alpha(currentColor,0.16); }
+messagedialog.csd .dialog-action-area button:active { background: alpha(currentColor,0.08); }
 
 messagedialog.csd .dialog-action-area button.suggested-action { color: @accent_color; }
 
 messagedialog.csd .dialog-action-area button.destructive-action { color: @destructive_color; }
 
-messagedialog.csd .dialog-action-area button:checked { background: alpha(currentColor,0.1); }
+messagedialog.csd .dialog-action-area button:checked { background: alpha(@accent_bg_color,0.25); }
 
-messagedialog.csd .dialog-action-area button:checked:hover { background: alpha(currentColor,0.13); }
+messagedialog.csd .dialog-action-area button:checked:hover { background: alpha(@accent_bg_color,0.32); }
 
-messagedialog.csd .dialog-action-area button:checked:active { background: alpha(currentColor,0.19); }
+messagedialog.csd .dialog-action-area button:checked:active { background: alpha(@accent_bg_color,0.39); }
 
 messagedialog.csd .dialog-action-area button:first-child { border-left-style: none; border-bottom-left-radius: 11px; -gtk-outline-bottom-left-radius: 11px; }
 
@@ -1624,11 +1630,13 @@ filechooser #pathbarbox { border-bottom: 1px solid @window_bg_color; }
 
 filechooserbutton:drop(active) { box-shadow: none; border-color: transparent; }
 
-.sidebar { border-style: none; background-color: @window_bg_color; }
+.sidebar { border-style: none; background-color: @sidebar_bg_color; color: @sidebar_fg_color; }
 
-stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:not(separator):dir(ltr), .sidebar:not(separator).left { border-right: 1px solid mix(currentColor,@window_bg_color,0.85); border-left-style: none; }
+.sidebar:backdrop { background-color: @sidebar_backdrop_color; }
 
-stacksidebar.sidebar:dir(rtl) list, stacksidebar.sidebar.right list, .sidebar:not(separator):dir(rtl), .sidebar:not(separator).right { border-left: 1px solid mix(currentColor,@window_bg_color,0.85); border-right-style: none; }
+stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:not(separator):dir(ltr), .sidebar:not(separator).left { border-right: 1px solid @sidebar_shade_color; border-left-style: none; }
+
+stacksidebar.sidebar:dir(rtl) list, stacksidebar.sidebar.right list, .sidebar:not(separator):dir(rtl), .sidebar:not(separator).right { border-left: 1px solid @sidebar_shade_color; border-right-style: none; }
 
 .sidebar list { background-color: transparent; }
 
@@ -1636,7 +1644,7 @@ paned .sidebar.left, paned .sidebar.right, paned .sidebar.left:dir(rtl), paned .
 
 .sidebar row { border-radius: 6px; }
 
-.sidebar row:backdrop { color: @window_fg_color; }
+.sidebar row:backdrop { color: @sidebar_fg_color; }
 
 .sidebar row, .sidebar separator { margin: 0 4px; }
 
@@ -1852,9 +1860,9 @@ colorswatch#add-color-button { border-radius: 5px 5px 0 0; }
 
 colorswatch#add-color-button:only-child { border-radius: 5px; }
 
-colorswatch#add-color-button overlay { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.903),0.7); background-color: mix(currentColor,@window_bg_color,0.903); }
+colorswatch#add-color-button overlay { color: @window_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@window_bg_color,0.903); }
 
-colorswatch#add-color-button overlay:hover { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; }
+colorswatch#add-color-button overlay:hover { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; }
 
 colorswatch:disabled { opacity: 0.5; }
 
@@ -1920,15 +1928,9 @@ button.titlebutton:backdrop { -gtk-icon-shadow: none; }
 
 .selection-mode headerbar button.titlebutton:backdrop, .selection-mode .titlebar button.titlebutton:backdrop, headerbar.selection-mode button.titlebutton:backdrop, .titlebar.selection-mode button.titlebutton:backdrop { -gtk-icon-shadow: none; }
 
-headerbar entry selection, .titlebar entry selection, .view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection, iconview:selected:focus, iconview:selected, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection, modelbutton.flat:selected, .menuitem.button.flat:selected, spinbutton:not(.vertical) selection, treeview.view:selected:focus, treeview.view:selected, calendar:selected { background-color: @accent_bg_color; }
+headerbar entry selection, .titlebar entry selection, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection, spinbutton:not(.vertical) selection, treeview.view:selected:focus, treeview.view:selected, calendar:selected { background-color: alpha(@accent_bg_color,0.25); }
 
-label:selected, .selection-mode button.titlebutton, headerbar entry selection, .titlebar entry selection, .view:selected:focus, .view:selected, .nautilus-window notebook:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected:focus, textview text:selected:focus, .view text:selected, textview text:selected, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection, iconview:selected:focus, iconview:selected, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection, modelbutton.flat:selected, .menuitem.button.flat:selected, spinbutton:not(.vertical) selection, treeview.view:selected:focus, treeview.view:selected, calendar:selected { color: @accent_fg_color; }
-
-label:disabled selection, label:disabled:selected, .selection-mode button.titlebutton:disabled, .titlebar entry selection:disabled, .view:disabled:selected, .nautilus-window notebook:disabled:selected, .nautilus-window notebook > stack:disabled:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:disabled:selected, textview text:disabled:selected:focus, .view text:disabled:selected, textview text:disabled:selected, .view text selection:disabled, textview text selection:disabled:focus, textview text selection:disabled, iconview:disabled:selected:focus, iconview:disabled:selected, iconview text selection:disabled:focus, iconview text selection:disabled, flowbox flowboxchild:disabled:selected, entry selection:disabled, modelbutton.flat:disabled:selected, .menuitem.button.flat:disabled:selected, spinbutton:not(.vertical) selection:disabled, treeview.view:disabled:selected, calendar:disabled:selected { color: mix(@accent_fg_color,@accent_bg_color,0.5); }
-
-label:backdrop selection, label:backdrop:selected, .selection-mode button.titlebutton:backdrop, .titlebar entry selection:backdrop, .view:backdrop:selected, .nautilus-window notebook:backdrop:selected, .nautilus-window notebook > stack:backdrop:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:backdrop:selected, textview text:backdrop:selected:focus, .view text:backdrop:selected, textview text:backdrop:selected, .view text selection:backdrop, textview text selection:backdrop:focus, textview text selection:backdrop, iconview:backdrop:selected:focus, iconview:backdrop:selected, iconview text selection:backdrop:focus, iconview text selection:backdrop, flowbox flowboxchild:backdrop:selected, entry selection:backdrop, modelbutton.flat:backdrop:selected, .menuitem.button.flat:backdrop:selected, spinbutton:not(.vertical) selection:backdrop, treeview.view:backdrop:selected, calendar:backdrop:selected { color: @accent_fg_color; }
-
-label:backdrop selection:disabled, label:backdrop:disabled:selected, .selection-mode button.titlebutton:backdrop:disabled, .view:backdrop:disabled:selected, .nautilus-window notebook:backdrop:disabled:selected, .nautilus-window notebook > stack:backdrop:disabled:selected:not(:only-child), .nautilus-window notebook > stack:not(:only-child) searchbar:backdrop:disabled:selected, .view text:backdrop:disabled:selected, textview text:backdrop:disabled:selected, .view text selection:backdrop:disabled, textview text selection:backdrop:disabled, iconview:backdrop:disabled:selected, iconview text selection:backdrop:disabled, flowbox flowboxchild:backdrop:disabled:selected, entry selection:backdrop:disabled, modelbutton.flat:backdrop:disabled:selected, .menuitem.button.flat:backdrop:disabled:selected, spinbutton:not(.vertical) selection:backdrop:disabled, calendar:backdrop:disabled:selected { color: mix(mix(@view_fg_color,@window_bg_color,0.5),@accent_bg_color,0.7); }
+label:selected, .selection-mode button.titlebutton, headerbar entry selection, .titlebar entry selection, .view text selection:focus, .view text selection, textview text selection:focus, textview text selection, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection, spinbutton:not(.vertical) selection, treeview.view:selected:focus, treeview.view:selected, calendar:selected { color: @window_fg_color; }
 
 .monospace { font-family: monospace; }
 
@@ -1994,7 +1996,7 @@ popover.emoji-completion arrow { border: none; background: none; }
 
 popover.emoji-completion contents row box { padding: 2px 10px; }
 
-popover.emoji-completion .emoji:hover { background: alpha(currentColor,0.07); }
+popover.emoji-completion .emoji:hover { background: alpha(currentColor,0.04); }
 
 @define-color theme_fg_color @window_fg_color;
 @define-color theme_text_color @view_fg_color;
@@ -2034,51 +2036,51 @@ popover.emoji-completion .emoji:hover { background: alpha(currentColor,0.07); }
 @define-color text_view_bg shade(@view_bg_color,0.94);
 .nautilus-window .thumbnail, .checkerboard { background-position: 0px 0px, 10px 10px; background-size: 20px 20px; background-image: linear-gradient(45deg, mix(currentColor,@window_bg_color,0.85) 25%, transparent 25%, transparent 75%, mix(currentColor,@window_bg_color,0.85) 75%, mix(currentColor,@window_bg_color,0.85) 100%), linear-gradient(45deg, mix(currentColor,@window_bg_color,0.85) 25%, @view_bg_color 25%, @view_bg_color 75%, mix(currentColor,@window_bg_color,0.85) 75%, mix(currentColor,@window_bg_color,0.85) 100%); }
 
-.org-gnome-Calendar .titlebar .text-button, .nautilus-window .linked entry ~ .image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup, headerbar .linked entry ~ .image-button, .titlebar .linked entry ~ .image-button, headerbar .linked.raised button, headerbar .linked button:not(:only-child), headerbar > .stack-switcher.linked > button, .titlebar .linked.raised button, .titlebar .linked button:not(:only-child), .titlebar > .stack-switcher.linked > button, headerbar button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
+.org-gnome-Calendar .titlebar .text-button, .nautilus-window .linked entry ~ .image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup, headerbar .linked entry ~ .image-button, .titlebar .linked entry ~ .image-button, headerbar .linked.raised button, headerbar .linked button:not(:only-child), headerbar > .stack-switcher.linked > button, .titlebar .linked.raised button, .titlebar .linked button:not(:only-child), .titlebar > .stack-switcher.linked > button, headerbar button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
 
 .org-gnome-Calendar .titlebar .text-button:backdrop, .nautilus-window .linked entry ~ .image-button:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:backdrop, headerbar .linked entry ~ .image-button:backdrop, .titlebar .linked entry ~ .image-button:backdrop, headerbar .linked.raised button:backdrop, headerbar .linked button:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button:backdrop, .titlebar .linked.raised button:backdrop, .titlebar .linked button:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button:backdrop, headerbar button.text-button:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled) { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(currentColor,@headerbar_backdrop_color,0.97),0.2); background-color: mix(currentColor,mix(currentColor,@headerbar_backdrop_color,0.97),0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.org-gnome-Calendar .titlebar .text-button:hover, .nautilus-window .linked entry ~ .image-button:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:hover, headerbar .linked entry ~ .image-button:hover, .titlebar .linked entry ~ .image-button:hover, headerbar .linked.raised button:hover, headerbar .linked button:hover:not(:only-child), headerbar > .stack-switcher.linked > button:hover, .titlebar .linked.raised button:hover, .titlebar .linked button:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:hover, headerbar button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@headerbar_bg_color,0.993),0.85),0.7); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.993),0.85); box-shadow: none; }
+.org-gnome-Calendar .titlebar .text-button:hover, .nautilus-window .linked entry ~ .image-button:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:hover, headerbar .linked entry ~ .image-button:hover, .titlebar .linked entry ~ .image-button:hover, headerbar .linked.raised button:hover, headerbar .linked button:hover:not(:only-child), headerbar > .stack-switcher.linked > button:hover, .titlebar .linked.raised button:hover, .titlebar .linked button:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:hover, headerbar button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.993),0.85); box-shadow: none; }
 
 .org-gnome-Calendar .titlebar .text-button:hover:backdrop, .nautilus-window .linked entry ~ .image-button:hover:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:hover:backdrop, headerbar .linked entry ~ .image-button:hover:backdrop, .titlebar .linked entry ~ .image-button:hover:backdrop, headerbar .linked.raised button:hover:backdrop, headerbar .linked button:hover:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button:hover:backdrop, .titlebar .linked.raised button:hover:backdrop, .titlebar .linked button:hover:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button:hover:backdrop, headerbar button.text-button:hover:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:hover:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled) { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(currentColor,@headerbar_backdrop_color,0.88),0.2); background-color: mix(currentColor,mix(currentColor,@headerbar_backdrop_color,0.88),0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.org-gnome-Calendar .titlebar .text-button:active, .nautilus-window .linked entry ~ .image-button:active:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active, headerbar .linked entry ~ .image-button:active, .titlebar .linked entry ~ .image-button:active, headerbar .linked.raised button:active, headerbar .linked button:active:not(:only-child), headerbar > .stack-switcher.linked > button:active, .titlebar .linked.raised button:active, .titlebar .linked button:active:not(:only-child), .titlebar > .stack-switcher.linked > button:active, headerbar button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked, .nautilus-window .linked entry ~ .image-button:checked:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked, headerbar .linked entry ~ .image-button:checked, .titlebar .linked entry ~ .image-button:checked, headerbar .linked.raised button:checked, headerbar .linked button:checked:not(:only-child), headerbar > .stack-switcher.linked > button:checked, .titlebar .linked.raised button:checked, .titlebar .linked button:checked:not(:only-child), .titlebar > .stack-switcher.linked > button:checked, headerbar button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@headerbar_bg_color,0.997),0.703),0.7); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.997),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.org-gnome-Calendar .titlebar .text-button:active, .nautilus-window .linked entry ~ .image-button:active:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active, headerbar .linked entry ~ .image-button:active, .titlebar .linked entry ~ .image-button:active, headerbar .linked.raised button:active, headerbar .linked button:active:not(:only-child), headerbar > .stack-switcher.linked > button:active, .titlebar .linked.raised button:active, .titlebar .linked button:active:not(:only-child), .titlebar > .stack-switcher.linked > button:active, headerbar button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked, .nautilus-window .linked entry ~ .image-button:checked:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked, headerbar .linked entry ~ .image-button:checked, .titlebar .linked entry ~ .image-button:checked, headerbar .linked.raised button:checked, headerbar .linked button:checked:not(:only-child), headerbar > .stack-switcher.linked > button:checked, .titlebar .linked.raised button:checked, .titlebar .linked button:checked:not(:only-child), .titlebar > .stack-switcher.linked > button:checked, headerbar button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.997),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .org-gnome-Calendar .titlebar .text-button:active:hover, .nautilus-window .linked entry ~ .image-button:active:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active:hover, headerbar .linked entry ~ .image-button:active:hover, .titlebar .linked entry ~ .image-button:active:hover, headerbar .linked.raised button:active:hover, headerbar .linked button:active:hover:not(:only-child), headerbar > .stack-switcher.linked > button:active:hover, .titlebar .linked.raised button:active:hover, .titlebar .linked button:active:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:active:hover, headerbar button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked:hover, .nautilus-window .linked entry ~ .image-button:checked:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked:hover, headerbar .linked entry ~ .image-button:checked:hover, .titlebar .linked entry ~ .image-button:checked:hover, headerbar .linked.raised button:checked:hover, headerbar .linked button:checked:hover:not(:only-child), headerbar > .stack-switcher.linked > button:checked:hover, .titlebar .linked.raised button:checked:hover, .titlebar .linked button:checked:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:checked:hover, headerbar button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled) { background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.997),0.653); }
 
-.org-gnome-Calendar .titlebar .text-button:active:hover, .nautilus-window .linked entry ~ .image-button:active:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active:hover, headerbar .linked entry ~ .image-button:active:hover, .titlebar .linked entry ~ .image-button:active:hover, headerbar .linked.raised button:active:hover, headerbar .linked button:active:hover:not(:only-child), headerbar > .stack-switcher.linked > button:active:hover, .titlebar .linked.raised button:active:hover, .titlebar .linked button:active:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:active:hover, headerbar button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked:hover, .nautilus-window .linked entry ~ .image-button:checked:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked:hover, headerbar .linked entry ~ .image-button:checked:hover, .titlebar .linked entry ~ .image-button:checked:hover, headerbar .linked.raised button:checked:hover, headerbar .linked button:checked:hover:not(:only-child), headerbar > .stack-switcher.linked > button:checked:hover, .titlebar .linked.raised button:checked:hover, .titlebar .linked button:checked:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:checked:hover, headerbar button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@headerbar_bg_color,0.99),0.703),0.7); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.99),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.org-gnome-Calendar .titlebar .text-button:active:hover, .nautilus-window .linked entry ~ .image-button:active:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active:hover, headerbar .linked entry ~ .image-button:active:hover, .titlebar .linked entry ~ .image-button:active:hover, headerbar .linked.raised button:active:hover, headerbar .linked button:active:hover:not(:only-child), headerbar > .stack-switcher.linked > button:active:hover, .titlebar .linked.raised button:active:hover, .titlebar .linked button:active:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:active:hover, headerbar button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked:hover, .nautilus-window .linked entry ~ .image-button:checked:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked:hover, headerbar .linked entry ~ .image-button:checked:hover, .titlebar .linked entry ~ .image-button:checked:hover, headerbar .linked.raised button:checked:hover, headerbar .linked button:checked:hover:not(:only-child), headerbar > .stack-switcher.linked > button:checked:hover, .titlebar .linked.raised button:checked:hover, .titlebar .linked button:checked:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:checked:hover, headerbar button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.99),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .org-gnome-Calendar .titlebar .text-button:active:hover:hover, .nautilus-window .linked entry ~ .image-button:active:hover:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active:hover:hover, headerbar .linked entry ~ .image-button:active:hover:hover, .titlebar .linked entry ~ .image-button:active:hover:hover, headerbar .linked.raised button:active:hover:hover, headerbar .linked button:active:hover:hover:not(:only-child), headerbar > .stack-switcher.linked > button:active:hover:hover, .titlebar .linked.raised button:active:hover:hover, .titlebar .linked button:active:hover:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:active:hover:hover, headerbar button.text-button:active:hover:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:hover:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked:hover:hover, .nautilus-window .linked entry ~ .image-button:checked:hover:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked:hover:hover, headerbar .linked entry ~ .image-button:checked:hover:hover, .titlebar .linked entry ~ .image-button:checked:hover:hover, headerbar .linked.raised button:checked:hover:hover, headerbar .linked button:checked:hover:hover:not(:only-child), headerbar > .stack-switcher.linked > button:checked:hover:hover, .titlebar .linked.raised button:checked:hover:hover, .titlebar .linked button:checked:hover:hover:not(:only-child), .titlebar > .stack-switcher.linked > button:checked:hover:hover, headerbar button.text-button:checked:hover:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:hover:hover:not(.suggested-action):not(.destructive-action):not(:disabled) { background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.99),0.653); }
 
-.org-gnome-Calendar .titlebar .text-button:active:backdrop, .nautilus-window .linked entry ~ .image-button:active:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active:backdrop, headerbar .linked entry ~ .image-button:active:backdrop, .titlebar .linked entry ~ .image-button:active:backdrop, headerbar .linked.raised button:active:backdrop, headerbar .linked button:active:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button:active:backdrop, .titlebar .linked.raised button:active:backdrop, .titlebar .linked button:active:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button:active:backdrop, headerbar button.text-button:active:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked:backdrop, .nautilus-window .linked entry ~ .image-button:checked:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked:backdrop, headerbar .linked entry ~ .image-button:checked:backdrop, .titlebar .linked entry ~ .image-button:checked:backdrop, headerbar .linked.raised button:checked:backdrop, headerbar .linked button:checked:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button:checked:backdrop, .titlebar .linked.raised button:checked:backdrop, .titlebar .linked button:checked:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button:checked:backdrop, headerbar button.text-button:checked:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled) { color: mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5); outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@headerbar_backdrop_color,0.89),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@headerbar_backdrop_color,0.89),0.903); }
+.org-gnome-Calendar .titlebar .text-button:active:backdrop, .nautilus-window .linked entry ~ .image-button:active:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:active:backdrop, headerbar .linked entry ~ .image-button:active:backdrop, .titlebar .linked entry ~ .image-button:active:backdrop, headerbar .linked.raised button:active:backdrop, headerbar .linked button:active:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button:active:backdrop, .titlebar .linked.raised button:active:backdrop, .titlebar .linked button:active:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button:active:backdrop, headerbar button.text-button:active:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:active:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .text-button:checked:backdrop, .nautilus-window .linked entry ~ .image-button:checked:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:checked:backdrop, headerbar .linked entry ~ .image-button:checked:backdrop, .titlebar .linked entry ~ .image-button:checked:backdrop, headerbar .linked.raised button:checked:backdrop, headerbar .linked button:checked:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button:checked:backdrop, .titlebar .linked.raised button:checked:backdrop, .titlebar .linked button:checked:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button:checked:backdrop, headerbar button.text-button:checked:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:checked:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled) { color: mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5); outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,mix(currentColor,@headerbar_backdrop_color,0.89),0.903); }
 
 .org-gnome-Calendar .titlebar .text-button:disabled, .nautilus-window .linked entry ~ .image-button:disabled:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:disabled, headerbar .linked entry ~ .image-button:disabled, .titlebar .linked entry ~ .image-button:disabled, headerbar .linked.raised button:disabled, headerbar .linked button:disabled:not(:only-child), headerbar > .stack-switcher.linked > button:disabled, .titlebar .linked.raised button:disabled, .titlebar .linked button:disabled:not(:only-child), .titlebar > .stack-switcher.linked > button:disabled, headerbar button.text-button:disabled:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:disabled:not(.suggested-action):not(.destructive-action):not(:disabled) { color: mix(mix(@headerbar_fg_color,@headerbar_bg_color,0.5),mix(@headerbar_bg_color,@view_bg_color,0.15),0.5); background-color: mix(currentColor,@headerbar_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
 .org-gnome-Calendar .titlebar .text-button:backdrop:disabled, .nautilus-window .linked entry ~ .image-button:backdrop:disabled:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .toggle.popup:backdrop:disabled, headerbar .linked entry ~ .image-button:backdrop:disabled, .titlebar .linked entry ~ .image-button:backdrop:disabled, headerbar .linked.raised button:backdrop:disabled, headerbar .linked button:backdrop:disabled:not(:only-child), headerbar > .stack-switcher.linked > button:backdrop:disabled, .titlebar .linked.raised button:backdrop:disabled, .titlebar .linked button:backdrop:disabled:not(:only-child), .titlebar > .stack-switcher.linked > button:backdrop:disabled, headerbar button.text-button:backdrop:disabled:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.text-button:backdrop:disabled:not(.suggested-action):not(.destructive-action):not(:disabled) { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(@headerbar_backdrop_color,@view_bg_color,0.15),0.65); background-color: mix(currentColor,@headerbar_backdrop_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.org-gnome-Calendar .titlebar .default.text-button:not(:backdrop):not(.suggested-action):not(.destructive-action), .nautilus-window .linked entry ~ .default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .default.toggle.popup:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar .linked entry ~ .default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action), .titlebar .linked entry ~ .default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar .linked.raised button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar .linked button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:only-child), headerbar > .stack-switcher.linked > button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), .titlebar .linked.raised button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), .titlebar .linked button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:only-child), .titlebar > .stack-switcher.linked > button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar button.default.text-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.default.text-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
+.org-gnome-Calendar .titlebar .default.text-button:not(:backdrop):not(.suggested-action):not(.destructive-action), .nautilus-window .linked entry ~ .default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .default.toggle.popup:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar .linked entry ~ .default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action), .titlebar .linked entry ~ .default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar .linked.raised button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar .linked button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:only-child), headerbar > .stack-switcher.linked > button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), .titlebar .linked.raised button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), .titlebar .linked button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:only-child), .titlebar > .stack-switcher.linked > button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar button.default.text-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.default.text-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:disabled) { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
 
 .org-gnome-Calendar .titlebar .flat.text-button:not(:hover):not(:active), .nautilus-window .linked entry ~ .flat.image-button:not(:hover):not(:active):not(:checked):not(.model), .nautilus-window .search + .flat.toggle.popup:not(:hover):not(:active), headerbar .linked entry ~ .flat.image-button:not(:hover):not(:active), .titlebar .linked entry ~ .flat.image-button:not(:hover):not(:active), headerbar .linked.raised button.flat:not(:hover):not(:active), headerbar .linked button.flat:not(:hover):not(:active):not(:only-child), headerbar > .stack-switcher.linked > button.flat:not(:hover):not(:active), .titlebar .linked.raised button.flat:not(:hover):not(:active), .titlebar .linked button.flat:not(:hover):not(:active):not(:only-child), .titlebar > .stack-switcher.linked > button.flat:not(:hover):not(:active), headerbar button.flat.text-button:not(:hover):not(:active):not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.flat.text-button:not(:hover):not(:active):not(.suggested-action):not(.destructive-action):not(:disabled) { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window .linked.raised button.image-button:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:hover, headerbar viewswitcher button.radio:hover:checked, .titlebar viewswitcher button.radio:hover:checked, headerbar button:hover:not(.titlebutton), .titlebar button:hover:not(.titlebutton) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@headerbar_bg_color,1.03),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,1.03),0.903); }
+.nautilus-window .linked.raised button.image-button:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:hover, headerbar viewswitcher button.radio:hover:checked, .titlebar viewswitcher button.radio:hover:checked, headerbar button:hover:not(.titlebutton), .titlebar button:hover:not(.titlebutton) { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,1.03),0.903); }
 
 .nautilus-window .linked.raised button.image-button:hover:backdrop:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:hover:backdrop, headerbar viewswitcher button.radio:hover:backdrop:checked, .titlebar viewswitcher button.radio:hover:backdrop:checked, headerbar button:hover:backdrop:not(.titlebutton), .titlebar button:hover:backdrop:not(.titlebutton) { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(currentColor,@headerbar_backdrop_color,1.01),0.2); background-color: mix(currentColor,mix(currentColor,@headerbar_backdrop_color,1.01),0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window .linked.raised button.image-button:active:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:active, headerbar button:active:not(.titlebutton), .titlebar button:active:not(.titlebutton), .nautilus-window .linked.raised button.image-button:checked:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:checked, headerbar viewswitcher button.radio:checked, .titlebar viewswitcher button.radio:checked, headerbar button:checked:not(.titlebutton), .titlebar button:checked:not(.titlebutton) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
+.nautilus-window .linked.raised button.image-button:active:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:active, headerbar button:active:not(.titlebutton), .titlebar button:active:not(.titlebutton), .nautilus-window .linked.raised button.image-button:checked:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:checked, headerbar viewswitcher button.radio:checked, .titlebar viewswitcher button.radio:checked, headerbar button:checked:not(.titlebutton), .titlebar button:checked:not(.titlebutton) { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
 
-.nautilus-window .linked.raised button.image-button:active:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:active:hover, headerbar button:active:hover:not(.titlebutton), .titlebar button:active:hover:not(.titlebutton), .nautilus-window .linked.raised button.image-button:checked:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:checked:hover, headerbar viewswitcher button.radio:checked:hover, .titlebar viewswitcher button.radio:checked:hover, headerbar button:checked:hover:not(.titlebutton), .titlebar button:checked:hover:not(.titlebutton) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@headerbar_bg_color,0.963),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.963),0.903); }
+.nautilus-window .linked.raised button.image-button:active:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:active:hover, headerbar button:active:hover:not(.titlebutton), .titlebar button:active:hover:not(.titlebutton), .nautilus-window .linked.raised button.image-button:checked:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:checked:hover, headerbar viewswitcher button.radio:checked:hover, .titlebar viewswitcher button.radio:checked:hover, headerbar button:checked:hover:not(.titlebutton), .titlebar button:checked:hover:not(.titlebutton) { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.963),0.903); }
 
 .nautilus-window .linked.raised button.image-button:active:backdrop:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:active:backdrop, headerbar button:active:backdrop:not(.titlebutton), .titlebar button:active:backdrop:not(.titlebutton), .nautilus-window .linked.raised button.image-button:checked:backdrop:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button:checked:backdrop, headerbar viewswitcher button.radio:checked:backdrop, .titlebar viewswitcher button.radio:checked:backdrop, headerbar button:checked:backdrop:not(.titlebutton), .titlebar button:checked:backdrop:not(.titlebutton) { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@headerbar_backdrop_color,0.2); background-color: mix(currentColor,@headerbar_backdrop_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window .linked.raised button.default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar viewswitcher button.default.radio:not(:backdrop):not(.suggested-action):not(.destructive-action):checked, .titlebar viewswitcher button.default.radio:not(:backdrop):not(.suggested-action):not(.destructive-action):checked, headerbar button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(.titlebutton), .titlebar button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(.titlebutton) { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
+.nautilus-window .linked.raised button.default.image-button:not(:backdrop):not(.suggested-action):not(.destructive-action):not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.default:not(:backdrop):not(.suggested-action):not(.destructive-action), headerbar viewswitcher button.default.radio:not(:backdrop):not(.suggested-action):not(.destructive-action):checked, .titlebar viewswitcher button.default.radio:not(:backdrop):not(.suggested-action):not(.destructive-action):checked, headerbar button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(.titlebutton), .titlebar button.default:not(:backdrop):not(.suggested-action):not(.destructive-action):not(.titlebutton) { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
 
 .nautilus-window .linked.raised button.flat.image-button:not(:hover):not(:active):not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.flat:not(:hover):not(:active), headerbar viewswitcher button.flat.radio:not(:hover):not(:active):checked, .titlebar viewswitcher button.flat.radio:not(:hover):not(:active):checked, headerbar button.flat:not(:hover):not(:active):not(.titlebutton), .titlebar button.flat:not(:hover):not(:active):not(.titlebutton) { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button.suggested-action, .content list button.suggested-action, .content list > row:not(:selected):hover button.suggested-action, list.content button.suggested-action, list.content > row:not(:selected):hover button.suggested-action, list.view.frame button.suggested-action, list.view.frame > row:not(:selected):hover button.suggested-action, headerbar.selection-mode button, headerbar.selection-mode button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button, .titlebar.selection-mode button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button, .nautilus-window .linked entry ~ .suggested-action.image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup, headerbar .linked entry ~ .suggested-action.image-button, .titlebar .linked entry ~ .suggested-action.image-button, headerbar .linked.raised button.suggested-action, headerbar .linked button.suggested-action:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action, .titlebar .linked.raised button.suggested-action, .titlebar .linked button.suggested-action:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action, headerbar button.suggested-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action, headerbar viewswitcher button.suggested-action.radio:checked, .titlebar viewswitcher button.suggested-action.radio:checked, headerbar button.suggested-action:not(.titlebutton), .titlebar button.suggested-action:not(.titlebutton), headerbar button.text-button.suggested-action:not(.titlebutton) { color: @accent_fg_color; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.903),0.7); background-color: mix(currentColor,@accent_bg_color,0.903); }
+popover.background button.suggested-action, .content list button.suggested-action, .content list > row:not(:selected):hover button.suggested-action, list.content button.suggested-action, list.content > row:not(:selected):hover button.suggested-action, list.view.frame button.suggested-action, list.view.frame > row:not(:selected):hover button.suggested-action, headerbar.selection-mode button, headerbar.selection-mode button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button, .titlebar.selection-mode button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button, .nautilus-window .linked entry ~ .suggested-action.image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup, headerbar .linked entry ~ .suggested-action.image-button, .titlebar .linked entry ~ .suggested-action.image-button, headerbar .linked.raised button.suggested-action, headerbar .linked button.suggested-action:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action, .titlebar .linked.raised button.suggested-action, .titlebar .linked button.suggested-action:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action, headerbar button.suggested-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action, headerbar viewswitcher button.suggested-action.radio:checked, .titlebar viewswitcher button.suggested-action.radio:checked, headerbar button.suggested-action:not(.titlebutton), .titlebar button.suggested-action:not(.titlebutton), headerbar button.text-button.suggested-action:not(.titlebutton) { color: @accent_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@accent_bg_color,0.903); }
 
-popover.background button.suggested-action:hover, .content list button.suggested-action:hover, .content list > row:not(:selected):hover button.suggested-action:hover, list.content button.suggested-action:hover, list.content > row:not(:selected):hover button.suggested-action:hover, list.view.frame button.suggested-action:hover, list.view.frame > row:not(:selected):hover button.suggested-action:hover, headerbar.selection-mode button:hover, headerbar.selection-mode button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:hover, .titlebar.selection-mode button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:hover, .nautilus-window .linked entry ~ .suggested-action.image-button:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:hover, headerbar .linked entry ~ .suggested-action.image-button:hover, .titlebar .linked entry ~ .suggested-action.image-button:hover, headerbar .linked.raised button.suggested-action:hover, headerbar .linked button.suggested-action:hover:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:hover, .titlebar .linked.raised button.suggested-action:hover, .titlebar .linked button.suggested-action:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:hover, headerbar button.suggested-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:hover, headerbar viewswitcher button.suggested-action.radio:hover:checked, .titlebar viewswitcher button.suggested-action.radio:hover:checked, headerbar button.suggested-action:hover:not(.titlebutton), .titlebar button.suggested-action:hover:not(.titlebutton) { color: @accent_fg_color; outline-color: mix(currentColor,mix(currentColor,@accent_bg_color,0.85),0.7); background-color: mix(currentColor,@accent_bg_color,0.85); box-shadow: none; }
+popover.background button.suggested-action:hover, .content list button.suggested-action:hover, .content list > row:not(:selected):hover button.suggested-action:hover, list.content button.suggested-action:hover, list.content > row:not(:selected):hover button.suggested-action:hover, list.view.frame button.suggested-action:hover, list.view.frame > row:not(:selected):hover button.suggested-action:hover, headerbar.selection-mode button:hover, headerbar.selection-mode button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:hover, .titlebar.selection-mode button.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:hover, .nautilus-window .linked entry ~ .suggested-action.image-button:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:hover, headerbar .linked entry ~ .suggested-action.image-button:hover, .titlebar .linked entry ~ .suggested-action.image-button:hover, headerbar .linked.raised button.suggested-action:hover, headerbar .linked button.suggested-action:hover:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:hover, .titlebar .linked.raised button.suggested-action:hover, .titlebar .linked button.suggested-action:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:hover, headerbar button.suggested-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:hover, headerbar viewswitcher button.suggested-action.radio:hover:checked, .titlebar viewswitcher button.suggested-action.radio:hover:checked, headerbar button.suggested-action:hover:not(.titlebutton), .titlebar button.suggested-action:hover:not(.titlebutton) { color: @accent_fg_color; background-color: mix(currentColor,@accent_bg_color,0.85); box-shadow: none; }
 
-popover.background button.suggested-action:active, .content list button.suggested-action:active, .content list > row:not(:selected):hover button.suggested-action:active, list.content button.suggested-action:active, list.content > row:not(:selected):hover button.suggested-action:active, list.view.frame button.suggested-action:active, list.view.frame > row:not(:selected):hover button.suggested-action:active, headerbar.selection-mode button:active, headerbar.selection-mode button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:active, .titlebar.selection-mode button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:active, .nautilus-window .linked entry ~ .suggested-action.image-button:active:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:active, headerbar .linked entry ~ .suggested-action.image-button:active, .titlebar .linked entry ~ .suggested-action.image-button:active, headerbar .linked.raised button.suggested-action:active, headerbar .linked button.suggested-action:active:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:active, .titlebar .linked.raised button.suggested-action:active, .titlebar .linked button.suggested-action:active:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:active, headerbar button.suggested-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:active:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:active, headerbar button.suggested-action:active:not(.titlebutton), .titlebar button.suggested-action:active:not(.titlebutton), popover.background button.suggested-action:checked, .content list button.suggested-action:checked, .content list > row:not(:selected):hover button.suggested-action:checked, list.content button.suggested-action:checked, list.content > row:not(:selected):hover button.suggested-action:checked, list.view.frame button.suggested-action:checked, list.view.frame > row:not(:selected):hover button.suggested-action:checked, headerbar.selection-mode button:checked, headerbar.selection-mode button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:checked, .titlebar.selection-mode button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:checked, .nautilus-window .linked entry ~ .suggested-action.image-button:checked:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:checked, headerbar .linked entry ~ .suggested-action.image-button:checked, .titlebar .linked entry ~ .suggested-action.image-button:checked, headerbar .linked.raised button.suggested-action:checked, headerbar .linked button.suggested-action:checked:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:checked, .titlebar .linked.raised button.suggested-action:checked, .titlebar .linked button.suggested-action:checked:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:checked, headerbar button.suggested-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:checked:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:checked, headerbar viewswitcher button.suggested-action.radio:checked, .titlebar viewswitcher button.suggested-action.radio:checked, headerbar button.suggested-action:checked:not(.titlebutton), .titlebar button.suggested-action:checked:not(.titlebutton) { color: @accent_fg_color; outline-color: mix(currentColor,mix(currentColor,alpha(@accent_bg_color,0.5),0.703),0.7); background-color: mix(currentColor,alpha(@accent_bg_color,0.5),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button.suggested-action:active, .content list button.suggested-action:active, .content list > row:not(:selected):hover button.suggested-action:active, list.content button.suggested-action:active, list.content > row:not(:selected):hover button.suggested-action:active, list.view.frame button.suggested-action:active, list.view.frame > row:not(:selected):hover button.suggested-action:active, headerbar.selection-mode button:active, headerbar.selection-mode button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:active, .titlebar.selection-mode button.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:active, .nautilus-window .linked entry ~ .suggested-action.image-button:active:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:active, headerbar .linked entry ~ .suggested-action.image-button:active, .titlebar .linked entry ~ .suggested-action.image-button:active, headerbar .linked.raised button.suggested-action:active, headerbar .linked button.suggested-action:active:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:active, .titlebar .linked.raised button.suggested-action:active, .titlebar .linked button.suggested-action:active:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:active, headerbar button.suggested-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:active:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:active, headerbar button.suggested-action:active:not(.titlebutton), .titlebar button.suggested-action:active:not(.titlebutton), popover.background button.suggested-action:checked, .content list button.suggested-action:checked, .content list > row:not(:selected):hover button.suggested-action:checked, list.content button.suggested-action:checked, list.content > row:not(:selected):hover button.suggested-action:checked, list.view.frame button.suggested-action:checked, list.view.frame > row:not(:selected):hover button.suggested-action:checked, headerbar.selection-mode button:checked, headerbar.selection-mode button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:checked, .titlebar.selection-mode button.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:checked, .nautilus-window .linked entry ~ .suggested-action.image-button:checked:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:checked, headerbar .linked entry ~ .suggested-action.image-button:checked, .titlebar .linked entry ~ .suggested-action.image-button:checked, headerbar .linked.raised button.suggested-action:checked, headerbar .linked button.suggested-action:checked:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:checked, .titlebar .linked.raised button.suggested-action:checked, .titlebar .linked button.suggested-action:checked:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:checked, headerbar button.suggested-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:checked:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:checked, headerbar viewswitcher button.suggested-action.radio:checked, .titlebar viewswitcher button.suggested-action.radio:checked, headerbar button.suggested-action:checked:not(.titlebutton), .titlebar button.suggested-action:checked:not(.titlebutton) { color: @accent_fg_color; background-color: mix(currentColor,alpha(@accent_bg_color,0.5),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 popover.background button.suggested-action:active:hover, .content list button.suggested-action:active:hover, .content list > row:not(:selected):hover button.suggested-action:active:hover, list.content button.suggested-action:active:hover, list.content > row:not(:selected):hover button.suggested-action:active:hover, list.view.frame button.suggested-action:active:hover, headerbar.selection-mode button:active:hover, headerbar.selection-mode button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:active:hover, .titlebar.selection-mode button.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:active:hover, .nautilus-window .linked entry ~ .suggested-action.image-button:active:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:active:hover, headerbar .linked entry ~ .suggested-action.image-button:active:hover, .titlebar .linked entry ~ .suggested-action.image-button:active:hover, headerbar .linked.raised button.suggested-action:active:hover, headerbar .linked button.suggested-action:active:hover:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:active:hover, .titlebar .linked.raised button.suggested-action:active:hover, .titlebar .linked button.suggested-action:active:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:active:hover, headerbar button.suggested-action.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:active:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:active:hover, headerbar button.suggested-action:active:hover:not(.titlebutton), .titlebar button.suggested-action:active:hover:not(.titlebutton), popover.background button.suggested-action:checked:hover, .content list button.suggested-action:checked:hover, .content list > row:not(:selected):hover button.suggested-action:checked:hover, list.content button.suggested-action:checked:hover, list.content > row:not(:selected):hover button.suggested-action:checked:hover, list.view.frame button.suggested-action:checked:hover, headerbar.selection-mode button:checked:hover, headerbar.selection-mode button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:checked:hover, .titlebar.selection-mode button.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:checked:hover, .nautilus-window .linked entry ~ .suggested-action.image-button:checked:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:checked:hover, headerbar .linked entry ~ .suggested-action.image-button:checked:hover, .titlebar .linked entry ~ .suggested-action.image-button:checked:hover, headerbar .linked.raised button.suggested-action:checked:hover, headerbar .linked button.suggested-action:checked:hover:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:checked:hover, .titlebar .linked.raised button.suggested-action:checked:hover, .titlebar .linked button.suggested-action:checked:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:checked:hover, headerbar button.suggested-action.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:checked:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:checked:hover, headerbar viewswitcher button.suggested-action.radio:checked:hover, .titlebar viewswitcher button.suggested-action.radio:checked:hover, headerbar button.suggested-action:checked:hover:not(.titlebutton), .titlebar button.suggested-action:checked:hover:not(.titlebutton) { background-color: mix(currentColor,alpha(@accent_bg_color,0.5),0.653); }
 
@@ -2088,11 +2090,11 @@ popover.background button.suggested-action:disabled, .content list button.sugges
 
 popover.background button.suggested-action:disabled:backdrop, .content list button.suggested-action:disabled:backdrop, .content list > row:not(:selected):hover button.suggested-action:disabled:backdrop, list.content button.suggested-action:disabled:backdrop, list.content > row:not(:selected):hover button.suggested-action:disabled:backdrop, list.view.frame button.suggested-action:disabled:backdrop, headerbar.selection-mode button:disabled:backdrop, headerbar.selection-mode button.text-button:disabled:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar.selection-mode button:disabled:backdrop, .titlebar.selection-mode button.text-button:disabled:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .org-gnome-Calendar .titlebar .suggested-action.text-button:disabled:backdrop, .nautilus-window .linked entry ~ .suggested-action.image-button:disabled:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .suggested-action.toggle.popup:disabled:backdrop, headerbar .linked entry ~ .suggested-action.image-button:disabled:backdrop, .titlebar .linked entry ~ .suggested-action.image-button:disabled:backdrop, headerbar .linked.raised button.suggested-action:disabled:backdrop, headerbar .linked button.suggested-action:disabled:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button.suggested-action:disabled:backdrop, .titlebar .linked.raised button.suggested-action:disabled:backdrop, .titlebar .linked button.suggested-action:disabled:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button.suggested-action:disabled:backdrop, headerbar button.suggested-action.text-button:disabled:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.suggested-action.text-button:disabled:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.suggested-action.image-button:disabled:backdrop:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.suggested-action:disabled:backdrop, headerbar viewswitcher button.suggested-action.radio:disabled:backdrop:checked, .titlebar viewswitcher button.suggested-action.radio:disabled:backdrop:checked, headerbar button.suggested-action:disabled:backdrop:not(.titlebutton), .titlebar button.suggested-action:disabled:backdrop:not(.titlebutton) { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@window_bg_color,0.5); background-color: mix(currentColor,@window_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button.destructive-action, .content list button.destructive-action, .content list > row:not(:selected):hover button.destructive-action, list.content button.destructive-action, list.content > row:not(:selected):hover button.destructive-action, list.view.frame button.destructive-action, list.view.frame > row:not(:selected):hover button.destructive-action, .org-gnome-Calendar .titlebar .destructive-action.text-button, .nautilus-window .linked entry ~ .destructive-action.image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup, headerbar .linked entry ~ .destructive-action.image-button, .titlebar .linked entry ~ .destructive-action.image-button, headerbar .linked.raised button.destructive-action, headerbar .linked button.destructive-action:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action, .titlebar .linked.raised button.destructive-action, .titlebar .linked button.destructive-action:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action, headerbar button.destructive-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action, headerbar viewswitcher button.destructive-action.radio:checked, .titlebar viewswitcher button.destructive-action.radio:checked, headerbar button.destructive-action:not(.titlebutton), .titlebar button.destructive-action:not(.titlebutton), headerbar button.text-button.destructive-action:not(.titlebutton) { color: @destructive_fg_color; outline-color: mix(currentColor,mix(currentColor,@destructive_bg_color,0.903),0.7); background-color: mix(currentColor,@destructive_bg_color,0.903); }
+popover.background button.destructive-action, .content list button.destructive-action, .content list > row:not(:selected):hover button.destructive-action, list.content button.destructive-action, list.content > row:not(:selected):hover button.destructive-action, list.view.frame button.destructive-action, list.view.frame > row:not(:selected):hover button.destructive-action, .org-gnome-Calendar .titlebar .destructive-action.text-button, .nautilus-window .linked entry ~ .destructive-action.image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup, headerbar .linked entry ~ .destructive-action.image-button, .titlebar .linked entry ~ .destructive-action.image-button, headerbar .linked.raised button.destructive-action, headerbar .linked button.destructive-action:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action, .titlebar .linked.raised button.destructive-action, .titlebar .linked button.destructive-action:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action, headerbar button.destructive-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action, headerbar viewswitcher button.destructive-action.radio:checked, .titlebar viewswitcher button.destructive-action.radio:checked, headerbar button.destructive-action:not(.titlebutton), .titlebar button.destructive-action:not(.titlebutton), headerbar button.text-button.destructive-action:not(.titlebutton) { color: @destructive_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@destructive_bg_color,0.903); }
 
-popover.background button.destructive-action:hover, .content list button.destructive-action:hover, .content list > row:not(:selected):hover button.destructive-action:hover, list.content button.destructive-action:hover, list.content > row:not(:selected):hover button.destructive-action:hover, list.view.frame button.destructive-action:hover, list.view.frame > row:not(:selected):hover button.destructive-action:hover, .org-gnome-Calendar .titlebar .destructive-action.text-button:hover, .nautilus-window .linked entry ~ .destructive-action.image-button:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:hover, headerbar .linked entry ~ .destructive-action.image-button:hover, .titlebar .linked entry ~ .destructive-action.image-button:hover, headerbar .linked.raised button.destructive-action:hover, headerbar .linked button.destructive-action:hover:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:hover, .titlebar .linked.raised button.destructive-action:hover, .titlebar .linked button.destructive-action:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:hover, headerbar button.destructive-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:hover, headerbar viewswitcher button.destructive-action.radio:hover:checked, .titlebar viewswitcher button.destructive-action.radio:hover:checked, headerbar button.destructive-action:hover:not(.titlebutton), .titlebar button.destructive-action:hover:not(.titlebutton) { color: @destructive_fg_color; outline-color: mix(currentColor,mix(currentColor,@destructive_bg_color,0.903),0.7); background-color: mix(currentColor,@destructive_bg_color,0.903); }
+popover.background button.destructive-action:hover, .content list button.destructive-action:hover, .content list > row:not(:selected):hover button.destructive-action:hover, list.content button.destructive-action:hover, list.content > row:not(:selected):hover button.destructive-action:hover, list.view.frame button.destructive-action:hover, list.view.frame > row:not(:selected):hover button.destructive-action:hover, .org-gnome-Calendar .titlebar .destructive-action.text-button:hover, .nautilus-window .linked entry ~ .destructive-action.image-button:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:hover, headerbar .linked entry ~ .destructive-action.image-button:hover, .titlebar .linked entry ~ .destructive-action.image-button:hover, headerbar .linked.raised button.destructive-action:hover, headerbar .linked button.destructive-action:hover:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:hover, .titlebar .linked.raised button.destructive-action:hover, .titlebar .linked button.destructive-action:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:hover, headerbar button.destructive-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:hover, headerbar viewswitcher button.destructive-action.radio:hover:checked, .titlebar viewswitcher button.destructive-action.radio:hover:checked, headerbar button.destructive-action:hover:not(.titlebutton), .titlebar button.destructive-action:hover:not(.titlebutton) { color: @destructive_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@destructive_bg_color,0.903); }
 
-popover.background button.destructive-action:active, .content list button.destructive-action:active, .content list > row:not(:selected):hover button.destructive-action:active, list.content button.destructive-action:active, list.content > row:not(:selected):hover button.destructive-action:active, list.view.frame button.destructive-action:active, list.view.frame > row:not(:selected):hover button.destructive-action:active, .org-gnome-Calendar .titlebar .destructive-action.text-button:active, .nautilus-window .linked entry ~ .destructive-action.image-button:active:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:active, headerbar .linked entry ~ .destructive-action.image-button:active, .titlebar .linked entry ~ .destructive-action.image-button:active, headerbar .linked.raised button.destructive-action:active, headerbar .linked button.destructive-action:active:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:active, .titlebar .linked.raised button.destructive-action:active, .titlebar .linked button.destructive-action:active:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:active, headerbar button.destructive-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:active:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:active, headerbar button.destructive-action:active:not(.titlebutton), .titlebar button.destructive-action:active:not(.titlebutton), popover.background button.destructive-action:checked, .content list button.destructive-action:checked, .content list > row:not(:selected):hover button.destructive-action:checked, list.content button.destructive-action:checked, list.content > row:not(:selected):hover button.destructive-action:checked, list.view.frame button.destructive-action:checked, list.view.frame > row:not(:selected):hover button.destructive-action:checked, .org-gnome-Calendar .titlebar .destructive-action.text-button:checked, .nautilus-window .linked entry ~ .destructive-action.image-button:checked:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:checked, headerbar .linked entry ~ .destructive-action.image-button:checked, .titlebar .linked entry ~ .destructive-action.image-button:checked, headerbar .linked.raised button.destructive-action:checked, headerbar .linked button.destructive-action:checked:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:checked, .titlebar .linked.raised button.destructive-action:checked, .titlebar .linked button.destructive-action:checked:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:checked, headerbar button.destructive-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:checked:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:checked, headerbar viewswitcher button.destructive-action.radio:checked, .titlebar viewswitcher button.destructive-action.radio:checked, headerbar button.destructive-action:checked:not(.titlebutton), .titlebar button.destructive-action:checked:not(.titlebutton) { color: @destructive_fg_color; outline-color: mix(currentColor,mix(currentColor,alpha(@destructive_bg_color,0.5),0.703),0.7); background-color: mix(currentColor,alpha(@destructive_bg_color,0.5),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button.destructive-action:active, .content list button.destructive-action:active, .content list > row:not(:selected):hover button.destructive-action:active, list.content button.destructive-action:active, list.content > row:not(:selected):hover button.destructive-action:active, list.view.frame button.destructive-action:active, list.view.frame > row:not(:selected):hover button.destructive-action:active, .org-gnome-Calendar .titlebar .destructive-action.text-button:active, .nautilus-window .linked entry ~ .destructive-action.image-button:active:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:active, headerbar .linked entry ~ .destructive-action.image-button:active, .titlebar .linked entry ~ .destructive-action.image-button:active, headerbar .linked.raised button.destructive-action:active, headerbar .linked button.destructive-action:active:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:active, .titlebar .linked.raised button.destructive-action:active, .titlebar .linked button.destructive-action:active:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:active, headerbar button.destructive-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:active:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:active:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:active, headerbar button.destructive-action:active:not(.titlebutton), .titlebar button.destructive-action:active:not(.titlebutton), popover.background button.destructive-action:checked, .content list button.destructive-action:checked, .content list > row:not(:selected):hover button.destructive-action:checked, list.content button.destructive-action:checked, list.content > row:not(:selected):hover button.destructive-action:checked, list.view.frame button.destructive-action:checked, list.view.frame > row:not(:selected):hover button.destructive-action:checked, .org-gnome-Calendar .titlebar .destructive-action.text-button:checked, .nautilus-window .linked entry ~ .destructive-action.image-button:checked:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:checked, headerbar .linked entry ~ .destructive-action.image-button:checked, .titlebar .linked entry ~ .destructive-action.image-button:checked, headerbar .linked.raised button.destructive-action:checked, headerbar .linked button.destructive-action:checked:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:checked, .titlebar .linked.raised button.destructive-action:checked, .titlebar .linked button.destructive-action:checked:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:checked, headerbar button.destructive-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:checked:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:checked:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:checked, headerbar viewswitcher button.destructive-action.radio:checked, .titlebar viewswitcher button.destructive-action.radio:checked, headerbar button.destructive-action:checked:not(.titlebutton), .titlebar button.destructive-action:checked:not(.titlebutton) { color: @destructive_fg_color; background-color: mix(currentColor,alpha(@destructive_bg_color,0.5),0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 popover.background button.destructive-action:active:hover, .content list button.destructive-action:active:hover, .content list > row:not(:selected):hover button.destructive-action:active:hover, list.content button.destructive-action:active:hover, list.content > row:not(:selected):hover button.destructive-action:active:hover, list.view.frame button.destructive-action:active:hover, .org-gnome-Calendar .titlebar .destructive-action.text-button:active:hover, .nautilus-window .linked entry ~ .destructive-action.image-button:active:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:active:hover, headerbar .linked entry ~ .destructive-action.image-button:active:hover, .titlebar .linked entry ~ .destructive-action.image-button:active:hover, headerbar .linked.raised button.destructive-action:active:hover, headerbar .linked button.destructive-action:active:hover:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:active:hover, .titlebar .linked.raised button.destructive-action:active:hover, .titlebar .linked button.destructive-action:active:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:active:hover, headerbar button.destructive-action.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:active:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:active:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:active:hover, headerbar button.destructive-action:active:hover:not(.titlebutton), .titlebar button.destructive-action:active:hover:not(.titlebutton), popover.background button.destructive-action:checked:hover, .content list button.destructive-action:checked:hover, .content list > row:not(:selected):hover button.destructive-action:checked:hover, list.content button.destructive-action:checked:hover, list.content > row:not(:selected):hover button.destructive-action:checked:hover, list.view.frame button.destructive-action:checked:hover, .org-gnome-Calendar .titlebar .destructive-action.text-button:checked:hover, .nautilus-window .linked entry ~ .destructive-action.image-button:checked:hover:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:checked:hover, headerbar .linked entry ~ .destructive-action.image-button:checked:hover, .titlebar .linked entry ~ .destructive-action.image-button:checked:hover, headerbar .linked.raised button.destructive-action:checked:hover, headerbar .linked button.destructive-action:checked:hover:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:checked:hover, .titlebar .linked.raised button.destructive-action:checked:hover, .titlebar .linked button.destructive-action:checked:hover:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:checked:hover, headerbar button.destructive-action.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:checked:hover:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:checked:hover:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:checked:hover, headerbar viewswitcher button.destructive-action.radio:checked:hover, .titlebar viewswitcher button.destructive-action.radio:checked:hover, headerbar button.destructive-action:checked:hover:not(.titlebutton), .titlebar button.destructive-action:checked:hover:not(.titlebutton) { background-color: mix(currentColor,alpha(@destructive_bg_color,0.5),0.653); }
 
@@ -2101,6 +2103,8 @@ popover.background button.destructive-action:backdrop, .content list button.dest
 popover.background button.destructive-action:disabled, .content list button.destructive-action:disabled, .content list > row:not(:selected):hover button.destructive-action:disabled, list.content button.destructive-action:disabled, list.content > row:not(:selected):hover button.destructive-action:disabled, list.view.frame button.destructive-action:disabled, list.view.frame > row:not(:selected):hover button.destructive-action:disabled, .org-gnome-Calendar .titlebar .destructive-action.text-button:disabled, .nautilus-window .linked entry ~ .destructive-action.image-button:disabled:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:disabled, headerbar .linked entry ~ .destructive-action.image-button:disabled, .titlebar .linked entry ~ .destructive-action.image-button:disabled, headerbar .linked.raised button.destructive-action:disabled, headerbar .linked button.destructive-action:disabled:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:disabled, .titlebar .linked.raised button.destructive-action:disabled, .titlebar .linked button.destructive-action:disabled:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:disabled, headerbar button.destructive-action.text-button:disabled:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:disabled:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:disabled:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:disabled, headerbar viewswitcher button.destructive-action.radio:disabled:checked, .titlebar viewswitcher button.destructive-action.radio:disabled:checked, headerbar button.destructive-action:disabled:not(.titlebutton), .titlebar button.destructive-action:disabled:not(.titlebutton) { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
 popover.background button.destructive-action:disabled:backdrop, .content list button.destructive-action:disabled:backdrop, .content list > row:not(:selected):hover button.destructive-action:disabled:backdrop, list.content button.destructive-action:disabled:backdrop, list.content > row:not(:selected):hover button.destructive-action:disabled:backdrop, list.view.frame button.destructive-action:disabled:backdrop, .org-gnome-Calendar .titlebar .destructive-action.text-button:disabled:backdrop, .nautilus-window .linked entry ~ .destructive-action.image-button:disabled:backdrop:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .search + .destructive-action.toggle.popup:disabled:backdrop, headerbar .linked entry ~ .destructive-action.image-button:disabled:backdrop, .titlebar .linked entry ~ .destructive-action.image-button:disabled:backdrop, headerbar .linked.raised button.destructive-action:disabled:backdrop, headerbar .linked button.destructive-action:disabled:backdrop:not(:only-child), headerbar > .stack-switcher.linked > button.destructive-action:disabled:backdrop, .titlebar .linked.raised button.destructive-action:disabled:backdrop, .titlebar .linked button.destructive-action:disabled:backdrop:not(:only-child), .titlebar > .stack-switcher.linked > button.destructive-action:disabled:backdrop, headerbar button.destructive-action.text-button:disabled:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button.destructive-action.text-button:disabled:backdrop:not(.suggested-action):not(.destructive-action):not(:disabled), .nautilus-window .linked.raised button.destructive-action.image-button:disabled:backdrop:not(:only-child), .nautilus-window .titlebar :not(.raised) .linked > button.destructive-action:disabled:backdrop, headerbar viewswitcher button.destructive-action.radio:disabled:backdrop:checked, .titlebar viewswitcher button.destructive-action.radio:disabled:backdrop:checked, headerbar button.destructive-action:disabled:backdrop:not(.titlebutton), .titlebar button.destructive-action:disabled:backdrop:not(.titlebutton) { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@window_bg_color,0.5); background-color: mix(currentColor,@window_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
+
+headerbar { box-shadow: 0 1px alpha(@headerbar_shade_color,0.1); }
 
 headerbar:not(.selection-mode), headerbar:not(.selection-mode) entry, .titlebar:not(.selection-mode), .titlebar:not(.selection-mode) entry { color: @headerbar_fg_color; }
 
@@ -2132,7 +2136,7 @@ headerbar .linked.raised button:not(:only-child):first-child:not(:backdrop):chec
 
 headerbar.selection-mode button:hover:backdrop, .titlebar.selection-mode button:hover:backdrop { color: mix(@accent_fg_color,alpha(@accent_bg_color,0.5),0.2); background-color: mix(currentColor,alpha(@accent_bg_color,0.5),0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-headerbar entry, .titlebar entry { min-height: 32px; color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
+headerbar entry, .titlebar entry { min-height: 32px; color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
 
 headerbar entry:backdrop, .titlebar entry:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@headerbar_backdrop_color,0.2); background-color: mix(currentColor,@headerbar_backdrop_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
@@ -2204,37 +2208,37 @@ headerbar .left, .titlebar .left { margin-right: -4px; }
 
 headerbar .left separator, .titlebar .left separator { min-width: 0; }
 
-.content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: @card_fg_color; outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.903),0.7); background-color: mix(currentColor,@card_bg_color,0.903); }
+.content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: @card_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@card_bg_color,0.903); }
 
 .content list button.flat:not(:hover):not(:active), .content list > row:not(:selected):hover button.flat:not(:hover):not(:active), list.content button.flat:not(:hover):not(:active), list.content > row:not(:selected):hover button.flat:not(:hover):not(:active), list.view.frame button.flat:not(:hover):not(:active), list.view.frame > row:not(:selected):hover button.flat:not(:hover):not(:active) { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list button:hover, .content list > row:not(:selected):hover button:hover, list.content button:hover, list.content > row:not(:selected):hover button:hover, list.view.frame button:hover, list.view.frame > row:not(:selected):hover button:hover { color: @card_fg_color; outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.85),0.7); background-color: mix(currentColor,@card_bg_color,0.85); box-shadow: none; }
+.content list button:hover, .content list > row:not(:selected):hover button:hover, list.content button:hover, list.content > row:not(:selected):hover button:hover, list.view.frame button:hover, list.view.frame > row:not(:selected):hover button:hover { color: @card_fg_color; background-color: mix(currentColor,@card_bg_color,0.85); box-shadow: none; }
 
-.content list button:active, .content list button:checked, .content list > row:not(:selected):hover button:active, .content list > row:not(:selected):hover button:checked, list.content button:active, list.content button:checked, list.content > row:not(:selected):hover button:active, list.content > row:not(:selected):hover button:checked, list.view.frame button:active, list.view.frame button:checked, list.view.frame > row:not(:selected):hover button:active, list.view.frame > row:not(:selected):hover button:checked { color: @card_fg_color; outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.703),0.7); background-color: mix(currentColor,@card_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.content list button:active, .content list button:checked, .content list > row:not(:selected):hover button:active, .content list > row:not(:selected):hover button:checked, list.content button:active, list.content button:checked, list.content > row:not(:selected):hover button:active, list.content > row:not(:selected):hover button:checked, list.view.frame button:active, list.view.frame button:checked, list.view.frame > row:not(:selected):hover button:active, list.view.frame > row:not(:selected):hover button:checked { color: @card_fg_color; background-color: mix(currentColor,@card_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .content list button:active:hover, .content list button:checked:hover, .content list > row:not(:selected):hover button:active:hover, .content list > row:not(:selected):hover button:checked:hover, list.content button:active:hover, list.content button:checked:hover, list.content > row:not(:selected):hover button:active:hover, list.content > row:not(:selected):hover button:checked:hover, list.view.frame button:active:hover, list.view.frame button:checked:hover, list.view.frame > row:not(:selected):hover button:active:hover, list.view.frame > row:not(:selected):hover button:checked:hover { background-color: mix(currentColor,@card_bg_color,0.653); }
 
-.content list button:disabled, .content list > row:not(:selected):hover button:disabled, list.content button:disabled, list.content > row:not(:selected):hover button:disabled, list.view.frame button:disabled, list.view.frame > row:not(:selected):hover button:disabled { color: mix(@card_fg_color,@card_bg_color,0.5); outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.903),0.7); background-color: mix(currentColor,@card_bg_color,0.903); }
+.content list button:disabled, .content list > row:not(:selected):hover button:disabled, list.content button:disabled, list.content > row:not(:selected):hover button:disabled, list.view.frame button:disabled, list.view.frame > row:not(:selected):hover button:disabled { color: mix(@card_fg_color,@card_bg_color,0.5); outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@card_bg_color,0.903); }
 
-.content list entry, list.content entry, list.view.frame entry { color: @card_fg_color; outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.903),0.7); background-color: mix(currentColor,@card_bg_color,0.903); }
+.content list entry, list.content entry, list.view.frame entry { color: @card_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@card_bg_color,0.903); }
 
-.content list entry:disabled, list.content entry:disabled, list.view.frame entry:disabled { color: mix(@card_fg_color,@card_bg_color,0.5); outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.903),0.7); background-color: mix(currentColor,@card_bg_color,0.903); }
+.content list entry:disabled, list.content entry:disabled, list.view.frame entry:disabled { color: mix(@card_fg_color,@card_bg_color,0.5); outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@card_bg_color,0.903); }
 
-popover.background button { color: @popover_fg_color; outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.903),0.7); background-color: mix(currentColor,@popover_bg_color,0.903); }
+popover.background button { color: @popover_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@popover_bg_color,0.903); }
 
 popover.background button.flat:not(:hover):not(:active) { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button:hover { color: @popover_fg_color; outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.85),0.7); background-color: mix(currentColor,@popover_bg_color,0.85); box-shadow: none; }
+popover.background button:hover { color: @popover_fg_color; background-color: mix(currentColor,@popover_bg_color,0.85); box-shadow: none; }
 
-popover.background button:active, popover.background button:checked { color: @popover_fg_color; outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.703),0.7); background-color: mix(currentColor,@popover_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button:active, popover.background button:checked { color: @popover_fg_color; background-color: mix(currentColor,@popover_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 popover.background button:active:hover, popover.background button:checked:hover { background-color: mix(currentColor,@popover_bg_color,0.653); }
 
-popover.background button:disabled { color: mix(@popover_fg_color,@popover_bg_color,0.5); outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.903),0.7); background-color: mix(currentColor,@popover_bg_color,0.903); }
+popover.background button:disabled { color: mix(@popover_fg_color,@popover_bg_color,0.5); outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@popover_bg_color,0.903); }
 
-popover.background entry { color: @popover_fg_color; outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.903),0.7); background-color: mix(currentColor,@popover_bg_color,0.903); }
+popover.background entry { color: @popover_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@popover_bg_color,0.903); }
 
-popover.background entry:disabled { color: mix(@popover_fg_color,@popover_bg_color,0.5); outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.903),0.7); background-color: mix(currentColor,@popover_bg_color,0.903); }
+popover.background entry:disabled { color: mix(@popover_fg_color,@popover_bg_color,0.5); outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@popover_bg_color,0.903); }
 
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
@@ -2270,7 +2274,7 @@ list.view.frame, list.view.frame:backdrop { background-color: @card_bg_color; }
 
 .default-decoration .title:backdrop { color: mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5); }
 
-treeview.view:not(:backdrop):not(:selected):hover { background-color: alpha(currentColor,0.07); }
+treeview.view:not(:backdrop):not(:selected):hover { background-color: alpha(currentColor,0.04); }
 
 .preferences scrolledwindow > .frame > clamp.large, .preferences scrolledwindow > .frame > clamp.medium, .preferences scrolledwindow > .frame > clamp.small { padding-bottom: 30px; }
 
@@ -2286,7 +2290,7 @@ popover.background modelbutton.flat, popover.background .menuitem.button.flat { 
 
 popover.background modelbutton.flat:disabled label, popover.background .menuitem.button.flat:disabled label { color: mix(@popover_fg_color,@popover_bg_color,0.5); }
 
-popover.background modelbutton.flat:backdrop:hover, popover.background .menuitem.button.flat:backdrop:hover { background-color: alpha(currentColor,0.07); }
+popover.background modelbutton.flat:backdrop:hover, popover.background .menuitem.button.flat:backdrop:hover { background-color: alpha(currentColor,0.04); }
 
 popover.menu > stack { margin: -6px; }
 
@@ -2392,7 +2396,7 @@ list.content > row:only-child { border: 1px solid @card_shade_color; border-radi
 
 list.content > row:not(.expander):not(:active):hover.activatable:not(:selected), list.content > row.expander row.header:not(:active):hover.activatable:not(:selected) { background-color: mix(@card_fg_color, @card_bg_color, 0.954); }
 
-button.list-button:not(:active):not(:checked):not(:hover) { color: @card_fg_color; outline-color: mix(currentColor,mix(currentColor,@card_bg_color,0.903),0.7); background-color: mix(currentColor,@card_bg_color,0.903); }
+button.list-button:not(:active):not(:checked):not(:hover) { color: @card_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@card_bg_color,0.903); }
 
 keypad .digit { font-size: 200%; font-weight: bold; }
 
@@ -2412,7 +2416,7 @@ viewswitcher button:not(only-child):first-child:not(:checked):not(:hover), views
 
 viewswitcher button:not(only-child):last-child:not(:checked):not(:hover) { border-right-color: transparent; }
 
-viewswitcher button:not(:checked):hover:not(:backdrop) { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.85),0.7); background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; background-image: none; }
+viewswitcher button:not(:checked):hover:not(:backdrop) { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.85); box-shadow: none; background-image: none; }
 
 viewswitcher button:not(only-child):first-child:not(:checked):hover, viewswitcher button:not(:checked):hover + button:not(:checked):not(:hover), viewswitcher button:not(:checked):not(:hover) + button:not(:checked):hover { border-left-color: alpha(currentColor,0.15); }
 
@@ -2420,7 +2424,7 @@ viewswitcher button:not(only-child):last-child:not(:checked):hover { border-righ
 
 viewswitcher button:not(:checked):hover:backdrop { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(currentColor,@window_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
 
-headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-image: none; color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(black,@headerbar_bg_color,0.87),0.903),0.7); background-color: mix(currentColor,mix(black,@headerbar_bg_color,0.87),0.903); }
+headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-image: none; color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,mix(black,@headerbar_bg_color,0.87),0.903); }
 
 headerbar viewswitcher button:not(:checked):not(only-child):first-child:hover, headerbar viewswitcher button:not(:checked):hover + button:not(:checked):not(:hover), headerbar viewswitcher button:not(:checked):not(:hover) + button:not(:checked):hover { border-left-color: alpha(currentColor,0.15); }
 
@@ -2428,7 +2432,7 @@ headerbar viewswitcher button:not(:checked):not(only-child):last-child:hover { b
 
 headerbar viewswitcher button:not(:checked):hover:backdrop { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(black,@headerbar_backdrop_color,0.9),0.2); background-color: mix(currentColor,mix(black,@headerbar_backdrop_color,0.9),0.9); text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
 
-viewswitcher button:checked, viewswitcher button:active { color: @window_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
+viewswitcher button:checked, viewswitcher button:active { color: @window_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
 
 viewswitcher button:checked:hover, viewswitcher button:active:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
@@ -2784,11 +2788,11 @@ label.terminal { padding: 1em; }
 
 button.back-button, button.back-button.text-button { padding-right: 8px; padding-left: 36px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; }
 
-.titlebar button.back-button, .titlebar button.back-button.text-button { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); background-color: @headerbar_bg_color; background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; padding-left: 36px; }
+.titlebar button.back-button, .titlebar button.back-button.text-button { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); background-color: @headerbar_bg_color; background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; padding-left: 36px; }
 
-.titlebar button.back-button:hover, .titlebar button.back-button.text-button:hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.85),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.85); box-shadow: none; background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; }
+.titlebar button.back-button:hover, .titlebar button.back-button.text-button:hover { color: @headerbar_fg_color; background-color: mix(currentColor,@headerbar_bg_color,0.85); box-shadow: none; background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; }
 
-.titlebar button.back-button:active, .titlebar button.back-button.text-button:active { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.703),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; }
+.titlebar button.back-button:active, .titlebar button.back-button.text-button:active { color: @headerbar_fg_color; background-color: mix(currentColor,@headerbar_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-image: -gtk-icontheme("go-previous-symbolic"); background-repeat: no-repeat no-repeat; background-position: 5px 50%; background-size: 21px; }
 
 .titlebar button.back-button:active:hover, .titlebar button.back-button.text-button:active:hover { background-color: mix(currentColor,@headerbar_bg_color,0.653); }
 
@@ -2836,11 +2840,11 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 
 .org-gnome-gedit notebook tab:checked.reorderable-page:backdrop, .gedit-side-panel-paned notebook tab:checked.reorderable-page:backdrop, .nautilus-window notebook tab:checked.reorderable-page:backdrop { background-color: transparent; box-shadow: none; }
 
-.nautilus-window headerbar .path-bar-box, .nautilus-window .titlebar .path-bar-box { border-radius: 6px; border: none; padding-right: 6px; color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
+.nautilus-window headerbar .path-bar-box, .nautilus-window .titlebar .path-bar-box { border-radius: 6px; border: none; padding-right: 6px; color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); }
 
 .nautilus-window headerbar .path-bar-box:backdrop, .nautilus-window .titlebar .path-bar-box:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@headerbar_backdrop_color,0.2); background-color: mix(currentColor,@headerbar_backdrop_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window headerbar .nautilus-path-bar, .nautilus-window .titlebar .nautilus-path-bar { border-radius: 6px; color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); min-height: 34px; }
+.nautilus-window headerbar .nautilus-path-bar, .nautilus-window .titlebar .nautilus-path-bar { border-radius: 6px; color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); min-height: 34px; }
 
 .nautilus-window headerbar .nautilus-path-bar:backdrop, .nautilus-window .titlebar .nautilus-path-bar:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@headerbar_backdrop_color,0.2); background-color: mix(currentColor,@headerbar_backdrop_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
@@ -2850,7 +2854,7 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 
 .nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton):not(.current-dir), .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton):not(.current-dir) { border-width: 0px; border-radius: 6px; background-color: transparent; }
 
-.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@window_bg_color,0.703),0.7); background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover { color: @headerbar_fg_color; background-color: mix(currentColor,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover:hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover:hover { background-color: mix(currentColor,@window_bg_color,0.653); }
 
@@ -2858,19 +2862,19 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 
 .nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover:backdrop, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),shade(mix(@headerbar_backdrop_color,@view_bg_color,0.15),0.96),0.2); background-color: mix(currentColor,@headerbar_backdrop_color,0.7); }
 
-.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.903),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.903); border-radius: 0 6px 6px 0; border-left: 1px solid alpha(currentColor,0.15); }
+.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_bg_color,0.903); border-radius: 0 6px 6px 0; border-left: 1px solid alpha(currentColor,0.15); }
 
 .nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup image, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup image { color: @headerbar_fg_color; }
 
-.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.85),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.85); box-shadow: none; }
+.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:hover { color: @headerbar_fg_color; background-color: mix(currentColor,@headerbar_bg_color,0.85); box-shadow: none; }
 
-.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@headerbar_bg_color,0.703),0.7); background-color: mix(currentColor,@headerbar_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked { color: @headerbar_fg_color; background-color: mix(currentColor,@headerbar_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
 .nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked:hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked:hover { background-color: mix(currentColor,@headerbar_bg_color,0.653); }
 
 .nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@headerbar_backdrop_color,0.2); background-color: mix(currentColor,@headerbar_backdrop_color,0.9); text-shadow: none; -gtk-icon-shadow: none; border-left: 1px solid alpha(currentColor,0.15); }
 
-.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover { color: mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5); outline-color: mix(currentColor,mix(currentColor,@headerbar_backdrop_color,0.903),0.7); background-color: mix(currentColor,@headerbar_backdrop_color,0.903); }
+.nautilus-window headerbar .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover, .nautilus-window .titlebar .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover { color: mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5); outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@headerbar_backdrop_color,0.903); }
 
 .nautilus-window .path-buttons-box { border: 2px solid transparent; }
 
@@ -2892,11 +2896,11 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 
 .nautilus-window .nautilus-canvas-item.label-text { border-radius: 6px; }
 
-.nautilus-window .nautilus-list-view .view:selected, .nautilus-window .nautilus-list-view iconview:selected { background-color: alpha(currentColor,0.1); color: @view_fg_color; }
+.nautilus-window .nautilus-list-view .view:selected, .nautilus-window .nautilus-list-view iconview:selected { background-color: alpha(@accent_bg_color,0.25); color: @view_fg_color; }
 
-.nautilus-window .nautilus-list-view .view:selected:hover, .nautilus-window .nautilus-list-view iconview:selected:hover { background-color: alpha(currentColor,0.13); }
+.nautilus-window .nautilus-list-view .view:selected:hover, .nautilus-window .nautilus-list-view iconview:selected:hover { background-color: alpha(@accent_bg_color,0.32); }
 
-.nautilus-window .nautilus-list-view .view:hover, .nautilus-window .nautilus-list-view iconview:hover { background-color: alpha(currentColor,0.07); }
+.nautilus-window .nautilus-list-view .view:hover, .nautilus-window .nautilus-list-view iconview:hover { background-color: alpha(currentColor,0.04); }
 
 .nautilus-window entry.search > :not(.csd) { margin: 5px; }
 
@@ -2941,6 +2945,28 @@ button.back-button:dir(rtl), button.back-button.text-button:dir(rtl) { padding: 
 .gedit-document-panel row:hover button:active { background-color: alpha(currentColor,0.3); }
 
 .gedit-document-panel row:hover:selected button:hover { color: @window_fg_color; }
+
+.titlebar.tweak-titlebar-left { background-image: none; background-color: @sidebar_bg_color; border-bottom-color: transparent; }
+
+.titlebar.tweak-titlebar-left:backdrop { background-color: @sidebar_backdrop_color; }
+
+.titlebar.tweak-titlebar-left button { background-color: transparent; }
+
+.titlebar.tweak-titlebar-left button:hover { background-color: alpha(currentColor,0.15); }
+
+.titlebar.tweak-titlebar-left button:hover:active, .titlebar.tweak-titlebar-left button:active, .titlebar.tweak-titlebar-left button:hover:checked, .titlebar.tweak-titlebar-left button:checked { background-color: alpha(currentColor,0.3); }
+
+.titlebar.tweak-titlebar-left button:backdrop { background: alpha(currentColor,0.1); }
+
+.titlebar.tweak-titlebar-left button:backdrop:hover { background: alpha(currentColor,0.15); }
+
+.titlebar.tweak-titlebar-right { background-image: none; background-color: @window_bg_color; border-bottom-color: transparent; }
+
+.navigation-sidebar { background-color: @sidebar_bg_color; }
+
+.navigation-sidebar:backdrop { background-color: @sidebar_backdrop_color; }
+
+.navigation-sidebar separator.horizontal { margin: 2px 0; padding: 0; background-color: transparent; }
 
 list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }
 
@@ -3000,7 +3026,7 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .xfce4-panel.background button menu { -gtk-icon-effect: none; text-shadow: none; }
 
-.xfce4-panel.background button menu .linked button { color: @view_fg_color; outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.903),0.7); background-color: mix(currentColor,@popover_bg_color,0.903); }
+.xfce4-panel.background button menu .linked button { color: @view_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@popover_bg_color,0.903); }
 
 .xfce4-panel.background button menu .linked button:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(currentColor,@window_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; border-color: alpha(mix(currentColor,@window_bg_color,0.85),0.5); }
 
@@ -3074,7 +3100,11 @@ window.background.chromium entry, window.background.chromium > button { border-c
 
 window.background.chromium textview.view { background-color: @view_bg_color; }
 
+window.background.chromium menuitem { border-radius: 0; }
+
 #MozillaGtkWidget.background button { font-weight: initial; }
+
+#MozillaGtkWidget.background check, #MozillaGtkWidget.background radio { padding: 0; min-height: 12px; min-width: 12px; }
 
 #MozillaGtkWidget.background menuitem { border-radius: 0; }
 
@@ -3083,6 +3113,8 @@ window.background.chromium textview.view { background-color: @view_bg_color; }
 #MozillaGtkWidget.background { background-color: @headerbar_bg_color; }
 
 #MozillaGtkWidget > widget border { border-color: mix(currentColor,@window_bg_color,0.85); }
+
+window.background.chromium selection:focus, window.background.chromium selection, #MozillaGtkWidget.background selection:focus, #MozillaGtkWidget.background selection { background-color: @accent_bg_color; color: @accent_fg_color; }
 
 button .download_progress trough { min-height: 2px; }
 
@@ -3100,17 +3132,17 @@ dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > li
 
 .incognito-mode headerbar:backdrop, .incognito-mode headerbar.titlebar:backdrop, .incognito-mode .titlebar:backdrop { background: mix(@incognito_bg_color,@window_bg_color,0.5); }
 
-.incognito-mode headerbar button.image-button:hover, .incognito-mode headerbar.titlebar button.image-button:hover, .incognito-mode .titlebar button.image-button:hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@incognito_bg_color,1.03),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,1.03),0.903); }
+.incognito-mode headerbar button.image-button:hover, .incognito-mode headerbar.titlebar button.image-button:hover, .incognito-mode .titlebar button.image-button:hover { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,1.03),0.903); }
 
 .incognito-mode headerbar button.image-button:hover:backdrop, .incognito-mode headerbar.titlebar button.image-button:hover:backdrop, .incognito-mode .titlebar button.image-button:hover:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),mix(currentColor,@incognito_bg_color,1.01),0.2); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,1.01),0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.incognito-mode headerbar button.image-button:active, .incognito-mode headerbar button.image-button:checked, .incognito-mode headerbar.titlebar button.image-button:active, .incognito-mode headerbar.titlebar button.image-button:checked, .incognito-mode .titlebar button.image-button:active, .incognito-mode .titlebar button.image-button:checked { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.903),0.7); background-color: mix(currentColor,@incognito_bg_color,0.903); }
+.incognito-mode headerbar button.image-button:active, .incognito-mode headerbar button.image-button:checked, .incognito-mode headerbar.titlebar button.image-button:active, .incognito-mode headerbar.titlebar button.image-button:checked, .incognito-mode .titlebar button.image-button:active, .incognito-mode .titlebar button.image-button:checked { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@incognito_bg_color,0.903); }
 
-.incognito-mode headerbar button.image-button:active:hover, .incognito-mode headerbar button.image-button:checked:hover, .incognito-mode headerbar.titlebar button.image-button:active:hover, .incognito-mode headerbar.titlebar button.image-button:checked:hover, .incognito-mode .titlebar button.image-button:active:hover, .incognito-mode .titlebar button.image-button:checked:hover { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,mix(currentColor,@incognito_bg_color,0.963),0.903),0.7); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.963),0.903); }
+.incognito-mode headerbar button.image-button:active:hover, .incognito-mode headerbar button.image-button:checked:hover, .incognito-mode headerbar.titlebar button.image-button:active:hover, .incognito-mode headerbar.titlebar button.image-button:checked:hover, .incognito-mode .titlebar button.image-button:active:hover, .incognito-mode .titlebar button.image-button:checked:hover { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.963),0.903); }
 
 .incognito-mode headerbar button.image-button:active:backdrop, .incognito-mode headerbar button.image-button:checked:backdrop, .incognito-mode headerbar.titlebar button.image-button:active:backdrop, .incognito-mode headerbar.titlebar button.image-button:checked:backdrop, .incognito-mode .titlebar button.image-button:active:backdrop, .incognito-mode .titlebar button.image-button:checked:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@incognito_bg_color,0.2); background-color: mix(currentColor,@incognito_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
-.incognito-mode headerbar entry, .incognito-mode headerbar.titlebar entry, .incognito-mode .titlebar entry { color: @headerbar_fg_color; outline-color: mix(currentColor,mix(currentColor,@incognito_bg_color,0.903),0.7); background-color: mix(currentColor,@incognito_bg_color,0.903); }
+.incognito-mode headerbar entry, .incognito-mode headerbar.titlebar entry, .incognito-mode .titlebar entry { color: @headerbar_fg_color; outline-color: alpha(@accent_color,0.5); background-color: mix(currentColor,@incognito_bg_color,0.903); }
 
 .incognito-mode headerbar entry:backdrop, .incognito-mode headerbar.titlebar entry:backdrop, .incognito-mode .titlebar entry:backdrop { color: mix(mix(@headerbar_fg_color,@headerbar_backdrop_color,0.5),@incognito_bg_color,0.2); background-color: mix(currentColor,@incognito_bg_color,0.9); text-shadow: none; -gtk-icon-shadow: none; }
 
@@ -3148,6 +3180,8 @@ window.background.caja-navigation-window #Toolbar:backdrop { background-color: @
 
 #gnc-id-main-window treeview.view:not(:selected):hover { background-color: mix(currentColor,@view_bg_color,0.93); }
 
+gnc-id-sheet-list { background-color: @window_bg_color; }
+
 geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content { background-color: @window_bg_color; border: none; border-radius: 0; }
 
 geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content > row.activatable { border: 1px solid mix(currentColor,@window_bg_color,0.85); border-bottom-width: 0; }
@@ -3168,302 +3202,46 @@ geary-conversation-viewer#conversation_viewer searchbar > revealer > box { backg
 
 .geary-folder-popover-list-row { border-radius: 0; margin: 0; }
 
+.geary-main-window leaflet > leaflet > box:first-child { background-color: @sidebar_bg_color; }
+
+.geary-main-window leaflet > leaflet > box:first-child:backdrop { background-color: @sidebar_backdrop_color; }
+
+.geary-main-window leaflet > box:first-child > .titlebar { background-color: @sidebar_bg_color; background-image: none; border-bottom: transparent; box-shadow: none; }
+
+.geary-main-window leaflet > box:first-child > .titlebar:backdrop { background-color: @sidebar_backdrop_color; }
+
+.geary-main-window leaflet > box:first-child > .titlebar button { background-color: transparent; }
+
+.geary-main-window leaflet > box:first-child > .titlebar button:hover { background-color: alpha(currentColor,0.15); }
+
+.geary-main-window leaflet > box:first-child > .titlebar button:hover:active, .geary-main-window leaflet > box:first-child > .titlebar button:active, .geary-main-window leaflet > box:first-child > .titlebar button:hover:checked, .geary-main-window leaflet > box:first-child > .titlebar button:checked { background-color: alpha(currentColor,0.3); }
+
+.geary-main-window leaflet > box:first-child > .titlebar button:backdrop { background: transparent; }
+
+.geary-main-window leaflet > box:first-child > .titlebar button:backdrop:hover { background: alpha(currentColor,0.15); }
+
+.geary-main-window leaflet > box:not(:first-child) > .titlebar { border-bottom: transparent; box-shadow: none; }
+
+.geary-main-window leaflet > box:not(:first-child) > .titlebar:backdrop { background-image: none; background-color: @new_title_bg_color; }
+
+.geary-main-window separator.sidebar { background-color: mix(currentColor,@window_bg_color,0.85); }
+
+.geary-main-window .titlebar .image-button { padding: 0 6px; }
+
+.geary-folder .sidebar.view:selected, .geary-folder iconview.sidebar:selected { background-color: alpha(currentColor,0.1); }
+
+.geary-folder .sidebar.view:selected:hover, .geary-folder iconview.sidebar:selected:hover { background-color: alpha(currentColor,0.13); }
+
+.geary-folder .sidebar.view:hover, .geary-folder iconview.sidebar:hover { background-color: alpha(currentColor,0.07); }
+
 #DialogNotebook treeview.view:hover { background-color: alpha(@accent_bg_color,0.5); }
 
-sq_view { font-size: 1.5em; background-color: mix(@view_bg_color,@window_fg_color,0.9); box-shadow: inset 0 1px 0 0 mix(mix(currentColor,@window_bg_color,0.85),@view_bg_color,0.2); }
+.budgie-panel button { min-height: 16px; min-width: 16px; padding: 0; border-radius: 0; }
 
-sq_view.wide sq_button { margin: 3px; }
+.budgie-panel button.flat.launcher { padding: 0; }
 
-sq_view.pin sq_button { border-radius: 0px; margin: 1px 1px 1px 1px; }
+.budgie-panel.horizontal button, .budgie-panel #tasklist-button { padding: 0 4px; }
 
-sq_button { border-radius: 6px; margin: 2px; color: @window_fg_color; background: alpha(@window_fg_color,0.93); box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2); }
+.budgie-panel.vertical button { padding: 4px 0; }
 
-sq_button:active { background: alpha(@window_fg_color,0.89); }
-
-sq_button.altline, sq_button.special { background: alpha(@window_fg_color,0.85); }
-
-sq_button.altline:active, sq_button.special:active { background: alpha(@window_fg_color,0.8); }
-
-sq_button.latched { font-weight: bold; background: alpha(@window_fg_color,0.8); color: alpha(@window_fg_color,0.2); }
-
-sq_button.locked { font-weight: bold; background: alpha(@window_fg_color,0.5); color: @view_bg_color; }
-
-sq_button.action { font-size: 0.75em; }
-
-sq_button.small { font-size: 0.5em; }
-
-#Return { background: @accent_bg_color; color: @accent_fg_color; }
-
-#Return:active { background: mix(black,@accent_bg_color,0.8); color: mix(black,@accent_fg_color,0.8); }
-
-@define-color phosh_fg_color white;
-@define-color phosh_bg_color black;
-@define-color phosh_activity_bg_color #1a1a1a;
-@define-color phosh_notification_bg_color #282828;
-@define-color phosh_splash_bg_color #f6f5f4;
-@define-color phosh_splash_fg_color #282828;
-@define-color phosh_button_bg_color #282828;
-@define-color phosh_button_active_bg_color shade(@phosh_button_bg_color, 0.9);
-@define-color phosh_button_hover_bg_color shade(@phosh_button_bg_color, 1.2);
-phosh-top-panel { font: 15px Cantarell; }
-
-button.phosh-panel-btn { border-radius: 0; }
-
-button.phosh-panel-btn, button.phosh-panel-btn:hover, button.phosh-panel-btn:active, button.phosh-panel-btn:focus:active { background: @phosh_bg_color; }
-
-#top-bar { padding: 4px 9px 4px 9px; }
-
-.phosh-wwan-indicator, phosh-top-panel .indicators { font-size: 13px; font-weight: 800; font-feature-settings: "tnum"; }
-
-.phosh-topbar-clock { font-weight: bold; font-feature-settings: "tnum"; }
-
-phosh-top-panel .phosh-topbar-clock { font-size: 16px; }
-
-phosh-top-panel .phosh-topbar-date { font-size: 14px; }
-
-.phosh-clock-box { padding: 16px; }
-
-.phosh-topbar-button { padding: 0 12px; border-radius: 32px; border: 1px solid transparent; border: none; -gtk-icon-shadow: none; }
-
-.phosh-topbar-button:focus { box-shadow: inset 0 0 0 2px @accent_bg_color; outline: none; border-color: @accent_bg_color; }
-
-.phosh-osk-button { border-radius: 50%; min-width: 0; min-height: 0; padding: 6px; }
-
-.phosh-settings-menu { background-color: @phosh_bg_color; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; }
-
-.phosh-settings-menu button.circular:not(:hover):not(:active) { border: 2px solid @window_bg_color; }
-
-.phosh-quick-setting { font-size: 9px; padding: 9px; border-radius: 8px; border: 0; box-shadow: 0 0; background-color: transparent; }
-
-.phosh-quick-setting:not(:hover):not(:active) { background: none; }
-
-phosh-activity > widget > button { background: none; box-shadow: none; border: none; border-radius: 0; padding: 0; margin: 0; transition: none; }
-
-phosh-activity box button { background: white; border: none; border-radius: 0; }
-
-phosh-activity.phosh-maximized:not(.phosh-fullscreen) .phosh-drawingarea { background: @phosh_activity_bg_color; }
-
-phosh-home, phosh-top-panel { background: @phosh_bg_color; color: @phosh_fg_color; }
-
-.phosh-activity-close-button { border-radius: 50%; min-width: 48px; min-height: 48px; padding: 0; }
-
-.phosh-overview { background: @phosh_bg_color; }
-
-.phosh-favorite { background: none; border: none; box-shadow: none; padding: 0; }
-
-.phosh-favorite:hover { -gtk-icon-effect: none; }
-
-.phosh-favorite:active { -gtk-icon-effect: highlight; }
-
-.phosh-search-bar-box { margin: 6px 16px; }
-
-.phosh-search-bar { border-radius: 9999px; padding: 3px 18px 3px 14px; border: 1px solid transparent; }
-
-.phosh-search-bar:focus { box-shadow: inset 0 0 0 1px @accent_bg_color; outline: none; border: 1px solid @accent_bg_color; }
-
-.phosh-menu-button { margin: 3px 0px 3px 10px; }
-
-phosh-app-grid { background: @phosh_bg_color; }
-
-phosh-app-grid separator { background: alpha(@phosh_fg_color,0.2); min-height: 2px; border-radius: 1px; margin: 0 12px; }
-
-phosh-app-grid-button { font-size: 0.8rem; }
-
-phosh-app-grid-button button, phosh-app-grid-button button:hover { background: none; padding: 0; margin: 0; border: 1px solid transparent; }
-
-phosh-app-grid-button button:hover, phosh-app-grid-button button:focus, .search-active phosh-app-grid-button:first-child button { background: rgba(46, 45, 45, 0.6); border-radius: 5px; }
-
-phosh-app-grid-button button:focus { border-color: @accent_bg_color; }
-
-#phosh-filter-adaptive-btn, #phosh-filter-adaptive-btn:hover, #phosh-filter-adaptive-btn.toggle { border-radius: 9999px; padding-top: 6px; padding-left: 24px; padding-right: 24px; margin-top: 24px; margin-bottom: 24px; background-image: none; background: @phosh_button_bg_color; outline-style: none; }
-
-phosh-lockscreen, .phosh-lockshield { background-color: @phosh_bg_color; color: @phosh_fg_color; }
-
-#phosh-lockscreen-clock { font-weight: 300; font-feature-settings: "tnum"; margin: 12px 0; }
-
-#phosh-lockscreen-date { margin: 6px 0; font-weight: 400; }
-
-.p-large #phosh-lockscreen-clock { font-size: 84px; transition: 200ms ease; }
-
-.p-large #phosh-lockscreen-date { font-size: 18px; transition: 200ms ease; }
-
-.p-small #phosh-lockscreen-clock { font-size: 72px; transition: 200ms ease; }
-
-.p-small #phosh-lockscreen-date { font-size: 16px; margin-top: 0; transition: 200ms ease; }
-
-.phosh-lockscreen-arrow { transition: 400ms linear; animation: pulsate 1.8s ease-out; animation-iteration-count: 15; }
-
-.phosh-lockscreen-status-icons { padding: 6px; }
-
-.phosh-lockscreen-pin { font-size: 20px; padding: 6px; border-radius: 12px; color: inherit; border: none; box-shadow: none; outline: none; }
-
-.phosh-lockscreen-pin:focus { border: none; box-shadow: none; outline: none; caret-color: transparent; }
-
-@keyframes pulsate { 0% { -gtk-icon-transform: translateY(0);
-    opacity: 0.7; }
-  35% { -gtk-icon-transform: translateY(-14px);
-    opacity: 1; }
-  100% { -gtk-icon-transform: translateY(0);
-    opacity: 0.7; } }
-
-phosh-keypad label.digit { font-size: 200%; font-weight: bold; }
-
-phosh-keypad button { border-radius: 9999px; -gtk-outline-radius: 9999px; background-origin: padding-box, border-box; background-clip: padding-box, border-box; font-size: 16px; font-weight: bold; padding: 16px; border: 1px solid transparent; color: inherit; box-shadow: none; background: none; }
-
-phosh-keypad button:disabled { opacity: 0.5; }
-
-phosh-keypad button:hover, phosh-keypad button:focus:hover { background: alpha(@phosh_fg_color,0.2); }
-
-phosh-keypad button:active, phosh-keypad button:focus:active { background: alpha(@phosh_fg_color,0.15); }
-
-phosh-keypad button:focus { background: alpha(@phosh_fg_color,0.1); outline-style: none; }
-
-.text-only-button { font-size: 16px; font-weight: bold; padding: 16px 36px; border: 1px solid transparent; box-shadow: none; color: inherit; background: alpha(@phosh_fg_color,0.3); }
-
-.text-only-button:hover, .text-only-button:hover:focus { background: alpha(@phosh_fg_color,0.25); }
-
-.text-only-button:focus { background: alpha(@phosh_fg_color,0.3); box-shadow: inset 0 0 0 1px @accent_bg_color; outline-style: none; border: 1px solid @accent_bg_color; }
-
-.text-only-button:active, .text-only-button:focus:active { background: alpha(@phosh_fg_color,0.2); }
-
-phosh-lockscreen cui-call-display actionbar { background-color: @phosh_bg_color; }
-
-phosh-lockscreen .phosh-notification-tray { margin: 0 6px; transition: 200ms ease; }
-
-.phosh-system-modal { background-color: alpha(@phosh_bg_color,0.8); }
-
-.phosh-system-modal-dialog { background-color: @window_bg_color; border: 1px solid alpha(currentColor,0.15); border-radius: 12px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); padding: 0px; margin: 12px; }
-
-.phosh-system-modal-dialog-buttons label { margin: 12px; }
-
-.phosh-system-modal-dialog-buttons button { padding: 0; margin: 0; border-top: 1px solid alpha(currentColor,0.15); border-right: 1px solid alpha(currentColor,0.15); border-left-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: none; text-shadow: none; }
-
-.phosh-system-modal-dialog-buttons button:first-child { border-bottom-left-radius: 11px; border-bottom-right-radius: 0; }
-
-.phosh-system-modal-dialog-buttons button:last-child { border-bottom-left-radius: 0; border-bottom-right-radius: 11px; border-right: none; }
-
-.phosh-system-modal-dialog-content { padding-left: 18px; padding-right: 18px; }
-
-.phosh-system-modal-dialog-title { padding-top: 18px; font-weight: 800; font-size: 120%; }
-
-.phosh-end-session-dialog .phosh-end-session-subtitle { font-feature-settings: "tnum"; }
-
-.phosh-end-session-dialog .phosh-end-session-warning { color: #ba5645; font-weight: bold; }
-
-.phosh-end-session-dialog list { border-radius: 12px; }
-
-.phosh-end-session-dialog list row { margin-left: 6px; margin-right: 6px; }
-
-.phosh-end-session-dialog list row:first-child { margin-top: 6px; }
-
-.phosh-end-session-dialog list row:last-child { margin-bottom: 6px; }
-
-.phosh-end-session-dialog list row box box.vertical label:first-child { font-weight: bold; }
-
-.phosh-end-session-dialog list * { color: @view_fg_color; -gtk-icon-effect: none; }
-
-phosh-gtk-mount-prompt .phosh-system-modal-dialog-content > image { -gtk-icon-style: symbolic; }
-
-phosh-notification-content { background: transparent; color: @phosh_fg_color; padding: 0; margin: 0; }
-
-phosh-notification-content .message-area { padding: 12px 12px 9px 12px; }
-
-phosh-notification-content .message-area image { border-radius: 50%; }
-
-phosh-notification-content .actions-area { padding: 0; }
-
-phosh-notification-content .actions-area button { background-image: none; background-color: transparent; border-radius: 0; font-weight: bold; box-shadow: none; text-shadow: none; border-style: solid; border-color: alpha(currentColor,0.15); border-width: 0; border-top-width: 1px; border-right-width: 1px; padding: 8px 12px; -gtk-icon-shadow: none; }
-
-phosh-notification-content .actions-area button:focus, phosh-notification-content .actions-area button:hover { background-color: @phosh_button_hover_bg_color; outline-style: none; }
-
-phosh-notification-content .actions-area button:active { background-color: @phosh_button_active_bg_color; }
-
-phosh-notification-content .actions-area button:only-child { border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-right-width: 0px; }
-
-phosh-notification-content .actions-area button:first-child { border-bottom-left-radius: 10px; }
-
-phosh-notification-content .actions-area button:last-child { border-bottom-right-radius: 10px; border-right-width: 0px; }
-
-phosh-notification-frame { margin: 0; padding: 0; }
-
-phosh-notification-frame list { background: transparent; }
-
-phosh-notification-frame .header-area { padding: 12px 12px 0 12px; color: @phosh_fg_color; }
-
-phosh-notification-frame .header-area image { -gtk-icon-style: symbolic; }
-
-phosh-notification-frame .notification-container { border-radius: 12px; border: none; background-color: @phosh_notification_bg_color; margin: 6px; margin-bottom: 0; }
-
-phosh-notification-banner { background: none; border: none; padding: 6px; }
-
-phosh-notification-banner > phosh-notification-frame { padding: 0; }
-
-phosh-notification-banner .notification-container { box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.33), 0px 2px 4px 2px rgba(0, 0, 0, 0.07); }
-
-.phosh-notification-tray, .phosh-notification-tray list { background: transparent; }
-
-.notification-container *:focus, .phosh-notification-tray list row:focus { outline-style: none; }
-
-.phosh-notification-tray list row .notification-container { border: 2px solid transparent; margin: 0; margin-bottom: 6px; }
-
-.phosh-notification-tray list row:focus .notification-container { border-color: @accent_bg_color; outline-style: none; }
-
-.phosh-notifications-header { padding: 0; }
-
-#phosh-notifications-clear-all-btn { border-radius: 99px; border: 1px solid transparent; background-color: @phosh_button_bg_color; }
-
-#phosh-notifications-clear-all-btn:hover { background-color: @phosh_button_hover_bg_color; }
-
-#phosh-notifications-clear-all-btn:focus { box-shadow: inset 0 0 0 1px @accent_bg_color; border: 1px solid @accent_bg_color; outline: none; }
-
-@keyframes phosh-fader-default-keyframe { from { background: rgba(0, 0, 0, 0); }
-  to { background: black; } }
-
-.phosh-fader-default-fade { animation-name: phosh-fader-default-keyframe; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: 1; animation-fill-mode: forwards; }
-
-.phosh-fader-proximity-fade { animation-name: phosh-fader-default-keyframe; animation-duration: 200ms; animation-timing-function: linear; animation-iteration-count: 1; animation-fill-mode: forwards; }
-
-@keyframes phosh-fader-flash-keyframe { from { background: white; }
-  to { background: rgba(255, 255, 255, 0); } }
-
-.phosh-fader-flash-fade { animation-name: phosh-fader-flash-keyframe; animation-duration: 500ms; animation-timing-function: linear; animation-iteration-count: 1; animation-fill-mode: forwards; }
-
-.phosh-fader-screenshot-opaque { background: rgba(255, 255, 255, 0); }
-
-phosh-media-player { background: @phosh_notification_bg_color; color: @phosh_fg_color; border-radius: 12px; border: none; box-shadow: none; padding: 6px; padding-bottom: 0; }
-
-phosh-media-player button { background: @phosh_notification_bg_color; color: inherit; border: none; border-radius: 0; outline-style: none; text-shadow: none; -gtk-icon-shadow: none; }
-
-phosh-media-player button:hover { background-color: rgba(255, 255, 255, 0.1); opacity: 0.5; }
-
-phosh-media-player button:active { background-color: rgba(255, 255, 255, 0.2); }
-
-phosh-media-player .media-player-details { border-radius: 8px; padding-left: 4px; }
-
-phosh-media-player .media-player-details *:disabled { color: @window_fg_color; -gtk-icon-effect: none; }
-
-phosh-media-player .phosh-media-player-art { margin: 0; padding: 0; border-radius: 3px; }
-
-phosh-media-player > box > button { border-radius: 9999px; -gtk-icon-shadow: none; margin: 2px; padding: 8px; }
-
-phosh-lockscreen phosh-media-player { margin: 0 8px; }
-
-#osd-bubble { border-radius: 32px; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 3px 16px rgba(0, 0, 0, 0.1); background-color: shade(@phosh_notification_bg_color,1.5); }
-
-#osd-label { font-size: 9pt; }
-
-phosh-osd-window.phosh-system-modal { background: none; }
-
-phosh-osd-window levelbar block { min-height: 4px; box-shadow: none; border: none; border-radius: 2px; }
-
-phosh-osd-window levelbar block.low { background-color: white; }
-
-phosh-osd-window levelbar block.high { background-color: white; }
-
-phosh-osd-window levelbar block.full { background-color: white; }
-
-phosh-osd-window levelbar trough { border: none; padding: 0; box-shadow: none; background-color: alpha(white,0.2); border-radius: 2px; }
-
-phosh-splash.light { color: @phosh_splash_fg_color; background-color: @phosh_splash_bg_color; }
-
-.phosh-dropicon-shadow { -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 8px rgba(0, 0, 0, 0.2); }
+.budgie-panel.vertical #tasklist-button { min-height: 32px; }

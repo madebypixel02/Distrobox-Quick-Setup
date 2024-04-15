@@ -15,7 +15,7 @@
 --   By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq    --
 --                                                  _)      .___.,|     .'    --
 --   Created: 2023/10/20 13:49:14 by madebypixel02  \___   )MMMMMP|   .'      --
---   Updated: 2023/10/21 17:11:44 by madebypixel02      `-'       `--'        --
+--   Updated: 2024/03/22 18:32:19 by madebypixel02      `-'       `--'        --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -23,7 +23,7 @@ require 'config.global'
 require 'config.lazy'
 require 'config.autocommands'
 require 'config.keymap'
-require 'config.color'
+--require 'config.color'
 
 -- Vim Headers
 vim.cmd('source ~/.config/nvim/lua/plugins/Headers/uoc.vim')
@@ -50,3 +50,4 @@ vim.opt.scrolloff = 999
 vim.opt.sidescrolloff = 999
 vim.opt.relativenumber = true
 vim.opt.encoding = "utf-8"
+vim.cmd('colorscheme onedark_dark')

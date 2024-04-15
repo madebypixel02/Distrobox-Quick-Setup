@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/12/27 21:27:06 by madebypixel02      `-'       `--'         #
+#    Updated: 2024/04/15 13:39:20 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -230,7 +230,7 @@ else
 	compinit
 	export FZF_DEFAULT_COMMAND="find -L"
 	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":") && echo -n
-	export PATH="$PATH:$HOME/.local/bin"
+	export PATH="$PATH:$HOME/.local/bin:/opt/google-cloud-cli/bin"
 	alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 	git config --global credential.helper libsecret
 fi

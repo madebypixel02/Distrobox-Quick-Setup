@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2024/04/15 13:39:20 by madebypixel02      `-'       `--'         #
+#    Updated: 2024/05/02 11:25:14 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -228,6 +228,7 @@ else
 	zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 	autoload -Uz compinit
 	compinit
+
 	export FZF_DEFAULT_COMMAND="find -L"
 	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":") && echo -n
 	export PATH="$PATH:$HOME/.local/bin:/opt/google-cloud-cli/bin"
@@ -252,6 +253,7 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
 	alias pac-man="make play -C $HOME/42\ Madrid/Git/42\ Cursus/so_long"
 	alias timeconvert="python -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
 	alias sp_update="sudo pip install https://codeload.github.com/spotDL/spotify-downloader/zip/master"
+  eval "$(register-python-argcomplete pipx)"
 fi
 
 # Aliases for VanillaOS
@@ -368,3 +370,6 @@ source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 if [ -e /home/pixel/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pixel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 if [ -e /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh ]; then . /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Created by `pipx` on 2024-05-02 09:20:45
+export PATH="$PATH:/var/home/aperez-b/.local/bin"

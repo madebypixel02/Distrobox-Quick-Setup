@@ -45,7 +45,7 @@ mkdir -p $HOME/Desktop
 mkdir -p $HOME/Pictures
 mkdir -p $HOME/Audiobooks
 #[ -f $HOME/.bashrc ] && rm $HOME/.bashrc
-[ -f $HOME/.zshrc ] && rm $HOME/.zshrc
+#[ -f $HOME/.zshrc ] && rm $HOME/.zshrc
 [ -f $HOME/.vimrc ] && rm $HOME/.vimrc
 [ -f $HOME/.p10k.zsh ] && rm $HOME/.p10k.zsh
 [ -f /etc/os-release ] && mkdir -p $HOME/.local/share/icons
@@ -61,7 +61,7 @@ touch $HOME/.hushlogin
 
 # Link vimrc, zshrc, bashrc, etc
 #[ ! -L $HOME/.bashrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.bashrc $HOME
-[ ! -L $HOME/.zshrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.zshrc $HOME
+#[ ! -L $HOME/.zshrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.zshrc $HOME
 [ ! -L $HOME/.vimrc ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/.vimrc $HOME
 [ ! -L $HOME/.mygreeting_google ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_google $HOME
 [ ! -L $HOME/.mygreeting_uc3m ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Greetings/.mygreeting_uc3m $HOME
@@ -109,11 +109,11 @@ fi
 [ ! -d $HOME/.fzf ] && git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
 
 # Set up zsh and oh-my-zsh
-[ ! -d $HOME/.oh-my-zsh ] && ZSH= sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-[ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
-[ -L $HOME/.zshrc.pre-oh-my-zsh ] && mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
+#[ ! -d $HOME/.oh-my-zsh ] && ZSH= sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#[ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#[ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+#[ -L $HOME/.zshrc.pre-oh-my-zsh ] && mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
 # Configure git
 git config --global user.name "madebypixel02"
@@ -248,7 +248,7 @@ mkdir -p $HOME/.icons/default
 [ ! -d $HOME/.themes/adw-gtk3/gtk-3.0 ] && cd Config\ Files/ && cp -r adw-gtk3 $HOME/.themes/ && cp -r adw-gtk3-dark $HOME/.themes/
 
 # Set Up Nix
-[ ! -d /nix ] && sudo install -d -m755 -o $(id -u) -g $(id -g) /nix && curl -L https://nixos.org/nix/install | sh
+#[ ! -d /nix ] && sudo install -d -m755 -o $(id -u) -g $(id -g) /nix && curl -L https://nixos.org/nix/install | sh
 
 # Configure Auto-Theme
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.config/systemd/user/

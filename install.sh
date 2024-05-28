@@ -88,10 +88,10 @@ mkdir -p $HOME/.vim/plugin/
 [ ! -L $HOME/.vim/plugin/telefonica.vim ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/Headers/telefonica.vim $HOME/.vim/plugin/
 
 # Install some base packages based on distro
-[ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
-	sudo pacman -S git unzip xz github-cli --needed --noconfirm
+[ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ] || [ ! -f /bin/glab ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Arch Linux\"" ; then
+	sudo pacman -S git unzip xz github-cli glab --needed --noconfirm
 fi
-[ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
+[ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ] || [ ! -f /bin/glab ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	sudo apt install -y git unzip
 	# Install gh
 	type -p curl >/dev/null || sudo apt install curl -y
@@ -99,10 +99,10 @@ fi
 	&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& sudo apt update \
-	&& sudo apt install gh -y
+	&& sudo apt install gh glab -y
 fi
-[ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Fedora Linux\"" ; then
-	sudo dnf install -y git unzip xz gh
+[ -f /etc/os-release ] && ([ ! -f /bin/git ] || [ ! -f /bin/unzip ] || [ ! -f /bin/xz ] || [ ! -f /bin/gh ] || [ ! -f /bin/glab ]) && if LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Fedora Linux\"" ; then
+	sudo dnf install -y git unzip xz gh glab
 fi
 
 # Fzf installation

@@ -137,6 +137,9 @@ gh auth login
 gh extension install jongio/gh-setup-git-credential-helper
 gh setup-git-credential-helper
 
+# Set up glab to handle git credentials
+glab auth login
+
 # Clone Useful Repos
 cd $HOME
 [ ! -d $HOME/Simple-Python-Time-Converter ] && git clone https://gitlab.com/madebypixel02/Simple-Python-Time-Converter.git

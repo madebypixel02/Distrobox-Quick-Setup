@@ -15,13 +15,18 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:31:10 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2023/09/18 11:58:16 by madebypixel02      `-'       `--'         #
+#    Updated: 2024/06/18 15:06:29 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
 #
 # ~/.bashrc
 #
+
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

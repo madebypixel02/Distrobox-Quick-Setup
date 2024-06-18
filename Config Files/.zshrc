@@ -265,7 +265,6 @@ fi
 if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
 	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-	[ -f /etc/localtime ] && sudo umount -l /etc/localtime
 	# Other Aliases
 	alias u="sudo apt -y update && sudo apt -y upgrade"
 	alias python="python3"

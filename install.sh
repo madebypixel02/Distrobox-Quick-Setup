@@ -262,14 +262,14 @@ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/k
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
 # Configure default folders
-echo "XDG_DESKTOP_DIR=\"$HOME/Escritorio\"
-XDG_DOCUMENTS_DIR=\"$HOME/Documentos\"
-XDG_DOWNLOAD_DIR=\"$HOME/Descargas\"
-XDG_MUSIC_DIR=\"$HOME/Música\"
-XDG_PICTURES_DIR=\"$HOME/Imágenes\"
-XDG_PUBLICSHARE_DIR=\"$HOME/Público\"
-XDG_TEMPLATES_DIR=\"$HOME/Plantillas\"
-XDG_VIDEOS_DIR=\"$HOME/Vídeos\"" > $HOME/.config/user-dirs.dirs
+echo "XDG_DESKTOP_DIR=\"$HOME/Desktop\"
+XDG_DOCUMENTS_DIR=\"$HOME/Documents\"
+XDG_DOWNLOAD_DIR=\"$HOME/Downloads\"
+XDG_MUSIC_DIR=\"$HOME/Music\"
+XDG_PICTURES_DIR=\"$HOME/Pictures\"
+XDG_PUBLICSHARE_DIR=\"$HOME/Public\"
+XDG_TEMPLATES_DIR=\"$HOME/Templstes\"
+XDG_VIDEOS_DIR=\"$HOME/Videos\"" > $HOME/.config/user-dirs.dirs
 echo "enabled=False" > $HOME/.config/user-dirs.conf
 
 # Copy icon files

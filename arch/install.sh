@@ -17,13 +17,15 @@ sudo pacman -Syu git base-devel zsh curl wget python python-pip vim neovim man-p
 grep 'QT_QPA_PLATFORMTHEME=\"qt5ct\"' /etc/environment 1>/dev/null; [ "$?" -eq 1 ] && echo "QT_QPA_PLATFORMTHEME=\"qt5ct\"" | sudo tee -a /etc/environment 1>/dev/null
 
 # Install typical packages
-yay -Sy android-tools gnirehtet zsh neofetch lolcat noto-fonts-cjk noto-fonts-extra ttf-dejavu gnome-tweaks lxappearance valgrind yarn dex gtk-engine-murrine bat gdal texlive-core scrcpy tree libbsd jre-openjdk nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost adwaita-qt5 adwaita-qt6 mesa-utils sl browsh-bin elinks cowsay nginx dnsmasq cmus pandoc xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel tk xorg-xinput asciiquarium wine winetricks vlc qt5ct wireshark-qt epiphany autofirma-bin libpkcs11-dnie noto-fonts noto-fonts-emoji ttf-linux-libertine ttf-dejavu noto-fonts-cjk tldr uad-ng-bin npm yt-dlp python-spotdl quarto-cli-bin tree-sitter-cli pyright r python-pipx --needed --noconfirm
+yay -Sy android-tools gnirehtet zsh neofetch lolcat noto-fonts-cjk noto-fonts-extra ttf-dejavu gnome-tweaks lxappearance valgrind yarn dex gtk-engine-murrine bat gdal texlive-core scrcpy tree libbsd jre-openjdk nano sysbench geekbench ascii-image-converter btop noto-fonts gnome-keyring libgnome-keyring svp-bin cmatrix xorg-xhost adwaita-qt5 adwaita-qt6 mesa-utils sl browsh-bin elinks cowsay nginx dnsmasq cmus pandoc xf86-video-intel vulkan-intel vulkan-tools lib32-vulkan-intel tk xorg-xinput asciiquarium wine winetricks vlc qt5ct wireshark-qt epiphany autofirma-bin libpkcs11-dnie noto-fonts noto-fonts-emoji ttf-linux-libertine ttf-dejavu noto-fonts-cjk tldr uad-ng-bin npm yt-dlp python-spotdl quarto-cli-bin tree-sitter-cli pyright r python-pipx wl-clipboard luarocks --needed --noconfirm
 
 # Set Up Quarto
 # Language Servers
 yay -Sy bash-language-server vscode-html-languageserver lua-language-server marksman ripgrep --needed --noconfirm
 # Other dependencies
-yay -Sy python-plotly python-pandas python-matplotlib ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra texlive-xetex texlive-fontsextra texlive-fontsrecommended neovim-nvim-treesitter --needed --noconfirm
+yay -Sy python-plotly python-pandas python-matplotlib ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra texlive-xetex texlive-fontsextra texlive-fontsrecommended neovim-nvim-treesitter imagemagick luajit tree-sitter-cli lua --needed --noconfirm
+lua51-lpeg-patterns lua51-binaryheap lua51-alt-getopt lua51-luassert lua51-jsregexp lua51-compat53 lua51-argparse lua51-penlight lua51-luaossl lua51-cqueues lua51-basexx lua51-mpack lua51-zlib lua51-lpeg lua51-fifo lua51-http lua51-luv lua51-psl lua51-sec lua51-say luajit
+sudo luarocks --lua-version=5.1 install magick
 
 # Minilibx
 cd ~/ && git clone https://github.com/42Paris/minilibx-linux.git $HOME/minilibx-linux

@@ -14,29 +14,36 @@
 --                                                  __| `.        |\dS'qML    --
 --   By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq    --
 --                                                  _)      .___.,|     .'    --
---   Created: 2023/10/20 13:49:14 by madebypixel02  \___   )MMMMMP|   .'      --
---   Updated: 2024/03/22 18:32:19 by madebypixel02      `-'       `--'        --
+--   Created: 2024/09/22 22:22:24 by madebypixel02  \___   )MMMMMP|   .'      --
+--   Updated: 2024/09/22 22:23:05 by madebypixel02      `-'       `--'        --
 --                                                                            --
 -- ************************************************************************** --
+
+-- NOTE: Throughout this config, some plugins are
+-- disabled by default. This is because I don't use
+-- them on a daily basis, but I still want to keep
+-- them around as examples.
+-- You can enable them by changing `enabled = false`
+-- to `enabled = true` in the respective plugin spec.
+-- Some of these also have the
+-- PERF: (performance) comment, which
+-- indicates that I found them to slow down the config.
+-- (may be outdated with newer versions of the plugins,
+-- check for yourself if you're interested in using them)
 
 require 'config.global'
 require 'config.lazy'
 require 'config.autocommands'
-require 'config.keymap'
---require 'config.color'
+require 'config.redir'
 
 -- Vim Headers
-vim.cmd('source ~/.config/nvim/lua/plugins/Headers/uoc.vim')
-vim.cmd('source ~/.config/nvim/lua/plugins/Headers/42.vim')
-vim.cmd('source ~/.config/nvim/lua/plugins/Headers/tux.vim')
-vim.cmd('source ~/.config/nvim/lua/plugins/Headers/uc3m.vim')
-vim.cmd('source ~/.config/nvim/lua/plugins/Headers/telefonica.vim')
+vim.cmd('source ~/Distrobox-Quick-Setup/Config Files/nvim/Headers/uoc.vim')
+vim.cmd('source ~/Distrobox-Quick-Setup/Config Files/nvim/Headers/42.vim')
+vim.cmd('source ~/Distrobox-Quick-Setup/Config Files/nvim/Headers/tux.vim')
+vim.cmd('source ~/Distrobox-Quick-Setup/Config Files/nvim/Headers/uc3m.vim')
+vim.cmd('source ~/Distrobox-Quick-Setup/Config Files/nvim/Headers/telefonica.vim')
 
 -- Vim Mappings
-vim.keymap.set("n", "m", "<Cmd>set mouse=a<CR>", {silent = true})
-vim.keymap.set("n", "mm", "<Cmd>set mouse-=a<CR>", {silent = true})
-vim.keymap.set("n", "b", "<Cmd>set nu<CR>", {silent = true})
-vim.keymap.set("n", "bb", "<Cmd>set nonu<CR>", {silent = true})
 vim.keymap.set("n", "<c-S-Right>", "<Cmd>tabn<CR>", {silent = true})
 vim.keymap.set("n", "<c-S-Left>", "<Cmd>tabp<CR>", {silent = true})
 vim.keymap.set("n", "<c-S-Up>", "<Cmd>tabnew<CR>", {silent = true})
@@ -50,4 +57,3 @@ vim.opt.scrolloff = 999
 vim.opt.sidescrolloff = 999
 vim.opt.relativenumber = true
 vim.opt.encoding = "utf-8"
-vim.cmd('colorscheme onedark_dark')

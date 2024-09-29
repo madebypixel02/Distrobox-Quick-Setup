@@ -23,8 +23,7 @@ yay -Sy android-tools gnirehtet zsh neofetch lolcat noto-fonts-cjk noto-fonts-ex
 # Language Servers
 yay -Sy bash-language-server vscode-html-languageserver lua-language-server marksman ripgrep --needed --noconfirm
 # Other dependencies
-yay -Sy python-plotly python-pandas python-matplotlib ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra texlive-xetex texlive-fontsextra texlive-fontsrecommended neovim-nvim-treesitter imagemagick luajit tree-sitter-cli lua --needed --noconfirm
-lua51-lpeg-patterns lua51-binaryheap lua51-alt-getopt lua51-luassert lua51-jsregexp lua51-compat53 lua51-argparse lua51-penlight lua51-luaossl lua51-cqueues lua51-basexx lua51-mpack lua51-zlib lua51-lpeg lua51-fifo lua51-http lua51-luv lua51-psl lua51-sec lua51-say luajit
+yay -Sy python-plotly python-pandas python-matplotlib ripgrep jupyter-nbconvert jupyter-server jupyter-nbclient jupyter-notebook python-jupyter-core python-jupyter-client python-jupyter-events texlive-latexextra texlive-xetex texlive-fontsextra texlive-fontsrecommended neovim-nvim-treesitter imagemagick luajit tree-sitter-cli lua lua51-lpeg-patterns lua51-binaryheap lua51-alt-getopt lua51-luassert lua51-jsregexp lua51-compat53 lua51-argparse lua51-penlight lua51-luaossl lua51-cqueues lua51-basexx lua51-mpack lua51-zlib lua51-lpeg lua51-fifo lua51-http lua51-luv lua51-psl lua51-sec lua51-say luajit --needed --noconfirm
 sudo luarocks --lua-version=5.1 install magick
 
 # Minilibx

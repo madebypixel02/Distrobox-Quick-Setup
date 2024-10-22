@@ -187,6 +187,7 @@ mkdir -p $HOME/UOC/Database\ Design && [ ! -d $HOME/UOC/Database\ Design/Databas
 mkdir -p $HOME/UOC/Network\ and\ System\ Administration && [ ! -d $HOME/UOC/Network\ and\ System\ Administration/NSA-Practices ] && cd $HOME/UOC/Network\ and\ System\ Administration && git clone https://gitlab.com/madebypixel02/NSA-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Software\ Engineering && [ ! -d $HOME/UOC/Software\ Engineering/Software-Engineering-Practices ] && cd $HOME/UOC/Software\ Engineering && git clone https://gitlab.com/madebypixel02/Software-Engineering-Practices.git && cd $HOME
 mkdir -p $HOME/UOC/Web\ Programming && [ ! -d $HOME/UOC/Web\ Programming/Web-Programming-Practices ] && cd $HOME/UOC/Web\ Programming && git clone https://gitlab.com/madebypixel02/Web-Programming-Practices.git && cd $HOME
+mkdir -p $HOME/UOC/E-Commerce && [ ! -d $HOME/UOC/E-Commerce/e-commerce-practices ] && cd $HOME/UOC/E-Commerce && git clone https://gitlab.com/madebypixel02/e-commerce-practices.git && cd $HOME
 
 # Clone Uc3m Stuff
 #mkdir -p $HOME/Uc3m/Programming\ I

@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2024/06/18 15:05:56 by madebypixel02      `-'       `--'         #
+#    Updated: 2024/10/12 18:06:29 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -212,11 +212,9 @@ alias p10k_update="builtin cd $HOME/Distrobox-Quick-Setup/Config\ Files && git a
 if [ -f /usr/bin/sw_vers ]; then
 	export PATH=$HOME/.brew/Cellar/llvm/12.0.1/bin/:$PATH:$HOME/nvim-macos/bin
 	export PATH=$HOME/.brew/bin:$PATH:$HOME/nvim-osx64/bin
-	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head -c $(($(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | wc -c) - 1)) 2>/dev/null | tr "\n" ":") && echo -n
 	alias clear="clear && printf '\e[3J'"
 	alias u="brew update && brew upgrade"
 	alias timeconvert="python3 -u '$HOME/Simple-Python-Time-Converter/timeconverter.py'"
-	export FZF_DEFAULT_COMMAND="bash -c \"set -o pipefail; command find -L . -mindepth 1 \( -path '*/\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \) -prune -o -type f -print -o -type l -print 2> /dev/null | cut -b3-\""
 	git config --global credential.helper osxkeychain
 	osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/aperez-b/Distrobox-Quick-Setup/Config Files/Element/Wind-d.jpg"'
 	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
@@ -234,7 +232,6 @@ else
 	compinit
 
 	export FZF_DEFAULT_COMMAND="find -L"
-	[ -d $HOME/42\ Madrid/Git/42\ Cursus ] && export PATH=$PATH:$(find $HOME/42\ Madrid/Git/42\ Cursus -type d -name bin | head --bytes -1 | tr "\n" ":") && echo -n
 	export PATH="$PATH:$HOME/.local/bin:/opt/google-cloud-cli/bin"
 	alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
 	git config --global credential.helper libsecret

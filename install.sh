@@ -145,6 +145,12 @@ cd $HOME
 [ ! -d $HOME/Simple-Python-Time-Converter ] && git clone https://gitlab.com/madebypixel02/Simple-Python-Time-Converter.git
 [ ! -d $HOME/madebypixel02 ] && git clone https://gitlab.com/madebypixel02/madebypixel02.git
 
+# Clone GenAI Projects
+mkdir -p $HOME/GenAI
+cd $HOME/GenAI
+[ ! -d genai-tests ] && git clone https://gitlab.com/madebypixel02/genai-tests.git
+[ ! -d langchain-tests ] && git clone https://gitlab.com/madebypixel02/langchain-tests.git
+
 # Clone 42 Madrid Projects
 mkdir -p $HOME/42\ Madrid/Git/42\ Cursus
 cd $HOME/42\ Madrid/Git/42\ Cursus
@@ -228,7 +234,7 @@ cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Element/ $HOME/.local/share/back
 [ ! -L $HOME/.local/bin/gnirehtet ] && ln -s $HOME/gnirehtet-rust-linux64/gnirehtet $HOME/.local/bin
 
 # Install Cascadia Fonts
-[ ! -d $HOME/.fonts/ttf/CascadiaCode ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/CascadiaCode $HOME/.fonts/ttf
+[ ! -L $HOME/.fonts/ttf/CascadiaCode ] && ln -s $HOME/Distrobox-Quick-Setup/Config\ Files/CascadiaCode/ $HOME/.fonts/ttf/
 
 # Install Google Sans Fonts
 cd $HOME/Distrobox-Quick-Setup/Config\ Files/
@@ -259,8 +265,8 @@ cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/Systemd/* $HOME/.con
 cp -r $HOME/Distrobox-Quick-Setup/Config\ Files/Auto\ Theme/.autotheme $HOME/
 
 # Configure gnome terminal shortcuts
-gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
-gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab' 2>/dev/null
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab' 2>/dev/null
 
 # Configure default folders
 echo "XDG_DESKTOP_DIR=\"$HOME/Desktop\"
@@ -274,7 +280,7 @@ XDG_VIDEOS_DIR=\"$HOME/Videos\"" > $HOME/.config/user-dirs.dirs
 echo "enabled=False" > $HOME/.config/user-dirs.conf
 
 # Copy icon files
-cp $HOME/Distrobox-Quick-Setup/Config\ Files/Icons/* $HOME/.local/share/icons
+#cp $HOME/Distrobox-Quick-Setup/Config\ Files/Icons/* $HOME/.local/share/icons
 
 cd $HOME/Distrobox-Quick-Setup
 

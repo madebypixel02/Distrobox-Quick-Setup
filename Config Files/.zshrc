@@ -257,15 +257,9 @@ if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME
   eval "$(register-python-argcomplete pipx)"
 fi
 
-# Aliases for VanillaOS
-if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"VanillaOS\"" ; then
-	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-fi
-
 # Aliases for Debian
 if [ -f /etc/os-release ] && LANG=C grep '^NAME' /etc/os-release | grep -q "NAME=\"Debian GNU/Linux\"" ; then
 	export LD_LIBRARY_PATH=/usr/local/lib
-	git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	# Other Aliases
 	alias u="sudo apt -y update && sudo apt -y upgrade"
 	alias python="python3"

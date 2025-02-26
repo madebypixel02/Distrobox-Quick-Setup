@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2024/10/12 18:06:29 by madebypixel02      `-'       `--'         #
+#    Updated: 2025/02/26 10:04:44 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -234,7 +234,6 @@ else
 	export FZF_DEFAULT_COMMAND="find -L"
 	export PATH="$PATH:$HOME/.local/bin:/opt/google-cloud-cli/bin"
 	alias leaks="valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes -s -q"
-	git config --global credential.helper libsecret
 fi
 
 # Aliases for Arch Linux

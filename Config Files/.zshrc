@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2025/02/26 10:04:44 by madebypixel02      `-'       `--'         #
+#    Updated: 2025/03/13 20:53:09 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -344,6 +344,8 @@ function mkcdir() {
 	cd "$1"
 }
 
+export PATH="$PATH:$HOME/.local/bin:$HOME/.npm-global/bin"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:/snap/bin:$HOME/.rvm/bin"
 
@@ -363,6 +365,3 @@ source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 if [ -e /home/pixel/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pixel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 if [ -e /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh ]; then . /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-# Created by `pipx` on 2024-05-02 09:20:45
-export PATH="$PATH:/var/home/aperez-b/.local/bin"

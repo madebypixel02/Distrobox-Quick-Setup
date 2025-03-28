@@ -115,13 +115,6 @@ fi
 [ ! -d $HOME/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
 [ -L $HOME/.zshrc.pre-oh-my-zsh ] && mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 
-# Configure git
-git config --global user.name "madebypixel02"
-git config --global user.email "madebypixel02@proton.me"
-git config --global core.editor nvim
-git config --global pull.rebase false
-git config --global init.defaultBranch main
-
 # Install basic MacOS Stuff
 if [ -f /usr/bin/sw_vers ]; then
 	cd $HOME

@@ -15,7 +15,7 @@
 #    By: madebypixel02 <madebypixel02@proton.me>    |    `.       | `' \Zq     #
 #                                                   _)      .___.,|     .'     #
 #    Created: 2022/06/25 20:30:55 by madebypixel02  \___   )MMMMMP|   .'       #
-#    Updated: 2025/03/13 20:53:09 by madebypixel02      `-'       `--'         #
+#    Updated: 2025/03/28 17:59:41 by madebypixel02      `-'       `--'         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -153,7 +153,7 @@ setopt HIST_IGNORE_SPACE
 
 # Custom 42 greeting
 #[ -L $HOME/.mygreeting_42 ] && zsh $HOME/.mygreeting_42
-[ -L $HOME/.mygreeting_tux ] && zsh $HOME/.mygreeting_tux
+[ -L $HOME/.mygreeting_telefonica ] && zsh $HOME/.mygreeting_telefonica
 
 # ADB devices
 GINKGO=2760c408
@@ -346,9 +346,6 @@ function mkcdir() {
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.npm-global/bin"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:/snap/bin:$HOME/.rvm/bin"
-
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -365,3 +362,9 @@ source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 if [ -e /home/pixel/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pixel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 if [ -e /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh ]; then . /var/home/aperez-b/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:/snap/bin:$HOME/.rvm/bin"

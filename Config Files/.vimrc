@@ -59,7 +59,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' 
 call plug#end()
 
 " Coc Extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-cmake', 'coc-pyright', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-gist', 'coc-html', 'coc-css', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-emoji', 'coc-clang-format-style-options', 'coc-word', 'coc-git', 'coc-cmake', 'coc-pyright', 'coc-cspell-dicts', 'coc-markdownlint', 'coc-dictionary', 'coc-ltex', 'coc-gitignore', 'coc-yank', 'coc-spell-checker', 'coc-webview', 'coc-pairs', 'coc-html', 'coc-css', 'coc-tsserver']
 
 " Fix auto-completion enter
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
